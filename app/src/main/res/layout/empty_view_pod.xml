@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aungpyaesone.patient.views.view_pods.EmptyViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/margin_medium_2"
+        app:contentPadding="@dimen/margin_medium_2"
+        app:cardElevation="@dimen/margin_medium"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</com.aungpyaesone.patient.views.view_pods.EmptyViewPod>

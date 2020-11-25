@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_medium_2">16dp</dimen>
+    <dimen name="margin_medium_3">24dp</dimen>
+    <dimen name="text_regular_2">16sp</dimen>
+    <dimen name="text_regular_3">20sp</dimen>
+    <dimen name="text_regular_large">24sp</dimen>
+    <dimen name="text_regular_xlarge">36sp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_large_xxx">36dp</dimen>
+    <dimen name="card_view_height">250dp</dimen>
+    <dimen name="margin_large_xxxx">64dp</dimen>
+    <dimen name="img_width">128dp</dimen>
+    <dimen name="small_img">100dp</dimen>
+</resources>

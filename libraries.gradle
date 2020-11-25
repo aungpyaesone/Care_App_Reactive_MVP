@@ -1,0 +1,39 @@
+ext {
+    glideVersion = "4.11.0"
+    ktxVersion = "1.1.0"
+    room_version = "2.2.3"
+    lifecycle_version = "2.2.0"
+    swipeRefreshVersion = "1.1.0"
+    rxKotlinVersion = "2.x-SNAPSHOT"
+    rxVersion ="2.1.1"
+    rxJavaVersion = "2.2.10"
+
+    firebase_analytics_version = "17.6.0"
+    firebase_database_version = "19.5.1"
+    firestore_version = "27.7.1"
+    firebase_storage_version = "19.2.0"
+
+    libraries = [
+            glide                  : "com.github.bumptech.glide:glide:$glideVersion",
+            glideAnotationProcessor: "com.github.bumptech.glide:compiler:$glideVersion",
+            ktx                    : "androidx.core:core-ktx:$ktxVersion",
+
+            room                   : "androidx.room:room-runtime:$room_version",
+            roomKapt               : "androidx.room:room-compiler:$room_version",
+
+            rxAndroid : "io.reactivex.rxjava2:rxandroid:$rxVersion",
+            rxKotlin : "com.github.ReactiveX:RxKotlin:$rxKotlinVersion",
+            rxIoReactive : "io.reactivex.rxjava2:rxandroid:$rxVersion",
+
+            liveData               : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            lifecycleComponent     : "android.arch.lifecycle:extensions:$lifecycle_version",
+            lifecycleKapt          : "androidx.lifecycle:lifecycle-compiler:$lifecycle_version",
+            lifecyleArcKapt        : "android.arch.lifecycle:compiler:$lifecycle_version",
+            swipeRefresh           : "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshVersion",
+            firebaeAnalytic        : "com.google.firebase:firebase-analytics:$firebase_analytics_version",
+            firebaseDatabaseKtx    : "com.google.firebase:firebase-database-ktx:$firebase_database_version",
+            firestore              : "com.google.firebase:firebase-firestore-ktx:$firestore_version",
+            firebaseStorage        : "com.google.firebase:firebase-storage:$firebase_storage_version",
+
+    ]
+}
