@@ -1,7 +1,7 @@
-package com.aungpyaesone.doctors.mvp.presenters
+package com.aungpyaesone.patient.mvp.presenters
 
 import android.content.Context
-import com.aungpyaesone.doctors.mvp.views.LoginView
+import com.aungpyaesone.patient.mvp.view.LoginView
 import com.padc.shared.mvp.presenter.BasePresenter
 
 interface LoginPresenter : BasePresenter<LoginView> {
