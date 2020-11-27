@@ -17,7 +17,7 @@ interface DoctorDao {
     fun getDoctorById(doctorId :String) : LiveData<DoctorVO>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertDoctor(detail: DoctorVO)
+    fun insertDoctor(detail: DoctorVO):Completable
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertDoctorList(detailList: List<DoctorVO>)

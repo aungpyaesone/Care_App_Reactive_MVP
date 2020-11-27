@@ -1,14 +1,14 @@
 package com.aungpyaesone.shared.data.models.impls
 
-import android.annotation.SuppressLint
+import android.util.Log
 import com.aungpyaesone.shared.data.models.BaseModel
 import com.aungpyaesone.shared.data.models.CoreModel
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.data.vos.PatientVO
+import com.aungpyaesone.shared.data.vos.SpecialitiesVO
+import com.aungpyaesone.shared.extensions.dbOperationResult
 import com.aungpyaesone.shared.network.CloudFireStoreImpls
 import com.aungpyaesone.shared.network.FirebaseApi
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 object CoreModelImpls: CoreModel,BaseModel() {
     val mFirebaseApi: FirebaseApi = CloudFireStoreImpls
@@ -17,7 +17,11 @@ object CoreModelImpls: CoreModel,BaseModel() {
     }
 
     override fun saveDoctorToDb(doctorVO: DoctorVO) {
-        mTheDB.doctorDao().insertDoctor(doctorVO)
+        mTheDB.doctorDao().insertDoctor(doctorVO).dbOperationResult({
+            Log.d("success",it)
+        },{
+            Log.d("failure",it)
+        })
     }
 
     override fun savePatientToDb(patientVO: PatientVO) {
@@ -25,11 +29,10 @@ object CoreModelImpls: CoreModel,BaseModel() {
     }
 
     override fun getSpeciality(
-        speciality: String,
-        onSuccess: () -> Unit,
+        onSuccess: (List<SpecialitiesVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        TODO("Not yet implemented")
+        mFirebaseApi.getSpeciality(onSuccess,onFailure)
     }
 
     override fun startConsultation(onSuccess: () -> Unit, onFailure: (String) -> Unit) {

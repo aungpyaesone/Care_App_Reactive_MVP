@@ -2,7 +2,7 @@
   "specialities": {
     "dentist": {
       "id": "sp001",
-      "name": "dentist",
+      "name": "သွားဘက်ဆိုင်ရာ",
       "photo": "",
       "subCollection": {
         "specialities/dentist/spical_question": [
@@ -861,7 +861,7 @@
     },
     "ear,nose": {
       "id": "sp005",
-      "name": "Ear Nose Throat",
+      "name": "နား,နှာခေါင်းလည်းချောင်းဆိုင်ရာ",
       "photo": "",
       "subCollection": {
         "specialities/ear,nose/spical_question": [
@@ -1557,7 +1557,7 @@
     },
     "skin specialist": {
       "id": "sp009",
-      "name": "Skin Specialist",
+      "name": "အရေပြားဆိုင်ရာ",
       "photo": "",
       "subCollection": {
         "specialities/skin specialist/spical_question": [

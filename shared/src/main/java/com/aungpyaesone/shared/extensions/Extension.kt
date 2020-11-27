@@ -1,6 +1,7 @@
 
 package com.aungpyaesone.shared.extensions
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -10,6 +11,8 @@ import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.bumptech.glide.Glide
 import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import java.io.ByteArrayInputStream
 
 
@@ -61,8 +64,18 @@ fun MutableMap<String,Any>?.convertToPatientVO(): PatientVO{
     return patientVO
 }
 
-fun <T>Completable.insertToDb(data:T,onSuccess:(String)->Unit,onFailure:(String)->Unit){
-
+@SuppressLint("CheckResult")
+fun Completable.dbOperationResult(onSuccess:(String)->Unit, onFailure:(String)->Unit){
+    this.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe{
+            doOnComplete {
+                onSuccess("Database CRUD Success")
+            }
+            doOnError {
+                onFailure("${it.message}")
+            }
+        }
 }
 
 

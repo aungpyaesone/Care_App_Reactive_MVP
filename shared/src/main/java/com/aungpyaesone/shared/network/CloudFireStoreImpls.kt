@@ -4,8 +4,10 @@ import android.util.Log
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.data.vos.MedicineVO
 import com.aungpyaesone.shared.data.vos.PatientVO
+import com.aungpyaesone.shared.data.vos.SpecialitiesVO
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 
 object CloudFireStoreImpls : FirebaseApi {
     val db = Firebase.firestore
@@ -71,8 +73,24 @@ object CloudFireStoreImpls : FirebaseApi {
         TODO("Not yet implemented")
     }
 
-    override fun getSpeciality(speciality: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        TODO("Not yet implemented")
+    override fun getSpeciality(onSuccess: (List<SpecialitiesVO>) -> Unit, onFailure: (String) -> Unit) {
+        db.collection("specialities")
+            .addSnapshotListener{value,error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val specialitesList : MutableList<SpecialitiesVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData = Gson().fromJson<SpecialitiesVO>(Data, SpecialitiesVO::class.java)
+                        specialitesList.add(docData)
+                    }
+                    onSuccess(specialitesList)
+                }
+            }
     }
 
     override fun startConsultation(onSuccess: () -> Unit, onFailure: (String) -> Unit) {

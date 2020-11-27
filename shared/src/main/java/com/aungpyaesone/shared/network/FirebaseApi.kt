@@ -3,6 +3,7 @@ package com.aungpyaesone.shared.network
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.data.vos.MedicineVO
 import com.aungpyaesone.shared.data.vos.PatientVO
+import com.aungpyaesone.shared.data.vos.SpecialitiesVO
 
 interface FirebaseApi {
 
@@ -12,7 +13,7 @@ interface FirebaseApi {
     fun deleteDoctor(name: String)
 
     // common
-    fun getSpeciality(speciality: String,onSuccess: () -> Unit,onFailure:(String)->Unit)
+    fun getSpeciality(onSuccess: (List<SpecialitiesVO>) -> Unit,onFailure:(String)->Unit)
     fun startConsultation(onSuccess: () -> Unit,onFailure: (String) -> Unit)
     fun sendMessage(text:String?,image:String?,onSuccess: () -> Unit,onFailure: (String) -> Unit)
     fun getRecentlyConsultatedDoctor(onSuccess: (doctor:DoctorVO) -> Unit,onFailure: (String) -> Unit)
