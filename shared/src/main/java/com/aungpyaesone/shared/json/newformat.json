@@ -1,0 +1,2519 @@
+{
+  "specialities": {
+    "dentist": {
+      "id": "sp001",
+      "name": "dentist",
+      "photo": "",
+      "subCollection": {
+        "specialities/dentist/spical_question": [
+          { 
+            "id": "sq001",
+            "question": "Do you have sensitive teeth ?"
+          },
+          {
+            "id": "sq002",
+            "question": "Is it swollen?"
+          },
+           {
+            "id": "sq003",
+            "question": "Is there a landslide?"
+          },
+          {
+            "id": "sq003",
+            "question": "Jaw pain?"
+          }
+        ],
+        "specialities/dentist/frequently_question": [
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/dentist/frequently_medicine": {
+          "A": {
+            "id": "DM-001",
+            "name": "Valium",
+            "photo": "",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "DM-002",
+            "name": "Halcion",
+            "photo": "",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "DM-003",
+            "name": "Sonata",
+            "photo":"",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "DM-004",
+            "name": "Ativan",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "DM-005",
+            "name": "Vistaril",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "DM-006",
+            "name": "Versed",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "eye": {
+      "id": "sp002",
+      "name": "Eye Specialst",
+      "photo": "",
+      "subCollection": {
+        "specialities/eye/spical_question": [
+          {
+            "id": "sq001",
+            "question": "Have you peed today?"
+          },
+          {
+            "id": "sq002",
+            "question": "How do you feel?"
+          },
+          {
+            "id": "sq003",
+            "question": "Do you wear glasses?"
+          },
+          {
+            "id": "sq004",
+            "question": "Have you had eye drops before?"
+          },
+          {
+            "id":"sq005",
+            "question":"Do you have a list of medication you take?"
+          }
+        ],
+        "specialities/eye/frequently_question":[
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/eye/frequently_medicine": {
+          "A": {
+            "id": "EM-001",
+            "name": "Maxitrol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "EM-002",
+            "name": "Blephamide",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "EM-003",
+            "name": "Fluorometholone",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "EM-004",
+            "name": "Naphazoline",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "EM-005",
+            "name": "Visine Original",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1500",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "EM-005",
+            "name": "FML Forte Liquifilm",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1700",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "children": {
+      "id": "sp003",
+      "name": "Children Specialist",
+      "photo": "",
+      "subCollection": {
+        "specialities/children/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "id": "sq002",
+            "question": "spical question two"
+          },
+          {
+            "id": "sq003",
+            "question": "spical question three"
+          }
+        ],
+        "specialities/children/frequently_question":[
+          { 
+              "id": "ot001", 
+              "question": "what is date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/children/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "name": "Valium",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "002",
+            "name": "Halcion",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "003",
+            "name": "Sonata",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "003",
+            "name": "Ativan",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "003",
+            "name": "Vistaril",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "003",
+            "name": "Versed",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "cardiologist": {
+      "id": "sp004",
+      "name": "Cardiologist",
+      "photo": "",
+      "subCollection": {
+        "specialities/cardiologist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "Do you have a pacemaker?"
+          },
+          {
+            "id": "sq002",
+            "question": "Has any metal been implanted in your body?"
+          },
+          {
+            "id": "sq003",
+            "question": "Do you have ever had surgery?"
+          }
+        ],
+        "specialities/cardiologist/frequently_question":[
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/cardiologist/frequently_medicine": {
+          "A": {
+            "id": "CM-001",
+            "name": "Acebutolol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "CM-002",
+            "name": "Atenolol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "CM-003",
+            "name": "Betaxolol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1500",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "CM-004",
+            "name": "Bisoprolol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "CM-005",
+            "name": "Metoprolol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "CM-006",
+            "name": "Nadolol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "ear,nose": {
+      "id": "sp005",
+      "name": "Ear Nose Throat",
+      "photo": "",
+      "subCollection": {
+        "specialities/ear,nose/spical_question": [
+          {
+            "id": "sq001",
+            "question": "Do you have an earache?"
+          },
+          {
+            "id": "sq002",
+            "question": "Do you have a runny nose?"
+          },
+          {
+            "id": "sq003",
+            "question": "do you score throad?"
+          }
+        ],
+        "specialities/ear,nose/frequently_question": [
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/ear,nose/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "name": "Beclometasone",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "002",
+            "name": "Benzydamine",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "003",
+            "name": "Cinnarizine",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "nutritionsts": {
+      "id": "sp006",
+      "name": "Nutritionists",
+      "photo": "",
+      "subCollection": {
+        "specialities/nutritionsts/spical_question": [
+          {
+            "id": "sq001",
+            "question": "What did you have for breakfast?"
+          },
+          {
+            "id": "sq002",
+            "question": "How would you describe your diet?"
+          },
+          {
+            "id": "sq003",
+            "question": "What does a healthy diet look like to you?"
+          },
+          {
+            "id": "sq004",
+            "question": "How many servings of fruits and vegetables do you have per day?"
+          },
+          {
+            "id": "sq005",
+            "question": "How often do you eat fish?"
+          },
+          {
+            "id": "sq006",
+            "question": "What medications are you taking?"
+          }
+        ],
+        "specialities/nutritionsts/frequently_question": [
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/nutritionsts/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "name": "Betex",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1600",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "002",
+            "name": "Enervon C",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "900",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "003",
+            "name": "Ferrofort",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "003",
+            "name": "Ferrovit",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "003",
+            "name": "Nutrivita",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "003",
+            "name": "Provimin",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "5000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "general physician": {
+      "id": "sp007",
+      "name": "General Physician",
+      "photo": "",
+      "subCollection": {
+        "specialities/general physician/spical_question": [
+          {
+            "id": "sq001",
+            "question": "How do you feel?"
+          },
+          {
+            "id": "sq002",
+            "question": "Tell about your medication?"
+          },
+          {
+            "id": "sq003",
+            "question": "How long it happends?"
+          }
+        ],
+        "specialities/general physician/frequently_question": [
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/general physician/frequently_medicine": {
+          "A": {
+            "id": "GM-001",
+            "name": "Decogen",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "GM-002",
+            "name": "Decogen fort",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "GM-003",
+            "name": "Fluza",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "250",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "GM-004",
+            "name": "Mixagrip",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "GM-005",
+            "name": "Paracap",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "450",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "GM-006",
+            "name": "Gofen",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "500",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "obstetricians": {
+      "id": "sp008",
+      "name": "Obstetricians Gynecologists",
+      "photo": "",
+      "subCollection": {
+        "specialities/obstetricians/spical_question": [
+          {
+            "id": "sq001",
+            "question": "Are you pregnant?"
+          },
+          {
+            "id": "sq002",
+            "question": "Are you breastfeeding?"
+          }
+        ],
+        "specialities/obstetricians/frequently_question": [
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/obstetricians/frequently_medicine": {
+          "A": {
+            "id": "OM-001",
+            "name": "Misoprostol",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "3000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "OM-002",
+            "name": "Dinoprostone",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1700",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "OM-003",
+            "name": "Carbetocin100mcg/m",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "skin specialist": {
+      "id": "sp009",
+      "name": "Skin Specialist",
+      "photo": "",
+      "subCollection": {
+        "specialities/skin specialist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "What are you skin goals?"
+          },
+          {
+            "id": "sq002",
+            "question": "Are you talking any medication, supplements are vitamins?"
+          },
+          {
+            "id": "sq003",
+            "question": "Tell me about your diet and your water intake?"
+          },
+          {
+            "id": "sq004",
+            "question": "Tell me about your current regimen"
+          },
+          {
+            "id": "sq005",
+            "question": "Is your skin usually oily, dry or normal?"
+          }
+        ],
+        "specialities/skin specialist/frequently_question":[
+          { 
+              "id": "ot001", 
+              "question": "what is your date of birth?", 
+              "type": "one-time" 
+          },
+          {
+            "id": "ot002",
+            "question": "Are there any allergies?",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "How tall are you?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "what is your blood type?",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "what is your blood pressure?",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "How much do you weight",
+            "type": "always"
+          }
+        ],
+        "specialities/skin specialist/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "name": "Tretinoin",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1000",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "002",
+            "name": "Beta-hydroxy acid",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "003",
+            "name": "Hydroquinone",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1800",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "004",
+            "name": "Propecia",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1200",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "005",
+            "name": "Vaniqa",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "1300",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "neurologist": {
+      "id": "sp0010",
+      "name": "Neurologist",
+      "photo": "",
+      "subCollection": {
+        "specialities/neurologist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "id": "sq002",
+            "question": "spical question two"
+          },
+          {
+            "id": "sq003",
+            "question": "spical question three"
+          }
+        ],
+        "specialities/neurologist/frequently_question": [
+          { "id": "ot001", "question": "dob", "type": "one-time" },
+          {
+            "id": "ot002",
+            "question": "allergic reactions",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "height",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "blood type",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "blood_pressure",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "weight",
+            "type": "always"
+          }
+        ],
+        "specialities/neurologist/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "name": "Valium",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "002",
+            "name": "Halcion",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "003",
+            "name": "Sonata",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "003",
+            "name": "Ativan",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "003",
+            "name": "Vistaril",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "003",
+            "name": "Versed",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "internal": {
+      "id": "sp0011",
+      "name": "Internal Medicine",
+      "photo": "",
+      "subCollection": {
+        "specialities/internal/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "id": "sq002",
+            "question": "spical question two"
+          },
+          {
+            "id": "sq003",
+            "question": "spical question three"
+          }
+        ],
+        "specialities/internal/frequently_question": [
+          { "id": "ot001", "question": "dob", "type": "one-time" },
+          {
+            "id": "ot002",
+            "question": "allergic reactions",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "height",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "blood type",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "blood_pressure",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "weight",
+            "type": "always"
+          }
+        ],
+        "specialities/internal/frequently_medicine": {
+          "A": {
+            "id": "IM-001",
+            "name": "Valium",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "IM-002",
+            "name": "Halcion",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "IM-003",
+            "name": "Sonata",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "IM-004",
+            "name": "Ativan",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "IM-005",
+            "name": "Vistaril",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "IM-006",
+            "name": "Versed",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    },
+    "reproduction": {
+      "id": "sp0012",
+      "name": "Reproduction",
+      "photo": "",
+      "subCollection": {
+        "specialities/reproduction/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "id": "sq002",
+            "question": "spical question two"
+          },
+          {
+            "id": "sq003",
+            "question": "spical question three"
+          }
+        ],
+        "specialities/reproduction/frequently_question": [
+          { "id": "ot001", "question": "dob", "type": "one-time" },
+          {
+            "id": "ot002",
+            "question": "allergic reactions",
+            "type": "one-time"
+          },
+          {
+            "id": "ot003",
+            "question": "height",
+            "type": "one-time"
+          },
+          {
+            "id": "alw001",
+            "question": "blood type",
+            "type": "one-time"
+          },
+          {
+            "id": "alw002",
+            "question": "blood_pressure",
+            "type": "always"
+          },
+          {
+            "id": "alw003",
+            "question": "weight",
+            "type": "always"
+          }
+        ],
+        "specialities/reproduction/frequently_medicine": {
+          "A": {
+            "id": "RM-001",
+            "name": "Valium",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "B": {
+            "id": "RM-002",
+            "name": "Halcion",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "C": {
+            "id": "RM-003",
+            "name": "Sonata",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "D": {
+            "id": "RM-004",
+            "name": "Ativan",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "E": {
+            "id": "RM-005",
+            "name": "Vistaril",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          },
+          "F": {
+            "id": "RM-006",
+            "name": "Versed",
+            "routine": [
+              {
+                "id": "routine001",
+                "name": "morning",
+                "times": "0"
+              },
+              {
+                "id": "routine002",
+                "name": "afternoon",
+                "times": "0"
+              },
+              {
+                "id": "routine003",
+                "name": "night",
+                "times": "0"
+              }
+            ],
+            "count": "0",
+            "price": "100",
+            "total_times": "0",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      }
+    }
+  },
+
+  "general_question_template": [
+     {
+        "id": "gq001",
+        "q_one": "how old are you",
+        "q_two": "what do you do for a living?",
+        "q_three": "How do you feel?",
+        "q_four": "How long ago did it happend?"
+      },
+       {
+        "id": "gq002",
+        "q_one": "Do you have any allergies?",
+        "q_two": "Are you allergic to any medicines?",
+        "q_three": "Are you allergic to antibiotics?",
+        "q_four": "Do you have a list of medication you take?"
+      },
+       {
+        "id": "gq003",
+        "q_one": "Do you feel warm?",
+        "q_two": "Do you feel cold?",
+        "q_three": "Do you feel tried?"
+      }
+    ,
+      {
+        "id": "gq004",
+        "q_one": "Do you need pain relief?",
+        "q_two": "How long ago did it happend?",
+        "q_three": "Does it still hurt?"
+      },
+       {
+        "id": "gq005",
+        "q_one": "Do you have a headache?",
+        "q_two": "Do you feel dizzy?",
+        "q_three": "have you vomitted?",
+        "q_four":"Have you pooped today?"
+      }
+  ],
+  "doctors": [
+    {
+      "id": "d0001",
+      "name": "Dr.Mg Ice",
+      "photo": "",
+      "biography": "",
+      "experience": "",
+      "degree": "",
+      "address": "",
+      "spiciality": "dentists"
+    }
+  ],
+  "patient": [
+    {
+      "id": "p0001",
+      "name": "",
+      "address": "",
+      "gender": "male",
+      "dob": "",
+      "age": "20",
+      "phone": "097827326378"
+    }
+  ],
+
+  "consultation_request": [
+    {
+      "cr_id": "cr0001",
+      "patient_id": "p0001",
+      "speciality": "dentist",
+      "date_time": ":",
+      "case_summary_id": ""
+    },
+    {
+      "cr_id": "cr0001",
+      "patient_id": "p0001",
+      "speciality": "dentist",
+      "date_time": ":",
+      "case_summary_id": ""
+    }
+  ],
+
+  "consultation_chat": [
+    {
+      "id": "cc0001",
+      "case_summary": [
+        {
+          "question": "one",
+          "answer" :"answer"
+        },
+        {
+          "question": "two",
+          "answer" :"answer"
+        }
+      ],
+      "patient_id": "",
+      "doctor_id": "",
+      "subCollection": {
+      "message": [
+        {
+          "sentAt": "",
+          "sentBy": "patient",
+          "messageText": "hello doctor",
+          "messageImage": ""
+        },
+        {
+          "sentAt": "",
+          "sentBy": "doctor",
+          "messageText": "hello patient",
+          "messageImage": ""
+        }
+      ]
+      },
+      "prescription": {
+        "total_price": 4000,
+        "medicines": [
+          {
+            "name": "mone",
+            "price": "1000",
+            "count": "2"
+          },
+          {
+            "name": "mtwo",
+            "price": "1000",
+            "count": "2"
+          }
+        ]
+      }
+    }
+  ],
+
+  "checkout": [
+    {
+      "ch_id": "ch00001",
+      "patient_id": "p0001",
+      "ps_id": "ps0001",
+      "doctor_id": "d0001",
+      "address": "kamaryut",
+      "delivery_routine": [
+        {
+          "dr_id": "dr001",
+          "dr_name": "24 hours"
+        },
+        {
+          "dr_id": "dr002",
+          "dr_name": "2 day"
+        }
+      ]
+    }
+  ]
+}

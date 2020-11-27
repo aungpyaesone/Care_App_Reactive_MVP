@@ -8,7 +8,7 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 @Entity(tableName = "patient")
 data class PatientVO(
     @PrimaryKey
-    var id:String ,
+    var id:String= "" ,
     var name:String? = "",
     var photo: String? = "",
     var address : String? = "",

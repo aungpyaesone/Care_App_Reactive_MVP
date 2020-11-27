@@ -8,7 +8,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 @Entity(tableName = "doctor")
 data class DoctorVO(
     @PrimaryKey
-    var id: String,
+    var id: String = "",
     var name: String? = "",
     var photo: String? ="",
     var biography: String? ="",
