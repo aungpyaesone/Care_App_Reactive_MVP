@@ -7,13 +7,13 @@ import com.google.gson.reflect.TypeToken
 
 class RoutineConverter {
     @TypeConverter
-    fun toString(dataList: ArrayList<RoutineVO>):String{
+    fun toString(dataList: RoutineVO):String{
         return Gson().toJson(dataList)
     }
 
     @TypeConverter
-    fun toList(ListJsonStr:String): ArrayList<RoutineVO> {
-        val dataListType = object : TypeToken<ArrayList<RoutineVO>>(){}.type
+    fun toList(ListJsonStr:String): RoutineVO {
+        val dataListType = object : TypeToken<RoutineVO>(){}.type
         return Gson().fromJson(ListJsonStr,dataListType)
     }
 }

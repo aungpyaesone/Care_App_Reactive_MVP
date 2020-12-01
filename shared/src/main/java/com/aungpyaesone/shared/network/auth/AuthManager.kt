@@ -7,6 +7,9 @@ interface AuthManager {
     fun registerDoctor(email:String, password:String,userName:String, onSuccess:()->Unit,
                        onFailure:(String)->Unit)
 
+    fun registerNewPatient(email: String,password: String,userName: String,onSuccess: () -> Unit,
+    onFailure: (String) -> Unit)
+
     fun login(email: String,password: String,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
     fun getUserProfile(): DoctorVO

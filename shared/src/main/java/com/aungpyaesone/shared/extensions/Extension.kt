@@ -7,8 +7,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.util.Base64
 import android.widget.ImageView
-import com.aungpyaesone.shared.data.vos.DoctorVO
-import com.aungpyaesone.shared.data.vos.PatientVO
+import com.aungpyaesone.shared.data.vos.*
 import com.bumptech.glide.Glide
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -50,17 +49,28 @@ fun MutableMap<String,Any>?.convertToDoctorVO(): DoctorVO{
     return doctorVO
 }
 
+fun MutableMap<String,Any>?.convertToGeneralQuestionVO() : GeneralQuestionVO {
+    val questionVO = GeneralQuestionVO()
+    questionVO.sq_id = this?.get("id") as String
+    questionVO.question = this["question"] as String
+    questionVO.type = this["type"]as String
+    return questionVO
+}
+
+fun MutableMap<String,Any>?.convertToChatMessage() : ChatMessageVO {
+    val chatMessageVO = ChatMessageVO()
+    chatMessageVO.messageText = this?.get("messageText") as String
+    chatMessageVO.messageImage = this["messageImage"] as String
+    chatMessageVO.sendBy = this["sendBy"] as SenderVO
+    return chatMessageVO
+}
+
+
 fun MutableMap<String,Any>?.convertToPatientVO(): PatientVO{
     val patientVO = PatientVO()
     patientVO.id = this?.get("id") as String
     patientVO.name = this["name"] as String
     patientVO.photo = this["photo"] as String
-    patientVO.address = this["address"] as String
-    patientVO.gender = this["gender"] as String
-    patientVO.dob = this["dob"]as String
-    patientVO.age = this["age"] as String
-    patientVO.phone = this["phone"] as String
-    patientVO.email = this["email"] as String
     return patientVO
 }
 

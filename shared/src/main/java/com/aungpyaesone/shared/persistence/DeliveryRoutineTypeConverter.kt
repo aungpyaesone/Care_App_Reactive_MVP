@@ -1,20 +1,20 @@
 package com.aungpyaesone.shared.persistence
 
 import androidx.room.TypeConverter
-import com.aungpyaesone.shared.data.vos.QuestionVO
+import com.aungpyaesone.shared.data.vos.DeliveryRoutineVO
 import com.aungpyaesone.shared.data.vos.RoutineVO
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class QuestionTypeConverter {
+class DeliveryRoutineTypeConverter {
     @TypeConverter
-    fun toString(dataList: ArrayList<QuestionVO>):String{
+    fun toString(dataList: DeliveryRoutineVO):String{
         return Gson().toJson(dataList)
     }
 
     @TypeConverter
-    fun toList(ListJsonStr:String): ArrayList<QuestionVO> {
-        val dataListType = object : TypeToken<ArrayList<RoutineVO>>(){}.type
+    fun toList(ListJsonStr:String): DeliveryRoutineVO {
+        val dataListType = object : TypeToken<DeliveryRoutineVO>(){}.type
         return Gson().fromJson(ListJsonStr,dataListType)
     }
 }

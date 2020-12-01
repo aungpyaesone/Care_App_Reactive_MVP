@@ -9,5 +9,5 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 data class SpecialQuestionVO(
     @PrimaryKey
     var sq_id: String= "",
-    var sq_question: String = ""
+    var question: String? = ""
 )

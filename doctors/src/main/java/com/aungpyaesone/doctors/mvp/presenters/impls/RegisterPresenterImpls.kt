@@ -38,12 +38,6 @@ class RegisterPresenterImpls: RegisterPresenter, AbstractBasePresenter<RegisterV
     }
 
     private fun getSpecialities(){
-        mCoreModel.getSpeciality(onSuccess = {
-            Log.d("specilities","success")
-        },onFailure = {
-            Log.d("specilities",it)
-        })
+        mCoreModel.getSpeciality()
     }
-
-
 }

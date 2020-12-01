@@ -2,8 +2,6 @@ package com.aungpyaesone.shared.persistence
 
 import androidx.room.TypeConverter
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
-import com.aungpyaesone.shared.data.vos.QuestionVO
-import com.aungpyaesone.shared.data.vos.RoutineVO
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

@@ -1,16 +1,19 @@
 package com.aungpyaesone.shared.data.vos
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.aungpyaesone.shared.persistence.RoutineConverter
 import com.google.firebase.firestore.IgnoreExtraProperties
 
+@Entity(tableName = "prescription")
 @IgnoreExtraProperties
+@TypeConverters(RoutineConverter::class)
 data class PrescriptionVO(
-    var ps_id: String= "",
-    var total_price: Int = 0,
-    var prescriptionMedicineVO: ArrayList<PrescriptionMedicineVO> = arrayListOf()
-)
-
-data class PrescriptionMedicineVO(
-    var name: String= "",
-    var price: Int = 0,
-    var count: Int = 0
+    @PrimaryKey
+    var id:String ="",
+    var days: String? ="",
+    var medicine_name :String? = "",
+    var routineVO: RoutineVO? = null,
+    var totalTime: Int? = 0
 )

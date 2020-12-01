@@ -1,15 +1,21 @@
 package com.aungpyaesone.shared.data.vos
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.aungpyaesone.shared.persistence.CaseSummaryTypeConverter
+import com.aungpyaesone.shared.persistence.PatientVOTypeConverter
+import com.aungpyaesone.shared.persistence.TimeStampTypeConverter
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.IgnoreExtraProperties
 
 @Entity(tableName = "consultation_request")
 @IgnoreExtraProperties
+@TypeConverters(CaseSummaryTypeConverter::class,PatientVOTypeConverter::class,TimeStampTypeConverter::class)
 data class ConsultationRequestVO(
-    @PrimaryKey
-    var cr_id: String= "",
-    var patient_id: String ? = "" ,
-    var speciality : String ?= "",
-    var date_time : String ?= "",
-    var case_summary : String ?= ""
+        @PrimaryKey
+        var cr_id: String= "",
+        var patient: PatientVO ? = null,
+        var speciality : String ?= "",
+        var date_time : Timestamp?= null,
+        var case_summary : ArrayList<QuestionAnswerVO> ?= arrayListOf()
 )

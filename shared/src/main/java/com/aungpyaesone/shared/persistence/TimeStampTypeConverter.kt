@@ -1,19 +1,19 @@
 package com.aungpyaesone.shared.persistence
 
 import androidx.room.TypeConverter
-import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
+import com.google.firebase.Timestamp
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class SpecialQuestionTypeConverter {
+class TimeStampTypeConverter {
     @TypeConverter
-    fun toString(dataList: SpecialQuestionVO):String{
+    fun toString(dataList: Timestamp):String{
         return Gson().toJson(dataList)
     }
 
     @TypeConverter
-    fun toList(ListJsonStr:String): SpecialQuestionVO {
-        val dataListType = object : TypeToken<SpecialQuestionVO>(){}.type
+    fun toList(ListJsonStr:String): Timestamp {
+        val dataListType = object : TypeToken<Timestamp>(){}.type
         return Gson().fromJson(ListJsonStr,dataListType)
     }
 }

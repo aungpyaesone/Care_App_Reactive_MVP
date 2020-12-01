@@ -1,20 +1,20 @@
 package com.aungpyaesone.shared.persistence
 
 import androidx.room.TypeConverter
+import com.aungpyaesone.shared.data.vos.PrescriptionVO
 import com.aungpyaesone.shared.data.vos.RoutineVO
-import com.aungpyaesone.shared.data.vos.SpecialitiesCollectionVO
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class SpecialitiesCollectionTypeConverter {
+class PrescriptionTypeConverters {
     @TypeConverter
-    fun toString(dataList: SpecialitiesCollectionVO):String{
+    fun toString(dataList: ArrayList<PrescriptionVO>):String{
         return Gson().toJson(dataList)
     }
 
     @TypeConverter
-    fun toList(ListJsonStr:String): SpecialitiesCollectionVO {
-        val dataListType = object : TypeToken<SpecialitiesCollectionVO>(){}.type
+    fun toList(ListJsonStr:String): ArrayList<PrescriptionVO> {
+        val dataListType = object : TypeToken<ArrayList<RoutineVO>>(){}.type
         return Gson().fromJson(ListJsonStr,dataListType)
     }
 }
