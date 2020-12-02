@@ -11,9 +11,11 @@ interface FirebaseApi {
 
     // common
     fun getSpeciality(onSuccess: (List<SpecialitiesVO>) -> Unit,onFailure:(String)->Unit)
-    fun startConsultation(caseSummary: QuestionAnswerVO,
+
+    fun startConsultation(caseSummary: List<QuestionAnswerVO>,
                           doctorVO: DoctorVO,
                           patientVO: PatientVO,
+                          dateTime: String,
                           onSuccess: (currentDocumentId:String) -> Unit,
                           onFailure: (String) -> Unit)
 
@@ -21,10 +23,14 @@ interface FirebaseApi {
     fun getAllCheckMessage(documentId: String,onSuccess: (List<ChatMessageVO>) -> Unit,onFailure: (String) -> Unit)
     fun sendMessage(documentId:String,messageVO: ChatMessageVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
+    // getSpecialQuestion
+    fun getSpecialQuestionBySpecialities(documentName:String,onSuccess: (List<SpecialQuestionVO>) -> Unit,onFailure: (String) -> Unit)
+
+
     // for patient
     fun sendBroadCastConsultationRequest(
             speciality:String,
-            caseSummary: QuestionAnswerVO,
+            caseSummary: List<QuestionAnswerVO>,
             patientVO: PatientVO,
             dateTime : String,
             onSuccess: () -> Unit, onFailure: (String) -> Unit)
