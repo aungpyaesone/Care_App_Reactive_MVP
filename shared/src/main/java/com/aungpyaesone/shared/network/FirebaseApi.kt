@@ -19,7 +19,7 @@ interface FirebaseApi {
                           onSuccess: (currentDocumentId:String) -> Unit,
                           onFailure: (String) -> Unit)
 
-    fun getConsultationChat(onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
+    fun getConsultationChat(patientId: String,onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
     fun getAllCheckMessage(documentId: String,onSuccess: (List<ChatMessageVO>) -> Unit,onFailure: (String) -> Unit)
     fun sendMessage(documentId:String,messageVO: ChatMessageVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
@@ -53,7 +53,7 @@ interface FirebaseApi {
                       onFailure: (String) -> Unit)
 
     fun finishConsultation(onSuccess: () -> Unit,onFailure: (String) -> Unit)
-    fun preScribeMedicine(medicine:MedicineVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun preScribeMedicine(documentId: String,medicine:PrescriptionVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
     fun getGeneralQuestion(onSuccess: (List<GeneralQuestionVO>) -> Unit,onFailure: (String) -> Unit)
 
 }

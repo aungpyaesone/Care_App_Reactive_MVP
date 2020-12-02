@@ -9,3 +9,6 @@ const val RECENTLY_DOCTOR = "recently_doctor"
 
 const val PATIENT = "patient"
 const val GENERAL_QUESTION = "general_question"
+const val CONSULTATION_CHAT = "consultation_chat"
+const val PRESCRIPTION = "prescription"
+const val MESSAGE = "message"

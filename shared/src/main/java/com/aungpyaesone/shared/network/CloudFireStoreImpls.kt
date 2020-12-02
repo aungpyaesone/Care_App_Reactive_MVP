@@ -122,14 +122,15 @@ object CloudFireStoreImpls : FirebaseApi {
     ) {
         val uuid = UUID.randomUUID()
         val consultationMap = hashMapOf(
-            "id" to uuid,
+            "id" to uuid.toString(),
             "caseSummary" to caseSummary,
             "doctor" to doctorVO,
             "patient" to patientVO,
+            "patient_id" to patientVO.id,
             "dateTime" to dateTime,
             )
 
-        db.collection(PATIENT)
+        db.collection(CONSULTATION_CHAT)
             .document(uuid.toString())
             .set(consultationMap)
             .addOnSuccessListener {
@@ -175,21 +176,23 @@ object CloudFireStoreImpls : FirebaseApi {
             messageVO: ChatMessageVO,
             onSuccess: () -> Unit,
             onFailure: (String) -> Unit) {
+        val uuid = UUID.randomUUID()
         val messageMap = hashMapOf(
+                "id" to uuid.toString(),
                 "messageText" to messageVO.messageText,
                 "messageImage" to messageVO.messageImage,
                 "sentBy" to messageVO.sendBy,
                 "sendAt" to messageVO.sendAt
 
         )
-        db.collection("consultation/${documentId}/message")
-                .document()
+        db.collection("$CONSULTATION_CHAT/${documentId}/$MESSAGE")
+                .document(uuid.toString())
                 .set(messageMap)
                 .addOnSuccessListener {
                     onSuccess()
                 }
                 .addOnFailureListener {
-                    onFailure(it.localizedMessage)
+                    onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
                 }
     }
 
@@ -218,15 +221,32 @@ object CloudFireStoreImpls : FirebaseApi {
             }
     }
 
-    override fun getConsultationChat(onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
-
+    override fun getConsultationChat(patientId : String,onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
+        db.collection(CONSULTATION_CHAT)
+            .whereEqualTo("patient_id",patientId)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+                } ?: run {
+                    val consultationChatList: MutableList<ConsultationChatVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData = Gson().fromJson<ConsultationChatVO>(Data, ConsultationChatVO::class.java)
+                        consultationChatList.add(docData)
+                    }
+                    onSuccess(consultationChatList)
+                }
+            }
     }
 
     override fun getAllCheckMessage(documentId: String, onSuccess: (List<ChatMessageVO>) -> Unit, onFailure: (String) -> Unit) {
-        db.collection("consultation_chat/${documentId}/message")
+        db.collection("$CONSULTATION_CHAT/${documentId}/$MESSAGE")
                 .addSnapshotListener { value, error ->
                     error?.let {
-                        onFailure(it.message ?: "Please check internet connection")
+                        onFailure(it.message ?: EN_ERROR_MESSAGE)
                     } ?: run {
                         val chatMessageList: MutableList<ChatMessageVO> = arrayListOf()
                         val result = value?.documents ?: arrayListOf()
@@ -318,8 +338,28 @@ object CloudFireStoreImpls : FirebaseApi {
         TODO("Not yet implemented")
     }
 
-    override fun preScribeMedicine(medicine: MedicineVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        TODO("Not yet implemented")
+    override fun preScribeMedicine(
+        documentId: String,
+        medicine: PrescriptionVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+
+        val uuid = UUID.randomUUID()
+        val prescriptionMap = hashMapOf(
+            "id" to uuid.toString(),
+            "medicine_name" to medicine.medicine_name,
+            "routine" to medicine.routineVO,
+        )
+        db.collection("$CONSULTATION_CHAT/${documentId}/$PRESCRIPTION")
+            .document(uuid.toString())
+            .set(prescriptionMap)
+            .addOnSuccessListener {
+                onSuccess()
+            }
+            .addOnFailureListener {
+                onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
+            }
     }
 
     override fun getGeneralQuestion(onSuccess: (List<GeneralQuestionVO>) -> Unit, onFailure: (String) -> Unit) {

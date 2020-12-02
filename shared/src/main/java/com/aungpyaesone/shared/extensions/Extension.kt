@@ -59,9 +59,11 @@ fun MutableMap<String,Any>?.convertToGeneralQuestionVO() : GeneralQuestionVO {
 
 fun MutableMap<String,Any>?.convertToChatMessage() : ChatMessageVO {
     val chatMessageVO = ChatMessageVO()
+    chatMessageVO.id= this?.get("id") as String
     chatMessageVO.messageText = this?.get("messageText") as String
     chatMessageVO.messageImage = this["messageImage"] as String
     chatMessageVO.sendBy = this["sendBy"] as SenderVO
+    chatMessageVO.sendAt = this["sendAt"] as String
     return chatMessageVO
 }
 
