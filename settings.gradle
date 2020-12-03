@@ -1,5 +1,5 @@
 include ':doctors'
 include ':doctor'
 include ':shared'
-include ':app'
+include ':patient'
 rootProject.name = "firebase_monthly_tuto"

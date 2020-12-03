@@ -6,6 +6,7 @@ import com.aungpyaesone.shared.data.models.PatientModel
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
+import com.aungpyaesone.shared.extensions.dbOperationResult
 import com.aungpyaesone.shared.network.CloudFireStoreImpls
 import com.aungpyaesone.shared.network.FirebaseApi
 
@@ -39,8 +40,11 @@ object PatientModelImpls : PatientModel,BaseModel(){
         onFailure: (String) -> Unit
     ) {
         mFirebaseApi.getSpecialQuestionBySpecialities(documentName,onSuccess = {
-            mTheDB.specialQuestionDao().insertSpecialQuestionList(it)
-            onSuccess()
+            mTheDB.specialQuestionDao().insertSpecialQuestionList(it).dbOperationResult({
+                onSuccess()
+            },{
+                onFailure(it)
+            })
         },onFailure = {
             onFailure(it)
         })

@@ -3,7 +3,7 @@ package com.aungpyaesone.shared.data.vos
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.aungpyaesone.shared.persistence.TimeStampTypeConverter
+import com.aungpyaesone.shared.persistence.converters.TimeStampTypeConverter
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.IgnoreExtraProperties
 

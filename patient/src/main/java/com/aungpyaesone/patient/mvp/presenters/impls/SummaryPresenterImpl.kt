@@ -15,6 +15,7 @@ import com.padc.shared.mvp.presenter.AbstractBasePresenter
 
 class SummaryPresenterImpl : SummaryPresenter,AbstractBasePresenter<SummaryView>() {
     private val mPatientModel : PatientModel = PatientModelImpls
+
     init {
        // mPatientModel.getSpecialQuestionBySpecialities()
     }
@@ -45,7 +46,6 @@ class SummaryPresenterImpl : SummaryPresenter,AbstractBasePresenter<SummaryView>
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-
     }
 
 

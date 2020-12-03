@@ -12,3 +12,5 @@ const val GENERAL_QUESTION = "general_question"
 const val CONSULTATION_CHAT = "consultation_chat"
 const val PRESCRIPTION = "prescription"
 const val MESSAGE = "message"
+
+const val GENERAL_QUESTION_TEMPLATE = "general_question_template"

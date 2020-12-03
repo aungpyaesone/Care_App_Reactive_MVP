@@ -3,6 +3,7 @@ package com.aungpyaesone.shared.network.impls
 import android.graphics.Bitmap
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.network.auth.AuthManager
+import com.aungpyaesone.shared.util.EN_ERROR_MESSAGE
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
@@ -28,7 +29,7 @@ object AuthManagerImpls : AuthManager{
     }
 
     override fun registerNewPatient(email: String, password: String, userName: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        TODO("Not yet implemented")
+
     }
 
     override fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
@@ -36,7 +37,7 @@ object AuthManagerImpls : AuthManager{
             if (it.isSuccessful && it.isComplete) {
                 onSuccess()
             } else {
-                onFailure(it.exception?.message ?: "please check internet connection")
+                onFailure(it.exception?.message ?: EN_ERROR_MESSAGE)
             }
         }
     }

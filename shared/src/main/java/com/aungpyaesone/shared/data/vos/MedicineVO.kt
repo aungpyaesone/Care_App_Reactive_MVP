@@ -2,8 +2,6 @@ package com.aungpyaesone.shared.data.vos
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.aungpyaesone.shared.persistence.RoutineConverter
 import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties

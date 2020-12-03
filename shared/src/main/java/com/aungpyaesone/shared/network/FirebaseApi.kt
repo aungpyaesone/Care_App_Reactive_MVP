@@ -3,15 +3,16 @@ package com.aungpyaesone.shared.network
 import com.aungpyaesone.shared.data.vos.*
 
 interface FirebaseApi {
-
-    fun getAllDoctor(onSuccess: (doctorList: List<DoctorVO>) -> Unit, onFialure: (String) -> Unit)
+    //1
     fun addDoctor(doctorVO: DoctorVO,onSuccess:()->Unit,onFialure: (String) -> Unit)
+    //2
     fun addPatient(patientVO: PatientVO,onSuccess: () -> Unit,onFialure: (String) -> Unit)
-    fun deleteDoctor(name: String)
 
     // common
+    //3
     fun getSpeciality(onSuccess: (List<SpecialitiesVO>) -> Unit,onFailure:(String)->Unit)
 
+    // 4
     fun startConsultation(caseSummary: List<QuestionAnswerVO>,
                           doctorVO: DoctorVO,
                           patientVO: PatientVO,
@@ -19,14 +20,19 @@ interface FirebaseApi {
                           onSuccess: (currentDocumentId:String) -> Unit,
                           onFailure: (String) -> Unit)
 
+    // 5
     fun getConsultationChat(patientId: String,onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
+    // 6
     fun getAllCheckMessage(documentId: String,onSuccess: (List<ChatMessageVO>) -> Unit,onFailure: (String) -> Unit)
+
+    // 7
     fun sendMessage(documentId:String,messageVO: ChatMessageVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
+    // 8
     // getSpecialQuestion
     fun getSpecialQuestionBySpecialities(documentName:String,onSuccess: (List<SpecialQuestionVO>) -> Unit,onFailure: (String) -> Unit)
 
-
+    // 9
     // for patient
     fun sendBroadCastConsultationRequest(
             speciality:String,
@@ -44,6 +50,8 @@ interface FirebaseApi {
             onFailure: (String) -> Unit)
 
     fun checkoutMedicine(onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+    // 10
     fun getRecentlyConsultationDoctor(documentId:String,onSuccess: (List<DoctorVO>) -> Unit,onFailure: (String) -> Unit)
 
 
@@ -53,7 +61,12 @@ interface FirebaseApi {
                       onFailure: (String) -> Unit)
 
     fun finishConsultation(onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+    // 11
     fun preScribeMedicine(documentId: String,medicine:PrescriptionVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+
+    // 12
     fun getGeneralQuestion(onSuccess: (List<GeneralQuestionVO>) -> Unit,onFailure: (String) -> Unit)
 
 }

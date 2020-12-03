@@ -34,10 +34,6 @@ class RegisterPresenterImpls: RegisterPresenter, AbstractBasePresenter<RegisterV
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
      //  onTapRegister(doctorVO,"123456")
-        getSpecialities()
     }
 
-    private fun getSpecialities(){
-        mCoreModel.getSpeciality()
-    }
 }

@@ -16,7 +16,8 @@ import com.aungpyaesone.shared.persistence.daos.*
     SpecialitiesVO::class,
     SpecialQuestionVO::class,
     PrescriptionVO::class,
-    CheckOutVO::class
+    CheckOutVO::class,
+    ChatMessageVO::class
 ],version = 1,exportSchema = false)
 abstract class CareDatabase : RoomDatabase(){
     companion object {

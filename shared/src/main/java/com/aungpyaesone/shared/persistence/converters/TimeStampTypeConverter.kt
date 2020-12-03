@@ -1,4 +1,4 @@
-package com.aungpyaesone.shared.persistence
+package com.aungpyaesone.shared.persistence.converters
 
 import androidx.room.TypeConverter
 import com.google.firebase.Timestamp
