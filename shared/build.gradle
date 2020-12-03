@@ -84,4 +84,9 @@ dependencies {
 
     // remote config
     implementation 'com.google.firebase:firebase-config-ktx'
+
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.retorfitAdapter
+    implementation rootProject.ext.libraries.retrofitGsonConverter
+    implementation rootProject.ext.libraries.okhttp
 }

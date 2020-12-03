@@ -15,7 +15,7 @@ import com.google.firebase.firestore.IgnoreExtraProperties
         PrescriptionTypeConverters::class,
         DoctorVOTypeConverter::class,
         PatientVOTypeConverter::class,
-    DeliveryRoutineTypeConverter::class)
+        DeliveryRoutineTypeConverter::class)
 data class CheckOutVO(
         @PrimaryKey
         var id:String = "",

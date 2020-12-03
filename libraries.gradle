@@ -5,8 +5,10 @@ ext {
     lifecycle_version = "2.2.0"
     swipeRefreshVersion = "1.1.0"
     rxKotlinVersion = "2.x-SNAPSHOT"
-    rxVersion ="2.1.1"
+    rxVersion = "2.1.1"
     rxJavaVersion = "2.2.10"
+    retrofitVersion = "2.6.1"
+    okhttpVersion = "4.1.0"
 
     firebase_analytics_version = "17.6.0"
     firebase_database_version = "19.5.1"
@@ -21,9 +23,9 @@ ext {
             room                   : "androidx.room:room-runtime:$room_version",
             roomKapt               : "androidx.room:room-compiler:$room_version",
 
-            rxAndroid : "io.reactivex.rxjava2:rxandroid:$rxVersion",
-            rxKotlin : "com.github.ReactiveX:RxKotlin:$rxKotlinVersion",
-            rxIoReactive : "io.reactivex.rxjava2:rxandroid:$rxVersion",
+            rxAndroid              : "io.reactivex.rxjava2:rxandroid:$rxVersion",
+            rxKotlin               : "com.github.ReactiveX:RxKotlin:$rxKotlinVersion",
+            rxIoReactive           : "io.reactivex.rxjava2:rxandroid:$rxVersion",
 
             liveData               : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
             lifecycleComponent     : "android.arch.lifecycle:extensions:$lifecycle_version",
@@ -34,6 +36,11 @@ ext {
             firebaseDatabaseKtx    : "com.google.firebase:firebase-database-ktx:$firebase_database_version",
             firestore              : "com.google.firebase:firebase-firestore-ktx:$firestore_version",
             firebaseStorage        : "com.google.firebase:firebase-storage:$firebase_storage_version",
+
+            retrofit               : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retorfitAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            retrofitGsonConverter  : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            okhttp                 : "com.squareup.okhttp3:okhttp:$okhttpVersion",
 
     ]
 }

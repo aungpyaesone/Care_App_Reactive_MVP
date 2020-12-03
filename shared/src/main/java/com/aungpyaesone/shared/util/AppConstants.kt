@@ -14,3 +14,5 @@ const val PRESCRIPTION = "prescription"
 const val MESSAGE = "message"
 
 const val GENERAL_QUESTION_TEMPLATE = "general_question_template"
+const val CHECKOUT = "checkout"
+const val MEDICINE = "medicine"

@@ -49,7 +49,11 @@ interface FirebaseApi {
             onSuccess: () -> Unit,
             onFailure: (String) -> Unit)
 
-    fun checkoutMedicine(onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun checkoutMedicine(address:String,
+                         doctorVO: DoctorVO,
+                         patientVO: PatientVO,
+                         prescriptionList: List<PrescriptionVO>,
+                         totalPrice:Int,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
     // 10
     fun getRecentlyConsultationDoctor(documentId:String,onSuccess: (List<DoctorVO>) -> Unit,onFailure: (String) -> Unit)
@@ -60,7 +64,7 @@ interface FirebaseApi {
                       onSuccess: () -> Unit,
                       onFailure: (String) -> Unit)
 
-    fun finishConsultation(onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun finishConsultation(documentId: String,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
     // 11
     fun preScribeMedicine(documentId: String,medicine:PrescriptionVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
@@ -69,4 +73,12 @@ interface FirebaseApi {
     // 12
     fun getGeneralQuestion(onSuccess: (List<GeneralQuestionVO>) -> Unit,onFailure: (String) -> Unit)
 
+    // 13
+    fun getPrescriptionMedicine(documentId: String,onSuccess: (List<PrescriptionVO>) -> Unit,onFailure: (String) -> Unit)
+
+    // 14
+    fun getAllMedicine(speciality: String,onSuccess: (List<MedicineVO>) -> Unit,onFailure: (String) -> Unit)
+
+    // 15
+    fun getConsultationRequest(documentId: String,onSuccess: (ConsultationRequestVO) -> Unit,onFailure: (String) -> Unit)
 }
