@@ -20,5 +20,5 @@ interface DoctorDao {
     fun insertDoctor(detail: DoctorVO):Completable
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertDoctorList(detailList: List<DoctorVO>)
+    fun insertDoctorList(detailList: List<DoctorVO>):Completable
 }

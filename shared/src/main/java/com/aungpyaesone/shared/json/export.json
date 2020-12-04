@@ -1,7 +1,7 @@
 {
 	"specialities": {
 		"cardiologist": {
-			"name": "Cardiologist",
+			"name": "နှလုံးအထူးကု",
 			"id": "sp004",
 			"photo": "",
 			"subCollection": {
@@ -73,7 +73,7 @@
 			}
 		},
 		"children": {
-			"name": "Children Specialist",
+			"name": "ကလေးအထူးကု",
 			"id": "sp003",
 			"photo": "",
 			"subCollection": {
@@ -280,7 +280,7 @@
 		"eye": {
 			"id": "sp002",
 			"photo": "",
-			"name": "Eye Specialst",
+			"name": "မျက်စိအထူးကု",
 			"subCollection": {
 				"specialities/eye/frequently_medicine": {
 					"A": {
@@ -374,7 +374,7 @@
 			}
 		},
 		"general physician": {
-			"name": "General Physician",
+			"name": "အထွေထွေရောဂါဆိုင်ရာ",
 			"photo": "",
 			"id": "sp007",
 			"subCollection": {
@@ -528,7 +528,7 @@
 			}
 		},
 		"neurologist": {
-			"name": "Neurologist",
+			"name": "အာရုံကြောအထူးကု",
 			"id": "sp0010",
 			"photo": "",
 			"subCollection": {
@@ -607,7 +607,7 @@
 		"nutritionsts": {
 			"photo": "",
 			"id": "sp006",
-			"name": "Nutritionists",
+			"name": "အဟာရဆိုင်ရာ",
 			"subCollection": {
 				"specialities/nutritionsts/frequently_medicine": {
 					"A": {
@@ -711,7 +711,7 @@
 			}
 		},
 		"obstetricians": {
-			"name": "Obstetricians Gynecologists",
+			"name": "သားဖွားမီးယပ်အထူးကု",
 			"id": "sp008",
 			"photo": "",
 			"subCollection": {
@@ -760,7 +760,7 @@
 		},
 		"reproduction": {
 			"photo": "",
-			"name": "Reproduction",
+			"name": "မျိုးပွားခြင်းဆိုင်ရာ",
 			"id": "sp0012",
 			"subCollection": {
 				"specialities/reproduction/frequently_medicine": {
@@ -1218,7 +1218,7 @@
 		"0b949180-3176-11eb-977a-57c697311f58": {
 			"address": "",
 			"biography": "",
-			"spiciality": "dentists",
+			"speciality": "dentists",
 			"photo": "",
 			"experience": "",
 			"name": "Dr.Mg Ice",

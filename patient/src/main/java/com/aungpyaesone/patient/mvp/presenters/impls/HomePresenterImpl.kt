@@ -15,11 +15,19 @@ class HomePresenterImpl  : HomePresenter,AbstractBasePresenter<HomeView>(){
 
     init {
         mCoreModel.getSpecialityFromNetWork()
+        mCoreModel.getRecentlyConsultedDoctorFromApi("")
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
+      mView?.showLoading()
       mCoreModel.getSpecialityFromDb().observe(lifecycleOwner, Observer {
+          mView?.hideLoading()
           mView?.showSpecialitiesList(it)
+      })
+
+      mCoreModel.getRecentlyConsultedDoctorFromDb().observe(lifecycleOwner, Observer {
+          mView?.showRecentlyConsultedDoctor(it)
+          mView?.hideLoading()
       })
     }
 

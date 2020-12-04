@@ -335,16 +335,16 @@ object CloudFireStoreImpls : FirebaseApi {
 
     }
 
-    override fun getRecentlyConsultationDoctor(documentId: String, onSuccess: (List<DoctorVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getRecentlyConsultationDoctor(documentId: String, onSuccess: (List<RecentDoctorVO>) -> Unit, onFailure: (String) -> Unit) {
         db.collection("$PATIENT/${documentId}/$RECENTLY_DOCTOR")
                 .get()
                 .addOnSuccessListener { result ->
-                    val recentlyDoctorList: MutableList<DoctorVO> = arrayListOf()
+                    val recentlyDoctorList: MutableList<RecentDoctorVO> = arrayListOf()
                     for (document in result) {
                         val hashmap = document.data
                         hashmap?.put("id", document.id)
                         val Data = Gson().toJson(hashmap)
-                        val docData = Gson().fromJson<DoctorVO>(Data, DoctorVO::class.java)
+                        val docData = Gson().fromJson<RecentDoctorVO>(Data, RecentDoctorVO::class.java)
                         recentlyDoctorList.add(docData)
                     }
                     onSuccess(recentlyDoctorList)

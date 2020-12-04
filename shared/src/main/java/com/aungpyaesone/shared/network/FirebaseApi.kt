@@ -56,7 +56,7 @@ interface FirebaseApi {
                          totalPrice:Int,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
     // 10
-    fun getRecentlyConsultationDoctor(documentId:String,onSuccess: (List<DoctorVO>) -> Unit,onFailure: (String) -> Unit)
+    fun getRecentlyConsultationDoctor(documentId:String,onSuccess: (List<RecentDoctorVO>) -> Unit,onFailure: (String) -> Unit)
 
 
     // for doctor

@@ -7,7 +7,8 @@ import androidx.room.RoomDatabase
 import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.persistence.daos.*
 
-@Database(entities = [DoctorVO::class,
+@Database(entities = [
+    DoctorVO::class,
     PatientVO::class,
     MedicineVO::class,
     ConsultationChatVO::class,
@@ -17,7 +18,8 @@ import com.aungpyaesone.shared.persistence.daos.*
     SpecialQuestionVO::class,
     PrescriptionVO::class,
     CheckOutVO::class,
-    ChatMessageVO::class
+    ChatMessageVO::class,
+    RecentDoctorVO::class
 ],version = 1,exportSchema = false)
 abstract class CareDatabase : RoomDatabase(){
     companion object {
@@ -45,4 +47,5 @@ abstract class CareDatabase : RoomDatabase(){
     abstract fun consultationChatDao() : ConsultationChatDao
     abstract fun generalQuestionTemplateDao() : GeneralQuestionTemplateDao
     abstract fun specialQuestionDao() : SpecialQuestionDao
+    abstract fun recentDoctorDao() : RecentDoctorDao
 }

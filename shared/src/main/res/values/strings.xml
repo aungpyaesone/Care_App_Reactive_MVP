@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="type_of_des">ရောဂါအမျိုးအစား</string>
+    <string name="confirm_title_text">ဆွေးနွေးမှုအတည်ပြုချက်</string>
+    <string name="confirm_body_text">ဆရာဝန် နှင့် တိုင်ပင်ဆွေးနွေးရန် consultation request ပြုလုပ်မှာသေချာပါသလား?</string>
+
+    <string name="negative_button">မလုပ်တော့ပါ</string>
+    <string name="positive_button">သေချာပါ</string>သည်
+
+    <string name="recently_consultation">မကြာသေးခင်က ဆွေးနွေးမှုများ</string>
+    <string name="fill_patient_form">လူနာအချက်အလက်များဖြည့်ပါ</string>
+    <string name="general_question">အထွေထွေ‌မေးခွန်းများ</string>
+    <string name="question_for_des_type">ရောဂါဆိုင်ရာမေးခွန်းများ</string>
+    <string name="height_label">အရပ်</string>
+    <string name="weight_label">ပေါင်ချိန်</string>
+    <string name="blood_pressure_label">သွေးပေါင်ချိန်</string>
+    <string name="allergic_label">မတည့်သောဆေး</string>
+    <string name="name_of_patient_label">လူနာအမည်</string>
+    <string name="dob_label">မွေးနေ့</string>
+    <string name="blood_type_label">သွေးအုပ်စုအမျိုးအစား</string>
+    <string name="continue_button_label">ဆက်ရန်</string>
+
+    <string name="consultation_request_button_label">ချိန်းဆိုမှုပြုလုပ်မည်</string>
+    <string name="confirm_patient_data_label">လူနာအချက်အလက်များအတည်ပြုပေးပါ</string>
+    <string name="start_consultation_title">ဆွေးနွေးမှု ပြုလုပ်နိုင်ပါပြီ</string>
+    <string name="start_consultation_button_label">စတင်ဆွေးနွေးမည်</string>
+    <string name="message_hint_label">ရေးသားပါ</string>
+
+    <string name="prescribe_medicine_label">ဆေးညွန်းမှာယူမည်</string>
+    <string name="prescription_label">ဆေးညွန်း</string>
+    <string name="address_label">လိပ်စာ</string>
+    <string name="choose_address_label">လိပ်စာရွေးချယ်ပါ</string>
+    <string name="add_new_address_label">လိပ်စာ‌ရွေးချယ်ပါ</string>
+    <string name="checkout_label">ငွေပေးချေမည်</string>
+    <string name="consultation_history_label">ချိန်းဆိုမှုမှတ်တမ်းများ</string>
+    <string name="close_btn_label">ပိတ်မည်</string>
+    <string name="send_message_label">စာ</string>ပို့မည်
+    
+    
+    <!-- navigation -->
+    <string name="type">အမျိုးအစား</string>
+    <string name="consultations_label">ချိန်းဆိုမှုများ</string>
+    <string name="profile_label">အကောင့်</string>
+
+
+    <!-- for doctor -->
+    <string name="skip_btn_label">ကျော်မည်</string>
+    <string name="accept_btn_label">လက်ခံမည်</string>
+    <string name="new_patient_label">လူနာအသစ်</string>
+    <string name="old_patient_label">ဆွေးနွေးခဲ့ဖူးသောလူနာ</string>
+    <string name="later_label">နောက်မှ</string>
+    <string name="choose_time_label">အချိန်ရွေးမည်</string>
+    <string name="note">မှတ်ချက်</string>
+    <string name="choose_time_dialog_title">ဆွေးနွေးမည့် အချိန်ရွေးမည်</string>
+    <string name="choose_btn_label">ရွေးမည်</string>
+    <string name="question_label">မေးခွန်းများ</string>
+    <string name="medicine_note_history_label">ဆေးမှတ်တမ်း</string>
+    
+    <string name="search_hint_label">ရှာမည်</string>
+    <string name="quantity_label">အရေအတွက်</string>
+    <string name="day_of_medicine">သောက်ရမည့်</string>ရက်
+    <string name="number_of_time">အကြိမ်အရေအတွက်</string>
+    <string name="morning_label">မနက်</string>
+    <string name="afternoon_label">နေ့လည်</string>
+    <string name="night_label">ည</string>
+    <string name="notes_label">ဆေးကို</string>
+    <string name="notes_label_one">အစာမစားမီသောက်ရန်</string>
+    <string name="notes_label_two">အစာစားပြီးမှသောက်ရန်</string>
+    <string name="notes_text">မှတ်ချက်</string>
+    
+    <string name="add_btn_label">ထည့်မည်</string>
+    <string name="finish_consultation">ဆေးညွှန်းပြီး ဆွေးနွေးမှုကို ပြီးဆုံးမည်</string>
+    <string name="save_btn_label">သိမ်းမည်</string>
+    
+    <string name="biography_label">ကိုယ်ရေးရာဇဝင်</string>
+    <string name="degree_label">ရရှိထားသောဘွဲ့များ</string>
+    
+
+</resources>
