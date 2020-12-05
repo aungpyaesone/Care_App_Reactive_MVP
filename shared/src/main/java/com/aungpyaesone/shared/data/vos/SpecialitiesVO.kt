@@ -8,7 +8,7 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 @IgnoreExtraProperties
 data class SpecialitiesVO(
     @PrimaryKey
-    var sp_id: String= "",
+    var id: String= "",
     var name: String = "",
     var photo: String = "",
 )

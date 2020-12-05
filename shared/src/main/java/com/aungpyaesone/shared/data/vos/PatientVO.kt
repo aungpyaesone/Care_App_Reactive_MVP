@@ -24,4 +24,7 @@ data class PatientVO(
     var weight : String? ="",
     var allergic_medicine : String? ="",
     var created_date : Timestamp? = null
-)
+) {
+
+}
+

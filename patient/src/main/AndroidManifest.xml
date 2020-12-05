@@ -3,14 +3,15 @@
     package="com.aungpyaesone.patient">
 
     <application
+        android:name=".CareApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".CareApplication"
         android:theme="@style/Theme.Firebase_monthly_tuto">
-        <activity android:name="com.aungpyaesone.patient.activities.MainActivity">
+        <activity android:name=".activities.CaseSummaryActivity"></activity>
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +26,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="" />

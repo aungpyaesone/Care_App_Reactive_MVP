@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomeFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/acceptConsultationView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                layout="@layout/start_consultation_view_pod"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/recentConsultation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recently_consultation"
+                style="@style/TitleTextStyle"
+                android:layout_below="@id/acceptConsultationView"
+                />
+
+            <com.aungpyaesone.patient.views.components.SmartRecyclerView
+                android:id="@+id/rvRecentDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentConsultation"
+                />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/typeOfDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rvRecentDoctor"
+                android:text="@string/type_of_des"
+                style="@style/TitleTextStyle"/>
+            <com.aungpyaesone.patient.views.components.SmartRecyclerView
+                android:id="@+id/rvSpecialities"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/typeOfDes"
+                tools:listitem="@layout/specialities_item_view"
+                />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

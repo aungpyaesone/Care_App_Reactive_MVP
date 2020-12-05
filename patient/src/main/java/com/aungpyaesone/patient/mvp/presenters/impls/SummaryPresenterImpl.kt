@@ -13,36 +13,38 @@ import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 import com.padc.shared.mvp.presenter.AbstractBasePresenter
 
-class SummaryPresenterImpl : SummaryPresenter,AbstractBasePresenter<SummaryView>() {
-    private val mPatientModel : PatientModel = PatientModelImpls
+class SummaryPresenterImpl : SummaryPresenter, AbstractBasePresenter<SummaryView>() {
+    private val mPatientModel: PatientModel = PatientModelImpls
 
     init {
-       // mPatientModel.getSpecialQuestionBySpecialities()
+        // mPatientModel.getSpecialQuestionBySpecialities()
     }
 
     override fun onTapContinue(
-        speciality: String,
-        lifecycleOwner: LifecycleOwner
+            speciality: String,
+            lifecycleOwner: LifecycleOwner
     ) {
-      mPatientModel.getSpecialQuestionBySpecialitiesFromDb(speciality).observe(lifecycleOwner,
-          Observer {
-              mView?.showSpecialQuestion(it)
-          })
+
     }
 
     override fun onTapSendBroadCast(
-        speciality: String,
-        questionAnswerVO: QuestionAnswerVO,
-        specialQuestionVO: SpecialQuestionVO,
-        patientVO: PatientVO
+            speciality: String,
+            questionAnswerVO: QuestionAnswerVO,
+            specialQuestionVO: SpecialQuestionVO,
+            patientVO: PatientVO
     ) {
 
     }
 
     override fun onUiReady(speciality: String, lifecycleOwner: LifecycleOwner) {
-        mPatientModel.getSpecialQuestionBySpecialities(speciality,onSuccess = {},onFailure = {
+        mPatientModel.getSpecialQuestionBySpecialities(speciality, onSuccess = {}, onFailure = {
             mView?.showErrorMessage(it)
         })
+
+        mPatientModel.getSpecialQuestionBySpecialitiesFromDb(speciality).observe(lifecycleOwner,
+                Observer {
+                    mView?.showSpecialQuestion(it)
+                })
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {

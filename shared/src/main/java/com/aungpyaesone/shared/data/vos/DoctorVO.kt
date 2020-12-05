@@ -19,4 +19,6 @@ data class DoctorVO(
     var email: String? ="",
     var deviceId:String? = "",
     var phone:String? ="",
-)
+){
+
+}

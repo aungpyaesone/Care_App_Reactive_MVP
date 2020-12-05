@@ -1,1350 +1,1104 @@
 {
-	"specialities": {
-		"cardiologist": {
-			"name": "နှလုံးအထူးကု",
-			"id": "sp004",
-			"photo": "",
-			"subCollection": {
-				"specialities/cardiologist/frequently_medicine": {
-					"A": {
-						"id": "CM-001",
-						"price": "1000",
-						"name": "Acebutolol"
-					},
-					"B": {
-						"id": "CM-002",
-						"name": "Atenolol",
-						"price": "1000"
-						
-					},
-					"C": {
-						"id": "CM-003",
-						"price": "1500",
-						"name": "Betaxolol"
-					},
-					"D": {
-						"id": "CM-004",
-						"name": "Bisoprolol",
-						"price": "1800"
-						
-					},
-					"E": {
-						"id": "CM-005",
-						"price": "1000",
-						"name": "Metoprolol"
-						
-					},
-					"F": {
-						"id": "CM-006",
-						"name": "Nadolol",
-						"price": "1200"
-						
-					}
-				},
-				"specialities/cardiologist/spical_question": {
-					"06112160-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "Do you have a pacemaker?"
-						
-					},
-					"061bf6d0-3176-11eb-977a-57c697311f58": {
-						"question": "Has any metal been implanted in your body?",
-						"id": "sq002"
-						
-					},
-					"0626f350-3176-11eb-977a-57c697311f58": {
-						"question": "Do you have ever had surgery?",
-						"id": "sq003"
-					},
-					"c3010250-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Do you have a pacemaker?",
-						"id": "sq001"
-						
-					},
-					"c30d1040-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq002",
-						"question": "Has any metal been implanted in your body?"
-					},
-					"c31af2f0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Do you have ever had surgery?",
-						"id": "sq003"
-					}
-				}
-			}
-		},
-		"children": {
-			"name": "ကလေးအထူးကု",
-			"id": "sp003",
-			"photo": "",
-			"subCollection": {
-				"specialities/children/frequently_medicine": {
-					"A": {
-						"id": "001",
-						"name": "Valium",
-						"price": "100"
-					},
-					"B": {
-						"name": "Halcion",
-						"price": "100",
-						"id": "002"
-					},
-					"C": {
-						"price": "100",
-						"id": "003",
-						"name": "Sonata"
-					},
-					"D": {
-						"name": "Ativan",
-						"id": "003",
-						"price": "100"
-					},
-					"E": {
-						"id": "003",
-						"price": "100",
-						"name": "Vistaril"
-					},
-					"F": {
-						"id": "003",
-						"name": "Versed",
-						"price": "100"
-					}
-				},
-				"specialities/children/spical_question": {
-					"059d02d0-3176-11eb-977a-57c697311f58": {
-						"question": "spical question one",
-						"id": "sq001"
-					},
-					"05a95ee0-3176-11eb-977a-57c697311f58": {
-						"question": "spical question two",
-						"id": "sq002"
-					},
-					"05b45b60-3176-11eb-977a-57c697311f58": {
-						"question": "spical question three",
-						"id": "sq003"
-					},
-					"c25b4c70-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq001",
-						"question": "spical question one"
-					},
-					"c2678170-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq002",
-						"question": "spical question two"
-					},
-					"c271e1b0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "spical question three"
-					}
-				}
-			}
-		},
-		"dentist": {
-			"id": "sp001",
-			"name": "သွားဘက်ဆိုင်ရာ",
-			"photo": "",
-			"subCollection": {
-				"specialities/dentist/frequently_medicine": {
-					"A": {
-						"name": "Valium",
-						"count": "0",
-						"photo": "",
-						"id": "DM-001",
-						"price": "100"
-					},
-					"B": {
-						"id": "DM-002",
-						"price": "100",
-						"photo": "",
-						"name": "Halcion",
-						"count": "0"
-					},
-					"C": {
-						"id": "DM-003",
-						"photo": "",
-						"name": "Sonata",
-						"price": "100"
-					},
-					"D": {
-						"price": "100",
-						"id": "DM-004",
-						"name": "Ativan"
-					},
-					"E": {
-						"id": "DM-005",
-						"name": "Vistaril",
-						"price": "100"
-					},
-					"F": {
-						"id": "DM-006",
-						"price": "100",
-						"name": "Versed"
-					}
-				},
-				"specialities/dentist/spical_question": {
-					"047b8d40-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "Do you have sensitive teeth ?"
-						
-					},
-					"04896ff0-3176-11eb-977a-57c697311f58": {
-						"id": "sq002",
-						"question": "Is it swollen?"
-						
-					},
-					"0496dd70-3176-11eb-977a-57c697311f58": {
-						"id": "sq003",
-						"question": "Is there a landslide?"
-					},
-					"04a36090-3176-11eb-977a-57c697311f58": {
-						"id": "sq003",
-						"question": "Jaw pain?"
-					},
-					"be334da0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq001",
-						"question": "Do you have sensitive teeth ?"
-						
-					},
-					"c04a46c0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Is it swollen?",
-						"id": "sq002"
-						
-					},
-					"c056a2d0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "Is there a landslide?"
-						
-					},
-					"c0621480-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Jaw pain?",
-						"id": "sq003"
-						
-					}
-				}
-			}
-		},
-		"ear,nose": {
-			"id": "sp005",
-			"name": "နား,နှာခေါင်းလည်းချောင်းဆိုင်ရာ",
-			"photo": "",
-			"subCollection": {
-				"specialities/ear,nose/frequently_medicine": {
-					"A": {
-						"name": "Beclometasone",
-						"price": "1000",
-						"id": "001"
-					},
-					"B": {
-						"id": "002",
-						"name": "Benzydamine",
-						"price": "1200"
-					},
-					"C": {
-						"price": "1200",
-						"id": "003",
-						"name": "Cinnarizine"
-					}
-				},
-				"specialities/ear,nose/spical_question": {
-					"067fc1b0-3176-11eb-977a-57c697311f58": {
-						"question": "Do you have an earache?",
-						"id": "sq001"
-						
-					},
-					"068c6be0-3176-11eb-977a-57c697311f58": {
-						"id": "sq002",
-						"question": "Do you have a runny nose?"
-						
-					},
-					"069aead0-3176-11eb-977a-57c697311f58": {
-						"question": "do you score throad?",
-						"id": "sq003"
-						
-					},
-					"c37ee4e0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq001",
-						"question": "Do you have an earache?"
-						
-					},
-					"c38aa4b0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Do you have a runny nose?",
-						"id": "sq002"
-						
-					},
-					"c3968b90-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "do you score throad?"
-						
-					}
-				}
-			}
-		},
-		"eye": {
-			"id": "sp002",
-			"photo": "",
-			"name": "မျက်စိအထူးကု",
-			"subCollection": {
-				"specialities/eye/frequently_medicine": {
-					"A": {
-						"id": "EM-001",
-						"name": "Maxitrol",
-						"price": "1000"
-						
-					},
-					"B": {
-						"id": "EM-002",
-						"name": "Blephamide",
-						"price": "1200"
-						
-					},
-					"C": {
-						"id": "EM-003",
-						"name": "Fluorometholone",
-						"price": "800"
-						
-					},
-					"D": {
-						"name": "Naphazoline",
-						"id": "EM-004",
-						"price": "1800"
-						
-					},
-					"E": {
-						"price": "1500",
-						"id": "EM-005",
-						"name": "Visine Original"
-						
-					},
-					"F": {
-						"price": "1700",
-						"id": "EM-005",
-						"name": "FML Forte Liquifilm"
-						
-					}
-				},
-				"specialities/eye/spical_question": {
-					"050aade0-3176-11eb-977a-57c697311f58": {
-						"question": "Have you peed today?",
-						"id": "sq001"
-						
-					},
-					"05184270-3176-11eb-977a-57c697311f58": {
-						"question": "How do you feel?",
-						"id": "sq002"
-						
-					},
-					"05238d10-3176-11eb-977a-57c697311f58": {
-						"id": "sq003",
-						"question": "Do you wear glasses?"
-						
-					},
-					"05334480-3176-11eb-977a-57c697311f58": {
-						"id": "sq004",
-						"question": "Have you had eye drops before?"
-						
-					},
-					"05421190-3176-11eb-977a-57c697311f58": {
-						"id": "sq005",
-						"question": "Do you have a list of medication you take?"
-						
-					},
-					"c1c68680-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Have you peed today?",
-						"id": "sq001"
-						
-					},
-					"c1d3f400-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "How do you feel?",
-						"id": "sq002"
-					},
-					"c1e09e30-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "Do you wear glasses?"
-						
-					},
-					"c1eb9ab0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq004",
-						"question": "Have you had eye drops before?"
-						
-					},
-					"c1f92f40-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq005",
-						"question": "Do you have a list of medication you take?"
-						
-					}
-				}
-			}
-		},
-		"general physician": {
-			"name": "အထွေထွေရောဂါဆိုင်ရာ",
-			"photo": "",
-			"id": "sp007",
-			"subCollection": {
-				"specialities/general physician/frequently_medicine": {
-					"A": {
-						"id": "GM-001",
-						"price": "1200",
-						"name": "Decogen"
-						
-					},
-					"B": {
-						"id": "GM-002",
-						"name": "Decogen fort",
-						"price": "800"
-						
-					},
-					"C": {
-						"id": "GM-003",
-						"price": "250",
-						"name": "Fluza"
-						
-					},
-					"D": {
-						"price": "1000",
-						"name": "Mixagrip",
-						"id": "GM-004"
-						
-					},
-					"E": {
-						"id": "GM-005",
-						"name": "Paracap",
-						"price": "450"
-						
-					},
-					"F": {
-						"price": "500",
-						"name": "Gofen",
-						"id": "GM-006"
-						
-					}
-				},
-				"specialities/general physician/spical_question": {
-					"07a52ee0-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "How do you feel?"
-						
-					},
-					"07b1d910-3176-11eb-977a-57c697311f58": {
-						"question": "Tell about your medication?",
-						"id": "sq002"
-						
-					},
-					"07bd98e0-3176-11eb-977a-57c697311f58": {
-						"question": "How long it happends?",
-						"id": "sq003"
-						
-					},
-					"c46a2f40-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "How do you feel?",
-						"id": "sq001"
-						
-					},
-					"c47552d0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Tell about your medication?",
-						"id": "sq002"
-						
-					},
-					"c480eb90-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "How long it happends?"
-						
-					}
-				}
-			}
-		},
-		"internal": {
-			"photo": "",
-			"name": "Internal Medicine",
-			"id": "sp0011",
-			"subCollection": {
-				"specialities/internal/frequently_medicine": {
-					"A": {
-						"price": "100",
-						"name": "Valium",
-						"id": "IM-001"
-						
-					},
-					"B": {
-						"name": "Halcion",
-						"price": "100",
-						"id": "IM-002"
-						
-					},
-					"C": {
-						"name": "Sonata",
-						"id": "IM-003",
-						"price": "100"
-						
-					},
-					"D": {
-						"price": "100",
-						"name": "Ativan",
-						"id": "IM-004"
-						
-					},
-					"E": {
-						"price": "100",
-						"id": "IM-005",
-						"name": "Vistaril"
-						
-					},
-					"F": {
-						"id": "IM-006",
-						"name": "Versed",
-						"price": "100"
-						
-					}
-				},
-				"specialities/internal/spical_question": {
-					"093d0cf0-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "spical question one"
-						
-					},
-					"0947bb50-3176-11eb-977a-57c697311f58": {
-						"question": "spical question two",
-						"id": "sq002"
-						
-					},
-					"095269b0-3176-11eb-977a-57c697311f58": {
-						"id": "sq003",
-						"question": "spical question three"
-						
-					},
-					"c61ce850-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "spical question one",
-						"id": "sq001"
-						
-					},
-					"c6280be0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "spical question two",
-						"id": "sq002"
-						
-					},
-					"c6326c20-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "spical question three",
-						"id": "sq003"
-						
-					}
-				}
-			}
-		},
-		"neurologist": {
-			"name": "အာရုံကြောအထူးကု",
-			"id": "sp0010",
-			"photo": "",
-			"subCollection": {
-				"specialities/neurologist/frequently_medicine": {
-					"A": {
-						"price": "100",
-						"name": "Valium",
-						"id": "001"
-						
-					},
-					"B": {
-						"id": "002",
-						"price": "100",
-						"name": "Halcion"
-						
-					},
-					"C": {
-						"name": "Sonata",
-						"price": "100",
-						"id": "003"
-						
-					},
-					"D": {
-						"price": "100",
-						"name": "Ativan",
-						"id": "003"
-						
-					},
-					"E": {
-						"name": "Vistaril",
-						"price": "100",
-						"id": "003"
-						
-					},
-					"F": {
-						"id": "003",
-						"name": "Versed",
-						"price": "100"
-						
-					}
-				},
-				"specialities/neurologist/spical_question": {
-					"08d46010-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "spical question one"
-						
-					},
-					"08df0e70-3176-11eb-977a-57c697311f58": {
-						"id": "sq002",
-						"question": "spical question two"
-						
-					},
-					"08e947a0-3176-11eb-977a-57c697311f58": {
-						"id": "sq003",
-						"question": "spical question three"
-						
-					},
-					"c5ac4c30-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "spical question one",
-						"id": "sq001"
-						
-					},
-					"c5b748b0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "spical question two",
-						"id": "sq002"
-						
-					},
-					"c5c1f710-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "spical question three"
-						
-					}
-				}
-			}
-		},
-		"nutritionsts": {
-			"photo": "",
-			"id": "sp006",
-			"name": "အဟာရဆိုင်ရာ",
-			"subCollection": {
-				"specialities/nutritionsts/frequently_medicine": {
-					"A": {
-						"name": "Betex",
-						"price": "1600",
-						"id": "001"
-						
-					},
-					"B": {
-						"name": "Enervon C",
-						"price": "900",
-						"id": "002"
-						
-					},
-					"C": {
-						"id": "003",
-						"name": "Ferrofort",
-						"price": "1800"
-						
-					},
-					"D": {
-						"price": "1000",
-						"id": "003",
-						"name": "Ferrovit"
-						
-					},
-					"E": {
-						"price": "800",
-						"id": "003",
-						"name": "Nutrivita"
-						
-					},
-					"F": {
-						"price": "5000",
-						"name": "Provimin",
-						"id": "003"
-					}
-				},
-				"specialities/nutritionsts/spical_question": {
-					"06d4bf80-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "What did you have for breakfast?"
-						
-					},
-					"06e2f050-3176-11eb-977a-57c697311f58": {
-						"id": "sq002",
-						"question": "How would you describe your diet?"
-						
-					},
-					"06ee3af0-3176-11eb-977a-57c697311f58": {
-						"question": "What does a healthy diet look like to you?",
-						"id": "sq003"
-						
-					},
-					"06f91060-3176-11eb-977a-57c697311f58": {
-						"id": "sq004",
-						"question": "How many servings of fruits and vegetables do you have per day?"
-						
-					},
-					"0745f7e0-3176-11eb-977a-57c697311f58": {
-						"question": "How often do you eat fish?",
-						"id": "sq005"
-						
-					},
-					"07507f30-3176-11eb-977a-57c697311f58": {
-						"question": "What medications are you taking?",
-						"id": "sq006"
-						
-					},
-					"c3d20df0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq001",
-						"question": "What did you have for breakfast?"
-						
-					},
-					"c3dcbc50-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "How would you describe your diet?",
-						"id": "sq002"
-						
-					},
-					"c3e7dfe0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "What does a healthy diet look like to you?",
-						"id": "sq003"
-						
-					},
-					"c3f4d830-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "How many servings of fruits and vegetables do you have per day?",
-						"id": "sq004"
-						
-					},
-					"c4018260-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "How often do you eat fish?",
-						"id": "sq005"
-						
-					},
-					"c40e0580-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq006",
-						"question": "What medications are you taking?"
-						
-					}
-				}
-			}
-		},
-		"obstetricians": {
-			"name": "သားဖွားမီးယပ်အထူးကု",
-			"id": "sp008",
-			"photo": "",
-			"subCollection": {
-				"specialities/obstetricians/frequently_medicine": {
-					"A": {
-						"name": "Misoprostol",
-						"price": "3000",
-						"id": "OM-001"
-						
-					},
-					"B": {
-						"id": "OM-002",
-						"name": "Dinoprostone",
-						"price": "1700"
-						
-					},
-					"C": {
-						"name": "Carbetocin100mcg/m",
-						"price": "1200",
-						"id": "OM-003"
-						
-					}
-				},
-				"specialities/obstetricians/spical_question": {
-					"08122180-3176-11eb-977a-57c697311f58": {
-						"question": "Are you pregnant?",
-						"id": "sq001"
-					},
-					"08247100-3176-11eb-977a-57c697311f58": {
-						"id": "sq002",
-						"question": "Are you breastfeeding?"
-						
-					},
-					"c4d8f6a0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Are you pregnant?",
-						"id": "sq001"
-						
-					},
-					"c4e46850-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq002",
-						"question": "Are you breastfeeding?"
-						
-					}
-				}
-			}
-		},
-		"reproduction": {
-			"photo": "",
-			"name": "မျိုးပွားခြင်းဆိုင်ရာ",
-			"id": "sp0012",
-			"subCollection": {
-				"specialities/reproduction/frequently_medicine": {
-					"A": {
-						"name": "Valium",
-						"price": "100",
-						"id": "RM-001"
-						
-					},
-					"B": {
-						"name": "Halcion",
-						"id": "RM-002",
-						"price": "100"
-					},
-					"C": {
-						"id": "RM-003",
-						"name": "Sonata",
-						"price": "100"
-						
-					},
-					"D": {
-						"name": "Ativan",
-						"id": "RM-004",
-						"price": "100"
-						
-					},
-					"E": {
-						"id": "RM-005",
-						"name": "Vistaril",
-						"price": "100"
-						
-					},
-					"F": {
-						"name": "Versed",
-						"price": "100",
-						"id": "RM-006"
-						
-					}
-				},
-				"specialities/reproduction/spical_question": {
-					"0a0a6f10-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "spical question one"
-						
-					},
-					"0a156b90-3176-11eb-977a-57c697311f58": {
-						"question": "spical question two",
-						"id": "sq002"
-						
-					},
-					"0a208f20-3176-11eb-977a-57c697311f58": {
-						"question": "spical question three",
-						"id": "sq003"
-						
-					},
-					"c68c4bf0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq001",
-						"question": "spical question one"
-						
-					},
-					"c69859e0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq002",
-						"question": "spical question two"
-						
-					},
-					"c6a30840-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "spical question three"
-						
-					}
-				}
-			}
-		},
-		"skin specialist": {
-			"id": "sp009",
-			"name": "အရေပြားဆိုင်ရာ",
-			"photo": "",
-			"subCollection": {
-				"specialities/skin specialist/frequently_medicine": {
-					"A": {
-						"id": "001",
-						"price": "1000",
-						"name": "Tretinoin"
-						
-					},
-					"B": {
-						"id": "002",
-						"name": "Beta-hydroxy acid",
-						"price": "1200"
-						
-					},
-					"C": {
-						"name": "Hydroquinone",
-						"price": "1800",
-						"id": "003"
-						
-					},
-					"D": {
-						"id": "004",
-						"price": "1200",
-						"name": "Propecia"
-						
-					},
-					"E": {
-						"price": "1300",
-						"id": "005",
-						"name": "Vaniqa"
-						
-					}
-				},
-				"specialities/skin specialist/spical_question": {
-					"08591590-3176-11eb-977a-57c697311f58": {
-						"id": "sq001",
-						"question": "What are you skin goals?"
-						
-					},
-					"08646030-3176-11eb-977a-57c697311f58": {
-						"id": "sq002",
-						"question": "Are you talking any medication, supplements are vitamins?"
-						
-					},
-					"086f5cb0-3176-11eb-977a-57c697311f58": {
-						"question": "Tell me about your diet and your water intake?",
-						"id": "sq003"
-						
-					},
-					"087a3220-3176-11eb-977a-57c697311f58": {
-						"question": "Tell me about your current regimen",
-						"id": "sq004"
-						
-					},
-					"0886dc50-3176-11eb-977a-57c697311f58": {
-						"question": "Is your skin usually oily, dry or normal?",
-						"id": "sq005"
-						
-					},
-					"c5251ad0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "What are you skin goals?",
-						"id": "sq001"
-					},
-					"c530daa0-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq002",
-						"question": "Are you talking any medication, supplements are vitamins?"
-						
-					},
-					"c53bd720-3175-11eb-be54-d1c7d7cf7588": {
-						"id": "sq003",
-						"question": "Tell me about your diet and your water intake?"
-						
-					},
-					"c546fab0-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Tell me about your current regimen",
-						"id": "sq004"
-						
-					},
-					"c5526c60-3175-11eb-be54-d1c7d7cf7588": {
-						"question": "Is your skin usually oily, dry or normal?",
-						"id": "sq005"
-						
-					}
-				}
-			}
-		}
-	},
-	"patient": {
-		"0b9f8e00-3176-11eb-977a-57c697311f58": {
-			"weight": "165lb",
-			"blood_type": "A",
-			"id": "p0001",
-			"photo": "",
-			"height": "5.8ft",
-			"date_time": {
-				"_seconds": 1606584600,
-				"_nanoseconds": 0
-			},
-			"dob": "",
-			"name": "",
-			"deviceId": "",
-			"email": "",
-			"blood_pressure": "\"90/50mmg\"",
-			"allergic_medicine": "\"\"",
-			"subCollection": {
-				"patient/0b9f8e00-3176-11eb-977a-57c697311f58/general_question": {
-					"0baaffb0-3176-11eb-977a-57c697311f58": {
-						"question": [{
-							"question": "\"qq\"",
-							"answer": "\"ans\""
-						}, {
-							"answer": "\"anwertwo\"",
-							"question": "\"qtwo\""
-						}]
-					}
-				},
-				"patient/0b9f8e00-3176-11eb-977a-57c697311f58/recently_doctor": {
-					"0bb62340-3176-11eb-977a-57c697311f58": {
-						"address": "",
-						"degree": "",
-						"experience": "",
-						"phone": "\"0972837277\"",
-						"photo": "",
-						"biography": "",
-						"id": "d0001",
-						"spiciality": "dentists",
-						"name": "Dr.Mg Ice",
-						"email": "\"dcotor@gmail.com\""
-					}
-				}
-			}
-		},
-		"c8111730-3175-11eb-be54-d1c7d7cf7588": {
-			"age": "20",
-			"gender": "male",
-			"email": "patient@gmail.com",
-			"address": "",
-			"id": "p0001",
-			"name": "patient",
-			"phone": "097827326378",
-			"dob": "",
-			"subCollection": {
-				"patient/c8111730-3175-11eb-be54-d1c7d7cf7588/general_question": {
-					"c81b2950-3175-11eb-be54-d1c7d7cf7588": {
-						"type": "one-time",
-						"question": "what is your date of birth?",
-						"id": "ot001"
-					}
-				},
-				"patient/c8111730-3175-11eb-be54-d1c7d7cf7588/recently_doctor": {
-					"c82a6b90-3175-11eb-be54-d1c7d7cf7588": {
-						"degree": "",
-						"address": "",
-						"experience": "",
-						"photo": "",
-						"id": "d0001",
-						"spiciality": "dentists",
-						"biography": "",
-						"name": "Dr.Mg Ice"
-					}
-				}
-			}
-		}
-	},
-	"general_question_template": {
-		"0a6debd0-3176-11eb-977a-57c697311f58": {
-			"type": "one-time",
-			"question": "what is your date of birth?",
-			"id": "ot001"
-		},
-		"0a789a30-3176-11eb-977a-57c697311f58": {
-			"type": "one-time",
-			"id": "ot002",
-			"question": "Are there any allergies?"
-		},
-		"0a834890-3176-11eb-977a-57c697311f58": {
-			"question": "How tall are you?",
-			"type": "one-time",
-			"id": "ot003"
-		},
-		"0a8ee150-3176-11eb-977a-57c697311f58": {
-			"question": "how old are you",
-			"type": "one_time",
-			"id": "ot004"
-		},
-		"0a9a5300-3176-11eb-977a-57c697311f58": {
-			"question": "Are you allergic to any medicines?",
-			"type": "one_time",
-			"id": "ot005"
-		},
-		"0aa660f0-3176-11eb-977a-57c697311f58": {
-			"id": "ot006",
-			"type": "one_time",
-			"question": "Do you have any allergies?"
-		},
-		"0ab1f9b0-3176-11eb-977a-57c697311f58": {
-			"question": "Are you allergic to antibiotics?",
-			"id": "ot006",
-			"type": "one_time"
-		},
-		"0ac114e0-3176-11eb-977a-57c697311f58": {
-			"type": "one-time",
-			"id": "alw001",
-			"question": "what is your blood type?"
-		},
-		"0acc5f80-3176-11eb-977a-57c697311f58": {
-			"question": "what is your blood pressure?",
-			"id": "alw002",
-			"type": "always"
-		},
-		"0ad78310-3176-11eb-977a-57c697311f58": {
-			"question": "How much do you weight",
-			"id": "alw003",
-			"type": "always"
-		},
-		"0ae19530-3176-11eb-977a-57c697311f58": {
-			"type": "always",
-			"id": "alw004",
-			"question": "Do you need pain relief?"
-		},
-		"0aed06e0-3176-11eb-977a-57c697311f58": {
-			"id": "alw005",
-			"type": "always",
-			"question": "How long ago did it happened?"
-		},
-		"0af82a70-3176-11eb-977a-57c697311f58": {
-			"id": "alw006",
-			"type": "always",
-			"question": "Does it still hurt?"
-		},
-		"0b02ffe0-3176-11eb-977a-57c697311f58": {
-			"question": "Do you feel warm?",
-			"type": "always",
-			"id": "alw007"
-		},
-		"0b0dfc60-3176-11eb-977a-57c697311f58": {
-			"id": "alw008",
-			"type": "always",
-			"question": "Do you feel cold?"
-		},
-		"0b489460-3176-11eb-977a-57c697311f58": {
-			"id": "alw009",
-			"type": "always",
-			"question": "Do you feel tried?"
-		},
-		"0b53b7f0-3176-11eb-977a-57c697311f58": {
-			"id": "ot0010",
-			"question": "Do you have a list of medication you take?",
-			"type": "always"
-		},
-		"0b5e1830-3176-11eb-977a-57c697311f58": {
-			"type": "always",
-			"id": "ot0011",
-			"question": "Do you have a headache?"
-		},
-		"0b6df6b0-3176-11eb-977a-57c697311f58": {
-			"question": "Do you feel dizzy?",
-			"id": "ot0012",
-			"type": "always"
-		},
-		"0b7f0db0-3176-11eb-977a-57c697311f58": {
-			"type": "always",
-			"id": "ot0013",
-			"question": "have you vomited?"
-		},
-		"0b89bc10-3176-11eb-977a-57c697311f58": {
-			"id": "ot0014",
-			"question": "Have you pooped today?",
-			"type": "always"
-		},
-		"c6f0da20-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "ot001",
-			"type": "one-time",
-			"question": "what is your date of birth?"
-		},
-		"c6fc24c0-3175-11eb-be54-d1c7d7cf7588": {
-			"question": "Are there any allergies?",
-			"id": "ot002",
-			"type": "one-time"
-		},
-		"c706d320-3175-11eb-be54-d1c7d7cf7588": {
-			"question": "How tall are you?",
-			"id": "ot003",
-			"type": "one-time"
-		},
-		"c7115a70-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "ot004",
-			"type": "one_time",
-			"question": "how old are you"
-		},
-		"c71d6860-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "one_time",
-			"id": "ot005",
-			"question": "Are you allergic to any medicines?"
-		},
-		"c728da10-3175-11eb-be54-d1c7d7cf7588": {
-			"question": "Do you have any allergies?",
-			"id": "ot006",
-			"type": "one_time"
-		},
-		"c7336160-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "ot006",
-			"type": "one_time",
-			"question": "Are you allergic to antibiotics?"
-		},
-		"c73e36d0-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "one-time",
-			"id": "alw001",
-			"question": "what is your blood type?"
-		},
-		"c749cf90-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "alw002",
-			"type": "always",
-			"question": "what is your blood pressure?"
-		},
-		"c754f320-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "always",
-			"question": "How much do you weight",
-			"id": "alw003"
-		},
-		"c76064d0-3175-11eb-be54-d1c7d7cf7588": {
-			"question": "Do you need pain relief?",
-			"id": "alw004",
-			"type": "always"
-		},
-		"c76b8860-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "always",
-			"question": "How long ago did it happened?",
-			"id": "alw005"
-		},
-		"c7760fb0-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "alw006",
-			"question": "Does it still hurt?",
-			"type": "always"
-		},
-		"c780be10-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "always",
-			"id": "alw007",
-			"question": "Do you feel warm?"
-		},
-		"c78c08b0-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "always",
-			"question": "Do you feel cold?",
-			"id": "alw008"
-		},
-		"c7c679a0-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "alw009",
-			"question": "Do you feel tried?",
-			"type": "always"
-		},
-		"c7d0d9e0-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "ot0010",
-			"question": "Do you have a list of medication you take?",
-			"type": "always"
-		},
-		"c7dbfd70-3175-11eb-be54-d1c7d7cf7588": {
-			"type": "always",
-			"question": "Do you have a headache?",
-			"id": "ot0011"
-		},
-		"c7e6f9f0-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "ot0012",
-			"type": "always",
-			"question": "Do you feel dizzy?"
-		},
-		"c7f1a850-3175-11eb-be54-d1c7d7cf7588": {
-			"question": "have you vomited?",
-			"id": "ot0013",
-			"type": "always"
-		},
-		"c7fca4d0-3175-11eb-be54-d1c7d7cf7588": {
-			"id": "ot0014",
-			"type": "always",
-			"question": "Have you pooped today?"
-		}
-	},
-	"doctors": {
-		"0b949180-3176-11eb-977a-57c697311f58": {
-			"address": "",
-			"biography": "",
-			"speciality": "dentists",
-			"photo": "",
-			"experience": "",
-			"name": "Dr.Mg Ice",
-			"email": "\"aung@gmail\"",
-			"phone": "0977483733",
-			"id": "d0001",
-			"degree": "",
-			"deviceId": ""
-		}
-	},
-	"consultation_request": {
-		"0bc146d0-3176-11eb-977a-57c697311f58": {
-			"date_time": {
-				"_seconds": 1606498200,
-				"_nanoseconds": 0
-			},
-			"case_summary": [{
-				"answer": "ans",
-				"question": "\"\""
-			}],
-			"speciality": "dentist",
-			"patient": {
-				"gender": "male",
-				"id": "p0001",
-				"address": "",
-				"blood_type": "A",
-				"age": "20",
-				"name": "",
-				"height": "5.8ft",
-				"blood_pressure": "90/50mmHg",
-				"dob": ""
-			},
-			"cr_id": "cr0001"
-		}
-	},
-	"consultation_chat": {
-		"0bda7420-3176-11eb-977a-57c697311f58": {
-			"patient": {
-				"photo": "\"\"",
-				"height": "\"5.8ft\"",
-				"age": "20",
-				"weight": "156lb",
-				"blood_pressure": "\"90/50mmHg\"",
-				"name": "",
-				"id": "p0001",
-				"allergic_medicine": "\"\"",
-				"email": "\"patient@gmail.com\"",
-				"address": "",
-				"dob": ""
-			},
-			"case_summary": [{
-				"question": "aa",
-				"answer": "bb"
-			}],
-			"id": "cc0001",
-			"doctor": {
-				"address": "",
-				"biography": "",
-				"spiciality": "dentists",
-				"photo": "",
-				"experience": "",
-				"name": "Dr.Mg Ice",
-				"email": "\"aung@gmail\"",
-				"phone": "0977483733",
-				"id": "d0001",
-				"degree": "",
-				"deviceId": ""
-			},
-			"subCollection": {
-				"consultation_chat/0bda7420-3176-11eb-977a-57c697311f58/message": {
-					"0be633f0-3176-11eb-977a-57c697311f58": {
-						"messageText": "hello doctor",
-						"sentBy": {
-							"photo": "",
-							"name": "Dr.Mg Ice",
-							"id": "d0001"
-						},
-						"sentAt": "",
-						"messageImage": ""
-					},
-					"0bf1ccb0-3176-11eb-977a-57c697311f58": {
-						"messageText": "hello patient",
-						"messageImage": "",
-						"sentBy": {
-							"photo": "",
-							"name": "Dr.Mg Ice",
-							"id": "d0001"
-
-						},
-						"sentAt": ""
-					}
-				},
-				"consultation_chat/0bda7420-3176-11eb-977a-57c697311f58/prescription": {
-					"0bfcc930-3176-11eb-977a-57c697311f58": {
-						"routine": {
-							"tab": "1 tablet",
-							"days": "3 days",
-							"note": "take it after meal",
-							"repeat": "every day",
-							"times": "Morning/Noon/Evening"
-						},
-						"medicine_name": "\"decogen\"",
-						"total-times": "",
-						"days": "3",
-						"id": "M-001"
-					}
-				}
-			}
-		}
-	},
-	"checkout": {
-		"0c094c50-3176-11eb-977a-57c697311f58": {
-			"total_price": 3000,
-			"address": "kamaryut",
-			"doctor": {},
-			"patient": {},
-			"ch_id": "ch00001",
-			"delivery_routine": {
-				"id": "\"dr001\"",
-				"deli_time": ""
-			},
-			"prescription": [{
-				"price": "10000",
-				"medicine_name": "\"\"",
-				"count": "3"
-			}]
-		}
-	}
+  "specialities": {
+    "cardiologist": {
+      "name": "နှလုံးအထူးကု",
+      "id": "sp004",
+      "photo": "",
+      "subCollection": {
+        "specialities/cardiologist/frequently_medicine": {
+          "A": {
+            "id": "CM-001",
+            "price": "1000",
+            "name": "Acebutolol"
+          },
+          "B": {
+            "id": "CM-002",
+            "name": "Atenolol",
+            "price": "1000"
+          },
+          "C": {
+            "id": "CM-003",
+            "price": "1500",
+            "name": "Betaxolol"
+          },
+          "D": {
+            "id": "CM-004",
+            "name": "Bisoprolol",
+            "price": "1800"
+          },
+          "E": {
+            "id": "CM-005",
+            "price": "1000",
+            "name": "Metoprolol"
+          },
+          "F": {
+            "id": "CM-006",
+            "name": "Nadolol",
+            "price": "1200"
+          }
+        },
+        "specialities/cardiologist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "သင့်မှာနှလုံးခုန်နှုန်းထိန်းပေးထားတဲ့ pacemaker ရှိပါသလား?"
+          },
+          {
+            "question": "သင့်ကိုယ်ခန္ဓာတွင်သတ္တုတစ်မျိုးကိုထည့်သွင်းထားပါသလား?",
+            "id": "sq002"
+          },
+          {
+            "question": "သင်ခွဲစိတ်ကုသမှုခံယူဖူးပါသလား?",
+            "id": "sq003"
+          },
+          {
+            "question": "ရင်ဘတ်ကို ဆွဲဆုတ်ထားသကဲ့သို့ နာကျင်ခြင်း ဖြစ်ပါလား?",
+            "id": "sq004"
+          },
+          {
+            "id": "sq005",
+            "question": "ရင်ဘတ်ကို မီးစနဲ့ ထိုးသကဲ့သို့ နာကျင်ခြင်း ဖြစ်ပါသလား?"
+          },
+          {
+            "question": "မောပန်းနွမ်းနယ်တာ ဖြစ်လား?",
+            "id": "sq006"
+          },
+          {
+            "question": "အိပ်လို့ ပျော်လား?",
+            "id": "sq007"
+          },
+          {
+            "question": "အသက်ရှူရ ခက်ခဲလား?",
+            "id": "sq008"
+          }
+        ]
+      }
+    },
+    "children": {
+      "name": "ကလေးအထူးကု",
+      "id": "sp003",
+      "photo": "",
+      "subCollection": {
+        "specialities/children/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "name": "Valium",
+            "price": "100"
+          },
+          "B": {
+            "name": "Halcion",
+            "price": "100",
+            "id": "002"
+          },
+          "C": {
+            "price": "100",
+            "id": "003",
+            "name": "Sonata"
+          },
+          "D": {
+            "name": "Ativan",
+            "id": "004",
+            "price": "100"
+          },
+          "E": {
+            "id": "005",
+            "price": "100",
+            "name": "Vistaril"
+          },
+          "F": {
+            "id": "006",
+            "name": "Versed",
+            "price": "100"
+          }
+        },
+        "specialities/children/spical_question": [
+          {
+            "question": "ကိုယ်ပူလား?",
+            "id": "sq001"
+          },
+          {
+            "question": "ချောင်းဆိုးလား?",
+            "id": "sq002"
+          }
+        ]
+      }
+    },
+    "dentist": {
+      "id": "sp001",
+      "name": "သွားဘက်ဆိုင်ရာ",
+      "photo": "",
+      "subCollection": {
+        "specialities/dentist/frequently_medicine": {
+          "A": {
+            "name": "Valium",
+            "count": "0",
+            "photo": "",
+            "id": "DM-001",
+            "price": "1000"
+          },
+          "B": {
+            "id": "DM-002",
+            "price": "1200",
+            "photo": "",
+            "name": "Halcion",
+            "count": "0"
+          },
+          "C": {
+            "id": "DM-003",
+            "photo": "",
+            "name": "Sonata",
+            "price": "1100"
+          },
+          "D": {
+            "price": "1200",
+            "id": "DM-004",
+            "name": "Ativan"
+          },
+          "E": {
+            "id": "DM-005",
+            "name": "Vistaril",
+            "price": "1500"
+          },
+          "F": {
+            "id": "DM-006",
+            "price": "1800",
+            "name": "Versed"
+          }
+        },
+        "specialities/dentist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "သင့်မှာအထိခိုက်မခံတဲ့သွားတွေရှိလား?"
+          },
+          {
+            "id": "sq002",
+            "question": "သွား ရောင်နေလား?"
+          },
+          {
+            "id": "sq003",
+            "question": "သွား ရေစီးကမ်းပြိုမှုရှိလား?"
+          },
+          {
+            "id": "sq004",
+            "question": "မေးရိုးနာကျင်မှု ရှိလား?"
+          },
+          {
+            "id": "sq005",
+            "question": "သွားဖုံးရောင်တာလား?"
+          },
+          {
+            "question": "ကိုက်ခဲမှုရှိလား?",
+            "id": "sq006"
+          },
+          {
+            "id": "sq007",
+            "question": "သွားနှင့်ခံတွင်းဆိုင်ရာ ကိုမကြာခဏ စစ်ဆေးလေ့ရှိသလာ?"
+          },
+          {
+            "question": "သွားနှင့်ခံတွင်းဆိုင်ရာ ကိုမကြာခဏ ကုသမှုခံယူဖူးပါသလား?",
+            "id": "sq008"
+          },
+          {
+            "question": "နောက်ဆုံးကုသမှုကြာချိန်?",
+            "id": "sq008"
+          }
+        ]
+      }
+    },
+    "ear,nose": {
+      "id": "sp005",
+      "name": "နား,နှာခေါင်းလည်းချောင်းဆိုင်ရာ",
+      "photo": "",
+      "subCollection": {
+        "specialities/ear,nose/frequently_medicine": {
+          "A": {
+            "name": "Beclometasone",
+            "price": "1000",
+            "id": "001"
+          },
+          "B": {
+            "id": "002",
+            "name": "Benzydamine",
+            "price": "1200"
+          },
+          "C": {
+            "price": "1200",
+            "id": "003",
+            "name": "Cinnarizine"
+          }
+        },
+        "specialities/ear,nose/spical_question": [
+          {
+            "question": "နား, နှာခေါင်း, လည်ချောင်းဆိုင်ရာ ကိုမကြာခဏ စစ်ဆေးလေ့ရှိသလာ?",
+            "id": "sq001"
+          },
+          {
+            "id": "sq002",
+            "question": "သင့်မှာနှာရည်ယိုနေလား?"
+          },
+          {
+            "question": "နား, နှာခေါင်း, လည်ချောင်းဆိုင်ရာ ကိုမကြာခဏ ကုသမှုခံယူဖူးသလား?",
+            "id": "sq003"
+          },
+          {
+            "id": "sq004",
+            "question": "လည်ချောင်းယားပြီး ချောင်းခြောက်ဆိုးလား?"
+          },
+          {
+            "question": "နောက်ဆုံးကုသမှုကြာချိန်?",
+            "id": "sq005"
+          },
+          {
+            "id": "sq006",
+            "question": "လည်ချောင်းယားတာလား?"
+          }
+        ]
+      }
+    },
+    "eye": {
+      "id": "sp002",
+      "photo": "",
+      "name": "မျက်စိအထူးကု",
+      "subCollection": {
+        "specialities/eye/frequently_medicine": {
+          "A": {
+            "id": "EM-001",
+            "name": "Maxitrol",
+            "price": "1000"
+          },
+          "B": {
+            "id": "EM-002",
+            "name": "Blephamide",
+            "price": "1200"
+          },
+          "C": {
+            "id": "EM-003",
+            "name": "Fluorometholone",
+            "price": "800"
+          },
+          "D": {
+            "name": "Naphazoline",
+            "id": "EM-004",
+            "price": "1800"
+          },
+          "E": {
+            "price": "1500",
+            "id": "EM-005",
+            "name": "Visine Original"
+          },
+          "F": {
+            "price": "1700",
+            "id": "EM-005",
+            "name": "FML Forte Liquifilm"
+          }
+        },
+        "specialities/eye/spical_question": [
+          {
+            "question": "သင်မျက်မှန်တပ်ပါသလား?",
+            "id": "sq001"
+          },
+          {
+            "question": "မျက်လုံး ဆိုင်ရာ ကိုမကြာခဏ စစ်ဆေးလေ့ရှိသလာ",
+            "id": "sq002"
+          },
+          {
+            "id": "sq003",
+            "question": "မျက်လုံး ဆိုင်ရာ ကိုမကြာခဏ ကုသမှုခံယူဖူးပါသလား?"
+          },
+          {
+            "id": "sq004",
+            "question": "မျက်စဉ်းဆေး သုံးပါသလား?"
+          },
+          {
+            "id": "sq005",
+            "question": "နောက်ဆုံးကုသ ခဲ့တဲ့ကြာချိန်?"
+          },
+          {
+            "question": "မျက်လုံး ဆလင်ဒါ ရှိပါသလား?",
+            "id": "sq006"
+          }
+        ]
+      }
+    },
+    "general physician": {
+      "name": "အထွေထွေရောဂါဆိုင်ရာ",
+      "photo": "",
+      "id": "sp007",
+      "subCollection": {
+        "specialities/general physician/frequently_medicine": {
+          "A": {
+            "id": "GM-001",
+            "price": "1200",
+            "name": "Decogen"
+          },
+          "B": {
+            "id": "GM-002",
+            "name": "Decogen fort",
+            "price": "800"
+          },
+          "C": {
+            "id": "GM-003",
+            "price": "250",
+            "name": "Fluza"
+          },
+          "D": {
+            "price": "1000",
+            "name": "Mixagrip",
+            "id": "GM-004"
+          },
+          "E": {
+            "id": "GM-005",
+            "name": "Paracap",
+            "price": "450"
+          },
+          "F": {
+            "price": "500",
+            "name": "Gofen",
+            "id": "GM-006"
+          }
+        },
+        "specialities/general physician/spical_question": [
+          {
+            "id": "sq001",
+            "question": "How do you feel?"
+          },
+          {
+            "question": "Tell about your medication?",
+            "id": "sq002"
+          },
+          {
+            "question": "How long it happends?",
+            "id": "sq003"
+          },
+          {
+            "question": "How do you feel?",
+            "id": "sq001"
+          },
+          {
+            "question": "Tell about your medication?",
+            "id": "sq002"
+          },
+          {
+            "id": "sq003",
+            "question": "How long it happends?"
+          }
+        ]
+      }
+    },
+    "internal": {
+      "photo": "",
+      "name": "Internal Medicine",
+      "id": "sp0011",
+      "subCollection": {
+        "specialities/internal/frequently_medicine": {
+          "A": {
+            "price": "100",
+            "name": "Valium",
+            "id": "IM-001"
+          },
+          "B": {
+            "name": "Halcion",
+            "price": "100",
+            "id": "IM-002"
+          },
+          "C": {
+            "name": "Sonata",
+            "id": "IM-003",
+            "price": "100"
+          },
+          "D": {
+            "price": "100",
+            "name": "Ativan",
+            "id": "IM-004"
+          },
+          "E": {
+            "price": "100",
+            "id": "IM-005",
+            "name": "Vistaril"
+          },
+          "F": {
+            "id": "IM-006",
+            "name": "Versed",
+            "price": "100"
+          }
+        },
+        "specialities/internal/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "question": "spical question two",
+            "id": "sq002"
+          },
+          {
+            "id": "sq003",
+            "question": "spical question three"
+          },
+          {
+            "question": "spical question one",
+            "id": "sq004"
+          },
+          {
+            "question": "spical question two",
+            "id": "sq005"
+          },
+          {
+            "question": "spical question three",
+            "id": "sq006"
+          }
+        ]
+      }
+    },
+    "neurologist": {
+      "name": "အာရုံကြောအထူးကု",
+      "id": "sp0010",
+      "photo": "",
+      "subCollection": {
+        "specialities/neurologist/frequently_medicine": {
+          "A": {
+            "price": "100",
+            "name": "Valium",
+            "id": "001"
+          },
+          "B": {
+            "id": "002",
+            "price": "100",
+            "name": "Halcion"
+          },
+          "C": {
+            "name": "Sonata",
+            "price": "100",
+            "id": "003"
+          },
+          "D": {
+            "price": "100",
+            "name": "Ativan",
+            "id": "003"
+          },
+          "E": {
+            "name": "Vistaril",
+            "price": "100",
+            "id": "003"
+          },
+          "F": {
+            "id": "003",
+            "name": "Versed",
+            "price": "100"
+          }
+        },
+        "specialities/neurologist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "id": "sq002",
+            "question": "spical question two"
+          },
+          {
+            "id": "sq003",
+            "question": "spical question three"
+          },
+          {
+            "question": "spical question one",
+            "id": "sq004"
+          },
+          {
+            "question": "spical question two",
+            "id": "sq005"
+          },
+          {
+            "id": "sq006",
+            "question": "spical question three"
+          }
+        ]
+      }
+    },
+    "nutritionsts": {
+      "photo": "",
+      "id": "sp006",
+      "name": "အဟာရဆိုင်ရာ",
+      "subCollection": {
+        "specialities/nutritionsts/frequently_medicine": {
+          "A": {
+            "name": "Betex",
+            "price": "1600",
+            "id": "001"
+          },
+          "B": {
+            "name": "Enervon C",
+            "price": "900",
+            "id": "002"
+          },
+          "C": {
+            "id": "003",
+            "name": "Ferrofort",
+            "price": "1800"
+          },
+          "D": {
+            "price": "1000",
+            "id": "003",
+            "name": "Ferrovit"
+          },
+          "E": {
+            "price": "800",
+            "id": "003",
+            "name": "Nutrivita"
+          },
+          "F": {
+            "price": "5000",
+            "name": "Provimin",
+            "id": "003"
+          }
+        },
+        "specialities/nutritionsts/spical_question": [
+          {
+            "id": "sq001",
+            "question": "What did you have for breakfast?"
+          },
+          {
+            "id": "sq002",
+            "question": "How would you describe your diet?"
+          },
+          {
+            "question": "What does a healthy diet look like to you?",
+            "id": "sq003"
+          },
+          {
+            "id": "sq004",
+            "question": "How many servings of fruits and vegetables do you have per day?"
+          },
+          {
+            "question": "How often do you eat fish?",
+            "id": "sq005"
+          },
+          {
+            "question": "What medications are you taking?",
+            "id": "sq006"
+          },
+          {
+            "id": "sq007",
+            "question": "What did you have for breakfast?"
+          },
+          {
+            "question": "How would you describe your diet?",
+            "id": "sq008"
+          },
+          {
+            "question": "What does a healthy diet look like to you?",
+            "id": "sq009"
+          },
+          {
+            "question": "How many servings of fruits and vegetables do you have per day?",
+            "id": "sq0010"
+          },
+          {
+            "question": "How often do you eat fish?",
+            "id": "sq0011"
+          },
+          {
+            "id": "sq0012",
+            "question": "What medications are you taking?"
+          }
+        ]
+      }
+    },
+    "obstetricians": {
+      "name": "သားဖွားမီးယပ်အထူးကု",
+      "id": "sp008",
+      "photo": "",
+      "subCollection": {
+        "specialities/obstetricians/frequently_medicine": {
+          "A": {
+            "name": "Misoprostol",
+            "price": "3000",
+            "id": "OM-001"
+          },
+          "B": {
+            "id": "OM-002",
+            "name": "Dinoprostone",
+            "price": "1700"
+          },
+          "C": {
+            "name": "Carbetocin100mcg/m",
+            "price": "1200",
+            "id": "OM-003"
+          }
+        },
+        "specialities/obstetricians/spical_question": [
+          {
+            "question": "Are you pregnant?",
+            "id": "sq001"
+          },
+          {
+            "id": "sq002",
+            "question": "Are you breastfeeding?"
+          },
+          {
+            "question": "Are you pregnant?",
+            "id": "sq003"
+          },
+          {
+            "id": "sq004",
+            "question": "Are you breastfeeding?"
+          }
+        ]
+      }
+    },
+    "reproduction": {
+      "photo": "",
+      "name": "မျိုးပွားခြင်းဆိုင်ရာ",
+      "id": "sp0012",
+      "subCollection": {
+        "specialities/reproduction/frequently_medicine": {
+          "A": {
+            "name": "Valium",
+            "price": "100",
+            "id": "RM-001"
+          },
+          "B": {
+            "name": "Halcion",
+            "id": "RM-002",
+            "price": "100"
+          },
+          "C": {
+            "id": "RM-003",
+            "name": "Sonata",
+            "price": "100"
+          },
+          "D": {
+            "name": "Ativan",
+            "id": "RM-004",
+            "price": "100"
+          },
+          "E": {
+            "id": "RM-005",
+            "name": "Vistaril",
+            "price": "100"
+          },
+          "F": {
+            "name": "Versed",
+            "price": "100",
+            "id": "RM-006"
+          }
+        },
+        "specialities/reproduction/spical_question": [
+          {
+            "id": "sq001",
+            "question": "spical question one"
+          },
+          {
+            "question": "spical question two",
+            "id": "sq002"
+          },
+          {
+            "question": "spical question three",
+            "id": "sq003"
+          },
+          {
+            "id": "sq004",
+            "question": "spical question one"
+          },
+          {
+            "id": "sq005",
+            "question": "spical question two"
+          },
+          {
+            "id": "sq006",
+            "question": "spical question three"
+          }
+        ]
+      }
+    },
+    "skin specialist": {
+      "id": "sp009",
+      "name": "အရေပြားဆိုင်ရာ",
+      "photo": "",
+      "subCollection": {
+        "specialities/skin specialist/frequently_medicine": {
+          "A": {
+            "id": "001",
+            "price": "1000",
+            "name": "Tretinoin"
+          },
+          "B": {
+            "id": "002",
+            "name": "Beta-hydroxy acid",
+            "price": "1200"
+          },
+          "C": {
+            "name": "Hydroquinone",
+            "price": "1800",
+            "id": "003"
+          },
+          "D": {
+            "id": "004",
+            "price": "1200",
+            "name": "Propecia"
+          },
+          "E": {
+            "price": "1300",
+            "id": "005",
+            "name": "Vaniqa"
+          }
+        },
+        "specialities/skin specialist/spical_question": [
+          {
+            "id": "sq001",
+            "question": "What are you skin goals?"
+          },
+          {
+            "id": "sq002",
+            "question": "Are you talking any medication, supplements are vitamins?"
+          },
+          {
+            "question": "Tell me about your diet and your water intake?",
+            "id": "sq003"
+          },
+          {
+            "question": "Tell me about your current regimen",
+            "id": "sq004"
+          },
+          {
+            "question": "Is your skin usually oily, dry or normal?",
+            "id": "sq005"
+          },
+          {
+            "question": "What are you skin goals?",
+            "id": "sq006"
+          },
+          {
+            "id": "sq007",
+            "question": "Are you talking any medication, supplements are vitamins?"
+          },
+          {
+            "id": "sq008",
+            "question": "Tell me about your diet and your water intake?"
+          },
+          {
+            "question": "Tell me about your current regimen",
+            "id": "sq009"
+          },
+          {
+            "question": "Is your skin usually oily, dry or normal?",
+            "id": "sq0010"
+          }
+        ]
+      }
+    }
+  },
+  "patient": {
+    "0b9f8e00-3176-11eb-977a-57c697311f58": {
+      "weight": "165lb",
+      "blood_type": "A",
+      "id": "p0001",
+      "photo": "",
+      "height": "5.8ft",
+      "date_time": {
+        "_seconds": 1606584600,
+        "_nanoseconds": 0
+      },
+      "dob": "",
+      "name": "",
+      "deviceId": "",
+      "email": "",
+      "blood_pressure": "\"90/50mmg\"",
+      "allergic_medicine": "\"\"",
+      "subCollection": {
+        "patient/0b9f8e00-3176-11eb-977a-57c697311f58/general_question": {
+          "0baaffb0-3176-11eb-977a-57c697311f58": {
+            "question": [
+              {
+                "question": "\"qq\"",
+                "answer": "\"ans\""
+              },
+              {
+                "answer": "\"anwertwo\"",
+                "question": "\"qtwo\""
+              }
+            ]
+          }
+        },
+        "patient/0b9f8e00-3176-11eb-977a-57c697311f58/recently_doctor": {
+          "0bb62340-3176-11eb-977a-57c697311f58": {
+            "address": "",
+            "degree": "",
+            "experience": "",
+            "phone": "\"0972837277\"",
+            "photo": "",
+            "biography": "",
+            "id": "d0001",
+            "spiciality": "dentists",
+            "name": "Dr.Mg Ice",
+            "email": "\"dcotor@gmail.com\""
+          }
+        }
+      }
+    },
+    "c8111730-3175-11eb-be54-d1c7d7cf7588": {
+      "age": "20",
+      "gender": "male",
+      "email": "patient@gmail.com",
+      "address": "",
+      "id": "p0001",
+      "name": "patient",
+      "phone": "097827326378",
+      "dob": "",
+      "subCollection": {
+        "general_question": [
+          {
+            "type": "one-time",
+            "question": "what is your date of birth?",
+            "id": "ot001"
+          }
+        ],
+        "recently_doctor": [
+           {
+            "degree": "",
+            "address": "",
+            "experience": "",
+            "photo": "",
+            "id": "d0001",
+            "spiciality": "dentists",
+            "biography": "",
+            "name": "Dr.Mg Ice"
+          }
+        ]
+      }
+    }
+  },
+  "general_question_template": {
+    "0a6debd0-3176-11eb-977a-57c697311f58": {
+      "type": "one-time",
+      "question": "မွေးနေ့?",
+      "id": "ot001"
+    },
+    "0a789a30-3176-11eb-977a-57c697311f58": {
+      "type": "one-time",
+      "id": "ot002",
+      "question": "ဓာတ်မတည့်တာရှိပါလား?"
+    },
+    "0a834890-3176-11eb-977a-57c697311f58": {
+      "question": "သင်အရပ်ဘယ်လောက်မြင့်လဲ?",
+      "type": "one-time",
+      "id": "ot003"
+    },
+    "0a8ee150-3176-11eb-977a-57c697311f58": {
+      "question": "သင်အသက်ဘယ်လောက်လဲ?",
+      "type": "one_time",
+      "id": "ot004"
+    },
+    "0a9a5300-3176-11eb-977a-57c697311f58": {
+      "question": "သင်မည်သည့်ဆေးဝါးများနှင့်မတည့်ပါသလ?",
+      "type": "one_time",
+      "id": "ot005"
+    },
+    "0ac114e0-3176-11eb-977a-57c697311f58": {
+      "type": "always",
+      "id": "alw001",
+      "question": "သင့်သွေးအမျိုးအစားဘာပါလဲ?"
+    },
+    "0acc5f80-3176-11eb-977a-57c697311f58": {
+      "question": "သင့်ရဲ့သွေးပေါင်ချိန် ဘယ်လောက်လဲ?",
+      "id": "alw002",
+      "type": "always"
+    },
+    "0ad78310-3176-11eb-977a-57c697311f58": {
+      "question": "ကိုယ်အလေးချိန် ဘယ်လောက်လဲ?",
+      "id": "alw003",
+      "type": "always"
+    },
+    "0ae19530-3176-11eb-977a-57c697311f58": {
+      "type": "always",
+      "id": "alw004",
+      "question": "နာကျင်မှုသက်သာဖို့လိုပါသလား"
+    },
+    "0aed06e0-3176-11eb-977a-57c697311f58": {
+      "id": "alw005",
+      "type": "always",
+      "question": "ဘယ်လောက်ကြာပြီလဲ?"
+    },
+    "0af82a70-3176-11eb-977a-57c697311f58": {
+      "id": "alw006",
+      "type": "always",
+      "question": "နာနေဆဲလား?"
+    },
+    "0b02ffe0-3176-11eb-977a-57c697311f58": {
+      "question": "ကိုယ်ပူနေလား?",
+      "type": "always",
+      "id": "alw007"
+    },
+    "0b0dfc60-3176-11eb-977a-57c697311f58": {
+      "id": "alw008",
+      "type": "always",
+      "question": "အေးတယ်လို့ ခံစားရလား?"
+    },
+    "0b489460-3176-11eb-977a-57c697311f58": {
+      "id": "alw009",
+      "type": "always",
+      "question": "ပင်ပန်းနွမ်းနယ်နေတာလား?"
+    },
+    "0b53b7f0-3176-11eb-977a-57c697311f58": {
+      "id": "ot0010",
+      "question": "မင်းသောက်တဲ့ဆေးစာရင်းရှိလား?",
+      "type": "always"
+    },
+    "0b5e1830-3176-11eb-977a-57c697311f58": {
+      "type": "always",
+      "id": "ot0011",
+      "question": "ခေါင်းကိုက်နေတာလား?"
+    },
+    "0b6df6b0-3176-11eb-977a-57c697311f58": {
+      "question": "ခေါင်းမူးနေသလား?",
+      "id": "ot0012",
+      "type": "always"
+    },
+    "0b7f0db0-3176-11eb-977a-57c697311f58": {
+      "type": "always",
+      "id": "ot0013",
+      "question": "ပျို့အန်ချင်တာလား?"
+    },
+    "0b89bc10-3176-11eb-977a-57c697311f58": {
+      "id": "ot0014",
+      "question": "ကိုယ်လက်အလှုပ်ရှား ချင်ဖြစ်တာလား?",
+      "type": "always"
+    }
+  },
+  "doctors": {
+    "0b949180-3176-11eb-977a-57c697311f58": {
+      "address": "",
+      "biography": "",
+      "speciality": "dentists",
+      "photo": "",
+      "experience": "",
+      "name": "Dr.Mg Ice",
+      "email": "\"aung@gmail\"",
+      "phone": "0977483733",
+      "id": "d0001",
+      "degree": "",
+      "deviceId": ""
+    }
+  },
+  "consultation_request": {
+    "0bc146d0-3176-11eb-977a-57c697311f58": {
+      "date_time": {
+        "_seconds": 1606498200,
+        "_nanoseconds": 0
+      },
+      "case_summary": [
+        {
+          "answer": "ans",
+          "question": "\"\""
+        }
+      ],
+      "speciality": "dentist",
+      "patient": {
+        "gender": "male",
+        "id": "p0001",
+        "address": "",
+        "blood_type": "A",
+        "age": "20",
+        "name": "",
+        "height": "5.8ft",
+        "blood_pressure": "90/50mmHg",
+        "dob": ""
+      },
+      "cr_id": "cr0001"
+    }
+  },
+  "consultation_chat": {
+    "0bda7420-3176-11eb-977a-57c697311f58": {
+      "patient": {
+        "photo": "\"\"",
+        "height": "\"5.8ft\"",
+        "age": "20",
+        "weight": "156lb",
+        "blood_pressure": "\"90/50mmHg\"",
+        "name": "",
+        "id": "p0001",
+        "allergic_medicine": "\"\"",
+        "email": "\"patient@gmail.com\"",
+        "address": "",
+        "dob": ""
+      },
+      "case_summary": [
+        {
+          "question": "aa",
+          "answer": "bb"
+        }
+      ],
+      "id": "cc0001",
+      "doctor": {
+        "address": "",
+        "biography": "",
+        "spiciality": "dentists",
+        "photo": "",
+        "experience": "",
+        "name": "Dr.Mg Ice",
+        "email": "\"aung@gmail\"",
+        "phone": "0977483733",
+        "id": "d0001",
+        "degree": "",
+        "deviceId": ""
+      },
+      "status": false,
+      "subCollection": {
+        "message": [
+          {
+            "messageText": "hello doctor",
+            "sentBy": {
+              "photo": "",
+              "name": "Dr.Mg Ice",
+              "id": "d0001"
+            },
+            "sentAt": "",
+            "messageImage": ""
+          },
+          {
+            "messageText": "hello patient",
+            "messageImage": "",
+            "sentBy": {
+              "photo": "",
+              "name": "Dr.Mg Ice",
+              "id": "d0001"
+            },
+            "sentAt": ""
+          }
+        ],
+        "prescription": [
+          {
+            "routine": {
+              "tab": "1 tablet",
+              "days": "3 days",
+              "note": "take it after meal",
+              "repeat": "every day",
+              "times": "Morning/Noon/Evening"
+            },
+            "medicine_name": "\"decogen\"",
+            "id": "M-001"
+          }
+        ]
+      }
+    },
+    "checkout": {
+      "0c094c50-3176-11eb-977a-57c697311f58": {
+        "total_price": 3000,
+        "address": "kamaryut",
+        "doctor": {},
+        "patient": {},
+        "ch_id": "ch00001",
+        "delivery_routine": {
+          "id": "\"dr001\"",
+          "deli_time": ""
+        },
+        "prescription": [
+          {
+            "price": "10000",
+            "medicine_name": "\"\"",
+            "count": "3"
+          }
+        ]
+      }
+    }
+  }
 }

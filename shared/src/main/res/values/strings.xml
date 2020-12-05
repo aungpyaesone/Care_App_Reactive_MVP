@@ -5,7 +5,7 @@
     <string name="confirm_body_text">ဆရာဝန် နှင့် တိုင်ပင်ဆွေးနွေးရန် consultation request ပြုလုပ်မှာသေချာပါသလား?</string>
 
     <string name="negative_button">မလုပ်တော့ပါ</string>
-    <string name="positive_button">သေချာပါ</string>သည်
+    <string name="positive_button">သေချာပါသည်</string>
 
     <string name="recently_consultation">မကြာသေးခင်က ဆွေးနွေးမှုများ</string>
     <string name="fill_patient_form">လူနာအချက်အလက်များဖြည့်ပါ</string>
@@ -74,6 +74,8 @@
     
     <string name="biography_label">ကိုယ်ရေးရာဇဝင်</string>
     <string name="degree_label">ရရှိထားသောဘွဲ့များ</string>
+
+    <string name="accept_doctor_text">ဆွေးနွေးမှုပြုလုပ်ရန် ‌‌‌ဒေါက်တာမှလက်ခံထားပါသည်။</string>
     
 
 </resources>

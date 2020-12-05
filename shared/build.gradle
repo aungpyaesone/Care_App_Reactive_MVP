@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -89,4 +88,6 @@ dependencies {
     implementation rootProject.ext.libraries.retorfitAdapter
     implementation rootProject.ext.libraries.retrofitGsonConverter
     implementation rootProject.ext.libraries.okhttp
+
+    implementation "org.mmtextview:mmtextview:1.5"
 }

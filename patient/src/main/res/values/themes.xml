@@ -3,7 +3,7 @@
     <style name="Theme.Firebase_monthly_tuto" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/color_primary</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +12,24 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TitleTextStyle">
+        <item name="android:textSize">@dimen/text_regular_3</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RegularStyleTwo">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+    </style>
+
+    <style name="RegularStyle">
+        <item name="android:textSize">@dimen/text_regular_2</item>
+        <item name="android:layout_margin">@dimen/margin_medium_2</item>
+    </style>
+    <style name="NegativeButtonStyle"  parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/blue_A200</item>
     </style>
 </resources>

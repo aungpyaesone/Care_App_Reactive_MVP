@@ -86,14 +86,37 @@ general question
 
 
 
+အသက်
+👉 ကျား/မ
+👉 လက်ရှိခံစားနေရသော အကြောင်းအရာ
+👉 ရောဂါလက္ခဏာများ
+👉 ခံစားနေရသော လက္ခဏာ ကြာချိန် (ရက်၊လ၊နှစ်)
+👉 မိမိရဲ့ ရောဂါရာဇဝင်
+👉 ဆေးကုသမှုမှတ်တမ်း
+👉 ခွဲစိတ်မှု မှတ်တမ်း
+👉 ဆေးရုံတက်ရောက်ခြင်းမှတ်တမ်း
+👉 စွဲသောက်နေရသော ဆေးဝါးများ
+👉 မတည့်သောဆေးများ
+👉 ဓာတ်မတည့်သောအရာများ
+👉 သွေးအုပ်စုအမျိုးအစား
+👉 သွေးသွင်းဖူးခြင်း ရှိ / မရှိ
+👉 သွေးရောဂါ ရှိ / မရှိ
+👉 ကူးစက်ရောဂါ ရှိ / မရှိ
+👉 ထိခိုက်ဒဏ်ရာ
+👉 ရောဂါနဲ့ ပတ်သက်သည့် မိသားစု မျိုးရိုး ရှိ/မရှိ
 
 
-                                       ],
-
-
-
-
-                     "q_two": "what do you do for a living?",
-                            "q_three": "How do you feel?",
-                            "q_four": "How long ago did it happend?"
-                          },
+ /*val patientMap = hashMapOf(
+                "id" to patientVO.id,
+                "name" to patientVO.name,
+                "photo" to patientVO.photo,
+                "dob" to patientVO.dob,
+                "blood_type" to patientVO.blood_type,
+                "blood_pressure" to patientVO.blood_pressure,
+                "email" to patientVO.email,
+                "deviceId" to patientVO.deviceId,
+                "height" to patientVO.height,
+                "weight" to patientVO.weight,
+                "allergic_medicine" to patientVO.allergic_medicine,
+                "created_date" to patientVO.created_date
+        )*/

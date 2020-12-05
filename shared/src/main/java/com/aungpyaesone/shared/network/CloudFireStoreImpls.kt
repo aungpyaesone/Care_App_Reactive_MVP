@@ -14,14 +14,17 @@ object CloudFireStoreImpls : FirebaseApi {
 
     override fun addDoctor(doctorVO: DoctorVO, onSuccess: () -> Unit, onFialure: (String) -> Unit) {
         val doctorMap = hashMapOf(
-                "name" to doctorVO.name,
-                "photo" to doctorVO.photo,
-                "biography" to doctorVO.biography,
-                "degree" to doctorVO.degree,
-                "experience" to doctorVO.experience,
-                "address" to doctorVO.address,
-                "email" to doctorVO.email,
-                "speciality" to doctorVO.speciality
+            "id" to doctorVO.id,
+            "name" to doctorVO.name,
+            "photo" to doctorVO.photo,
+            "biography" to doctorVO.biography,
+            "degree" to doctorVO.degree,
+            "experience" to doctorVO.experience,
+            "address" to doctorVO.address,
+            "email" to doctorVO.email,
+            "speciality" to doctorVO.speciality,
+            "deviceId" to doctorVO.deviceId,
+            "phone" to doctorVO.phone
         )
         doctorVO.name?.let {
             db.collection("doctors")
@@ -40,18 +43,18 @@ object CloudFireStoreImpls : FirebaseApi {
 
     override fun addPatient(patientVO: PatientVO, onSuccess: () -> Unit, onFialure: (String) -> Unit) {
         val patientMap = hashMapOf(
-                "id" to patientVO.id,
-                "name" to patientVO.name,
-                "photo" to patientVO.photo,
-                "dob" to patientVO.dob,
-                "blood_type" to patientVO.blood_type,
-                "blood_pressure" to patientVO.blood_pressure,
-                "email" to patientVO.email,
-                "deviceId" to patientVO.deviceId,
-                "height" to patientVO.height,
-                "weight" to patientVO.weight,
-                "allergic_medicine" to patientVO.allergic_medicine,
-                "created_date" to patientVO.created_date
+            "id" to patientVO.id,
+            "name" to patientVO.name,
+            "photo" to patientVO.photo,
+            "dob" to patientVO.dob,
+            "blood_type" to patientVO.blood_type,
+            "blood_pressure" to patientVO.blood_pressure,
+            "email" to patientVO.email,
+            "deviceId" to patientVO.deviceId,
+            "height" to patientVO.height,
+            "weight" to patientVO.weight,
+            "allergic_medicine" to patientVO.allergic_medicine,
+            "created_date" to patientVO.created_date
         )
         patientVO.name?.let {
             db.collection("patients")
@@ -70,7 +73,7 @@ object CloudFireStoreImpls : FirebaseApi {
     }
 
     override fun getSpeciality(onSuccess: (List<SpecialitiesVO>) -> Unit, onFailure: (String) -> Unit) {
-        db.collection("specialities")
+        db.collection(SPECIALITIES)
                 .get()
                 .addOnSuccessListener { result ->
                     val specialitiesList: MutableList<SpecialitiesVO> = arrayListOf()
@@ -86,7 +89,7 @@ object CloudFireStoreImpls : FirebaseApi {
                 }.addOnFailureListener {
                     onFailure(it.message ?: EN_ERROR_MESSAGE)
                 }
-        /*  .addSnapshotListener { value, error ->
+          /*.addSnapshotListener { value, error ->
               error?.let {
                   onFailure(it.message ?: "Please check internet connection")
               } ?: run {
@@ -214,9 +217,9 @@ object CloudFireStoreImpls : FirebaseApi {
                 }
     }
 
-    override fun getConsultationChat(patientId: String, onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getConsultationChat(onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
         db.collection(CONSULTATION_CHAT)
-                .whereEqualTo("patient_id", patientId)
+               // .whereEqualTo("patient_id", patientId)
                 .addSnapshotListener { value, error ->
                     error?.let {
                         onFailure(it.message ?: EN_ERROR_MESSAGE)
@@ -237,24 +240,24 @@ object CloudFireStoreImpls : FirebaseApi {
 
     override fun getAllCheckMessage(documentId: String, onSuccess: (List<ChatMessageVO>) -> Unit, onFailure: (String) -> Unit) {
         db.collection("$CONSULTATION_CHAT/${documentId}/$MESSAGE")
-            .get()
-            .addOnSuccessListener { result ->
-                val chatMessageList: MutableList<ChatMessageVO> = arrayListOf()
-                for (document in result) {
-                    val hashmap = document.data
-                    hashmap?.put("id", document.id)
-                    val Data = Gson().toJson(hashmap)
-                    val docData = Gson().fromJson<ChatMessageVO>(Data, ChatMessageVO::class.java)
-                    chatMessageList.add(docData)
+                .addSnapshotListener { value, error ->
+                    error?.let {
+                        onFailure(it.message ?: "Please check internet connection")
+                    } ?: run {
+                        val chatMessageList: MutableList<ChatMessageVO> = arrayListOf()
+                        val result = value?.documents ?: arrayListOf()
+                        for (document in result) {
+                            val hashmap = document.data
+                            hashmap?.put("id", document.id)
+                            val Data = Gson().toJson(hashmap)
+                            val docData = Gson().fromJson<ChatMessageVO>(Data, ChatMessageVO::class.java)
+                            chatMessageList.add(docData)
+                        }
+                        onSuccess(chatMessageList)
+
+                    }
                 }
-                onSuccess(chatMessageList)
-
-            }.addOnFailureListener {
-                onFailure(it.message ?: EN_ERROR_MESSAGE)
-            }
-
     }
-
     // send broadcast request
     override fun sendBroadCastConsultationRequest(speciality: String,
                                                   caseSummary: List<QuestionAnswerVO>,

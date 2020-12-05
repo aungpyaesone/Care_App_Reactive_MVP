@@ -26,22 +26,72 @@ object CoreModelImpls : CoreModel, BaseModel() {
     override fun savePatientToDb(patientVO: PatientVO) {
         TODO("Not yet implemented")
     }
-
-    override fun getSpecialityFromNetWork() {
-        mFirebaseApi.getSpeciality(onSuccess = {
-            mTheDB.specialitiesDao().insertSpecialitiesList(it).dbOperationResult(onSuccess = {}, onFailure = {})
-        }, onFailure = {
+    /***
+     *
+     */
+    override fun getAllConsultationChatFromApi(onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
+        mFirebaseApi.getConsultationChat(onSuccess={
+            mTheDB.consultationChatDao().insertConsultationChatList(it).dbOperationResult(onSuccess = {
+                Log.d("insert cr",it)
+            },
+            onFailure = {
+                onFailure(it)
+            })
+        },onFailure= {
+            onFailure(it)
         })
     }
 
-    override fun getRecentlyConsultedDoctorFromApi(documentId: String) {
+    override fun getAllConsultationChatFromDb(): LiveData<List<ConsultationChatVO>> {
+        return mTheDB.consultationChatDao().getConsultationChat()
+    }
+
+    override fun getAllCheckMessageFromApi(documentId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        mFirebaseApi.getAllCheckMessage(documentId,onSuccess = {
+          mTheDB.chatMessageDao().insertChatMessageList(it).dbOperationResult(onSuccess = {
+             onSuccess()
+            },onFailure = {
+                onFailure(it)
+            })
+        },onFailure = {
+          onFailure(it)
+        })
+    }
+
+    override fun getAllCheckMessageFromDb(): LiveData<List<ChatMessageVO>> {
+        return mTheDB.chatMessageDao().getAllChatMessage()
+    }
+
+    override fun getSpecialityFromNetWork(
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getSpeciality(onSuccess = {
+            mTheDB.specialitiesDao().insertSpecialitiesList(it).dbOperationResult(onSuccess = {
+                Log.d("success",it)
+
+            },onFailure = {
+                Log.d("failure",it)
+            })
+        }, onFailure = {
+            onFailure(it)
+        })
+    }
+
+    /***
+     * @param documentId for getting recently consulted doctor from subCollection in patient node
+     */
+    override fun getRecentlyConsultedDoctorFromApi(documentId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         mFirebaseApi.getRecentlyConsultationDoctor(documentId,onSuccess = {
             mTheDB.recentDoctorDao().insertRecentDoctorList(it).dbOperationResult(onSuccess = {result ->
                 Log.d("success",result)
             },onFailure = {error ->
                 Log.d("failed",error)
             })
-        },onFailure = {})
+            onSuccess()
+        },onFailure = {
+            onFailure(it)
+        })
     }
 
     override fun getSpecialityFromDb(): LiveData<List<SpecialitiesVO>> {
@@ -57,6 +107,10 @@ object CoreModelImpls : CoreModel, BaseModel() {
         TODO("Not yet implemented")
     }
 
+    /***
+     * @param documentId for chat document node id
+     * @param messageVO for chat message vo
+     */
     override fun sendMessage(
             documentId: String,
             messageVO: ChatMessageVO,
@@ -66,10 +120,4 @@ object CoreModelImpls : CoreModel, BaseModel() {
         mFirebaseApi.sendMessage(documentId,messageVO,onSuccess,onFailure)
     }
 
-    override fun getRecentlyConsultatedDoctor(
-            onSuccess: (doctor: DoctorVO) -> Unit,
-            onFailure: (String) -> Unit
-    ) {
-        TODO("Not yet implemented")
-    }
 }

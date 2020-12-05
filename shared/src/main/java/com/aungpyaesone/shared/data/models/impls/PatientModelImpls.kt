@@ -34,6 +34,9 @@ object PatientModelImpls : PatientModel,BaseModel(){
         TODO("Not yet implemented")
     }
 
+    /***
+     * @param documentName for specialities document id
+     */
     override fun getSpecialQuestionBySpecialities(
         documentName: String,
         onSuccess: () -> Unit,

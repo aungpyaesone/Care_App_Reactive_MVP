@@ -21,7 +21,7 @@ interface FirebaseApi {
                           onFailure: (String) -> Unit)
 
     // 5
-    fun getConsultationChat(patientId: String,onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
+    fun getConsultationChat(onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
     // 6
     fun getAllCheckMessage(documentId: String,onSuccess: (List<ChatMessageVO>) -> Unit,onFailure: (String) -> Unit)
 

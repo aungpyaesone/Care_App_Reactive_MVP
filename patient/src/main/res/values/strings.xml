@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">firebase_monthly_tuto</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_fragment">home</string>
+    <string name="consultation_fragment">consultation</string>
+    <string name="account_fragment">account</string>
 </resources>

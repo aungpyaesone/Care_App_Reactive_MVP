@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aungpyaesone.patient.views.view_pods.ConsultationViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_medium_2"
+    app:cardUseCompatPadding="true"
+    >
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvStartConsultation"
+            style="@style/TitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_new_releases_24"
+            android:drawableTint="@color/blue_A200"
+            android:text="@string/start_consultation_title"
+            android:textColor="@color/blue_A200" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvAcceptTitle"
+            style="@style/RegularStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvStartConsultation"
+            android:text="@string/accept_doctor_text" />
+
+        <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/tvAcceptTitle"
+            android:layout_alignStart="@id/tvAcceptTitle"
+            android:src="@mipmap/ic_launcher"
+            app:cornerRadius="@dimen/margin_large" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvDoctorName"
+            style="@style/TitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ivProfile"
+            android:layout_toEndOf="@id/ivProfile"
+            android:text="Doctor Name" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvTypeOfSpeciality"
+            style="@style/RegularStyleTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDoctorName"
+            android:layout_toEndOf="@id/ivProfile"
+            android:text="@string/type" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvBiography"
+            style="@style/RegularStyleTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivProfile"
+            android:layout_alignStart="@id/ivProfile"
+            android:text="blah blah blah blah blah" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartConsult"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBiography"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin_medium"
+            android:text="@string/start_consultation_button_label"
+            android:textColor="@color/blue_A200" />
+
+    </RelativeLayout>
+</com.aungpyaesone.patient.views.view_pods.ConsultationViewPod>

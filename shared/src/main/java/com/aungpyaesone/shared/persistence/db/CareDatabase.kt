@@ -20,7 +20,7 @@ import com.aungpyaesone.shared.persistence.daos.*
     CheckOutVO::class,
     ChatMessageVO::class,
     RecentDoctorVO::class
-],version = 1,exportSchema = false)
+],version = 2,exportSchema = false)
 abstract class CareDatabase : RoomDatabase(){
     companion object {
         val DB_NAME = "CARE_DB"
@@ -48,4 +48,5 @@ abstract class CareDatabase : RoomDatabase(){
     abstract fun generalQuestionTemplateDao() : GeneralQuestionTemplateDao
     abstract fun specialQuestionDao() : SpecialQuestionDao
     abstract fun recentDoctorDao() : RecentDoctorDao
+    abstract fun chatMessageDao(): ChatMessageDao
 }

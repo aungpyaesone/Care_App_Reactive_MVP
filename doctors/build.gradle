@@ -86,4 +86,5 @@ dependencies {
 
     // remote config
     implementation 'com.google.firebase:firebase-config-ktx'
+    implementation "org.mmtextview:mmtextview:1.5"
 }

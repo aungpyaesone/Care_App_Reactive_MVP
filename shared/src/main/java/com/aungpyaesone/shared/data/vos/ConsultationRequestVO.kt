@@ -22,3 +22,6 @@ data class ConsultationRequestVO(
         var date_time : Timestamp?= null,
         var case_summary : ArrayList<QuestionAnswerVO> ?= arrayListOf()
 )
+{
+
+}

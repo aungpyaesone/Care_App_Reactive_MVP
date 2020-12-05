@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large_xxxx"/>
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvConsultationConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_title_text"
+        android:layout_below="@id/ivProfile"
+        android:layout_centerHorizontal="true"
+        style="@style/TitleTextStyle"/>
+    
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvConsultationConfirm"
+        android:text="@string/confirm_body_text"
+        style="@style/RegularStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPositive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/tvBody"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:text="@string/positive_button"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/NegativeButtonStyle"
+        android:text="@string/negative_button"
+        android:layout_below="@id/tvBody"
+        android:layout_toStartOf="@id/btnPositive"
+        android:layout_marginEnd="@dimen/margin_medium"/>
+</RelativeLayout>
