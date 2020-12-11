@@ -87,4 +87,8 @@ dependencies {
     // remote config
     implementation 'com.google.firebase:firebase-config-ktx'
     implementation "org.mmtextview:mmtextview:1.5"
+
+    implementation rootProject.ext.libraries.firebaseInAppMessageKtx
+    implementation rootProject.ext.libraries.firebaseMessageKtx
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 }

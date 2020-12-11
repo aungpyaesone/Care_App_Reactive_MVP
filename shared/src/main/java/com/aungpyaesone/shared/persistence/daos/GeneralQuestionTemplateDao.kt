@@ -14,7 +14,7 @@ interface GeneralQuestionTemplateDao {
     @Query("SELECT * FROM general_question")
     fun getAllGeneralQuestion() : LiveData<List<GeneralQuestionVO>>
 
-    @Query("SELECT * FROM general_question WHERE sq_id = :generalQuestionId")
+    @Query("SELECT * FROM general_question WHERE id = :generalQuestionId")
     fun getGeneralQuestionById(generalQuestionId :String) : LiveData<GeneralQuestionVO>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

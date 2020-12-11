@@ -38,8 +38,14 @@ interface FirebaseApi {
             speciality:String,
             caseSummary: List<QuestionAnswerVO>,
             patientVO: PatientVO,
+            doctorVO: DoctorVO,
             dateTime : String,
             onSuccess: () -> Unit, onFailure: (String) -> Unit)
+
+    /***
+     * patient observe consultation accept from doctor
+     */
+    fun observeAcceptDoctorRequest(patientId:String,onSuccess: (List<ConsultationRequestVO>) -> Unit,onFailure: (String) -> Unit)
 
     fun sendDirectRequest(
             caseSummary: QuestionAnswerVO,
@@ -60,7 +66,10 @@ interface FirebaseApi {
 
 
     // for doctor
-    fun acceptRequest(doctor:DoctorVO,
+    fun acceptRequest(documentId: String,
+                      status:String,
+                      consultationRequestVO: ConsultationRequestVO,
+                      doctorVO: DoctorVO,
                       onSuccess: () -> Unit,
                       onFailure: (String) -> Unit)
 
@@ -80,5 +89,16 @@ interface FirebaseApi {
     fun getAllMedicine(speciality: String,onSuccess: (List<MedicineVO>) -> Unit,onFailure: (String) -> Unit)
 
     // 15
-    fun getConsultationRequest(documentId: String,onSuccess: (ConsultationRequestVO) -> Unit,onFailure: (String) -> Unit)
+    fun getConsultationRequest(speciality: String,onSuccess: (List<ConsultationRequestVO>)-> Unit,onFailure: (String) -> Unit)
+
+    fun getPatientByEmail(email: String,
+                          onSuccess: (patientVO:PatientVO) -> Unit,
+                          onFailure: (String) -> Unit)
+    fun getDoctorByEmail(email: String,
+                          onSuccess: (doctorVO:DoctorVO) -> Unit,
+                          onFailure: (String) -> Unit)
+
+    fun getDoctorBySpeciality(speciality: String,onSuccess: (List<DoctorVO>) -> Unit,onFailure: (String) -> Unit)
+
+
 }

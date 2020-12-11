@@ -15,6 +15,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         >
 
@@ -22,21 +23,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAcceptConsultationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+           <!-- <include
                 android:id="@+id/acceptConsultationView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
-                layout="@layout/start_consultation_view_pod"/>
+                layout="@layout/start_consultation_view_pod"/>-->
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/recentConsultation"
+                style="@style/TitleTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/recently_consultation"
-                style="@style/TitleTextStyle"
-                android:layout_below="@id/acceptConsultationView"
-                />
+                android:layout_below="@id/rvAcceptConsultationView"
+                android:text="@string/recently_consultation" />
 
             <com.aungpyaesone.patient.views.components.SmartRecyclerView
                 android:id="@+id/rvRecentDoctor"
@@ -59,7 +64,6 @@
                 android:layout_below="@id/typeOfDes"
                 tools:listitem="@layout/specialities_item_view"
                 />
-
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

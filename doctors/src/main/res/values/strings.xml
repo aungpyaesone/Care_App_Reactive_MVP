@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HCare</string>
+    <string name="speciality">Speciality</string>
+
 </resources>

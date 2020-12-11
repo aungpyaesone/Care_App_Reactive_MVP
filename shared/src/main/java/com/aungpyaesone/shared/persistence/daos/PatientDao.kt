@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.aungpyaesone.shared.data.vos.PatientVO
+import io.reactivex.Completable
 
 @Dao
 interface PatientDao {
@@ -16,8 +17,14 @@ interface PatientDao {
     fun getPatientById(patientId :String) : LiveData<PatientVO>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertPatient(detail: PatientVO)
+    fun insertPatient(detail: PatientVO): Completable
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertPatientList(detailList: List<PatientVO>)
+    fun insertPatientList(detailList: List<PatientVO>): Completable
+
+    @Query("select * from patient WHERE email = :email")
+    fun getAllPatientDataByEmail(email: String): LiveData<PatientVO>
+
+    @Query("DELETE FROM patient")
+    fun deleteAllPatientData()
 }

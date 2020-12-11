@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_medium_2"
+    >
 
     <ImageView
         android:id="@+id/ivProfile"
@@ -36,12 +38,14 @@
         android:layout_below="@id/tvBody"
         android:layout_marginEnd="@dimen/margin_medium_2"
         android:text="@string/positive_button"/>
+
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNegative"
+        style="@style/NegativeButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/NegativeButtonStyle"
-        android:text="@string/negative_button"
         android:layout_below="@id/tvBody"
+        android:layout_marginEnd="@dimen/margin_medium"
         android:layout_toStartOf="@id/btnPositive"
-        android:layout_marginEnd="@dimen/margin_medium"/>
+        android:text="@string/negative_button" />
 </RelativeLayout>

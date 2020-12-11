@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="@dimen/margin_medium"
+    app:cardElevation="@dimen/margin_medium"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/MMTextView"
+            style="@style/RegularStyle_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/consult_request_label"
+            app:layout_constraintBottom_toBottomOf="@+id/tvOldPatient"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvOldPatient" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:backgroundTint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MMTextView" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvOldPatient"
+            style="@style/RegularStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/old_patient_label_background"
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingEnd="@dimen/margin_medium"
+            android:paddingBottom="@dimen/margin_small"
+            android:text="@string/old_patient_label"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+            android:id="@+id/ivPatientProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:src="@mipmap/ic_launcher"
+            app:cornerRadius="@dimen/margin_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvPatientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_xlarge"
+            android:textSize="@dimen/text_regular_3"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivPatientProfile"
+            app:layout_constraintTop_toTopOf="@+id/ivPatientProfile"
+            tools:text="Aunng Aung" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvPatientDob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tvPatientName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPatientName"
+            tools:text="23 Nov 1997" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLater"
+            android:layout_width="0dp"
+            android:textSize="@dimen/text_small"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:backgroundTint="@color/cyan_700"
+            android:text="@string/later_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnChooseTime"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPatientProfile" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAccept"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:backgroundTint="@color/button_color"
+            android:text="@string/accept_btn_label"
+            app:layout_constraintBottom_toBottomOf="@+id/btnChooseTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnChooseTime"
+            app:layout_constraintTop_toTopOf="@+id/btnChooseTime" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChooseTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:backgroundTint="@color/background_color_one"
+            android:text="@string/choose_time_label"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="@+id/btnLater"
+            app:layout_constraintEnd_toStartOf="@+id/btnAccept"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnLater"
+            app:layout_constraintTop_toTopOf="@+id/btnLater" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

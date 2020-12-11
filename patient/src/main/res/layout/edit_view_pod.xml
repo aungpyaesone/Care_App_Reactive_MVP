@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aungpyaesone.patient.views.view_pods.InputViewPod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/etHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/editTextStyle"
+        />
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="ftt"
+        android:elevation="@dimen/margin_medium"
+        android:gravity="center"
+        android:padding="@dimen/margin_medium"
+        android:layout_alignTop="@id/etHeight"
+        android:layout_alignEnd="@id/etHeight"
+        android:layout_alignBottom="@id/etHeight"
+        />
+
+
+</com.aungpyaesone.patient.views.view_pods.InputViewPod>

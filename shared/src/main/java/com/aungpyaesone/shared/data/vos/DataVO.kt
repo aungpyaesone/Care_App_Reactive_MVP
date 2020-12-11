@@ -1,7 +1,10 @@
 package com.aungpyaesone.shared.data.vos
 
+import com.google.gson.annotations.SerializedName
+
 data class DataVO(
-    var id : String ="",
-    var name : String? = "",
-    var dob : String? = ""
+    @SerializedName("name")
+    var name: String? = "",
+    var dob: String? = "",
+    var id : String? = ""
 )

@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="blue_A200">#448aff</color>
+    <color name="text_color">#4db6ac</color>
 </resources>

@@ -89,4 +89,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-config-ktx'
 
     implementation "org.mmtextview:mmtextview:1.5"
+    implementation "com.github.badoualy:stepper-indicator:1.0.7"
+
+    implementation rootProject.ext.libraries.firebaseInAppMessageKtx
+    implementation rootProject.ext.libraries.firebaseMessageKtx
 }

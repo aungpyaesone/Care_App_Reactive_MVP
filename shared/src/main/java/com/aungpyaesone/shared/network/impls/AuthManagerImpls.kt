@@ -1,6 +1,7 @@
 package com.aungpyaesone.shared.network.impls
 
 import android.graphics.Bitmap
+import android.util.Log
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.network.auth.AuthManager
 import com.aungpyaesone.shared.util.EN_ERROR_MESSAGE
@@ -13,7 +14,7 @@ object AuthManagerImpls : AuthManager{
     private val storage = FirebaseStorage.getInstance()
     private val storageReference = storage.reference
 
-    override fun registerDoctor(email: String, password: String, userName: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+    override fun registerUser(email: String, password: String, userName: String, onSuccess: (userId: String) -> Unit, onFailure: (String) -> Unit) {
         mFirebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful && it.isComplete) {
                 mFirebaseAuth.currentUser?.updateProfile(
@@ -21,7 +22,7 @@ object AuthManagerImpls : AuthManager{
                                 .setDisplayName(userName)
                                 .build()
                 )
-                onSuccess()
+                mFirebaseAuth.currentUser?.uid?.let { userId -> onSuccess(userId) }
             } else {
                 onFailure(it.exception?.message ?: "Please check your internet connection")
             }
@@ -32,10 +33,11 @@ object AuthManagerImpls : AuthManager{
 
     }
 
-    override fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+    override fun login(email: String, password: String, onSuccess: (userId: String) -> Unit, onFailure: (String) -> Unit) {
         mFirebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful && it.isComplete) {
-                onSuccess()
+                Log.d("login","success login")
+                mFirebaseAuth.currentUser?.uid?.let { it1 -> onSuccess(it1) }
             } else {
                 onFailure(it.exception?.message ?: EN_ERROR_MESSAGE)
             }
@@ -44,6 +46,14 @@ object AuthManagerImpls : AuthManager{
 
     override fun getUserProfile(): DoctorVO {
         TODO("Not yet implemented")
+    }
+
+    override fun checkCurrentUser(onSuccess: (userId: String) -> Unit, onFailure: (String) -> Unit) {
+        if(mFirebaseAuth.currentUser != null){
+            onSuccess(mFirebaseAuth.currentUser!!.uid)
+        }else{
+            onFailure("sign in again")
+        }
     }
 
     override fun updateProfileUrl(photoUrl: String, onSuccess: (String) -> Unit, onFailure: (String) -> Unit) {

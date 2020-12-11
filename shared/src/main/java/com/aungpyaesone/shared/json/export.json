@@ -40,7 +40,8 @@
         "specialities/cardiologist/spical_question": [
           {
             "id": "sq001",
-            "question": "သင့်မှာနှလုံးခုန်နှုန်းထိန်းပေးထားတဲ့ pacemaker ရှိပါသလား?"
+            "question": "သင့်မှာနှလုံးခုန်နှုန်းထိန်းပေးထားတဲ့ pacemaker ရှိပါသလား?",
+            "type": "cardiologist"
           },
           {
             "question": "သင့်ကိုယ်ခန္ဓာတွင်သတ္တုတစ်မျိုးကိုထည့်သွင်းထားပါသလား?",
@@ -981,6 +982,7 @@
   },
   "consultation_request": {
     "0bc146d0-3176-11eb-977a-57c697311f58": {
+      "status": "",
       "date_time": {
         "_seconds": 1606498200,
         "_nanoseconds": 0

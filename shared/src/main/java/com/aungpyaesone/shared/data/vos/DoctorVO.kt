@@ -2,7 +2,8 @@ package com.aungpyaesone.shared.data.vos
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.firestore.IgnoreExtraProperties
+
 
 @IgnoreExtraProperties
 @Entity(tableName = "doctor")

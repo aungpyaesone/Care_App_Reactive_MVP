@@ -6,14 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.patient.R
+import com.aungpyaesone.patient.adapters.AcceptRequestAdapter
 import com.aungpyaesone.patient.adapters.RecentlyDoctorAdapter
 import com.aungpyaesone.patient.adapters.SpecialitiesAdapter
+import com.aungpyaesone.patient.dialog.ConfirmDialogFragment
+import com.aungpyaesone.patient.dialog.ConfirmDialogFragment.Companion.BUNDLE_ID
+import com.aungpyaesone.patient.dialog.ConfirmDialogFragment.Companion.BUNDLE_IMAGE
+import com.aungpyaesone.patient.dialog.ConfirmDialogFragment.Companion.BUNDLE_NAME
 import com.aungpyaesone.patient.mvp.presenters.HomePresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.HomePresenterImpl
 import com.aungpyaesone.patient.mvp.view.HomeView
-import com.aungpyaesone.patient.views.view_pods.ConsultationViewPod
-import com.aungpyaesone.shared.data.vos.DoctorVO
+import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.RecentDoctorVO
 import com.aungpyaesone.shared.data.vos.SpecialitiesVO
 import com.padc.shared.fragments.BaseFragment
@@ -36,8 +42,9 @@ class HomeFragment : BaseFragment(),HomeView {
 
     private lateinit var mPresenter : HomePresenter
     private lateinit var mAdapter : SpecialitiesAdapter
-   // private lateinit var mRecentlyDoctorAdapter: RecentlyDoctorAdapter
-    private lateinit var mConsultationViewPod: ConsultationViewPod
+    private lateinit var mRecentlyDoctorAdapter: RecentlyDoctorAdapter
+    private lateinit var mAcceptDoctorAdapter: AcceptRequestAdapter
+   // private lateinit var mConsultationViewPod: ConsultationViewPod
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,17 +69,28 @@ class HomeFragment : BaseFragment(),HomeView {
 
     private fun setUpRecycler() {
         mAdapter = SpecialitiesAdapter(mPresenter)
+        mRecentlyDoctorAdapter = RecentlyDoctorAdapter(mPresenter)
+        mAcceptDoctorAdapter = AcceptRequestAdapter(mPresenter)
         rvSpecialities.apply {
             layoutManager = GridLayoutManager(activity,2)
             adapter = mAdapter
            // setEmptyView()
         }
+        rvRecentDoctor.apply {
+            layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
+            adapter = mRecentlyDoctorAdapter
+        }
+
+        rvAcceptConsultationView.apply {
+            layoutManager = LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false)
+            adapter = mAcceptDoctorAdapter
+        }
     }
 
     private fun setUpViewPod() {
-        mConsultationViewPod = acceptConsultationView as ConsultationViewPod
+        /*mConsultationViewPod = acceptConsultationView as ConsultationViewPod
         mConsultationViewPod.setViewPodData(DoctorVO())
-        mConsultationViewPod.setDelegate(mPresenter)
+        mConsultationViewPod.setDelegate(mPresenter)*/
     }
 
     private fun setUpPresenter() {
@@ -84,10 +102,35 @@ class HomeFragment : BaseFragment(),HomeView {
     }
 
     override fun showRecentlyConsultedDoctor(recentlyDoctorList: List<RecentDoctorVO>) {
+        if(recentlyDoctorList.isEmpty()){
+            recentConsultation.visibility = View.GONE
+            rvRecentDoctor.visibility = View.GONE
+        }else{
+            mRecentlyDoctorAdapter.setData(recentlyDoctorList.toMutableList())
+        }
 
     }
 
     override fun showConfirmationDialog(specialitiesVO: SpecialitiesVO) {
+        val confirmDialogFragment =  ConfirmDialogFragment.newFragment()
+        val bundle = Bundle()
+        bundle.putString(BUNDLE_NAME, specialitiesVO.name)
+        bundle.putString(BUNDLE_IMAGE, specialitiesVO.photo)
+        bundle.putString(BUNDLE_ID, specialitiesVO.id)
+        confirmDialogFragment.arguments = bundle
+        activity?.supportFragmentManager?.let {
+            confirmDialogFragment.show(
+                it,""
+            )
+        }
+
+    }
+
+    override fun showAcceptDoctorList(consultationRequestList: List<ConsultationRequestVO>) {
+        mAcceptDoctorAdapter.setData(consultationRequestList)
+    }
+
+    override fun navigateToCaseSummary() {
 
     }
 
@@ -110,7 +153,7 @@ class HomeFragment : BaseFragment(),HomeView {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String?, param2: String) =
                 HomeFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)

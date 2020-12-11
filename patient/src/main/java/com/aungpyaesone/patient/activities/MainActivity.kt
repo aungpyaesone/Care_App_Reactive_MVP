@@ -1,4 +1,6 @@
 package com.aungpyaesone.patient.activities
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
@@ -12,11 +14,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
+    private var mUserId : String? = null
+    private var mData : String? = null
+
+    companion object{
+        fun newInstance(context: Context)= Intent(context,MainActivity::class.java)
+    }
+
     private val homeFragment = HomeFragment.newInstance("","")
     private val consultationFragment = ConsultationFragment.newInstance("","")
     private val accountFragment = AccountFragment.newInstance("","")
     private val fragmentManager = supportFragmentManager
     private var activeFragment: Fragment = HomeFragment.newInstance("","")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +35,7 @@ class MainActivity : BaseActivity() {
         callFragment(homeFragment)
         setUpBottomNav()
     }
+
 
     private fun setupFragmentManager() {
         fragmentManager.beginTransaction().apply {
@@ -69,4 +80,5 @@ class MainActivity : BaseActivity() {
         fragmentManager.beginTransaction().hide(activeFragment).show(fragment).commit()
         activeFragment = fragment
     }
+
 }

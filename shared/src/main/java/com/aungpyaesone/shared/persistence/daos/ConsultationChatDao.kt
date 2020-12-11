@@ -14,7 +14,7 @@ interface ConsultationChatDao {
     @Query("SELECT * FROM consultation_chat")
     fun getConsultationChat() : LiveData<List<ConsultationChatVO>>
 
-    @Query("SELECT * FROM consultation_chat WHERE cc_id = :consultChatId")
+    @Query("SELECT * FROM consultation_chat WHERE id = :consultChatId")
     fun getConsultationChatById(consultChatId :String) : LiveData<ConsultationChatVO>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

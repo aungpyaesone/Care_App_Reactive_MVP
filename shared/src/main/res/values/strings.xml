@@ -12,7 +12,7 @@
     <string name="general_question">အထွေထွေ‌မေးခွန်းများ</string>
     <string name="question_for_des_type">ရောဂါဆိုင်ရာမေးခွန်းများ</string>
     <string name="height_label">အရပ်</string>
-    <string name="weight_label">ပေါင်ချိန်</string>
+    <string name="weight_label">ကိုယ်အလေးချိန်</string>
     <string name="blood_pressure_label">သွေးပေါင်ချိန်</string>
     <string name="allergic_label">မတည့်သောဆေး</string>
     <string name="name_of_patient_label">လူနာအမည်</string>
@@ -34,7 +34,8 @@
     <string name="checkout_label">ငွေပေးချေမည်</string>
     <string name="consultation_history_label">ချိန်းဆိုမှုမှတ်တမ်းများ</string>
     <string name="close_btn_label">ပိတ်မည်</string>
-    <string name="send_message_label">စာ</string>ပို့မည်
+    <string name="send_message_label">စာပို့မည်</string>
+    <string name="fullcolon">:</string>
     
     
     <!-- navigation -->
@@ -47,6 +48,7 @@
     <string name="skip_btn_label">ကျော်မည်</string>
     <string name="accept_btn_label">လက်ခံမည်</string>
     <string name="new_patient_label">လူနာအသစ်</string>
+    <string name="consult_request_label">ရက်ချိန်းယူခြင်းတောင်းဆိုမှု</string>
     <string name="old_patient_label">ဆွေးနွေးခဲ့ဖူးသောလူနာ</string>
     <string name="later_label">နောက်မှ</string>
     <string name="choose_time_label">အချိန်ရွေးမည်</string>
@@ -55,7 +57,12 @@
     <string name="choose_btn_label">ရွေးမည်</string>
     <string name="question_label">မေးခွန်းများ</string>
     <string name="medicine_note_history_label">ဆေးမှတ်တမ်း</string>
-    
+    <string name="consultation_notes">ရက်ချိန်းယူမှုမှတ်တမ်းများ</string>
+    <string name="label_one">ဆေးမှတ်တမ်း</string>
+    <string name="label_two">ဆေးညွန်း</string>
+    <string name="label_three">မှတ်ချက်</string>
+    <string name="prescribe_medicine">ဆေးညွန်းမည်</string>
+
     <string name="search_hint_label">ရှာမည်</string>
     <string name="quantity_label">အရေအတွက်</string>
     <string name="day_of_medicine">သောက်ရမည့်</string>ရက်
@@ -76,6 +83,17 @@
     <string name="degree_label">ရရှိထားသောဘွဲ့များ</string>
 
     <string name="accept_doctor_text">ဆွေးနွေးမှုပြုလုပ်ရန် ‌‌‌ဒေါက်တာမှလက်ခံထားပါသည်။</string>
-    
+
+    <string name="start_consult_label">ဆွေးနွေးမှု စတင်မည်</string>
+    <string name="confirm_text">အချက်အလက်များအားအတည်ပြုပေးပါ</string>
+    <string name="patient_info">လူနာအချက်အလက်များ</string>
+    <string name="patient_information">လူနာအချက်အလက်</string>
+    <string name="des_question">ရောဂါဆိုင်ရာ အချက်အလက်များ</string>
+    <string name="show_more">ထပ်ကြည့်မယ်</string>
+    <string name="write">ရေးသားပါ</string>
+
+    <string name="noti_title">အကြောင်းကြားစာ</string>
+    <string name="noti_body_for_patient">မှသင့်ကို လက်ခံလိုက်ပါပီ</string>
+    <string name="noti_body_for_doctor">မှ ဆွေး‌နွေးပေးရန် request လုပ်ပါသည်</string>
 
 </resources>

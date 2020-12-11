@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Firebase_monthly_tuto" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Firebase_monthly_tuto" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/color_primary</item>
@@ -31,5 +31,22 @@
     </style>
     <style name="NegativeButtonStyle"  parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/blue_A200</item>
+    </style>
+
+    <style name="pickerStyle">
+        <item name="android:layout_margin">@dimen/margin_medium_2</item>
+        <item name="android:elevation">@dimen/margin_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/margin_medium</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+
+    <style name="editTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/drawable_background_white</item>
+        <item name="android:layout_margin">@dimen/margin_medium_2</item>
+        <item name="android:padding">@dimen/margin_medium_2</item>
+        <item name="android:elevation">@dimen/margin_medium</item>
+
     </style>
 </resources>

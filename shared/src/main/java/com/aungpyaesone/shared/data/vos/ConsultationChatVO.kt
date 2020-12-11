@@ -14,7 +14,7 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 @TypeConverters(CaseSummaryTypeConverter::class, PatientVOTypeConverter::class, DoctorVOTypeConverter::class)
 data class ConsultationChatVO(
     @PrimaryKey
-    var cc_id: String= "",
+    var id: String= "",
     var patientVO: PatientVO? = null,
     var doctorVO: DoctorVO? = null,
     var case_summary:  ArrayList<QuestionAnswerVO>? = arrayListOf(),

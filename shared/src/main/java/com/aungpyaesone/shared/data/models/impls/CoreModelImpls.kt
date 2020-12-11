@@ -8,11 +8,25 @@ import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.extensions.dbOperationResult
 import com.aungpyaesone.shared.network.CloudFireStoreImpls
 import com.aungpyaesone.shared.network.FirebaseApi
+import com.aungpyaesone.shared.network.responses.NotiResponse
+import com.aungpyaesone.shared.util.API_KEY
+import com.aungpyaesone.shared.util.EN_ERROR_MESSAGE
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 object CoreModelImpls : CoreModel, BaseModel() {
     val mFirebaseApi: FirebaseApi = CloudFireStoreImpls
+
     override fun addDoctor(doctorVO: DoctorVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         mFirebaseApi.addDoctor(doctorVO, onSuccess, onFailure)
+    }
+
+    override fun addPatient(
+        patientVO: PatientVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.addPatient(patientVO,onSuccess,onFailure)
     }
 
     override fun saveDoctorToDb(doctorVO: DoctorVO) {
@@ -23,8 +37,16 @@ object CoreModelImpls : CoreModel, BaseModel() {
         })
     }
 
-    override fun savePatientToDb(patientVO: PatientVO) {
-        TODO("Not yet implemented")
+    override fun savePatientToDb(
+        id: String,
+        patientVO: PatientVO
+    ) {
+            patientVO.id = id
+            mTheDB.patientDao().insertPatient(patientVO).dbOperationResult({
+            Log.d("success", it)
+        }, {
+            Log.d("failure", it)
+        })
     }
     /***
      *
@@ -60,6 +82,28 @@ object CoreModelImpls : CoreModel, BaseModel() {
 
     override fun getAllCheckMessageFromDb(): LiveData<List<ChatMessageVO>> {
         return mTheDB.chatMessageDao().getAllChatMessage()
+    }
+
+    override fun getAllConsultationRequestFromApi(
+        speciality: String,
+        onSuccess: (List<ConsultationRequestVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getConsultationRequest(speciality =speciality, onSuccess = {consultationRequestList ->
+            mTheDB.consultationReqDao().deleteAllConsultationRequest().dbOperationResult({},{})
+            mTheDB.consultationReqDao().insertConsultationRequestList(consultationRequestList).dbOperationResult({
+                Log.d("insert success",it)
+            },{
+                onFailure(it)
+            })
+
+        }, onFailure = {
+            onFailure(it)
+        })
+    }
+
+    override fun getAllConsultationRequestFromDb():LiveData<List<ConsultationRequestVO>>{
+        return mTheDB.consultationReqDao().getConsultationRequest()
     }
 
     override fun getSpecialityFromNetWork(
@@ -118,6 +162,30 @@ object CoreModelImpls : CoreModel, BaseModel() {
             onFailure: (String) -> Unit
     ) {
         mFirebaseApi.sendMessage(documentId,messageVO,onSuccess,onFailure)
+    }
+
+    override fun getAllDoctorAcceptConsultationRequestFromDb(): LiveData<List<ConsultationRequestVO>> {
+        return mTheDB.consultationReqDao().getDoctorAcceptConsultationRequest()
+    }
+
+    override fun getConsultationRequestByIdFromDb(id: String): LiveData<ConsultationRequestVO> {
+        return mTheDB.consultationReqDao().getConsultationRequestById(id)
+    }
+
+    override fun getDoctorBySpecialityFromApi(
+        speciality: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getDoctorBySpeciality(speciality,onSuccess = {
+            mTheDB.doctorDao().insertDoctorList(it).dbOperationResult({},{})
+        },onFailure = {
+            onFailure(it)
+        })
+    }
+
+    override fun getDoctorBySpecialityFromDb(): LiveData<List<DoctorVO>> {
+        return mTheDB.doctorDao().getDoctor()
     }
 
 }

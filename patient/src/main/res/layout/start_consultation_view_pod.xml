@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.aungpyaesone.patient.views.view_pods.ConsultationViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -33,6 +33,7 @@
             android:id="@+id/ivProfile"
             android:layout_width="100dp"
             android:layout_height="100dp"
+
             android:layout_below="@id/tvAcceptTitle"
             android:layout_alignStart="@id/tvAcceptTitle"
             android:src="@mipmap/ic_launcher"
@@ -77,4 +78,4 @@
             android:textColor="@color/blue_A200" />
 
     </RelativeLayout>
-</com.aungpyaesone.patient.views.view_pods.ConsultationViewPod>
+</androidx.cardview.widget.CardView>

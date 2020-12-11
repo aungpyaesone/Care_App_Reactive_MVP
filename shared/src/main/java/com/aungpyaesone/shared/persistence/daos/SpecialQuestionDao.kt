@@ -13,8 +13,8 @@ interface SpecialQuestionDao {
     @Query("SELECT * FROM special_question")
     fun getAllSpecialQuestionList() : LiveData<List<SpecialQuestionVO>>
 
-    @Query("SELECT * FROM special_question WHERE sq_id = :specialQuestionId")
-    fun getSpecialQuestionById(specialQuestionId :String) : LiveData<SpecialQuestionVO>
+    @Query("SELECT * FROM special_question WHERE type = :speciality")
+    fun getSpecialQuestionById(speciality :String) : LiveData<List<SpecialQuestionVO>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertSpecialQuestion(specialQuestionVO: SpecialQuestionVO): Completable

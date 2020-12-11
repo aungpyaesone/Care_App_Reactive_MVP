@@ -84,10 +84,16 @@ dependencies {
     // remote config
     implementation 'com.google.firebase:firebase-config-ktx'
 
-    implementation rootProject.ext.libraries.retrofit
+    //implementation rootProject.ext.libraries.retrofit
     implementation rootProject.ext.libraries.retorfitAdapter
     implementation rootProject.ext.libraries.retrofitGsonConverter
     implementation rootProject.ext.libraries.okhttp
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
     implementation "org.mmtextview:mmtextview:1.5"
+    // RxJava with Room
+    implementation 'android.arch.persistence.room:rxjava2:2.0.2'
 }

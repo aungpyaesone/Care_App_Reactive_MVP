@@ -7,7 +7,7 @@ ext {
     rxKotlinVersion = "2.x-SNAPSHOT"
     rxVersion = "2.1.1"
     rxJavaVersion = "2.2.10"
-    retrofitVersion = "2.6.1"
+    retrofitVersion = "2.4.0"
     okhttpVersion = "4.1.0"
 
     firebase_analytics_version = "17.6.0"
@@ -41,6 +41,9 @@ ext {
             retorfitAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
             retrofitGsonConverter  : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             okhttp                 : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+
+            firebaseInAppMessageKtx : "com.google.firebase:firebase-inappmessaging-display-ktx",
+            firebaseMessageKtx      : "com.google.firebase:firebase-messaging-ktx",
 
     ]
 }

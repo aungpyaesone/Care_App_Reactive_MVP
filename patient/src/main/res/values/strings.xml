@@ -5,4 +5,24 @@
     <string name="home_fragment">home</string>
     <string name="consultation_fragment">consultation</string>
     <string name="account_fragment">account</string>
+    <string name="fullcolon">:</string>
+    <string name="mmhg">mmHg</string>
+    <string name="lb">lb</string>
+    <string name="ft">ft</string>
+
+    <string-array name="stepLabels">
+        <item>အထွေထွေမေးခွန်းများ</item>
+        <item>ရောဂါဆိုင်ရာမေးခွန်းများ</item>
+    </string-array>
+
+    <string-array name="bloodType">
+        <item>A သွေး</item>
+        <item>B သွေး</item>
+        <item>O သွေး</item>
+    </string-array>
+
+    <string name="form_validate">အချက်လက်မပြည့်စုံသေးပါ</string>
+    <string name="know">သိပါပီ</string>
+
+    <string name="toolbar_title">လူနာအချက်လက်များဖြည့်ပါ</string>
 </resources>

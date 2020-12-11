@@ -21,4 +21,7 @@ interface DoctorDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertDoctorList(detailList: List<DoctorVO>):Completable
+
+    @Query("select * from doctor WHERE email = :email")
+    fun getAllDoctorDataByEmail(email: String): LiveData<DoctorVO>
 }

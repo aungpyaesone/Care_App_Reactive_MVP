@@ -10,8 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Firebase_monthly_tuto">
-        <activity android:name=".activities.CaseSummaryActivity"></activity>
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.ChatActivity"></activity>
+        <activity android:name=".activities.ConfirmationActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.CaseSummaryActivity" />
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +24,7 @@
         </activity>
 
         <service
-            android:name="com.aungpyaesone.shared.service.MyServiceClass"
+            android:name=".service.MyServiceClass"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

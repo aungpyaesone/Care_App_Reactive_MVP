@@ -8,7 +8,7 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 @IgnoreExtraProperties
 data class GeneralQuestionVO(
     @PrimaryKey
-    var sq_id: String= "",
+    var id: String= "",
     var question: String = "",
     var type: String = ""
 )
