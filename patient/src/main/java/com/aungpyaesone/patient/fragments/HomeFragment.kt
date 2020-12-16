@@ -25,6 +25,7 @@ import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.RecentDoctorVO
 import com.aungpyaesone.shared.data.vos.SpecialitiesVO
+import com.aungpyaesone.shared.util.checkSpeciality
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
 import com.google.gson.Gson
@@ -125,6 +126,7 @@ class HomeFragment : BaseFragment(),HomeView {
         SessionManager.flag = true
         val confirmDialogFragment = ConfirmDialogFragment.newFragment()
         val bundle = Bundle()
+        SessionManager.speciality = checkSpeciality(specialitiesVO.name)
         bundle.putString(BUNDLE_NAME, specialitiesVO.name)
         bundle.putString(BUNDLE_IMAGE, specialitiesVO.photo)
         bundle.putString(BUNDLE_ID, specialitiesVO.id)

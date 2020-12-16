@@ -45,7 +45,7 @@ class ConfirmPresenterImpl : ConfirmPresenter, AbstractBasePresenter<ConfirmView
                         sendNotification(notiData)
                     }
                     else{
-                        val notiData = prepareNotification(context,"/topics/$SessionManager.speciality",patientVO)
+                        val notiData = prepareNotification(context,"/topics/${SessionManager.speciality}",patientVO)
                         sendNotification(notiData)
                     }
             }
