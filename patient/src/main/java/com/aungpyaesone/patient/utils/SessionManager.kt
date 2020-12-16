@@ -19,6 +19,10 @@ object SessionManager {
         preferences = context.getSharedPreferences(NAME, MODE)
     }
 
+    fun logout(){
+        preferences.edit().clear().apply()
+    }
+
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
         val editor = edit()
         operation(editor)
@@ -30,6 +34,41 @@ object SessionManager {
         // custom setter to save a preference back to preferences file
         set(value) = preferences.edit {
             it.putString(sharePreferenceSpeciality, value)
+        }
+
+    var photo : String?
+        get() = preferences.getString(sharePhoto, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(sharePhoto, value)
+        }
+
+    var created_date : String?
+        get() = preferences.getString(sharecreatedDate, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(sharecreatedDate, value)
+        }
+    var phone : String?
+        get() = preferences.getString(sharephone, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(sharephone, value)
+        }
+
+    var address : String?
+        get() = preferences.getString(shareAddress, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(shareAddress, value)
+        }
+
+
+        var flag : Boolean
+        get() = preferences.getBoolean(sharePreferenceFlag, false)
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putBoolean(sharePreferenceFlag,value)
         }
 
             var login_status: Boolean

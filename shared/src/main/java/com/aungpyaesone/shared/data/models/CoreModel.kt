@@ -2,7 +2,6 @@ package com.aungpyaesone.shared.data.models
 
 import androidx.lifecycle.LiveData
 import com.aungpyaesone.shared.data.vos.*
-import com.aungpyaesone.shared.network.responses.NotiResponse
 
 interface CoreModel {
     fun addDoctor(doctorVO: DoctorVO, onSuccess: () -> Unit, onFailure: (String) -> Unit)
@@ -16,7 +15,12 @@ interface CoreModel {
         onFailure: (String) -> Unit
     )
 
-    fun startConsultation(onSuccess: () -> Unit, onFailure: (String) -> Unit)
+    fun startConsultation(caseSummaryList:List<QuestionAnswerVO>,
+                          patientVO: PatientVO,
+                          doctorVO: DoctorVO,
+                          dateTime:String,
+                          onSuccess: (documentId:String) -> Unit,
+                          onFailure: (String) -> Unit)
     fun sendMessage(
         documentId: String,
         messageVO: ChatMessageVO,
@@ -35,11 +39,11 @@ interface CoreModel {
         onFailure: (String) -> Unit
     )
 
-    fun getAllConsultationChatFromDb(): LiveData<List<ConsultationChatVO>>
+    fun getAllConsultationChatFromDbById(id: String): LiveData<ConsultationChatVO>
 
     fun getAllCheckMessageFromApi(
         documentId: String,
-        onSuccess: () -> Unit,
+        onSuccess: (List<ChatMessageVO>) -> Unit,
         onFailure: (String) -> Unit
     )
 
@@ -65,4 +69,11 @@ interface CoreModel {
     )
 
     fun getDoctorBySpecialityFromDb(): LiveData<List<DoctorVO>>
+
+    fun getAllConsultationChatFromDb():LiveData<List<ConsultationChatVO>>
+
+    fun updateConsultationChat(
+        consultationChatVO: ConsultationChatVO,
+        onSuccess: (currentDocumentId:String) -> Unit,
+        onFailure: (String) -> Unit)
 }

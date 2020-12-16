@@ -9,5 +9,4 @@ interface LoginPresenter : BasePresenter<LoginView> {
     fun onTapLogin(context: Context,email: String, password: String,lifecycleOwner: LifecycleOwner)
     fun onTapRegister()
 
-    fun onCheckUserLogin()
 }

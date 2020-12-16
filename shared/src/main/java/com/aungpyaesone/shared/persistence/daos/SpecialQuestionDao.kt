@@ -21,4 +21,5 @@ interface SpecialQuestionDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertSpecialQuestionList(specialQuestionList: List<SpecialQuestionVO>) : Completable
+
 }

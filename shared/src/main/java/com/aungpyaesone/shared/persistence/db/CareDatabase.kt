@@ -19,8 +19,9 @@ import com.aungpyaesone.shared.persistence.daos.*
     PrescriptionVO::class,
     CheckOutVO::class,
     ChatMessageVO::class,
-    RecentDoctorVO::class
-],version = 4,exportSchema = false)
+    RecentDoctorVO::class,
+    ConsultedPatientVO::class
+],version = 1,exportSchema = false)
 abstract class CareDatabase : RoomDatabase(){
     companion object {
         val DB_NAME = "CARE_DB"
@@ -31,6 +32,7 @@ abstract class CareDatabase : RoomDatabase(){
                 null -> {
                     dbInstance = Room.databaseBuilder(context, CareDatabase::class.java, DB_NAME)
                             .fallbackToDestructiveMigration()
+                            .allowMainThreadQueries()
                             .build()
                 }
             }
@@ -49,4 +51,6 @@ abstract class CareDatabase : RoomDatabase(){
     abstract fun specialQuestionDao() : SpecialQuestionDao
     abstract fun recentDoctorDao() : RecentDoctorDao
     abstract fun chatMessageDao(): ChatMessageDao
+    abstract fun prescriptionDao(): PrescriptionDao
+    abstract fun consultedPatientDao() : ConsultedPatientDao
 }

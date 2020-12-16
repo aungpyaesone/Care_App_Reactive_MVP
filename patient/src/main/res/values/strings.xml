@@ -16,13 +16,16 @@
     </string-array>
 
     <string-array name="bloodType">
-        <item>A သွေး</item>
-        <item>B သွေး</item>
-        <item>O သွေး</item>
+        <item>A</item>
+        <item>B</item>
+        <item>O</item>
+        <item>AB</item>
     </string-array>
 
     <string name="form_validate">အချက်လက်မပြည့်စုံသေးပါ</string>
     <string name="know">သိပါပီ</string>
 
     <string name="toolbar_title">လူနာအချက်လက်များဖြည့်ပါ</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>

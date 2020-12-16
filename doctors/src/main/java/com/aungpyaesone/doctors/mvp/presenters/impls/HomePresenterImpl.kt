@@ -1,47 +1,70 @@
 package com.aungpyaesone.doctors.mvp.presenters.impls
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.HomePresenter
 import com.aungpyaesone.doctors.mvp.views.HomeView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
-import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
-import com.aungpyaesone.shared.data.vos.DoctorVO
-import com.aungpyaesone.shared.data.vos.RegistrationAddRequest
-import com.aungpyaesone.shared.util.*
+import com.aungpyaesone.shared.data.vos.*
 import com.padc.shared.mvp.presenter.AbstractBasePresenter
 
 class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
 
     private val mDoctorModel = DoctorModelImpls
     private val mCoreModel = CoreModelImpls
+    private val chatId: String?  = ""
+
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
+
+        mDoctorModel.getAllConsultedPatientFromApi(SessionManager.user_id.toString(), onSuccess = {},onFailure = {})
+        mDoctorModel.getAllConsultedPatientFromDb().observe(lifecycleOwner, Observer {
+            it?.let {
+                mView?.payConsultedPatientList(it)
+            }
+        })
+        mCoreModel.getAllConsultationChatFromApi(onSuccess = {},onFailure = {})
+        mCoreModel.getAllConsultationChatFromDb().observe(lifecycleOwner, Observer {
+            mView?.showAcceptRequestList(it)
+        })
         mCoreModel.getAllConsultationRequestFromApi(speciality =SessionManager.speciality.toString(), onSuccess = {}, onFailure = {})
         mCoreModel.getAllConsultationRequestFromDb().observe(lifecycleOwner, Observer {
-            it?.let { it ->
-                mView?.showConsultationList(it)
+            it?.let { consultRequestVoList ->
+                mView?.showConsultationList(consultRequestVoList)
             }
         })
-        mCoreModel.getAllDoctorAcceptConsultationRequestFromDb().observe(lifecycleOwner, Observer {
-            it?.let {
-                mView?.showAcceptRequestList(it)
-            }
-        })
-
-        sendRegistrationToken()
 
     }
 
     override fun onTapAcceptButton(
+            context: Context,
             documentId: String,
             status: String,
             consultationRequestVO: ConsultationRequestVO,
             doctorVO: DoctorVO
     ) {
-        mDoctorModel.acceptRequest(documentId,status,consultationRequestVO,doctorVO,onSuccess = {},onFailure = {})
+        // write consultation chat node and update status on consultation request
+        mCoreModel.startConsultation(
+        consultationRequestVO.case_summary ?: arrayListOf()
+                        , consultationRequestVO.patient ?: PatientVO()
+                        , doctorVO,
+                        System.currentTimeMillis().toString(),
+                        onSuccess = {
+                            // for add chat id to consultation request node
+                            consultationRequestVO.consultationchat_id = it
+                            mDoctorModel.acceptRequest(documentId, "accept", consultationRequestVO,
+                                        doctorVO, onSuccess = {
+                                    sendNotification(context, consultationRequestVO.patient?.deviceId, doctorVO)
+                                }, onFailure = {})
+
+                            consultationRequestVO.patient?.let { it1 -> mDoctorModel.addConsultedPatient(doctorId = SessionManager.user_id.toString(),patientVO = it1,onSuccess = {},
+                            onFailure = {}) }
+                        },
+                        onFailure = {})
         mView?.navigateToConfirmScreen(consultationRequestVO.id)
     }
 
@@ -49,62 +72,42 @@ class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
         mDoctorModel.deleteSkipPatientRequestFromDb(consultId)
     }
 
-    override fun onTapLaterButton() {
-
+    override fun onTapLaterButton(consultId: String) {
+        mDoctorModel.deleteSkipPatientRequestFromDb(consultId)
     }
 
     override fun onTapChooseTimeButton() {
-
+        mView?.showChooseTimeDialog()
     }
 
-    override fun onTapSendTextMessage() {
-
+    override fun onTapSendTextMessage(consultChatId: String) {
+        mView?.navigateToChatScreen(consultChatId)
     }
 
-    override fun onTapMedicineNote() {
-
+    override fun onTapMedicineNote(consultationChatVO: ConsultationChatVO) {
+        mView?.showPatientInfoDialog(consultationChatVO)
     }
 
     override fun onTapNote() {
 
     }
 
-    override fun onTapPrescribe() {
-
+    override fun onTapPrescribe(consultationChatVO: ConsultationChatVO) {
+        mView?.showPrescriptionInfoDialog(consultationChatVO)
     }
 
-    private fun sendRegistrationToken(){
-        val registrionAddRequestVO = RegistrationAddRequest()
-        when(SessionManager.speciality){
-            "dentist" -> {
-                registrionAddRequestVO.operation = OPERATION
-                registrionAddRequestVO.notification_key_name = DENTIST_DOCTOR_NOTI_KEY_NAME
-                registrionAddRequestVO.notification_key = DENTIST_DOCTOR_NOTI_KEY
-                registrionAddRequestVO.registration_ids = arrayListOf(SessionManager.device_id.toString())
-                mDoctorModel.addRegistrationToken(requestVO = registrionAddRequestVO,onSuccess = {
-                    Log.d("add token success",it.notification_key.toString())
-                },onFailure = {})
-            }
-            "eye" -> {
-                registrionAddRequestVO.operation = OPERATION
-                registrionAddRequestVO.notification_key_name = EYE_DOCTOR_NOTI_KEY_NAME
-                registrionAddRequestVO.notification_key = EYE_DOCTOR_NOTI_KEY
-                registrionAddRequestVO.registration_ids = arrayListOf(SessionManager.device_id.toString())
-                mDoctorModel.addRegistrationToken(requestVO = registrionAddRequestVO,onSuccess = {
-                    Log.d("add token success",it.notification_key.toString())
-                },onFailure = {})
-            }
-            "cardiologist" -> {
-                registrionAddRequestVO.operation = OPERATION
-                registrionAddRequestVO.notification_key_name = CARDIOLOGIST_DOCTOR_NOTI_KEY_NAME
-                registrionAddRequestVO.notification_key = CARDIOLOGIST_DOCTOR_NOTI_KEY
-                registrionAddRequestVO.registration_ids = arrayListOf(SessionManager.device_id.toString())
-                mDoctorModel.addRegistrationToken(requestVO = registrionAddRequestVO,onSuccess = {
-                    Log.d("add token success",it.notification_key.toString())
-                },onFailure = {})
-            }
-        }
-
+    private fun sendNotification(context: Context, deviceId: String?, doctorVO: DoctorVO) {
+        val notificationVO = NotificationVO()
+        val dataVO = DataVO()
+        notificationVO.to = deviceId
+        dataVO.title = context.getString(R.string.noti_title)
+        dataVO.body = "${doctorVO.name}${context.getString(R.string.noti_body_for_patient)}"
+        notificationVO.data = dataVO
+        mDoctorModel.sendNotificationToPatient(notificationVO, onSuccess = {
+            Log.d("onsuccess", it.success.toString())
+        }, onFailure = {
+            Log.d("onFailure", it)
+        })
     }
 
 }

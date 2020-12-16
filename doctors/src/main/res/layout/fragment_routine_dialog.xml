@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="@dimen/margin_medium_2"
+    android:layout_marginBottom="@dimen/margin_medium_2"
+    android:layout_marginEnd="5dp"
+    android:paddingBottom="@dimen/margin_medium"
+    tools:context=".fragments.RoutineDialogFragment">
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvMedicineName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium_2"
+        android:text="Paracetamol"
+        android:textColor="@color/title_text_color"
+        android:textSize="@dimen/text_regular_3"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvQuantityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMedicineName"
+        android:layout_alignStart="@id/tvMedicineName"
+        android:layout_marginTop="15dp"
+        android:text="@string/quantity_label"
+        android:textColor="@color/title_text_color"
+        android:textSize="@dimen/text_regular" />
+
+    <org.mmtextview.components.MMTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/day_of_medicine"
+        android:textColor="@color/title_text_color"
+        android:layout_alignTop="@id/tvQuantityLabel"
+        android:layout_alignStart="@id/et_day"
+        />
+
+    <TextView
+        android:id="@+id/etTab"
+        android:layout_width="125dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:layout_below="@id/tvQuantityLabel"
+        android:layout_alignStart="@id/tvQuantityLabel"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/border_background" />
+
+    <EditText
+        android:id="@+id/et_day"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:paddingStart="@dimen/margin_medium_3"
+        android:hint="1"
+        android:background="@drawable/border_background"
+        android:layout_toEndOf="@id/etTab"
+        android:layout_alignTop="@id/etTab"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        />
+
+    <Spinner
+        android:id="@+id/spWeek"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@id/etTab"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/color_primary"
+        android:entries="@array/week_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etTab" />
+   <!-- <ImageView
+        android:id="@+id/viDropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+        android:layout_alignTop="@id/spWeek"
+        android:layout_alignBottom="@id/spWeek"
+        android:layout_alignEnd="@id/spWeek"
+        app:tint="@color/color_primary" />-->
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            android:layout_toStartOf="@id/spWeek"
+            android:layout_alignTop="@id/spWeek"
+            android:layout_alignBottom="@id/spWeek"
+             />
+
+      <org.mmtextview.components.MMTextView
+            android:id="@+id/tvNoofTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/number_of_time"
+            android:textColor="@color/title_text_color"
+            android:layout_below="@id/etTab"
+          android:layout_alignStart="@id/etTab"
+             />
+
+         <org.mmtextview.components.MMTextView
+           android:id="@+id/tvNotesLabel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/notes_label"
+           android:layout_marginTop="7dp"
+           android:layout_below="@id/noofTimeLayout"
+           android:textColor="@color/title_text_color"
+           android:layout_alignStart="@id/tvNoofTime"
+             />
+
+    <LinearLayout
+        android:id="@+id/noofTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNoofTime"
+        android:layout_alignStart="@id/tvNoofTime"
+        android:layout_alignEnd="@id/spWeek"
+        >
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvMorning"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:layout_marginTop="7dp"
+            android:text="@string/morning_label"
+            android:gravity="center"
+            android:background="@drawable/border_background" />
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvAfternoon"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/afternoon_label"
+            android:gravity="center"
+            android:background="@drawable/border_background" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvNight"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="7dp"
+            android:text="@string/night_label"
+            android:gravity="center"
+            android:background="@drawable/border_background" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNotesLabel"
+        android:layout_alignStart="@id/tvNoofTime"
+        android:layout_alignEnd="@id/spWeek"
+        >
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvFirstNote"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginTop="7dp"
+            android:text="@string/notes_label_one"
+            android:gravity="center"
+            android:background="@drawable/border_background" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvSecondNode"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="7dp"
+            android:text="@string/notes_label_two"
+            android:gravity="center"
+            android:background="@drawable/border_background" />
+
+    </LinearLayout>
+
+      <org.mmtextview.components.MMTextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note"
+           android:layout_marginTop="7dp"
+            android:textColor="@color/title_text_color"
+            android:layout_below="@id/layoutTwo"
+           android:layout_alignStart="@id/tvNotesLabel"
+          />
+
+         <EditText
+           android:id="@+id/etNotes"
+           android:layout_width="match_parent"
+           android:layout_height="108dp"
+           android:layout_marginTop="7dp"
+           android:layout_alignEnd="@id/spWeek"
+           android:layout_alignStart="@id/notes"
+           android:layout_below="@id/notes"
+           android:background="@drawable/border_background"
+           android:gravity="top"
+           android:padding="@dimen/margin_medium_2"
+            />
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/btnAddRoutine"
+           android:layout_width="112dp"
+           android:layout_height="44dp"
+           android:layout_marginTop="38dp"
+           android:layout_below="@id/etNotes"
+           android:backgroundTint="@color/color_primary"
+           android:text="@string/add_btn_label"
+           android:layout_centerHorizontal="true"
+           />
+</RelativeLayout>
+</RelativeLayout>

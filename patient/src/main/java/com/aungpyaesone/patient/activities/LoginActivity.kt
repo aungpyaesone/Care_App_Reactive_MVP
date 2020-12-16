@@ -3,21 +3,22 @@ package com.aungpyaesone.patient.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.mvp.presenters.LoginPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.LoginPresenterImpl
 import com.aungpyaesone.patient.mvp.view.LoginView
 import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.PatientVO
+import com.aungpyaesone.shared.util.sharePreferencePatient
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.btnRegister
 import kotlinx.android.synthetic.main.activity_login.etEmail
 import kotlinx.android.synthetic.main.activity_login.etPassword
 import kotlinx.android.synthetic.main.activity_login.progressView
-import kotlinx.android.synthetic.main.activity_register.*
-
 class LoginActivity : BaseActivity(), LoginView {
 
     private lateinit var mPresenter: LoginPresenter
@@ -57,6 +58,8 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
     override fun navigateToHomeScreen(patientVO: PatientVO) {
+        SessionManager.login_status =true
+        SessionManager.put(patientVO, sharePreferencePatient)
         startActivity(MainActivity.newInstance(this))
         this.finish()
     }

@@ -7,6 +7,7 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.adapters.PagerAdapter
 import com.aungpyaesone.patient.delegate.CaseSummaryDelegate
 import com.aungpyaesone.patient.mvp.presenters.SummaryPresenter
+import com.aungpyaesone.patient.utils.SessionManager
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_case_summary.*
 
@@ -27,6 +28,7 @@ class CaseSummaryActivity : BaseActivity(),CaseSummaryDelegate {
         setContentView(R.layout.activity_case_summary)
         setupPager()
         setupListener()
+        mSpeciality = intent.getStringExtra(SPECIALITIES)
     }
 
 
@@ -59,6 +61,7 @@ class CaseSummaryActivity : BaseActivity(),CaseSummaryDelegate {
     }
 
     override fun onTapStartConsultationButton() {
+        SessionManager.speciality = mSpeciality
         startActivity(ConfirmationActivity.newInstance(this))
     }
 

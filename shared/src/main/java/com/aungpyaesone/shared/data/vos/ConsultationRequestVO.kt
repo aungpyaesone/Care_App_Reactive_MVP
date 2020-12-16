@@ -24,7 +24,8 @@ data class ConsultationRequestVO(
         var case_summary : ArrayList<QuestionAnswerVO> ?= arrayListOf(),
         var status:String? = "",
         var patient_id:String? ="",
-        var patient_type : String? = ""
+        var patient_type : String? = "",
+        var consultationchat_id : String? = ""
 )
 {
 

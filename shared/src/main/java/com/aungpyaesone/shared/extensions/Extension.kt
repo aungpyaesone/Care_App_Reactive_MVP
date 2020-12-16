@@ -65,7 +65,7 @@ fun MutableMap<String,Any>?.convertToChatMessage() : ChatMessageVO {
     chatMessageVO.id= this?.get("id") as String
     chatMessageVO.messageText = this?.get("messageText") as String
     chatMessageVO.messageImage = this["messageImage"] as String
-    chatMessageVO.sendBy = this["sendBy"] as SenderVO
+    chatMessageVO.sentBy = this["sendBy"] as SenderVO
     chatMessageVO.sendAt = this["sendAt"] as String
     return chatMessageVO
 }

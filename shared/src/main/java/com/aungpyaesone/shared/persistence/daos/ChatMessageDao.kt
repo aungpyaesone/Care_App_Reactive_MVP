@@ -3,14 +3,13 @@ package com.aungpyaesone.shared.persistence.daos
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
-import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.google.firebase.firestore.IgnoreExtraProperties
 import io.reactivex.Completable
 
 @IgnoreExtraProperties
 @Dao
 interface ChatMessageDao {
-    @Query("SELECT * FROM chat_message")
+    @Query("SELECT * FROM chat_message order by sendAt")
     fun getAllChatMessage() : LiveData<List<ChatMessageVO>>
 
     @Query("SELECT * FROM chat_message WHERE id = :chatId")
@@ -21,4 +20,7 @@ interface ChatMessageDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertChatMessageList(ConsultationChatList: List<ChatMessageVO>) : Completable
+
+    @Query("delete from chat_message")
+    fun deleteAllChatMessage()
 }

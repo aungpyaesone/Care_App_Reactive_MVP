@@ -25,6 +25,10 @@ object SessionManager {
         editor.apply()
     }
 
+    fun logout(){
+        preferences.edit().clear().apply()
+    }
+
     var speciality : String?
         get() = preferences.getString(sharePreferenceSpeciality, "")
         // custom setter to save a preference back to preferences file
@@ -88,8 +92,27 @@ object SessionManager {
         set(value) = preferences.edit {
             it.putString(sharePreferencepatientDob, value)
         }
+    var created_date : String?
+        get() = preferences.getString(sharecreatedDate, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(sharecreatedDate, value)
+        }
+    var phone : String?
+        get() = preferences.getString(sharephone, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(sharephone, value)
+        }
 
-    var patient_height: String?
+    var address : String?
+        get() = preferences.getString(shareAddress, "")
+        // custom setter to save a preference back to preferences file
+        set(value) = preferences.edit {
+            it.putString(shareAddress, value)
+        }
+
+    var experience: String?
 
         get() = preferences.getString(sharePreferencepatientHeight, "")
 
@@ -97,7 +120,7 @@ object SessionManager {
             it.putString(sharePreferencepatientHeight, value)
         }
 
-    var bloodPressure: String?
+    var degree: String?
 
         get() = preferences.getString(sharePreferencebloodPressure, "")
 
@@ -105,7 +128,7 @@ object SessionManager {
             it.putString(sharePreferencebloodPressure, value)
         }
 
-    var comment: String?
+    var photo: String?
 
         get() = preferences.getString(sharedPreferencesComment, "")
 

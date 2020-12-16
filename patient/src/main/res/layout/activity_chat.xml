@@ -6,114 +6,141 @@
     android:layout_height="match_parent"
     tools:context=".activities.ChatActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/text_regular_2"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/ivBack" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/ivBack"
+                    tools:text="Dr. Aung Aung" />
+
+                <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    android:src="@mipmap/ic_launcher"
+                    app:cornerRadius="@dimen/margin_medium_2" />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:layout_above="@id/sendTextLayout"
+        android:layout_below="@id/toolBar"
+        >
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
 
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/tvToolbarTitle"
-                android:layout_width="wrap_content"
+            <include
+                android:id="@+id/vpatientInfoViewPod"
+                layout="@layout/patient_info_viewpod"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/ivBack"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_medium"
-                />
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/tvDoctorName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text ="Dr. Aung Aung"
-                android:layout_margin="@dimen/margin_medium"
-                android:layout_toEndOf="@id/ivBack"
-                />
-            <org.mmtextview.components.MMTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="dentist"
-                android:layout_toEndOf="@id/ivBack"
-                android:layout_below="@id/tvDoctorName"
-                android:layout_marginBottom="@dimen/margin_medium"
-                android:layout_alignStart="@id/tvDoctorName"
-                />
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.aungpyaesone.patient.views.components.RoundedCornerImageView
-                android:id="@+id/ivProfile"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@mipmap/ic_launcher"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/margin_medium_2"
-                app:cornerRadius="@dimen/margin_medium_2"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvChatView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vpatientInfoViewPod"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <include
+                android:id="@+id/prescriptionViewPod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/prescription_view_pod"
+                android:layout_below="@id/rvChatView"
+                android:visibility="gone"
+                />
         </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/sendTextLayout"
-        android:layout_below="@+id/toolBar"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
+    </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
         android:id="@+id/sendTextLayout"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_alignParentBottom="true">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/margin_medium">
 
-    <ImageButton
-        android:id="@+id/ivAttachment"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:padding="@dimen/margin_medium"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:src="@drawable/ic_baseline_attach_file_24"
-        android:background="@drawable/blue_background"
-        />
+
+        <ImageButton
+            android:id="@+id/ivAttachment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="@drawable/blue_background"
+            android:padding="@dimen/margin_medium"
+
+            android:src="@drawable/ic_baseline_attach_file_24" />
 
         <EditText
             android:id="@+id/etMessage"
-            android:background="@drawable/border_background"
             android:layout_width="match_parent"
-            android:paddingTop="@dimen/margin_medium_2"
-            android:paddingBottom="@dimen/margin_medium_2"
             android:layout_height="wrap_content"
-            android:hint="@string/write"
-            android:paddingStart="@dimen/margin_medium_2"
-            android:layout_toEndOf="@id/ivAttachment"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/ivSend"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_medium"
-            />
+            android:layout_toStartOf="@id/ivSend"
+            android:layout_toEndOf="@id/ivAttachment"
+            android:background="@drawable/border_background"
+            android:hint="@string/write"
+            android:paddingStart="@dimen/margin_medium_2"
+
+            android:paddingTop="@dimen/margin_medium_2"
+            android:paddingBottom="@dimen/margin_medium_2" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivSend"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:layout_marginEnd="@dimen/margin_medium"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:padding="@dimen/margin_medium"
             android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:padding="@dimen/margin_medium"
             android:src="@drawable/ic_baseline_send_24"
-            android:tint="@color/button_color"/>
-
+            android:tint="@color/button_color" />
     </RelativeLayout>
 
 

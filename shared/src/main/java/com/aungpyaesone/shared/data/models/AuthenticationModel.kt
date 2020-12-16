@@ -16,5 +16,10 @@ interface AuthenticationModel {
 
     fun checkCurrentUser(onSuccess: (userId:String) -> Unit,onFailure: (String) -> Unit)
 
+    fun updateProfile(
+        photoUrl : String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    )
 
 }

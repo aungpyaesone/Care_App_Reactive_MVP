@@ -6,107 +6,145 @@
     android:layout_height="match_parent"
     tools:context=".activities.ChatActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/tvToolbarTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_toEndOf="@id/ivBack" />
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/tvDoctorName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:layout_toEndOf="@id/ivBack"
-                tools:text="Dr. Aung Aung" />
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/ivBack" />
 
-            <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
-                android:id="@+id/ivProfile"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/margin_medium_2"
-                android:src="@mipmap/ic_launcher"
-                app:cornerRadius="@dimen/margin_medium_2" />
-        </RelativeLayout>
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/ivBack"
+                    tools:text="Dr. Aung Aung" />
 
-    </androidx.appcompat.widget.Toolbar>
+                <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    android:src="@mipmap/ic_launcher"
+                    app:cornerRadius="@dimen/margin_medium_2" />
+            </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/btnLayout"
-        android:layout_below="@+id/toolBar"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp" />
+        </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
-        android:id="@+id/btnLayout"
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/toolBar"
+        android:fitsSystemWindows="true"
         android:layout_above="@id/sendTextLayout"
         >
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnQuestions"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include
+        android:id="@+id/vpatientInfoViewPod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/patient_info_viewpod"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChatView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vpatientInfoViewPod"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <include
+            android:id="@+id/prescriptionViewPod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/margin_medium"
-            android:backgroundTint="@color/blue_transparent"
-            android:text="@string/question_label"
-            android:textColor="@color/button_color" />
+            android:layout_alignParentEnd="true"
+            layout="@layout/prescription_view_pod"
+            android:layout_below="@id/rvChatView"
+            android:visibility="gone"
+            />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPrescribe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/margin_medium"
-            android:backgroundTint="@color/blue_transparent"
-            android:text="@string/prescribe_medicine"
-            android:textColor="@color/button_color" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnHistory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/margin_medium"
-            android:backgroundTint="@color/blue_transparent"
-            android:text="@string/label_one"
-            android:textColor="@color/button_color" />
-
-    </LinearLayout>
-
-
+    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
     <RelativeLayout
         android:id="@+id/sendTextLayout"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:padding="@dimen/margin_medium"
         android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/btnLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/margin_small"
+                android:textSize="@dimen/text_small"
+                android:backgroundTint="@color/blue_transparent"
+                android:text="@string/question_label"
+                android:textColor="@color/color_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrescribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/margin_small"
+                android:textSize="@dimen/text_small"
+                android:backgroundTint="@color/blue_transparent"
+                android:text="@string/prescribe_medicine"
+                android:textColor="@color/color_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_small"
+                android:layout_margin="@dimen/margin_small"
+                android:backgroundTint="@color/blue_transparent"
+                android:text="@string/label_one"
+                android:textColor="@color/color_primary" />
+
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/ivAttachment"
@@ -116,6 +154,7 @@
             android:layout_marginStart="@dimen/margin_medium"
             android:background="@drawable/blue_background"
             android:padding="@dimen/margin_medium"
+            android:layout_below="@id/btnLayout"
             android:src="@drawable/ic_baseline_attach_file_24" />
 
         <EditText
@@ -127,9 +166,10 @@
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_toStartOf="@id/ivSend"
             android:layout_toEndOf="@id/ivAttachment"
-            android:background="@drawable/border_background"
+            android:background="@drawable/border_background_two"
             android:hint="@string/write"
             android:paddingStart="@dimen/margin_medium_2"
+            android:layout_below="@id/btnLayout"
             android:paddingTop="@dimen/margin_medium_2"
             android:paddingBottom="@dimen/margin_medium_2" />
 
@@ -142,6 +182,7 @@
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_medium"
             android:padding="@dimen/margin_medium"
+            android:layout_below="@id/btnLayout"
             android:src="@drawable/ic_baseline_send_24"
             android:tint="@color/button_color" />
 

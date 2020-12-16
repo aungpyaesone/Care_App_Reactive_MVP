@@ -17,10 +17,10 @@ interface ConsultationRequestDao {
     fun insertConsultationRequest(consultationReqVO: ConsultationRequestVO): Completable
 
     @Query("delete from consultation_request")
-    fun deleteAllConsultationRequest(): Completable
+    fun deleteAllConsultationRequest()
 
     @Query("delete from consultation_request where id = :consultReqId")
-    fun deleteAllConsultationRequestById(consultReqId: String): Completable
+    fun deleteAllConsultationRequestById(consultReqId: String)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertConsultationRequestList(consultationList: List<ConsultationRequestVO>) : Completable

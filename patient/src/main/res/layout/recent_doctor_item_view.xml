@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="150dp"
+    android:layout_height="181dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/margin_medium"
     app:cardUseCompatPadding="true"
@@ -10,20 +10,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
+        <com.aungpyaesone.patient.views.components.RoundedCornerImageView
             android:id="@+id/ivProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_baseline_account_circle_24"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:src="@drawable/no_path"
             android:layout_centerHorizontal="true"/>
+
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+            android:textSize="@dimen/text_regular_2"
+            android:layout_width="match_parent"
+            android:paddingStart="5dp"
+            android:textColor="@color/title_text_color"
+            android:paddingEnd="5dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:text="Doctor Name"
             android:layout_below="@id/ivProfile"
-            android:layout_centerHorizontal="true"
-            style ="@style/TitleTextStyle"/>
+            android:layout_marginTop="19dp"
+            android:text="Doctor Name" />
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvSpeciality"
@@ -32,7 +38,7 @@
             android:layout_below="@id/tvName"
             android:text="Dentist"
             android:layout_marginBottom="@dimen/margin_medium"
-            style="@style/RegularStyle"
+            android:textColor="@color/title_text_color"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvTextMessage"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/chat_text_color"
+        android:background="@drawable/chat_message_background_two"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingTop="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivSenderProfile"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate"
+        tools:text="Hello World" />
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="@+id/tvTextMessage"
+        app:layout_constraintStart_toStartOf="@+id/tvTextMessage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Today" />
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvTextMessage"
+        app:layout_constraintTop_toBottomOf="@+id/tvTextMessage"
+        tools:text="12:00 PM" />
+
+    <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+        android:id="@+id/ivSenderProfile"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="@dimen/margin_medium_2"
+        android:src="@mipmap/ic_launcher"
+        app:cornerRadius="@dimen/margin_medium_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

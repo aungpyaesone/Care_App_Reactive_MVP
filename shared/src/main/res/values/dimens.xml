@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="doctor_profile_width">151dp</dimen>
+    <dimen name="doctor_profile_height">169dp</dimen>
+</resources>

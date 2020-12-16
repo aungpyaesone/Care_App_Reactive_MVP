@@ -14,6 +14,8 @@ data class PrescriptionVO(
     var id:String ="",
     var days: String? ="",
     var medicine_name :String? = "",
+    var price: String? = "",
+    var count : String? = "",
     var routineVO: RoutineVO? = null,
     var totalTime: Int? = 0
 )

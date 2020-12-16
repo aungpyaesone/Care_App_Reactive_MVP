@@ -1,16 +1,20 @@
 package com.aungpyaesone.shared.network
 
+import android.graphics.Bitmap
 import android.util.Log
 import com.aungpyaesone.shared.data.vos.*
-import com.aungpyaesone.shared.extensions.convertToGeneralQuestionVO
 import com.aungpyaesone.shared.util.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
+import java.io.ByteArrayOutputStream
 import java.util.*
 
 object CloudFireStoreImpls : FirebaseApi {
     val db = Firebase.firestore
+    val storage = FirebaseStorage.getInstance()
+    private val storageReference = storage.reference
 
     override fun addDoctor(doctorVO: DoctorVO, onSuccess: () -> Unit, onFialure: (String) -> Unit) {
         val doctorMap = hashMapOf(
@@ -24,24 +28,31 @@ object CloudFireStoreImpls : FirebaseApi {
             "email" to doctorVO.email,
             "speciality" to doctorVO.speciality,
             "deviceId" to doctorVO.deviceId,
-            "phone" to doctorVO.phone
+            "phone" to doctorVO.phone,
+            "speciality_myanmar" to doctorVO.speciality_myanmar,
+            "dob" to doctorVO.dob,
+            "gender" to doctorVO.gender
         )
         doctorVO.name?.let {
             db.collection("doctors")
-                    .document(doctorVO.id)
-                    .set(doctorMap)
-                    .addOnSuccessListener {
-                        Log.d("success", "Successfully add doctor")
-                        onSuccess()
-                    }
-                    .addOnFailureListener {
-                        Log.d("onFailure", "Failed to add doctor")
-                        onFialure("Failed to add doctor")
-                    }
+                .document(doctorVO.id)
+                .set(doctorMap)
+                .addOnSuccessListener {
+                    Log.d("success", "Successfully add doctor")
+                    onSuccess()
+                }
+                .addOnFailureListener {
+                    Log.d("onFailure", "Failed to add doctor")
+                    onFialure("Failed to add doctor")
+                }
         }
     }
 
-    override fun addPatient(patientVO: PatientVO, onSuccess: () -> Unit, onFialure: (String) -> Unit) {
+    override fun addPatient(
+        patientVO: PatientVO,
+        onSuccess: () -> Unit,
+        onFialure: (String) -> Unit
+    ) {
         val patientMap = hashMapOf(
             "id" to patientVO.id,
             "name" to patientVO.name,
@@ -58,254 +69,261 @@ object CloudFireStoreImpls : FirebaseApi {
         )
         patientVO.name?.let {
             db.collection(PATIENT)
-                    .document(patientVO.id)
-                    .set(patientMap)
-                    .addOnSuccessListener {
-                        Log.d("success", "Successfully add patient")
-                        onSuccess()
-                    }
-                    .addOnFailureListener {
-                        Log.d("onFailure", "Failed to add patient")
-                        onFialure("Failed to add patient")
-                    }
+                .document(patientVO.id)
+                .set(patientMap)
+                .addOnSuccessListener {
+                    Log.d("success", "Successfully add patient")
+                    onSuccess()
+                }
+                .addOnFailureListener {
+                    Log.d("onFailure", "Failed to add patient")
+                    onFialure("Failed to add patient")
+                }
         }
 
     }
 
-    override fun getSpeciality(onSuccess: (List<SpecialitiesVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getSpeciality(
+        onSuccess: (List<SpecialitiesVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         db.collection(SPECIALITIES)
-                .get()
-                .addOnSuccessListener { result ->
-                    val specialitiesList: MutableList<SpecialitiesVO> = arrayListOf()
-                    for (document in result) {
-                        val hashmap = document.data
-                        hashmap?.put("id", document.id)
-                        val Data = Gson().toJson(hashmap)
-                        val docData = Gson().fromJson<SpecialitiesVO>(Data, SpecialitiesVO::class.java)
-                        specialitiesList.add(docData)
-                    }
-                    onSuccess(specialitiesList)
-
-                }.addOnFailureListener {
-                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+            .get()
+            .addOnSuccessListener { result ->
+                val specialitiesList: MutableList<SpecialitiesVO> = arrayListOf()
+                for (document in result) {
+                    val hashmap = document.data
+                    hashmap?.put("id", document.id)
+                    val Data = Gson().toJson(hashmap)
+                    val docData = Gson().fromJson<SpecialitiesVO>(Data, SpecialitiesVO::class.java)
+                    specialitiesList.add(docData)
                 }
-          /*.addSnapshotListener { value, error ->
-              error?.let {
-                  onFailure(it.message ?: "Please check internet connection")
-              } ?: run {
-                  val specialitesList: MutableList<SpecialitiesVO> = arrayListOf()
-                  val result = value?.documents ?: arrayListOf()
-                  for (document in result) {
-                      val hashmap = document.data
-                      hashmap?.put("id", document.id)
-                      val Data = Gson().toJson(hashmap)
-                      val docData = Gson().fromJson<SpecialitiesVO>(Data, SpecialitiesVO::class.java)
-                      specialitesList.add(docData)
-                  }
-                  onSuccess(specialitesList)
-              }
-          }*/
+                onSuccess(specialitiesList)
+
+            }.addOnFailureListener {
+                onFailure(it.message ?: EN_ERROR_MESSAGE)
+            }
+        /*.addSnapshotListener { value, error ->
+            error?.let {
+                onFailure(it.message ?: "Please check internet connection")
+            } ?: run {
+                val specialitesList: MutableList<SpecialitiesVO> = arrayListOf()
+                val result = value?.documents ?: arrayListOf()
+                for (document in result) {
+                    val hashmap = document.data
+                    hashmap?.put("id", document.id)
+                    val Data = Gson().toJson(hashmap)
+                    val docData = Gson().fromJson<SpecialitiesVO>(Data, SpecialitiesVO::class.java)
+                    specialitesList.add(docData)
+                }
+                onSuccess(specialitesList)
+            }
+        }*/
     }
 
     override fun startConsultation(
-            caseSummary: List<QuestionAnswerVO>,
-            doctorVO: DoctorVO,
-            patientVO: PatientVO,
-            dateTime: String,
-            onSuccess: (currentDocumentId: String) -> Unit,
-            onFailure: (String) -> Unit
+        caseSummary: List<QuestionAnswerVO>,
+        doctorVO: DoctorVO,
+        patientVO: PatientVO,
+        dateTime: String,
+        onSuccess: (currentDocumentId: String) -> Unit,
+        onFailure: (String) -> Unit
     ) {
         val uuid = UUID.randomUUID()
         val consultationMap = hashMapOf(
-                "id" to uuid.toString(),
-                "caseSummary" to caseSummary,
-                "doctor" to doctorVO,
-                "patient" to patientVO,
-                "patient_id" to patientVO.id,
-                "dateTime" to dateTime,
-                "status" to false
+            "id" to uuid.toString(),
+            "caseSummary" to caseSummary,
+            "doctor" to doctorVO,
+            "patient" to patientVO,
+            "dateTime" to dateTime,
+            "status" to false
         )
 
         db.collection(CONSULTATION_CHAT)
-                .document(uuid.toString())
-                .set(consultationMap)
-                .addOnSuccessListener {
-                    Log.d("success", "Successfully add doctor")
-                    onSuccess(uuid.toString())
-                }
-                .addOnFailureListener {
-                    Log.d("onFailure", "Failed to add doctor")
-                    onFailure("Failed to add doctor")
-                }
+            .document(uuid.toString())
+            .set(consultationMap)
+            .addOnSuccessListener {
+                Log.d("success", "Successfully add doctor")
+                onSuccess(uuid.toString())
+            }
+            .addOnFailureListener {
+                Log.d("onFailure", "Failed to add doctor")
+                onFailure("Failed to add doctor")
+            }
 
-        // add recently doctor
-        db.collection("$PATIENT/${patientVO.id}/$RECENTLY_DOCTOR")
-                .document(doctorVO.id)
-                .set(doctorVO)
-                .addOnSuccessListener {
-                    Log.d("success", "Successfully add recent doctor")
-                    onSuccess(uuid.toString())
-                }
-                .addOnFailureListener {
-                    Log.d("onFailure", "Failed to add recent doctor")
-                    onFailure("Failed to add doctor")
-                }
 
         // add general question
         for (questionAns in caseSummary) {
             db.collection("$PATIENT/${patientVO.id}/$GENERAL_QUESTION")
-                    .document(questionAns.id)
-                    .set(questionAns)
-                    .addOnSuccessListener {
-                        Log.d("success", "Successfully add question answer")
-                        onSuccess(uuid.toString())
-                    }
-                    .addOnFailureListener {
-                        Log.d("onFailure", "Failed to question answer")
-                        onFailure("Failed to add doctor")
-                    }
+                .document(questionAns.id)
+                .set(questionAns)
+                .addOnSuccessListener {
+                    Log.d("success", "Successfully add question answer")
+                    onSuccess(uuid.toString())
+                }
+                .addOnFailureListener {
+                    Log.d("onFailure", "Failed to question answer")
+                    onFailure("Failed to add doctor")
+                }
         }
     }
 
     override fun sendMessage(
-            documentId: String,
-            messageVO: ChatMessageVO,
-            onSuccess: () -> Unit,
-            onFailure: (String) -> Unit) {
+        documentId: String,
+        messageVO: ChatMessageVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         val uuid = UUID.randomUUID()
         val messageMap = hashMapOf(
-                "id" to uuid.toString(),
-                "messageText" to messageVO.messageText,
-                "messageImage" to messageVO.messageImage,
-                "sentBy" to messageVO.sendBy,
-                "sendAt" to messageVO.sendAt
+            "id" to uuid.toString(),
+            "messageText" to messageVO.messageText,
+            "messageImage" to messageVO.messageImage,
+            "sentBy" to messageVO.sentBy,
+            "sendAt" to messageVO.sendAt
 
         )
         db.collection("$CONSULTATION_CHAT/${documentId}/$MESSAGE")
-                .document(uuid.toString())
-                .set(messageMap)
-                .addOnSuccessListener {
-                    onSuccess()
-                }
-                .addOnFailureListener {
-                    onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
-                }
+            .document(uuid.toString())
+            .set(messageMap)
+            .addOnSuccessListener {
+                onSuccess()
+            }
+            .addOnFailureListener {
+                onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
+            }
     }
 
     override fun getSpecialQuestionBySpecialities(
-            documentName: String,
-            onSuccess: (List<SpecialQuestionVO>) -> Unit,
-            onFailure: (String) -> Unit
+        documentName: String,
+        onSuccess: (List<SpecialQuestionVO>) -> Unit,
+        onFailure: (String) -> Unit
     ) {
         db.collection(
-                "$SPECIALITIES/${documentName}/$SPECIAL_QUESTION_NODE")
-                .addSnapshotListener { value, error ->
-                    error?.let {
-                        onFailure(it.message ?: "Please check internet connection")
-                    } ?: run {
-                        val specialQuestionList: MutableList<SpecialQuestionVO> = arrayListOf()
-                        val result = value?.documents ?: arrayListOf()
-                        for (document in result) {
-                            val hashmap = document.data
-                            hashmap?.put("id", document.id)
-                            val Data = Gson().toJson(hashmap)
-                            val docData = Gson().fromJson<SpecialQuestionVO>(Data, SpecialQuestionVO::class.java)
-                            specialQuestionList.add(docData)
-                        }
-                        onSuccess(specialQuestionList)
+            "$SPECIALITIES/${documentName}/$SPECIAL_QUESTION_NODE"
+        )
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val specialQuestionList: MutableList<SpecialQuestionVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<SpecialQuestionVO>(Data, SpecialQuestionVO::class.java)
+                        specialQuestionList.add(docData)
                     }
+                    onSuccess(specialQuestionList)
                 }
+            }
     }
 
-    override fun getConsultationChat(onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getConsultationChat(
+        onSuccess: (List<ConsultationChatVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         db.collection(CONSULTATION_CHAT)
-               // .whereEqualTo("patient_id", patientId)
-                .addSnapshotListener { value, error ->
-                    error?.let {
-                        onFailure(it.message ?: EN_ERROR_MESSAGE)
-                    } ?: run {
-                        val consultationChatList: MutableList<ConsultationChatVO> = arrayListOf()
-                        val result = value?.documents ?: arrayListOf()
-                        for (document in result) {
-                            val hashmap = document.data
-                            hashmap?.put("id", document.id)
-                            val Data = Gson().toJson(hashmap)
-                            val docData = Gson().fromJson<ConsultationChatVO>(Data, ConsultationChatVO::class.java)
-                            consultationChatList.add(docData)
-                        }
-                        onSuccess(consultationChatList)
+            // .whereEqualTo("patient_id", patientId)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+                } ?: run {
+                    val consultationChatList: MutableList<ConsultationChatVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData = Gson().fromJson<ConsultationChatVO>(
+                            Data,
+                            ConsultationChatVO::class.java
+                        )
+                        consultationChatList.add(docData)
                     }
+                    onSuccess(consultationChatList)
                 }
+            }
     }
 
-    override fun getAllCheckMessage(documentId: String, onSuccess: (List<ChatMessageVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getAllCheckMessage(
+        documentId: String,
+        onSuccess: (List<ChatMessageVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         db.collection("$CONSULTATION_CHAT/${documentId}/$MESSAGE")
-                .addSnapshotListener { value, error ->
-                    error?.let {
-                        onFailure(it.message ?: "Please check internet connection")
-                    } ?: run {
-                        val chatMessageList: MutableList<ChatMessageVO> = arrayListOf()
-                        val result = value?.documents ?: arrayListOf()
-                        for (document in result) {
-                            val hashmap = document.data
-                            hashmap?.put("id", document.id)
-                            val Data = Gson().toJson(hashmap)
-                            val docData = Gson().fromJson<ChatMessageVO>(Data, ChatMessageVO::class.java)
-                            chatMessageList.add(docData)
-                        }
-                        onSuccess(chatMessageList)
-
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val chatMessageList: MutableList<ChatMessageVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<ChatMessageVO>(Data, ChatMessageVO::class.java)
+                        chatMessageList.add(docData)
                     }
+                    onSuccess(chatMessageList)
+
                 }
+            }
     }
+
     // send broadcast request
-    override fun sendBroadCastConsultationRequest(speciality: String,
-                                                  caseSummary: List<QuestionAnswerVO>,
-                                                  patientVO: PatientVO,
-                                                  doctorVO: DoctorVO,
-                                                  dateTime: String,
-                                                  onSuccess: () -> Unit,
-                                                  onFailure: (String) -> Unit) {
+    override fun sendBroadCastConsultationRequest(
+        speciality: String,
+        caseSummary: List<QuestionAnswerVO>,
+        patientVO: PatientVO,
+        doctorVO: DoctorVO,
+        dateTime: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         val uuid = UUID.randomUUID().toString()
         val consultationReqMap = hashMapOf(
-                "id" to uuid,
-                "case_summary" to caseSummary,
-                "patient" to patientVO,
-                "doctor" to doctorVO,
-                "patient_id" to patientVO.id,
-                "speciality" to speciality,
-                "date_time" to dateTime,
-                "status" to "new"
+            "id" to uuid,
+            "case_summary" to caseSummary,
+            "patient" to patientVO,
+            "doctor" to doctorVO,
+            "patient_id" to patientVO.id,
+            "speciality" to speciality,
+            "date_time" to dateTime,
+            "status" to "new"
         )
-        Log.d("uuid",uuid)
+        Log.d("uuid", uuid)
         db.collection(CONSULTATION_REQUEST)
-                .document(uuid)
-                .set(consultationReqMap)
-                .addOnSuccessListener {
-                    Log.d("success", "Successfully add consultation req")
-                    onSuccess()
-                }
-                .addOnFailureListener {
-                    Log.d("onFailure", "Failed to add consultation req")
-                    onFailure("Failed to add doctor")
-                }
+            .document(uuid)
+            .set(consultationReqMap)
+            .addOnSuccessListener {
+                Log.d("success", "Successfully add consultation req")
+                onSuccess()
+            }
+            .addOnFailureListener {
+                Log.d("onFailure", "Failed to add consultation req")
+                onFailure("Failed to add doctor")
+            }
     }
-
 
 
     override fun sendDirectRequest(
-            caseSummary: QuestionAnswerVO,
-            patientVO: PatientVO,
-            doctorVO: DoctorVO,
-            dateTime: String,
-            onSuccess: () -> Unit,
-            onFailure: (String) -> Unit) {
+        caseSummary: QuestionAnswerVO,
+        patientVO: PatientVO,
+        doctorVO: DoctorVO,
+        dateTime: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
 
         val directConsultationMap = hashMapOf(
-                "case_summary" to caseSummary,
-                "patient" to patientVO,
-                "doctor" to doctorVO,
-                "date_time" to dateTime
+            "case_summary" to caseSummary,
+            "patient" to patientVO,
+            "doctor" to doctorVO,
+            "date_time" to dateTime
         )
 
     }
@@ -320,19 +338,19 @@ object CloudFireStoreImpls : FirebaseApi {
         onFailure: (String) -> Unit
     ) {
 
-       val deliveryRoutineVO = DeliveryRoutineVO(
-           "",DateUtils().getDayAgo(3).toString()
-       )
-       val uuid = UUID.randomUUID().toString()
-       val checkoutMap = hashMapOf(
-           "id" to uuid,
-           "address" to address,
-           "patient" to patientVO,
-           "doctor" to doctorVO,
-           "delivery_routine" to deliveryRoutineVO,
-           "prescription" to prescriptionList,
-           "total_price" to totalPrice
-       )
+        val deliveryRoutineVO = DeliveryRoutineVO(
+            "", DateUtils().getDayAgo(3).toString()
+        )
+        val uuid = UUID.randomUUID().toString()
+        val checkoutMap = hashMapOf(
+            "id" to uuid,
+            "address" to address,
+            "patient" to patientVO,
+            "doctor" to doctorVO,
+            "delivery_routine" to deliveryRoutineVO,
+            "prescription" to prescriptionList,
+            "total_price" to totalPrice
+        )
         db.collection(CHECKOUT)
             .document(uuid.toString())
             .set(checkoutMap)
@@ -345,23 +363,27 @@ object CloudFireStoreImpls : FirebaseApi {
 
     }
 
-    override fun getRecentlyConsultationDoctor(documentId: String, onSuccess: (List<RecentDoctorVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getRecentlyConsultationDoctor(
+        documentId: String,
+        onSuccess: (List<RecentDoctorVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         db.collection("$PATIENT/${documentId}/$RECENTLY_DOCTOR")
-                .get()
-                .addOnSuccessListener { result ->
-                    val recentlyDoctorList: MutableList<RecentDoctorVO> = arrayListOf()
-                    for (document in result) {
-                        val hashmap = document.data
-                        hashmap?.put("id", document.id)
-                        val Data = Gson().toJson(hashmap)
-                        val docData = Gson().fromJson<RecentDoctorVO>(Data, RecentDoctorVO::class.java)
-                        recentlyDoctorList.add(docData)
-                    }
-                    onSuccess(recentlyDoctorList)
-
-                }.addOnFailureListener {
-                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+            .get()
+            .addOnSuccessListener { result ->
+                val recentlyDoctorList: MutableList<RecentDoctorVO> = arrayListOf()
+                for (document in result) {
+                    val hashmap = document.data
+                    hashmap?.put("id", document.id)
+                    val Data = Gson().toJson(hashmap)
+                    val docData = Gson().fromJson<RecentDoctorVO>(Data, RecentDoctorVO::class.java)
+                    recentlyDoctorList.add(docData)
                 }
+                onSuccess(recentlyDoctorList)
+
+            }.addOnFailureListener {
+                onFailure(it.message ?: EN_ERROR_MESSAGE)
+            }
     }
 
     override fun acceptRequest(
@@ -378,6 +400,7 @@ object CloudFireStoreImpls : FirebaseApi {
             "status" to status,
             "doctor" to doctorVO,
             "speciality" to doctorVO.speciality,
+            "consultationchat_id" to consultationRequestVO.consultationchat_id,
             "patient_id" to consultationRequestVO.patient?.id,
             "date_time" to consultationRequestVO.date_time,
             "case_summary" to consultationRequestVO.case_summary
@@ -396,17 +419,96 @@ object CloudFireStoreImpls : FirebaseApi {
     }
 
     override fun finishConsultation(
-        documentId: String,
+        consultationChatVO: ConsultationChatVO,
+        prescriptionList: List<PrescriptionVO>,
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        val finishConsultationMap = hashMapOf(
-            "status" to true,
-            "id" to documentId
+        val consultationMap = hashMapOf(
+            "id" to consultationChatVO.id,
+            "caseSummary" to consultationChatVO.caseSummary,
+            "doctor" to consultationChatVO.doctor,
+            "patient" to consultationChatVO.patient,
+            "patient_id" to consultationChatVO.patient_id,
+            "dateTime" to consultationChatVO.dateTime,
+            "note" to consultationChatVO.note,
+            "status" to true
         )
+
         db.collection(CONSULTATION_CHAT)
-            .document(documentId)
-            .set(finishConsultationMap)
+            .document(consultationChatVO.id)
+            .set(consultationMap)
+            .addOnSuccessListener {
+                Log.d("success", "Successfully add doctor")
+                onSuccess()
+            }
+            .addOnFailureListener {
+                Log.d("onFailure", "Failed to add doctor")
+                onFailure("Failed to add doctor")
+            }
+
+        for (item in prescriptionList) {
+            db.collection("$CONSULTATION_CHAT/${consultationChatVO.id}/$PRESCRIPTION")
+                .document(item.id)
+                .set(item)
+                .addOnSuccessListener {
+                    Log.d("success", "Successfully add doctor")
+                    onSuccess()
+                }
+                .addOnFailureListener {
+                    Log.d("onFailure", "Failed to add doctor")
+                    onFailure("Failed to add doctor")
+                }
+        }
+
+        val recentDoctorVOMap = hashMapOf(
+            "id" to consultationChatVO?.doctor?.id,
+            "name" to consultationChatVO?.doctor?.name,
+            "photo" to consultationChatVO.doctor?.photo,
+            "biography" to consultationChatVO.doctor?.biography,
+            "degree" to consultationChatVO.doctor?.degree,
+            "experience" to consultationChatVO.doctor?.experience,
+            "address" to consultationChatVO.doctor?.address,
+            "speciality" to consultationChatVO.doctor?.speciality,
+            "email" to consultationChatVO.doctor?.email,
+            "deviceId" to consultationChatVO.doctor?.deviceId,
+            "phone" to consultationChatVO.doctor?.phone
+        )
+        // add recently doctor
+
+        consultationChatVO.doctor?.id?.let {
+            db.collection("$PATIENT/${consultationChatVO.patient?.id}/$RECENTLY_DOCTOR")
+                .document(it)
+                .set(recentDoctorVOMap)
+                .addOnSuccessListener {
+                    Log.d("success", "Successfully add recent doctor")
+                    onSuccess()
+                }
+                .addOnFailureListener {
+                    Log.d("onFailure", "Failed to add recent doctor")
+                    onFailure("Failed to add doctor")
+                }
+        }
+
+
+    }
+
+    override fun preScribeMedicine(
+        documentId: String,
+        medicine: PrescriptionVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+
+        val uuid = UUID.randomUUID()
+        val prescriptionMap = hashMapOf(
+            "id" to uuid.toString(),
+            "medicine_name" to medicine.medicine_name,
+            "routine" to medicine.routineVO,
+        )
+        db.collection("$CONSULTATION_CHAT/${documentId}/$PRESCRIPTION")
+            .document(uuid.toString())
+            .set(prescriptionMap)
             .addOnSuccessListener {
                 onSuccess()
             }
@@ -415,45 +517,28 @@ object CloudFireStoreImpls : FirebaseApi {
             }
     }
 
-    override fun preScribeMedicine(
-            documentId: String,
-            medicine: PrescriptionVO,
-            onSuccess: () -> Unit,
-            onFailure: (String) -> Unit
+    override fun getGeneralQuestion(
+        onSuccess: (List<GeneralQuestionVO>) -> Unit,
+        onFailure: (String) -> Unit
     ) {
-
-        val uuid = UUID.randomUUID()
-        val prescriptionMap = hashMapOf(
-                "id" to uuid.toString(),
-                "medicine_name" to medicine.medicine_name,
-                "routine" to medicine.routineVO,
-        )
-        db.collection("$CONSULTATION_CHAT/${documentId}/$PRESCRIPTION")
-                .document(uuid.toString())
-                .set(prescriptionMap)
-                .addOnSuccessListener {
-                    onSuccess()
-                }
-                .addOnFailureListener {
-                    onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
-                }
-    }
-
-    override fun getGeneralQuestion(onSuccess: (List<GeneralQuestionVO>) -> Unit, onFailure: (String) -> Unit) {
         db.collection(GENERAL_QUESTION_TEMPLATE)
-                .addSnapshotListener { value, error ->
-                    error?.let {
-                        onFailure(it.message ?: EN_ERROR_MESSAGE)
-                    } ?: run {
-                        val generalQuestionList: MutableList<GeneralQuestionVO> = arrayListOf()
-                        val result = value?.documents ?: arrayListOf()
-                        for (document in result) {
-                            val data = document.data.convertToGeneralQuestionVO()
-                            generalQuestionList.add(data)
-                        }
-                        onSuccess(generalQuestionList)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+                } ?: run {
+                    val generalQuestionList: MutableList<GeneralQuestionVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<GeneralQuestionVO>(Data, GeneralQuestionVO::class.java)
+                        generalQuestionList.add(docData)
                     }
+                    onSuccess(generalQuestionList)
                 }
+            }
     }
 
     override fun getPrescriptionMedicine(
@@ -461,7 +546,7 @@ object CloudFireStoreImpls : FirebaseApi {
         onSuccess: (List<PrescriptionVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        db.collection("$CONSULTATION_CHAT/${documentId}/$MESSAGE")
+        db.collection("$CONSULTATION_CHAT/${documentId}/$PRESCRIPTION")
             .get()
             .addOnSuccessListener { result ->
                 val prescriptionList: MutableList<PrescriptionVO> = arrayListOf()
@@ -512,7 +597,7 @@ object CloudFireStoreImpls : FirebaseApi {
         onFailure: (String) -> Unit
     ) {
         db.collection(CONSULTATION_REQUEST)
-            .whereEqualTo("speciality",speciality)
+            .whereEqualTo("speciality", speciality)
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: EN_ERROR_MESSAGE)
@@ -523,7 +608,10 @@ object CloudFireStoreImpls : FirebaseApi {
                         val hashmap = document.data
                         hashmap?.put("id", document.id)
                         val Data = Gson().toJson(hashmap)
-                        val docData = Gson().fromJson<ConsultationRequestVO>(Data, ConsultationRequestVO::class.java)
+                        val docData = Gson().fromJson<ConsultationRequestVO>(
+                            Data,
+                            ConsultationRequestVO::class.java
+                        )
                         consultationRequest.add(docData)
                     }
                     onSuccess(consultationRequest)
@@ -537,7 +625,7 @@ object CloudFireStoreImpls : FirebaseApi {
         onFailure: (String) -> Unit
     ) {
         db.collection(CONSULTATION_REQUEST)
-            .whereEqualTo("patient_id",patientId)
+            .whereEqualTo("patient_id", patientId)
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: EN_ERROR_MESSAGE)
@@ -548,7 +636,10 @@ object CloudFireStoreImpls : FirebaseApi {
                         val hashmap = document.data
                         hashmap?.put("id", document.id)
                         val Data = Gson().toJson(hashmap)
-                        val docData = Gson().fromJson<ConsultationRequestVO>(Data, ConsultationRequestVO::class.java)
+                        val docData = Gson().fromJson<ConsultationRequestVO>(
+                            Data,
+                            ConsultationRequestVO::class.java
+                        )
                         consultationRequest.add(docData)
                     }
                     onSuccess(consultationRequest)
@@ -612,7 +703,7 @@ object CloudFireStoreImpls : FirebaseApi {
         onFailure: (String) -> Unit
     ) {
         db.collection(DOCTOR)
-            .whereEqualTo("speciality",speciality)
+            .whereEqualTo("speciality", speciality)
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: EN_ERROR_MESSAGE)
@@ -629,5 +720,178 @@ object CloudFireStoreImpls : FirebaseApi {
                     onSuccess(doctorList)
                 }
             }
+    }
+
+    override fun updateConsultationChat(
+        consultationChatVO: ConsultationChatVO,
+        onSuccess: (currentDocumentId: String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val consultationMap = hashMapOf(
+            "id" to consultationChatVO.id,
+            "caseSummary" to consultationChatVO.caseSummary,
+            "doctor" to consultationChatVO.doctor,
+            "patient" to consultationChatVO.patient,
+            "patient_id" to consultationChatVO.patient_id,
+            "dateTime" to consultationChatVO.dateTime,
+            "note" to consultationChatVO.note,
+            "status" to false
+        )
+
+        db.collection(CONSULTATION_CHAT)
+            .document(consultationChatVO.id)
+            .set(consultationMap)
+            .addOnSuccessListener {
+                Log.d("success", "Successfully add doctor")
+                onSuccess(consultationChatVO.id)
+            }
+            .addOnFailureListener {
+                Log.d("onFailure", "Failed to add doctor")
+                onFailure("Failed to add doctor")
+            }
+    }
+
+    override fun addConsultedPatient(
+        doctorId: String,
+        patientVO: PatientVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val consultedPatientMap = hashMapOf(
+            "id" to patientVO.id,
+            "name" to patientVO.name,
+            "photo" to patientVO.photo,
+            "dob" to patientVO.dob,
+            "blood_type" to patientVO.blood_type,
+            "blood_pressure" to patientVO.blood_pressure,
+            "email" to patientVO.email,
+            "deviceId" to patientVO.deviceId,
+            "height" to patientVO.height,
+            "weight" to patientVO.weight,
+            "allergic_medicine" to patientVO.allergic_medicine,
+            "created_date" to patientVO.created_date
+        )
+
+        db.collection("$DOCTOR/${doctorId}/$CONSULTED_PATIENT")
+            .document(patientVO.id)
+            .set(consultedPatientMap)
+            .addOnSuccessListener {
+                Log.d("success", "Successfully add doctor")
+                onSuccess()
+            }
+            .addOnFailureListener {
+                Log.d("onFailure", "Failed to add doctor")
+                onFailure("Failed to add doctor")
+            }
+    }
+
+    override fun getAllConsultedPatient(
+        documentId: String,
+        onSuccess: (List<ConsultedPatientVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection("$DOCTOR/${documentId}/$CONSULTED_PATIENT")
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+                } ?: run {
+                    val consultedPatient: MutableList<ConsultedPatientVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData = Gson().fromJson<ConsultedPatientVO>(
+                            Data,
+                            ConsultedPatientVO::class.java
+                        )
+                        consultedPatient.add(docData)
+                    }
+                    onSuccess(consultedPatient)
+                }
+            }
+    }
+
+    override fun updateConsultationRequestStatus(
+        consultationRequestVO: ConsultationRequestVO,
+        status: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val consultRequestAcceptMap = hashMapOf(
+            "id" to consultationRequestVO.id,
+            "patient" to consultationRequestVO.patient,
+            "status" to status,
+            "doctor" to consultationRequestVO.doctor,
+            "speciality" to consultationRequestVO.doctor?.speciality,
+            "consultationchat_id" to consultationRequestVO.consultationchat_id,
+            "patient_id" to consultationRequestVO.patient?.id,
+            "date_time" to consultationRequestVO.date_time,
+            "case_summary" to consultationRequestVO.case_summary
+        )
+
+        db.collection(CONSULTATION_REQUEST)
+            .document(consultationRequestVO.id)
+            .set(consultRequestAcceptMap)
+            .addOnSuccessListener {
+                onSuccess()
+            }
+            .addOnFailureListener {
+                onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
+            }
+    }
+
+    override fun uploadImageToFireStore(
+        bitmap: Bitmap,
+        onSuccess: (url: String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val data = baos.toByteArray()
+
+        val imageRef = storageReference.child("images/${UUID.randomUUID()}")
+        val uploadTask = imageRef.putBytes(data)
+        uploadTask.addOnFailureListener {
+            onFailure("Update Profile Failed")
+        }.addOnSuccessListener {
+            Log.d("upload success", "success upload image")
+            //  Log.d(ContentValues.TAG, "User profile updated.")
+        }
+        val urlTask = uploadTask.continueWithTask {
+            return@continueWithTask imageRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            val imageUrl = task.result?.toString()
+            imageUrl?.let { onSuccess(it) }
+        }
+    }
+
+    override fun updatePatientData(
+        patientVO: PatientVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+
+        db.collection(PATIENT)
+            .document(patientVO.id)
+            .set(patientVO)
+            .addOnSuccessListener {
+                Log.d("Success", "Successfully") }
+            .addOnFailureListener {
+                Log.d("Failure", "Failed ") }
+    }
+
+    override fun updateDoctor(
+        doctorVO: DoctorVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection(DOCTOR)
+            .document(doctorVO.id)
+            .set(doctorVO)
+            .addOnSuccessListener {
+                Log.d("Success", "Successfully") }
+            .addOnFailureListener {
+                Log.d("Failure", "Failed ") }
     }
 }

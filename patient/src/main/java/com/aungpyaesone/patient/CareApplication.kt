@@ -10,6 +10,7 @@ class CareApplication : Application() {
         super.onCreate()
     CoreModelImpls.initDatabase(applicationContext)
     PatientModelImpls.initDatabase(applicationContext)
+
     SessionManager.init(applicationContext)
     }
 }

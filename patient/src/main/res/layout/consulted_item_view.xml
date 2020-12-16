@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/margin_medium_2"
+    app:cardUseCompatPadding="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+                android:id="@+id/ivPatientProfile"
+                android:layout_width="@dimen/profile_width"
+                android:layout_height="@dimen/profile_width"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="28dp"
+                android:src="@mipmap/ic_launcher"
+                app:cornerRadius="@dimen/margin_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPatientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_xlarge"
+                android:textSize="@dimen/text_regular_3"
+                android:textStyle="bold"
+                android:textColor="@color/title_text_color"
+                app:layout_constraintStart_toEndOf="@+id/ivPatientProfile"
+                app:layout_constraintTop_toTopOf="@+id/ivPatientProfile"
+                tools:text="Aunng Aung" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPatientDob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:drawablePadding="12dp"
+                android:textColor="@color/speciality_color"
+                android:textSize="@dimen/text_regular_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvPatientName"
+                app:layout_constraintTop_toBottomOf="@+id/tvPatientName"
+                tools:text="23 Nov 1997" />
+
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/startConsultDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/ivPatientProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:textColor="@color/date_color"
+                tools:text="23 Nov 1997" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:background="@color/blue"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_medium_2">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvSendMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/chat_box"
+                android:drawablePadding="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/send_message_label"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPrescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/prescription"
+                android:drawablePadding="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/prescription_label"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

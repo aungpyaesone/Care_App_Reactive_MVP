@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.patient.R
+import com.aungpyaesone.patient.activities.ChatActivity
 import com.aungpyaesone.patient.adapters.AcceptRequestAdapter
 import com.aungpyaesone.patient.adapters.RecentlyDoctorAdapter
 import com.aungpyaesone.patient.adapters.SpecialitiesAdapter
@@ -19,9 +21,13 @@ import com.aungpyaesone.patient.dialog.ConfirmDialogFragment.Companion.BUNDLE_NA
 import com.aungpyaesone.patient.mvp.presenters.HomePresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.HomePresenterImpl
 import com.aungpyaesone.patient.mvp.view.HomeView
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.RecentDoctorVO
 import com.aungpyaesone.shared.data.vos.SpecialitiesVO
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
+import com.google.gson.Gson
 import com.padc.shared.fragments.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -40,11 +46,11 @@ class HomeFragment : BaseFragment(),HomeView {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var mPresenter : HomePresenter
-    private lateinit var mAdapter : SpecialitiesAdapter
+    private lateinit var mPresenter: HomePresenter
+    private lateinit var mAdapter: SpecialitiesAdapter
     private lateinit var mRecentlyDoctorAdapter: RecentlyDoctorAdapter
     private lateinit var mAcceptDoctorAdapter: AcceptRequestAdapter
-   // private lateinit var mConsultationViewPod: ConsultationViewPod
+    // private lateinit var mConsultationViewPod: ConsultationViewPod
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +60,10 @@ class HomeFragment : BaseFragment(),HomeView {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -72,17 +80,17 @@ class HomeFragment : BaseFragment(),HomeView {
         mRecentlyDoctorAdapter = RecentlyDoctorAdapter(mPresenter)
         mAcceptDoctorAdapter = AcceptRequestAdapter(mPresenter)
         rvSpecialities.apply {
-            layoutManager = GridLayoutManager(activity,2)
+            layoutManager = GridLayoutManager(activity, 2)
             adapter = mAdapter
-           // setEmptyView()
+            // setEmptyView()
         }
         rvRecentDoctor.apply {
-            layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
             adapter = mRecentlyDoctorAdapter
         }
 
         rvAcceptConsultationView.apply {
-            layoutManager = LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false)
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
             adapter = mAcceptDoctorAdapter
         }
     }
@@ -94,25 +102,28 @@ class HomeFragment : BaseFragment(),HomeView {
     }
 
     private fun setUpPresenter() {
-       mPresenter = getPresenter<HomePresenterImpl,HomeView>()
+        mPresenter = getPresenter<HomePresenterImpl, HomeView>()
     }
 
     override fun showSpecialitiesList(specialitiesList: List<SpecialitiesVO>) {
-       mAdapter.setData(specialitiesList)
+        mAdapter.setData(specialitiesList)
     }
 
     override fun showRecentlyConsultedDoctor(recentlyDoctorList: List<RecentDoctorVO>) {
-        if(recentlyDoctorList.isEmpty()){
+        if (recentlyDoctorList.isEmpty()) {
             recentConsultation.visibility = View.GONE
             rvRecentDoctor.visibility = View.GONE
-        }else{
+        } else {
+            recentConsultation.visibility = View.VISIBLE
+            rvRecentDoctor.visibility = View.VISIBLE
             mRecentlyDoctorAdapter.setData(recentlyDoctorList.toMutableList())
         }
 
     }
 
     override fun showConfirmationDialog(specialitiesVO: SpecialitiesVO) {
-        val confirmDialogFragment =  ConfirmDialogFragment.newFragment()
+        SessionManager.flag = true
+        val confirmDialogFragment = ConfirmDialogFragment.newFragment()
         val bundle = Bundle()
         bundle.putString(BUNDLE_NAME, specialitiesVO.name)
         bundle.putString(BUNDLE_IMAGE, specialitiesVO.photo)
@@ -120,7 +131,21 @@ class HomeFragment : BaseFragment(),HomeView {
         confirmDialogFragment.arguments = bundle
         activity?.supportFragmentManager?.let {
             confirmDialogFragment.show(
-                it,""
+                it, ""
+            )
+        }
+    }
+
+    override fun showConConfirmDialog(recentDoctorVO: RecentDoctorVO) {
+        SessionManager.flag = true
+        val confirmDialogFragment = ConfirmDialogFragment.newFragment()
+        val bundle = Bundle()
+        bundle.putString(BUNDLE_ID, recentDoctorVO.speciality)
+        bundle.putString(BUNDLE_NAME, recentDoctorVO.sp_myanmar_name)
+        confirmDialogFragment.arguments = bundle
+        activity?.supportFragmentManager?.let {
+            confirmDialogFragment.show(
+                it, ""
             )
         }
 
@@ -132,6 +157,11 @@ class HomeFragment : BaseFragment(),HomeView {
 
     override fun navigateToCaseSummary() {
 
+    }
+
+    override fun navigateToChatActivity(consultationRequestVO: ConsultationRequestVO) {
+        val data = Gson().toJson(consultationRequestVO)
+        startActivity(activity?.let { ChatActivity.newInstance(it, consultationRequestVO.id) })
     }
 
     override fun showLoading() {
@@ -154,11 +184,11 @@ class HomeFragment : BaseFragment(),HomeView {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String?, param2: String) =
-                HomeFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
+            HomeFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
                 }
+            }
     }
 }

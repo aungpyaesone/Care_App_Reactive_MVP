@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvMedicineName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "paracetamol"
+        android:textSize="@dimen/text_regular_2"
+        android:textStyle="bold"
+        android:textColor="@color/title_text_color"
+        android:layout_margin="@dimen/margin_medium"/>
+
+    <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+        android:id="@+id/ivAdd"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add"
+        android:layout_alignTop="@id/tvMedicineName"
+        android:layout_marginEnd="@dimen/margin_medium"
+        />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/tvMedicineName"
+        android:background="@color/browser_actions_divider_color"
+        android:layout_alignStart="@id/tvMedicineName"
+        android:layout_alignEnd="@id/ivAdd"
+        android:layout_marginTop="@dimen/margin_medium"
+        />
+
+</RelativeLayout>

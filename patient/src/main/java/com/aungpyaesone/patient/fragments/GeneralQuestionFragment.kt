@@ -20,6 +20,7 @@ import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 import com.aungpyaesone.shared.util.DateUtils
+import com.aungpyaesone.shared.util.sharePreferencePatient
 import com.google.android.material.snackbar.Snackbar
 import com.padc.shared.fragments.BaseFragment
 import kotlinx.android.synthetic.main.fragment_general_question.*
@@ -127,7 +128,15 @@ class GeneralQuestionFragment : BaseFragment(),SummaryView {
     }
 
     private fun init(){
-        if(SessionManager.patient_height.isNullOrEmpty()){
+        val patientVO = SessionManager.get<PatientVO>(sharePreferencePatient)
+        patientVO?.height?.let{
+            showSecondLayout()
+            tvPName.text = SessionManager.patient_name
+            tvPDob.text = SessionManager.patient_dateOfBirth
+            tvPHeight.text = SessionManager.patient_height
+            tvPbloodType.text = SessionManager.patient_blood_type
+            tvPAllergic.text = SessionManager.comment
+        } ?: kotlin.run {
             showFirstLayout()
             spDay.apply {
                 val mSpinAdapter = activity?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,DateUtils.day()) }
@@ -144,15 +153,9 @@ class GeneralQuestionFragment : BaseFragment(),SummaryView {
                 spYearAdapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 adapter = spYearAdapter
             }
+
         }
-        else {
-            showSecondLayout()
-            tvPName.text = SessionManager.patient_name
-            tvPDob.text = SessionManager.patient_dateOfBirth
-            tvPHeight.text = SessionManager.patient_height
-            tvPbloodType.text = SessionManager.patient_blood_type
-            tvPAllergic.text = SessionManager.comment
-        }
+
 
     }
 

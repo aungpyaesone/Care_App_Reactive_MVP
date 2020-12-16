@@ -22,7 +22,9 @@ data class PatientVO(
     var height : String? = null,
     var weight : String? ="",
     var allergic_medicine : String? ="",
-    var created_date : String? = null
+    var created_date : String? = null,
+    var phone: String? = "",
+    var address : String? =""
 ) {
 
 }

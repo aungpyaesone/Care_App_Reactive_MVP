@@ -22,4 +22,7 @@ interface GeneralQuestionTemplateDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertGeneralQuestionList(ConsultationChatList: List<GeneralQuestionVO>) : Completable
+
+    @Query("delete from general_question")
+    fun deleteAllGeneralQuestion()
 }

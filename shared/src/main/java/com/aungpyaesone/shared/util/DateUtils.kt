@@ -1,5 +1,6 @@
 package com.aungpyaesone.shared.util
 
+import java.text.DateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -26,6 +27,10 @@ class DateUtils {
                 yearList.add(item.toString())
             }
             return yearList
+        }
+
+        fun getDate(millisecond:Long):String{
+            return DateFormat.getTimeInstance().format(Date(millisecond))
         }
     }
 

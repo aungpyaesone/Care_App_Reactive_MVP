@@ -6,116 +6,203 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="24dp"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cvImage" />
-
-        <EditText
-            android:id="@+id/etUserName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:ems="10"
-            android:hint="User Name"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-        <ProgressBar
-            android:id="@+id/progressView"
+        <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-188dp"
+            android:layout_marginEnd="-40dp"
+            android:src="@drawable/group_909" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_large_xxxx"
+                android:text="@string/app_title"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_heading_2x"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvImage"
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/appLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/appName"
+                android:layout_alignStart="@id/appName"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/doctor_app"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_regular_2"
+                app:layout_constraintStart_toStartOf="@+id/appName"
+                app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+            <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="@dimen/d_image_width"
+                android:layout_height="@dimen/d_image_width"
+                android:layout_below="@id/appLabel"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:src="@drawable/round_profile"
+                app:cornerRadius="200dp"
+                app:layout_constraintStart_toStartOf="@+id/appLabel"
+                app:layout_constraintTop_toBottomOf="@+id/appLabel" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPhoneNumberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Enter Email"
+                app:layout_constraintStart_toStartOf="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:background="@drawable/register_input_background"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="@dimen/margin_medium_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvPhoneNumberLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumberLabel" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvNamelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Enter Password"
+                app:layout_constraintStart_toStartOf="@+id/etEmail"
+                app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@drawable/register_input_background"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:padding="@dimen/margin_medium_2"
+                app:layout_constraintEnd_toEndOf="@+id/etEmail"
+                app:layout_constraintStart_toStartOf="@+id/etEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamelabel" />
+
+            <ProgressBar
+                android:id="@+id/progressView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- <EditText
+                 android:id="@+id/etPassword"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="32dp"
+                 android:ems="10"
+                 android:hint="Password"
+                 android:inputType="textPersonName"
+                 app:layout_constraintEnd_toEndOf="@+id/etUserName"
+                 app:layout_constraintHorizontal_bias="0.0"
+                 app:layout_constraintStart_toStartOf="@+id/etUserName"
+                 app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+
+             <androidx.cardview.widget.CardView
+                 android:id="@+id/cvImage"
+                 android:layout_width="wrap_content"
+                 android:layout_height="0dp"
+                 android:layout_marginStart="1dp"
+                 android:layout_marginTop="72dp"
+                 android:layout_marginEnd="1dp"
+                 app:cardCornerRadius="@dimen/margin_medium"
+                 app:cardElevation="@dimen/margin_small"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent" />
+
+             <EditText
+                 android:id="@+id/etSpeciality"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="24dp"
+                 android:layout_marginTop="32dp"
+                 android:layout_marginEnd="24dp"
+                 android:ems="10"
+                 android:hint="@string/speciality"
+                 android:inputType="textPersonName"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintHorizontal_bias="0.0"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/etPassword" />-->
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_large_xxxx"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/color_primary"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="@+id/etPassword"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="@+id/etPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-100dp"
+            android:layout_marginBottom="-180dp"
+            android:src="@drawable/group_909" />
+
+        <org.mmtextview.components.MMTextView
+            style="@style/subTitleStyle"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="72dp"
-            android:layout_marginEnd="1dp"
-            app:cardCornerRadius="@dimen/margin_medium"
-            app:cardElevation="@dimen/margin_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/ivLogo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                />
-        </androidx.cardview.widget.CardView>
-
-        <EditText
-            android:id="@+id/etSpeciality"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:ems="10"
-            android:hint="@string/speciality"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
+            android:layout_alignTop="@id/tvLogin"
+            android:layout_toStartOf="@id/tvLogin"
+            android:text="@string/already_have_an_account" />
 
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Register"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSpeciality" />
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvLogin"
+            style="@style/subTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:text="@string/login"
+            android:textColor="@color/color_primary" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

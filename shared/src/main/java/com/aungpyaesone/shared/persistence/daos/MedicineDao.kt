@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.aungpyaesone.shared.data.vos.MedicineVO
+import io.reactivex.Completable
 
 
 @Dao
@@ -20,5 +21,8 @@ interface MedicineDao {
     fun insertMedicine(detail: MedicineVO)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMedicineList(detailList: List<MedicineVO>)
+    fun insertMedicineList(detailList: List<MedicineVO>) : Completable
+
+    @Query("delete from medicine")
+    fun deleteAllMedicine()
 }

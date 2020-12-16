@@ -1,5 +1,6 @@
 package com.aungpyaesone.doctors.mvp.presenters
 
+import androidx.lifecycle.LifecycleOwner
 import com.aungpyaesone.doctors.delegate.AcceptPatientListDelegate
 import com.aungpyaesone.doctors.delegate.RequestItemDelegate
 import com.aungpyaesone.doctors.mvp.views.HomeView

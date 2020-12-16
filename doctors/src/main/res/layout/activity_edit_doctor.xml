@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="23dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/ivBack" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_regular_2"
+                    android:textColor="@color/title_text_color"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/ivBack"
+                    android:text="@string/profile"
+                    />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium">
+
+                <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+                    android:id="@+id/ivPatientProfile"
+                    android:layout_width="@dimen/doctor_profile_width"
+                    android:layout_height="@dimen/doctor_profile_height"
+                    android:src="@drawable/d_94_e_xav_xyaa_3_w_ke" />
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="@dimen/doctor_profile_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/update"
+                    android:layout_gravity="bottom"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rectangle_226"
+                    android:gravity="center"/>
+            </FrameLayout>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name_label"
+                android:layout_margin="@dimen/margin_medium"/>
+
+            <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:background="@drawable/border_blue_background"
+                android:layout_marginEnd="@dimen/margin_medium"/>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@string/enter_phone"/>
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@drawable/register_input_background"
+                android:layout_marginEnd="@dimen/margin_medium"/>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@string/speciality_label"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Spinner
+                    android:id="@+id/spSpeciality"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:paddingStart="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@drawable/register_input_background"
+                    android:layout_marginEnd="@dimen/margin_medium"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    android:layout_alignEnd="@id/spSpeciality"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    />
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dob_label"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginStart="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spDay"
+                    style="@style/spinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/register_input_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/spMonth"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView"
+                    tools:text="23" />
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spDay"
+                    app:layout_constraintEnd_toEndOf="@+id/spDay"
+                    app:layout_constraintTop_toTopOf="@+id/spDay" />
+
+
+                <Spinner
+                    android:id="@+id/spMonth"
+                    style="@style/spinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/register_input_background"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:drawableTint="@color/color_primary"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/spYear"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/spDay"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView"
+                    tools:text="Nov" />
+
+                <Spinner
+                    android:id="@+id/spYear"
+                    style="@style/spinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="17dp"
+                    android:background="@drawable/register_input_background"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:drawableTint="@color/color_primary"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/spMonth"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView"
+                    tools:text="2020" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:src="@drawable/ios_arrow_dropdown"
+                app:layout_constraintBottom_toBottomOf="@+id/spYear"
+                app:layout_constraintEnd_toEndOf="@+id/spYear"
+                app:layout_constraintTop_toTopOf="@+id/spYear" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/margin_small"
+                android:src="@drawable/ios_arrow_dropdown"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintBottom_toBottomOf="@+id/spMonth"
+                app:layout_constraintEnd_toEndOf="@+id/spMonth"
+                app:layout_constraintTop_toTopOf="@+id/spMonth" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exp_label"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginStart="@dimen/margin_medium"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/et_experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:paddingStart="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@drawable/register_input_with_border_background"
+                    android:layout_marginEnd="@dimen/margin_medium"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/et_experience"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:text="yrs"
+                    />
+            </RelativeLayout>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_label"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium_2"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:buttonTint="@color/color_primary"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:text="@string/male"/>
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:buttonTint="@color/color_primary"
+                    android:text="@string/female"/>
+            </RadioGroup>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_label"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium_2"/>
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="187dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@drawable/register_input_background"
+                android:layout_marginEnd="@dimen/margin_medium"/>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/biography_label"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium_2"/>
+            <EditText
+                android:id="@+id/etBiography"
+                android:layout_width="match_parent"
+                android:layout_height="187dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@drawable/register_input_background"
+                android:layout_marginEnd="@dimen/margin_medium"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContinue"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium_2"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#005ccc"
+                android:text="@string/save_btn_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/etAddress"
+                app:layout_constraintStart_toStartOf="@+id/etAddress"
+                app:layout_constraintTop_toBottomOf="@id/etAddress" />
+
+        </LinearLayout>
+           <ProgressBar
+               android:id="@+id/progressBar"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
+               android:visibility="gone"
+               />
+       </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

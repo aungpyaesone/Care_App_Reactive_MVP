@@ -1,27 +1,33 @@
 package com.aungpyaesone.patient.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.patient.R
+import com.aungpyaesone.patient.activities.ChatActivity
+import com.aungpyaesone.patient.adapters.ConsultationAdapter
+import com.aungpyaesone.patient.dialog.PrescriptionInfoDialogFragment
+import com.aungpyaesone.patient.mvp.presenters.ConsultationPresenter
+import com.aungpyaesone.patient.mvp.presenters.impls.ConsultationPresenterImpl
+import com.aungpyaesone.patient.mvp.view.ConsultationView
+import com.aungpyaesone.shared.data.vos.ConsultationChatVO
+import com.google.gson.Gson
 import com.padc.shared.fragments.BaseFragment
+import kotlinx.android.synthetic.main.fragment_consultation.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ConsultationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ConsultationFragment : BaseFragment() {
+class ConsultationFragment : BaseFragment(),ConsultationView {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var mPresenter : ConsultationPresenter
+    private lateinit var mAdapter : ConsultationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +45,50 @@ class ConsultationFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_consultation, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpPresenter()
+        setupRecycler()
+        mPresenter.onUiReady(this)
+    }
+
+    private fun setupRecycler() {
+        mAdapter = ConsultationAdapter(mPresenter)
+        rvConsultationView.apply {
+            layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
+            adapter = mAdapter
+        }
+    }
+
+    private fun setUpPresenter() {
+        mPresenter = getPresenter<ConsultationPresenterImpl,ConsultationView>()
+    }
+
+    override fun showConsultationList(consultationList: List<ConsultationChatVO>) {
+        mAdapter.setData(consultationList)
+    }
+
+    override fun navigateToChatActivity(consultationChatVO: ConsultationChatVO) {
+        val data=  Gson().toJson(consultationChatVO)
+        startActivity(activity?.let { ChatActivity.newInstance(it,consultationChatVO.id)})
+    }
+
+    override fun showPrescriptionDialog(consultationChatVO: ConsultationChatVO) {
+        val data=  Gson().toJson(consultationChatVO)
+        consultationChatVO?.let {
+            val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(consultationChatVO.id,consultationChatVO.patient?.name,
+                consultationChatVO.dateTime)
+            activity?.supportFragmentManager?.let { it1 -> dialog.show(it1, "") }
+        }
+    }
+
+
     override fun showLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun hideLoading() {
-        TODO("Not yet implemented")
+
     }
 
     companion object {

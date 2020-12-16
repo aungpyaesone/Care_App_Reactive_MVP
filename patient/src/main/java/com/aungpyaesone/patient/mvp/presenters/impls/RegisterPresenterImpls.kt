@@ -39,6 +39,10 @@ class RegisterPresenterImpls : RegisterPresenter, AbstractBasePresenter<Register
         }
     }
 
+    override fun onTapLogin() {
+        mView?.navigateToHomeScreen()
+    }
+
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
 
     }

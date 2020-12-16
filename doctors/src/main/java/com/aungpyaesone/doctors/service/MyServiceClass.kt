@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
-import android.os.Bundle
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.aungpyaesone.doctors.R
@@ -23,9 +22,7 @@ class MyServiceClass : FirebaseMessagingService() {
         const val TAG = "FirebaseService"
 
         const val NOTIFICATION_ID = 1000
-        const val SUMMARY_ID = 1001
     }
-
 
     val notificationVO = NotificationVO()
 
@@ -36,8 +33,8 @@ class MyServiceClass : FirebaseMessagingService() {
             val id = remoteMessage.data["id"]
             val title = remoteMessage.data["name"]
             val body = remoteMessage.data["dob"]
-            notificationVO.data?.name = title
-            notificationVO.data?.dob = body
+            notificationVO.data?.title = title
+            notificationVO.data?.body = body
             createNotification(title,body)
         }
         remoteMessage.notification?.let {
@@ -58,11 +55,11 @@ class MyServiceClass : FirebaseMessagingService() {
     private fun createNotification(messageTitle:String?,messageBody:String?){
         val intent = Intent(applicationContext, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            putExtra("notification","yes")
+          /*  putExtra("notification","yes")
             val bundle = Bundle()
             bundle.putString("dataOne", messageTitle)
             bundle.putString("dataTwo", messageBody)
-            this.putExtras(bundle)
+            this.putExtras(bundle)*/
         }
 
         val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,

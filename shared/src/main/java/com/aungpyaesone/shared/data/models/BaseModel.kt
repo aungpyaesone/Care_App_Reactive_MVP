@@ -4,6 +4,7 @@ import android.content.Context
 import com.aungpyaesone.shared.network.ApiService
 import com.aungpyaesone.shared.persistence.db.CareDatabase
 import com.aungpyaesone.shared.util.BASE_URL
+import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -28,6 +29,7 @@ abstract class BaseModel {
                 .readTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
                 .addInterceptor(logging)
+               // .addInterceptor(ChuckInterceptor())
                 .build()
 
             val retrofit = Retrofit.Builder()

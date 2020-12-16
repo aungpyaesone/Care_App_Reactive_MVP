@@ -32,19 +32,25 @@ class LoginPresenterImpl : LoginPresenter,AbstractBasePresenter<LoginView>() {
                 })
                 mPatientModel.getPatientFromDbByEmail(email).observe(lifecycleOwner, Observer {
                     it?.let {
-                        SessionManager.login_status =true
                         SessionManager.patient_name = it.name
                         SessionManager.patient_id = it.id
                         SessionManager.patient_dateOfBirth = it.dob
                         SessionManager.comment= it.allergic_medicine
-                        SessionManager.patient_device_id = it.deviceId
                         SessionManager.patient_email = it.email
                         SessionManager.patient_height = it.height
                         SessionManager.patient_blood_type = it.blood_type
+                        SessionManager.weight = it.weight
+                        SessionManager.patient_device_id = it.deviceId
+                        SessionManager.bloodPressure = it.blood_pressure
+                        SessionManager.photo = it.photo
+                        SessionManager.created_date = it.created_date
+                        SessionManager.address = it.address
+                        SessionManager.phone = it.phone
                         Log.d("height",it.height.toString())
                         mView?.hideLoading()
                         mView?.navigateToHomeScreen(it)
                     }
+
                 })
             }, onFailure = {
                 mView?.showErrorMessage(it)
@@ -55,14 +61,6 @@ class LoginPresenterImpl : LoginPresenter,AbstractBasePresenter<LoginView>() {
 
     override fun onTapRegister() {
        mView?.navigateToRegisterScreen()
-    }
-
-    override fun onCheckUserLogin() {
-       mAuthModel.checkCurrentUser(onSuccess = {
-         //  mView?.navigateToHomeScreen()
-       }, onFailure = {
-           mView?.navigateToRegisterScreen()
-       })
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {

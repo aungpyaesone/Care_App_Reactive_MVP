@@ -11,4 +11,10 @@
 
     <color name="blue_A200">#448aff</color>
     <color name="text_color">#4db6ac</color>
+    <color name="patient_login_background">#cee7f5</color>
+    <color name="blue">#005ccc</color>
+    <color name="date_color">#818181</color>
+    <color name="speciality_color">#00122d</color>
+
+
 </resources>

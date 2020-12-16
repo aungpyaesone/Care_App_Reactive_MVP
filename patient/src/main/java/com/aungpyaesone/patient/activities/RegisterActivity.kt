@@ -51,6 +51,10 @@ class RegisterActivity : BaseActivity(),RegisterView {
                 )
             }
         }
+
+        tvLogin.setOnClickListener {
+            mPresenter.onTapLogin()
+        }
     }
 
     private fun setUpPresenter() {
@@ -58,11 +62,13 @@ class RegisterActivity : BaseActivity(),RegisterView {
     }
 
     override fun navigateToHomeScreen() {
+        startActivity(LoginActivity.newInstance(this))
+        this.finish()
     }
 
     override fun navigateToLoginScreen(userId: String) {
         startActivity(LoginActivity.newInstance(this))
-        this.finish()
+        this.finishAffinity()
     }
 
     override fun showLoading() {

@@ -21,25 +21,31 @@ class RegisterPresenterImpls: RegisterPresenter, AbstractBasePresenter<RegisterV
         if(registerVO.email.isNullOrBlank() || registerVO.name.isNullOrBlank() || password.isBlank()){
             mView?.showErrorMessage("please filled account")
         }
+        registerVO.name = "User"
         registerVO.email?.let {email->
             registerVO.name?.let { name ->
                 mView?.showLoading()
                 mAuthenticationModel.register(email, password, name, onSuccess = {userId ->
                     mView?.hideLoading()
                     registerVO.id = userId
-                    registerVO.deviceId = SessionManager.device_id
-                    mCoreModel.addDoctor(registerVO,onSuccess = {
-                        mView?.navigateToLoginScreen()
-                    },onFailure = {
-                        mView?.showErrorMessage(it)
-                        mView?.hideLoading()
-                    }) }, onFailure = {
+                    SessionManager.user_id = userId
+                    SessionManager.doctor_email = email
+                    SessionManager.device_id = token
+                    }, onFailure = {
                     mView?.showErrorMessage(it)
                     mView?.hideLoading()
                 })
+                mView?.navigateToCreateAccountScreen()
             }
         }
     }
+
+   /* mCoreModel.addDoctor(registerVO,onSuccess = {
+        mView?.navigateToLoginScreen()
+    },onFailure = {
+        mView?.showErrorMessage(it)
+        mView?.hideLoading()
+    })*/
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
      //  onTapRegister(doctorVO,"123456")

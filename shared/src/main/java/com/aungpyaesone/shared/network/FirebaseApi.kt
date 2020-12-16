@@ -1,5 +1,6 @@
 package com.aungpyaesone.shared.network
 
+import android.graphics.Bitmap
 import com.aungpyaesone.shared.data.vos.*
 
 interface FirebaseApi {
@@ -73,7 +74,7 @@ interface FirebaseApi {
                       onSuccess: () -> Unit,
                       onFailure: (String) -> Unit)
 
-    fun finishConsultation(documentId: String,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun finishConsultation(consultationChatVO: ConsultationChatVO,prescriptionList: List<PrescriptionVO>,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
     // 11
     fun preScribeMedicine(documentId: String,medicine:PrescriptionVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
@@ -100,5 +101,21 @@ interface FirebaseApi {
 
     fun getDoctorBySpeciality(speciality: String,onSuccess: (List<DoctorVO>) -> Unit,onFailure: (String) -> Unit)
 
+    fun updateConsultationChat(
+                          consultationChatVO: ConsultationChatVO,
+                          onSuccess: (currentDocumentId:String) -> Unit,
+                          onFailure: (String) -> Unit)
 
+    fun addConsultedPatient(doctorId:String,patientVO: PatientVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun getAllConsultedPatient(documentId: String,onSuccess: (List<ConsultedPatientVO>) -> Unit,onFailure: (String) -> Unit)
+    fun updateConsultationRequestStatus(consultationRequestVO: ConsultationRequestVO,status:String,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+    fun uploadImageToFireStore(bitmap: Bitmap,onSuccess: (url:String) -> Unit,onFailure: (String) -> Unit)
+    fun updatePatientData(patientVO: PatientVO ,onSuccess: () -> Unit,
+                          onFailure: (String) -> Unit
+    )
+
+    fun updateDoctor(doctorVO: DoctorVO,onSuccess: () -> Unit,
+                          onFailure: (String) -> Unit
+    )
 }

@@ -13,4 +13,12 @@
     <dimen name="margin_large_xxxx">64dp</dimen>
     <dimen name="img_width">128dp</dimen>
     <dimen name="small_img">100dp</dimen>
+    <dimen name="doctor_profile_height">169dp</dimen>
+    <dimen name="d_image_width">92dp</dimen>
+    <dimen name="button_height">54dp</dimen>
+    <dimen name="input_height">69dp</dimen>
+    <dimen name="margin_top">22dp</dimen>
+    <dimen name="chip_height">40dp</dimen>
+    <dimen name="chip_width">170dp</dimen>
+    <dimen name="profile_width">48dp</dimen>
 </resources>

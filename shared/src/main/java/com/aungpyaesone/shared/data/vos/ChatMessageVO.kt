@@ -12,8 +12,8 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 data class ChatMessageVO(
     @PrimaryKey
     var id : String ="",
-    var sendAt: String= "",
-    var sendBy: SenderVO? = null,
+    var sendAt: String?= "",
+    var sentBy: SenderVO? = null,
     var messageText: String= "",
     var messageImage: String = ""
 )

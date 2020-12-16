@@ -15,9 +15,11 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 data class ConsultationChatVO(
     @PrimaryKey
     var id: String= "",
-    var patientVO: PatientVO? = null,
-    var doctorVO: DoctorVO? = null,
-    var case_summary:  ArrayList<QuestionAnswerVO>? = arrayListOf(),
+    var patient: PatientVO? = null,
+    var doctor: DoctorVO? = null,
+    var caseSummary:  ArrayList<QuestionAnswerVO>? = arrayListOf(),
     var patient_id : String? = "",
+    var dateTime : String? = "",
+    var note : String? = "",
     var status : Boolean? = false
 )

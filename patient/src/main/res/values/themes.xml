@@ -18,6 +18,13 @@
         <item name="android:textSize">@dimen/text_regular_3</item>
         <item name="android:layout_margin">@dimen/margin_medium</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/title_text_color</item>
+    </style>
+
+    <style name="subTitleStyle">
+        <item name="android:textSize">@dimen/text_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/title_text_color</item>
     </style>
 
     <style name="RegularStyleTwo">
@@ -28,6 +35,12 @@
     <style name="RegularStyle">
         <item name="android:textSize">@dimen/text_regular_2</item>
         <item name="android:layout_margin">@dimen/margin_medium_2</item>
+        <item name="android:textColor">@color/title_text_color</item>
+    </style>
+
+    <style name="dialogTextStyle">
+        <item name="android:textSize">@dimen/text_regular_2</item>
+        <item name="android:textColor">@color/common_text_color</item>
     </style>
     <style name="NegativeButtonStyle"  parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/blue_A200</item>
@@ -46,7 +59,20 @@
         <item name="android:background">@drawable/drawable_background_white</item>
         <item name="android:layout_margin">@dimen/margin_medium_2</item>
         <item name="android:padding">@dimen/margin_medium_2</item>
-        <item name="android:elevation">@dimen/margin_medium</item>
-
+        <item name="android:elevation">@dimen/margin_small</item>
     </style>
+
+    <style name="spinnerStyle" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:background">@drawable/drawable_background_white</item>
+        <item name="android:layout_margin">@dimen/margin_medium_2</item>
+        <item name="android:padding">@dimen/margin_medium_2</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="profileTextStyle">
+        <item name="android:textSize">@dimen/text_regular_2</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium_2</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
 </resources>

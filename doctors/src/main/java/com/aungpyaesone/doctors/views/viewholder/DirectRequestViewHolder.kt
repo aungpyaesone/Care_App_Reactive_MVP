@@ -28,7 +28,7 @@ class DirectRequestViewHolder(itemView: View, private val mDelegate: RequestItem
 
     init {
         itemView?.btnLater.setOnClickListener {
-            mData?.let { mDelegate.onTapLaterButton() }
+            mData?.let { mDelegate.onTapLaterButton(it.id) }
         }
         itemView.btnChooseTime.setOnClickListener {
             mData?.let { mDelegate.onTapChooseTimeButton() }
@@ -36,7 +36,7 @@ class DirectRequestViewHolder(itemView: View, private val mDelegate: RequestItem
         itemView.btnAccept.setOnClickListener {
             val doctorVO = SessionManager.get<DoctorVO>(sharePreferenceDoctor) ?: DoctorVO()
            // mData?.doctorVO = doctorVO
-            mData?.let { mDelegate.onTapAcceptButton(it.id, "accept", it,doctorVO) }
+            mData?.let { mDelegate.onTapAcceptButton(itemView.context, it.id, "accept", it, doctorVO) }
         }
     }
 }

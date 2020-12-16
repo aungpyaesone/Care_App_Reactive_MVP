@@ -41,6 +41,8 @@
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/ivBack"
                             android:layout_centerVertical="true"
+                            android:textSize="@dimen/text_regular_3"
+                            android:textColor="@color/title_text_color"
                             android:layout_marginStart="@dimen/margin_medium"
                             />
                     </RelativeLayout>

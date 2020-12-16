@@ -1,5 +1,35 @@
 <resources>
     <string name="app_name">HCare</string>
     <string name="speciality">Speciality</string>
+    <string name="app_title">The CareMM</string>
+    <string name="facebook_app_id">220222596287049</string>
+    <string name="fb_login_protocol_scheme">fb220222596287049</string>
+    <string name="next">Next</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="already_have_an_account">Already have an account?</string>
+
+    <string-array name="specialities">
+        <item>ဦး‌‌နှောက်နှင့် အာရုံကြောဆိုင်ရာ</item>
+        <item>မျက်စိအထူးကု</item>
+        <item>အရေပြားဆိုင်ရာ</item>
+        <item>အထွေထွေရောဂါ</item>
+        <item>နှလုံးအထူးကု</item>
+        <item>ကလေးအထူးကု</item>
+        <item>သွားဘက်ဆိုင်ရာ</item>
+        <item>နား,နှာခေါင်းလည်းချောင်းဆိုင်ရာ</item>
+        <item>အသည်း ကျောက်ကပ်ဆိုင်ရာ</item>
+        <item>အဟာရဆိုင်ရာ</item>
+        <item>သားဖွားမီးယပ်အထူးကု</item>
+        <item>မျိုးပွားခြင်းဆိုင်ရာ</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="doctor_app">DOCTOR APP</string>
+
+    <string-array name="week_array">
+        <item>Days</item>
+        <item>Week</item>
+    </string-array>
 
 </resources>

@@ -5,8 +5,10 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class RoutineVO(
+        var id:String? ="",
         var day: String? = "",
         var note: String? = "",
         var repeat: String? = "",
         var tab: String? = "",
-        var times: Timestamp? = null)
+        var amount : String? = "",
+        var times: String? = null)

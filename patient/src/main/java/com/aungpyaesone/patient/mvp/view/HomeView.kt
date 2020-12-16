@@ -9,6 +9,8 @@ interface HomeView : BaseView {
     fun showSpecialitiesList(specialitiesList:List<SpecialitiesVO>)
     fun showRecentlyConsultedDoctor(recentlyDoctorList:List<RecentDoctorVO>)
     fun showConfirmationDialog(specialitiesVO: SpecialitiesVO)
+    fun showConConfirmDialog(recentDoctorVO: RecentDoctorVO)
     fun showAcceptDoctorList(consultationRequestList:List<ConsultationRequestVO>)
     fun navigateToCaseSummary()
+    fun navigateToChatActivity(consultationRequestVO: ConsultationRequestVO)
 }

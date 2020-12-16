@@ -1,5 +1,6 @@
 package com.aungpyaesone.patient.dialog
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.activities.CaseSummaryActivity
 import com.aungpyaesone.patient.mvp.presenters.HomePresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.HomePresenterImpl
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.SpecialitiesVO
 import kotlinx.android.synthetic.main.consaulation_comfirm_dialog.*
 
@@ -24,6 +26,7 @@ class ConfirmDialogFragment : DialogFragment() {
             return ConfirmDialogFragment()
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +43,20 @@ class ConfirmDialogFragment : DialogFragment() {
         setupListener()
     }
 
+    override fun onResume() {
+        super.onResume()
+        val params = dialog?.window?.attributes
+        params?.width = ViewGroup.LayoutParams.MATCH_PARENT
+        params?.height = ViewGroup.LayoutParams.WRAP_CONTENT
+        dialog?.window?.attributes = params
+    }
+
+    @SuppressLint("SetTextI18n")
     private fun setupListener() {
         val speciality = arguments?.getString(BUNDLE_ID)
+        val name = arguments?.getString(BUNDLE_NAME)
+        val body = activity?.getString(R.string.confirm_body_text)
+        tvBody.text = "$name $body"
         btnPositive.setOnClickListener {
             activity?.startActivity(activity?.applicationContext?.let { context ->
                 speciality?.let { speciality ->

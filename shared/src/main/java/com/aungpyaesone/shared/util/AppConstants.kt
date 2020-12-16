@@ -7,6 +7,7 @@ const val SPECIAL_QUESTION_NODE = "spical_question"
 const val CONSULTATION_REQUEST= "consultation_request"
 const val RECENTLY_DOCTOR = "recently_doctor"
 const val DOCTOR = "doctors"
+const val CONSULTED_PATIENT = "consulted_patient"
 
 const val PATIENT = "patient"
 const val GENERAL_QUESTION = "general_question"
@@ -16,7 +17,7 @@ const val MESSAGE = "message"
 
 const val GENERAL_QUESTION_TEMPLATE = "general_question_template"
 const val CHECKOUT = "checkout"
-const val MEDICINE = "medicine"
+const val MEDICINE = "frequently_medicine"
 
 
 //Share Perfenence
@@ -27,6 +28,8 @@ const val sharePreferencePatientEmail  = "email"
 const val sharePreferencePatientID  = "id"
 const val sharePreferencePatientDeviceID  = "device_id"
 const val sharePreferenceSpeciality = "speciality"
+const val sharePreferenceFlag = "flag"
+
 
 // for patient
 const val sharePreferencepatientHeight = "height"
@@ -35,6 +38,10 @@ const val sharePreferencepatientBloodType = "bloodtype"
 const val sharePreferencebloodPressure = "bloodPressure"
 const val sharedPreferencesComment = "comment"
 const val sharedPreferencesWeight = "weight"
+const val sharecreatedDate = "sharecreatedDate"
+const val shareAddress = "shareAddress"
+const val sharephone = "sharephone"
+const val sharePhoto = "sharePhoto"
 
 const val sharePreferenceQandA = "question_answer_list"
 

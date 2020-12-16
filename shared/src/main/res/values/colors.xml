@@ -3,7 +3,7 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="color_primary">#0d47A1</color>
+    <color name="color_primary">#005ccc</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -16,7 +16,17 @@
     <color name="background_color_two">#ff6767</color>
     <color name="button_color">#005ccc</color>
     <color name="yellow_800">#ffae27</color>
-    <color name="cyan_700">#0097a7</color>
+    <color name="cyan_700">#17a4c2</color>
 
-    <color name="blue_transparent">#DABBD4FD</color>
+    <color name="blue_transparent">
+        #e6f1ff</color>
+
+    <color name="first_color">#005ccc</color>
+
+    <color name="common_text_color">#004247</color>
+    <color name="title_text_color">#424656</color>
+    <color name="input_background_color">#f3f3f3</color>
+    <color name="note_color">#2d2d2d</color>
+
+    <color name="chat_text_color">#424656</color>
 </resources>

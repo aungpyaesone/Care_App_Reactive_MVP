@@ -12,6 +12,7 @@ data class DoctorVO(
     var id: String = "",
     var name: String? = "",
     var photo: String? ="",
+    var dob: String? ="",
     var biography: String? ="",
     var degree : String? ="",
     var experience : String? = "",
@@ -20,6 +21,8 @@ data class DoctorVO(
     var email: String? ="",
     var deviceId:String? = "",
     var phone:String? ="",
+    var gender:String? ="",
+    var speciality_myanmar: String? = ""
 ){
 
 }

@@ -1,5 +1,6 @@
 package com.aungpyaesone.shared.data.models
 
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.network.responses.NotiResponse
@@ -29,4 +30,11 @@ interface PatientModel {
 
     fun getAllConsultationRequestFromApi(id:String, onSuccess: (List<ConsultationRequestVO>) -> Unit, onFailure: (String) -> Unit)
 
+    fun getPrescriptionFromApi(id: String,onSuccess: (List<PrescriptionVO>) -> Unit,onFailure: (String) -> Unit)
+    fun getPrescriptionFromDb():LiveData<List<PrescriptionVO>>
+
+    fun updateConsultationRequestStatus (consultationRequestVO: ConsultationRequestVO,status:String,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+    fun uploadPhotoUrl(bitmap:Bitmap,onSuccess: (url:String) -> Unit,onFailure: (String) -> Unit)
+    fun addPatient(patientVO: PatientVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
 }

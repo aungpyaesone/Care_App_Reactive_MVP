@@ -7,4 +7,5 @@ import com.padc.shared.mvp.presenter.BasePresenter
 
 interface RegisterPresenter : BasePresenter<RegisterView> {
     fun onTapRegister(token:String,registerVO:PatientVO,password:String)
+    fun onTapLogin()
 }

@@ -73,6 +73,10 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
             patientVO.blood_type = SessionManager.patient_blood_type
             patientVO.height = SessionManager.patient_height
             patientVO.weight = SessionManager.weight
+            patientVO.address = SessionManager.address
+            patientVO.phone = SessionManager.phone
+            patientVO.photo = SessionManager.photo
+            patientVO.created_date = SessionManager.created_date
             mPresenter.onTapStartConsultation(patientVO,questionAnswerList)
             mDelegate.onTapStartConsultationButton()
         }

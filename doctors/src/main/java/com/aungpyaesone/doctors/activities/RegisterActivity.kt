@@ -8,7 +8,9 @@ import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.RegisterPresenter
 import com.aungpyaesone.doctors.mvp.presenters.impls.RegisterPresenterImpls
 import com.aungpyaesone.doctors.mvp.views.RegisterView
+import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
+import com.facebook.login.Login
 import com.google.firebase.messaging.FirebaseMessaging
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_register.*
@@ -33,8 +35,8 @@ class RegisterActivity : BaseActivity() , RegisterView {
         btnRegister.setOnClickListener {
             val doctorVO = DoctorVO()
             doctorVO.email = etEmail.text.toString()
-            doctorVO.name = etUserName.text.toString()
-            doctorVO.speciality = etSpeciality.text.toString()
+            doctorVO.name = "User"
+            doctorVO.speciality = ""
             mToken?.let { token ->
                 mPresenter.onTapRegister(
                         token,
@@ -42,6 +44,9 @@ class RegisterActivity : BaseActivity() , RegisterView {
                         etPassword.text.toString()
                 )
             }
+        }
+        tvLogin.setOnClickListener {
+            startActivity(LoginActivity.newInstance(this))
         }
     }
 
@@ -52,6 +57,7 @@ class RegisterActivity : BaseActivity() , RegisterView {
     private fun getDeviceId(){
         FirebaseMessaging.getInstance().token.addOnSuccessListener {
             mToken = it
+            SessionManager.device_id = it
         }
     }
 
@@ -61,6 +67,10 @@ class RegisterActivity : BaseActivity() , RegisterView {
 
     override fun navigateToLoginScreen() {
         startActivity(LoginActivity.newInstance(this))
+    }
+
+    override fun navigateToCreateAccountScreen() {
+        startActivity(FillFormActivity.newInstance(this))
     }
 
     override fun showLoading() {

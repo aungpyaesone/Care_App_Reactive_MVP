@@ -22,4 +22,7 @@ interface RecentDoctorDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertRecentDoctorList(recentDoctorList: List<RecentDoctorVO>):Completable
+
+    @Query("DELETE FROM recently_doctor")
+    fun deleteAllRecentlyDoctor()
 }

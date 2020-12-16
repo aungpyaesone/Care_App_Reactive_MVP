@@ -1,5 +1,6 @@
 package com.padc.shared.activites
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -25,4 +26,8 @@ abstract class BaseActivity : AppCompatActivity(),BaseView{
     override fun showErrorMessage(error: String) {
         Snackbar.make(window.decorView, error, Snackbar.LENGTH_LONG).show()
     }
+
+    /*fun showDialog(): Dialog{
+
+    }*/
 }

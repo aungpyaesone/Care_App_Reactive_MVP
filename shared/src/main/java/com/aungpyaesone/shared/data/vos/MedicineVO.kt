@@ -11,4 +11,5 @@ data class MedicineVO(
         var id: String,
         var name: String? = "",
         var price: Int? = 0,
+        var is_selected : Boolean? = false
 )

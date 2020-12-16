@@ -34,7 +34,7 @@ class RequestViewHolder(itemView: View,private val mDelegate: RequestItemDelegat
         }
         itemView.btnAccept.setOnClickListener {
             val doctorVO = SessionManager.get<DoctorVO>(sharePreferenceDoctor) ?: DoctorVO()
-            mData?.let { mDelegate.onTapAcceptButton(it.id, "accept", it,doctorVO) }
+            mData?.let { mDelegate.onTapAcceptButton(itemView.context, it.id, "accept", it, doctorVO) }
         }
     }
 

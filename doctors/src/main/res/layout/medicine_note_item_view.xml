@@ -13,8 +13,8 @@
 
         <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
             android:id="@+id/ivPatientProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/profile_width"
+            android:layout_height="@dimen/profile_width"
             android:layout_margin="@dimen/margin_medium_2"
             android:src="@mipmap/ic_launcher"
             app:cornerRadius="@dimen/margin_large"
@@ -28,6 +28,7 @@
             android:layout_marginStart="@dimen/margin_xlarge"
             android:textSize="@dimen/text_regular_3"
             android:textStyle="bold"
+            android:textColor="@color/title_text_color"
             app:layout_constraintStart_toEndOf="@+id/ivPatientProfile"
             app:layout_constraintTop_toTopOf="@+id/ivPatientProfile"
             tools:text="Aunng Aung" />
@@ -37,6 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/calendar_solid"
+            android:drawablePadding="12dp"
             app:layout_constraintStart_toStartOf="@+id/tvPatientName"
             app:layout_constraintTop_toBottomOf="@+id/tvPatientName"
             tools:text="23 Nov 1997" />
@@ -70,7 +73,7 @@
         <View
             android:id="@+id/view2"
             android:layout_width="1dp"
-            android:layout_height="64dp"
+            android:layout_height="0dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -81,7 +84,7 @@
         <View
             android:id="@+id/view4"
             android:layout_width="1dp"
-            android:layout_height="64dp"
+            android:layout_height="0dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -108,12 +111,13 @@
             style="@style/RegularStyle_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/label_one"
             android:textColor="@color/button_color"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view4" />
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvPrescribe"
@@ -121,8 +125,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="76dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/label_two"
             android:textColor="@color/button_color"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/view4" />
@@ -133,8 +139,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/label_three"
             android:textColor="@color/button_color"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view2"
             app:layout_constraintTop_toTopOf="@+id/view4" />

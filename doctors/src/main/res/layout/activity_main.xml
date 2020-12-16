@@ -18,9 +18,9 @@
         android:layout_height="match_parent">
 
         <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
-            android:id="@+id/roundedCornerImageView"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
+            android:id="@+id/ivProfile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_margin="@dimen/margin_medium_2"
             android:src="@mipmap/ic_launcher"
             app:cornerRadius="@dimen/margin_large_xxxx"
@@ -35,9 +35,9 @@
             android:layout_marginStart="@dimen/margin_medium_2"
             android:text="@string/app_name"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/roundedCornerImageView"
-            app:layout_constraintStart_toEndOf="@+id/roundedCornerImageView"
-            app:layout_constraintTop_toTopOf="@+id/roundedCornerImageView" />
+            app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
+            app:layout_constraintStart_toEndOf="@+id/ivProfile"
+            app:layout_constraintTop_toTopOf="@+id/ivProfile" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRequest"
@@ -46,11 +46,11 @@
             android:layout_marginTop="@dimen/margin_medium_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/roundedCornerImageView"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfile"
             />
 
         <org.mmtextview.components.MMTextView
-            android:id="@+id/MMTextView3"
+            android:id="@+id/tvLabel"
             style="@style/RegularStyle_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:listitem="@layout/medicine_note_item_view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MMTextView3" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

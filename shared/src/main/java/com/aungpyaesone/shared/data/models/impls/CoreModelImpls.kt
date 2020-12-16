@@ -8,11 +8,6 @@ import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.extensions.dbOperationResult
 import com.aungpyaesone.shared.network.CloudFireStoreImpls
 import com.aungpyaesone.shared.network.FirebaseApi
-import com.aungpyaesone.shared.network.responses.NotiResponse
-import com.aungpyaesone.shared.util.API_KEY
-import com.aungpyaesone.shared.util.EN_ERROR_MESSAGE
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 object CoreModelImpls : CoreModel, BaseModel() {
     val mFirebaseApi: FirebaseApi = CloudFireStoreImpls
@@ -53,8 +48,9 @@ object CoreModelImpls : CoreModel, BaseModel() {
      */
     override fun getAllConsultationChatFromApi(onSuccess: (List<ConsultationChatVO>) -> Unit, onFailure: (String) -> Unit) {
         mFirebaseApi.getConsultationChat(onSuccess={
+            mTheDB.consultationChatDao().deleteAllConsultationChat()
             mTheDB.consultationChatDao().insertConsultationChatList(it).dbOperationResult(onSuccess = {
-                Log.d("insert cr",it)
+                Log.d("insert cc",it)
             },
             onFailure = {
                 onFailure(it)
@@ -64,17 +60,18 @@ object CoreModelImpls : CoreModel, BaseModel() {
         })
     }
 
-    override fun getAllConsultationChatFromDb(): LiveData<List<ConsultationChatVO>> {
-        return mTheDB.consultationChatDao().getConsultationChat()
+    override fun getAllConsultationChatFromDbById(id: String): LiveData<ConsultationChatVO> {
+        return mTheDB.consultationChatDao().getConsultationChatById(id)
     }
 
-    override fun getAllCheckMessageFromApi(documentId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+    override fun getAllCheckMessageFromApi(documentId: String, onSuccess: (List<ChatMessageVO>) -> Unit, onFailure: (String) -> Unit) {
         mFirebaseApi.getAllCheckMessage(documentId,onSuccess = {
-          mTheDB.chatMessageDao().insertChatMessageList(it).dbOperationResult(onSuccess = {
-             onSuccess()
+        mTheDB.chatMessageDao().deleteAllChatMessage()
+        mTheDB.chatMessageDao().insertChatMessageList(it).dbOperationResult(onSuccess = {
             },onFailure = {
                 onFailure(it)
             })
+            onSuccess(it)
         },onFailure = {
           onFailure(it)
         })
@@ -90,7 +87,7 @@ object CoreModelImpls : CoreModel, BaseModel() {
         onFailure: (String) -> Unit
     ) {
         mFirebaseApi.getConsultationRequest(speciality =speciality, onSuccess = {consultationRequestList ->
-            mTheDB.consultationReqDao().deleteAllConsultationRequest().dbOperationResult({},{})
+            mTheDB.consultationReqDao().deleteAllConsultationRequest()
             mTheDB.consultationReqDao().insertConsultationRequestList(consultationRequestList).dbOperationResult({
                 Log.d("insert success",it)
             },{
@@ -127,6 +124,7 @@ object CoreModelImpls : CoreModel, BaseModel() {
      */
     override fun getRecentlyConsultedDoctorFromApi(documentId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         mFirebaseApi.getRecentlyConsultationDoctor(documentId,onSuccess = {
+            mTheDB.recentDoctorDao().deleteAllRecentlyDoctor()
             mTheDB.recentDoctorDao().insertRecentDoctorList(it).dbOperationResult(onSuccess = {result ->
                 Log.d("success",result)
             },onFailure = {error ->
@@ -147,8 +145,24 @@ object CoreModelImpls : CoreModel, BaseModel() {
     }
 
 
-    override fun startConsultation(onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        TODO("Not yet implemented")
+    override fun startConsultation(
+        caseSummaryList: List<QuestionAnswerVO>,
+        patientVO: PatientVO,
+        doctorVO: DoctorVO,
+        dateTime: String,
+        onSuccess: (documentId: String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.startConsultation(
+            caseSummary = caseSummaryList,
+            patientVO = patientVO,
+            doctorVO = doctorVO,
+            dateTime = dateTime,
+            onSuccess = {
+                onSuccess(it)
+            },
+            onFailure = {onFailure(it)}
+        )
     }
 
     /***
@@ -186,6 +200,18 @@ object CoreModelImpls : CoreModel, BaseModel() {
 
     override fun getDoctorBySpecialityFromDb(): LiveData<List<DoctorVO>> {
         return mTheDB.doctorDao().getDoctor()
+    }
+
+    override fun getAllConsultationChatFromDb(): LiveData<List<ConsultationChatVO>> {
+        return mTheDB.consultationChatDao().getConsultationChat()
+    }
+
+    override fun updateConsultationChat(
+        consultationChatVO: ConsultationChatVO,
+        onSuccess: (currentDocumentId: String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.updateConsultationChat(consultationChatVO,onSuccess,onFailure)
     }
 
 }

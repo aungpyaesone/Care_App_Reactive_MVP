@@ -1,6 +1,7 @@
 package com.aungpyaesone.shared.data.models.impls
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import com.aungpyaesone.shared.data.models.BaseModel
 import com.aungpyaesone.shared.data.models.PatientModel
@@ -9,7 +10,6 @@ import com.aungpyaesone.shared.extensions.dbOperationResult
 import com.aungpyaesone.shared.network.CloudFireStoreImpls
 import com.aungpyaesone.shared.network.FirebaseApi
 import com.aungpyaesone.shared.network.responses.NotiResponse
-import com.aungpyaesone.shared.util.API_KEY
 import com.aungpyaesone.shared.util.EN_ERROR_MESSAGE
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -86,7 +86,7 @@ object PatientModelImpls : PatientModel, BaseModel() {
     ) {
         mFirebaseApi.getPatientByEmail(email,
                 onSuccess = {
-                    // mTheDB.patientDao().deleteAllPatientData().dbOperationResult({},{})
+                    mTheDB.patientDao().deleteAllPatientData()
                     mTheDB.patientDao().insertPatient(it).dbOperationResult({
                         onSuccess()
                     }, {
@@ -105,11 +105,51 @@ object PatientModelImpls : PatientModel, BaseModel() {
             onFailure: (String) -> Unit
     ) {
         mFirebaseApi.observeAcceptDoctorRequest(id, onSuccess = {
-            mTheDB.consultationReqDao().deleteAllConsultationRequest().dbOperationResult({}, {})
+            mTheDB.consultationReqDao().deleteAllConsultationRequest()
             mTheDB.consultationReqDao().insertConsultationRequestList(it).dbOperationResult({}, {})
         }, onFailure = {
             onFailure(it)
         })
+    }
+
+    override fun getPrescriptionFromApi(
+        id: String,
+        onSuccess: (List<PrescriptionVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getPrescriptionMedicine(id,onSuccess = {
+            mTheDB.prescriptionDao().deletePrescription()
+            mTheDB.prescriptionDao().insertPrescriptionVOList(it).dbOperationResult({},{})
+        },onFailure = {onFailure(it)})
+    }
+
+    override fun getPrescriptionFromDb(): LiveData<List<PrescriptionVO>> {
+        return mTheDB.prescriptionDao().getPrescription()
+    }
+
+    override fun updateConsultationRequestStatus(
+        consultationRequestVO: ConsultationRequestVO,
+        status: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.updateConsultationRequestStatus(consultationRequestVO,status,onSuccess,onFailure)
+    }
+
+    override fun uploadPhotoUrl(
+        bitmap: Bitmap,
+        onSuccess: (url: String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.uploadImageToFireStore(bitmap,onSuccess,onFailure)
+    }
+
+    override fun addPatient(
+        patientVO: PatientVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.updatePatientData(patientVO,onSuccess,onFailure)
     }
 
 

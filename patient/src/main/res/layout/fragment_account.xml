@@ -1,14 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AccountFragment">
+    >
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="23dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_regular_2"
+                    android:textColor="@color/title_text_color"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:text="@string/profile"
+                   />
+
+                <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+                    android:id="@+id/ivEditProfile"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/edit"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Account Fragment" />
+        android:fitsSystemWindows="true"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+                android:id="@+id/ivDoctorProfile"
+                android:layout_width="@dimen/doctor_profile_width"
+                android:layout_height="@dimen/doctor_profile_height"
+                android:layout_margin="@dimen/margin_medium"
+                android:src="@drawable/photo_1438761681033_6461_ffad_8_d_81"/>
+
+              <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/subTitleStyle"
+                tools:text="098756566"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_toEndOf="@id/ivDoctorProfile"
+                android:layout_alignBottom="@id/ivDoctorProfile"/>
+
+              <org.mmtextview.components.MMTextView
+                  android:id="@+id/tvPName"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="@dimen/text_regular_3"
+                  android:textColor="@color/title_text_color"
+                  android:textStyle="bold"
+                  tools:text="Aung Aung"
+                  android:layout_marginBottom="@dimen/margin_medium"
+                  android:layout_toEndOf="@id/ivDoctorProfile"
+                  android:layout_above="@id/tvPhone"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvDob_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dob_label"
+                style="@style/profileTextStyle"
+                android:layout_below="@id/ivDoctorProfile"
+                />
+            <TextView
+                android:id="@+id/dobFullcolon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                android:layout_centerHorizontal="true"
+                android:layout_alignTop="@id/tvDob_label"
+                />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvDob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/dob_label"
+                android:layout_toEndOf="@id/dobFullcolon"
+                android:layout_alignTop="@id/dobFullcolon"
+                style="@style/subTitleStyle"
+                android:layout_marginStart="@dimen/margin_large_xxx"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvBloodType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDob_label"
+                style="@style/profileTextStyle"
+                android:text="@string/blood_type_label"/>
+            <TextView
+                android:id="@+id/tvExpFullcolon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                android:layout_alignTop="@id/tvBloodType"
+                android:layout_centerHorizontal="true"/>
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvBlood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvBloodType"
+                tools:text = "@string/blood_type_label"
+                style="@style/subTitleStyle"
+                android:layout_alignStart="@id/tvDob"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvGenderLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBloodType"
+                android:text="@string/height_label"
+                style="@style/profileTextStyle"
+                />
+
+            <TextView
+                android:id="@+id/tvGenderFullcolon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                android:layout_alignTop="@id/tvGenderLabel"
+                android:layout_centerHorizontal="true"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvGenderLabel"
+                tools:text = "@string/height_label"
+                style="@style/subTitleStyle"
+                android:layout_alignStart="@id/tvDob"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvAddressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvGenderLabel"
+                style="@style/profileTextStyle"
+                android:text="@string/allergic"
+                />
+
+            <TextView
+                android:id="@+id/tvAddressFullcolon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                android:layout_alignTop="@id/tvAddressLabel"
+                android:layout_centerHorizontal="true"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvAllergic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvAddressFullcolon"
+                tools:text = "@string/allergic"
+                style="@style/subTitleStyle"
+                android:layout_alignStart="@id/tvDob"/>
+
+
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvaddLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvAllergic"
+                style="@style/profileTextStyle"
+                android:text="@string/address_label"
+                />
+
+            <TextView
+                android:id="@+id/tvFull"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                android:layout_alignTop="@id/tvaddLabel"
+                android:layout_centerHorizontal="true"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvaddLabel"
+                android:textSize="@dimen/text_regular_3"
+                android:textStyle="bold"
+                android:textColor="@color/title_text_color"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_alignStart="@id/tvaddLabel"
+                tools:text = "No 11 blah blah blah"/>
+
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:textColor="@color/title_text_color"
+                android:layout_margin="@dimen/margin_medium_2"
+                android:id="@+id/tvLogout"
+                android:layout_alignParentBottom="true"/>
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_password"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/tvChangePassword"
+                android:textColor="@color/title_text_color"
+                android:layout_margin="@dimen/margin_medium_2"
+                />
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

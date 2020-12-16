@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
-import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import io.reactivex.Completable
 
 @Dao
@@ -22,4 +21,11 @@ interface ConsultationChatDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertConsultationChatList(ConsultationChatList: List<ConsultationChatVO>) : Completable
+
+    @Query("delete from consultation_chat where id = :consultReqId")
+    fun deleteAllConsultationChatById(consultReqId: String): Completable
+
+    @Query("delete from consultation_chat")
+    fun deleteAllConsultationChat()
+
 }

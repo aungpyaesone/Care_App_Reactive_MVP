@@ -38,18 +38,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dob_label"
-                    android:textColor="@color/text_color"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Spinner
                     android:id="@+id/spDay"
-                    style="@style/pickerStyle"
                     android:layout_width="0dp"
                     android:spinnerMode="dropdown"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/drawable_background_white"
-                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    style="@style/spinnerStyle"
                     android:drawableTint="@color/color_primary"
                     app:layout_constraintEnd_toStartOf="@+id/spMonth"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -57,9 +54,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView"
                     tools:text="23" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/spDay"
+                    app:layout_constraintEnd_toEndOf="@+id/spDay"
+                    app:layout_constraintTop_toTopOf="@+id/spDay" />
+
+
                 <Spinner
                     android:id="@+id/spMonth"
-                    style="@style/pickerStyle"
+                    style="@style/spinnerStyle"
                     android:layout_width="0dp"
                     android:spinnerMode="dropdown"
                     android:layout_height="wrap_content"
@@ -74,7 +81,7 @@
 
                 <Spinner
                     android:id="@+id/spYear"
-                    style="@style/pickerStyle"
+                    style="@style/spinnerStyle"
                     android:layout_width="0dp"
                     android:spinnerMode="dropdown"
                     android:layout_height="wrap_content"
@@ -87,13 +94,31 @@
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView"
                     tools:text="2020" />
 
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/spYear"
+                    app:layout_constraintEnd_toEndOf="@+id/spYear"
+                    app:layout_constraintTop_toTopOf="@+id/spYear" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/spYear"
+                    app:layout_constraintEnd_toEndOf="@+id/spMonth"
+                    app:layout_constraintTop_toTopOf="@+id/spMonth" />
+
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/MMTextView2"
                     style="@style/RegularStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/height_label"
-                    android:textColor="@color/text_color"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spDay">
 
@@ -118,7 +143,8 @@
                     android:maxLines="1"
                     android:padding="@dimen/margin_medium"
                     android:text="@string/ft"
-                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_regular"
+                    android:textColor="@color/common_text_color"
                     app:layout_constraintBottom_toBottomOf="@+id/etHeight"
                     app:layout_constraintEnd_toEndOf="@+id/etHeight"
                     app:layout_constraintTop_toTopOf="@+id/etHeight" />
@@ -129,24 +155,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blood_type_label"
-                    android:textColor="@color/text_color"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etHeight" />
 
                 <Spinner
                     android:id="@+id/spBloodType"
-                    style="@style/editTextStyle"
+                    android:padding="@dimen/margin_medium_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:entries="@array/bloodType"
                     android:spinnerMode="dialog"
+                    style="@style/spinnerStyle"
+                    android:layout_marginTop="@dimen/margin_medium_2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView3" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/spBloodType"
+                    app:layout_constraintEnd_toEndOf="@+id/spBloodType"
+                    app:layout_constraintTop_toTopOf="@+id/spBloodType" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -159,7 +195,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/weight_label"
-                    android:textColor="@color/text_color"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -180,7 +215,7 @@
                     android:maxLines="1"
                     android:padding="@dimen/margin_medium"
                     android:text="@string/lb"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/common_text_color"
                     app:layout_constraintBottom_toBottomOf="@+id/etWeight"
                     app:layout_constraintEnd_toEndOf="@+id/etWeight"
                     app:layout_constraintTop_toTopOf="@+id/etWeight" />
@@ -191,7 +226,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blood_pressure_label"
-                    android:textColor="@color/text_color"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etWeight" />-->
 
@@ -213,7 +247,7 @@
                     android:maxLines="1"
                     android:padding="@dimen/margin_medium"
                     android:text="@string/mmhg"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/common_text_color"
                     app:layout_constraintBottom_toBottomOf="@+id/etBloodPressure"
                     app:layout_constraintEnd_toEndOf="@+id/etBloodPressure"
                     app:layout_constraintTop_toTopOf="@+id/etBloodPressure" />
@@ -224,7 +258,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/allergic_label"
-                    android:textColor="@color/text_color"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBloodPressure" />
 
@@ -235,7 +268,9 @@
                     android:layout_marginTop="8dp"
                     android:background="@drawable/drawable_background_white"
                     android:elevation="@dimen/margin_medium"
+                    android:textSize="@dimen/text_regular_2"
                     android:hint="@string/allergic_label"
+                    android:gravity="top"
                     android:inputType="textMultiLine"
                     android:padding="@dimen/margin_medium"
                     app:layout_constraintEnd_toEndOf="@+id/etBloodPressure"

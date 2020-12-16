@@ -24,4 +24,7 @@ interface DoctorDao {
 
     @Query("select * from doctor WHERE email = :email")
     fun getAllDoctorDataByEmail(email: String): LiveData<DoctorVO>
+
+    @Query("DELETE FROM doctor")
+    fun deleteAllDoctor()
 }

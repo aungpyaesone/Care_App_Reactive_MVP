@@ -10,6 +10,7 @@ import com.aungpyaesone.doctors.mvp.presenters.impls.LoginPresenterImpl
 import com.aungpyaesone.doctors.mvp.views.LoginView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
+import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.btnRegister
@@ -56,6 +57,7 @@ class LoginActivity : BaseActivity(),LoginView{
         SessionManager.device_id = doctorVO.deviceId
         SessionManager.doctor_email = doctorVO.email
         SessionManager.speciality = doctorVO.speciality
+        SessionManager.put(doctorVO, sharePreferenceDoctor)
         startActivity(MainActivity.newInstance(this))
         finish()
     }
