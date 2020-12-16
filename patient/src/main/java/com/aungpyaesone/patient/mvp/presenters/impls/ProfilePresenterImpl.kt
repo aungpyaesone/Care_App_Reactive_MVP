@@ -47,10 +47,9 @@ class ProfilePresenterImpl : ProfilePresenter,AbstractBasePresenter<ProfileView>
     }
 
     override fun onPhotoTaken(bitmap: Bitmap) {
-        TODO("Not yet implemented")
+
     }
 
-    override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        TODO("Not yet implemented")
-    }
+    override fun onUiReady(lifecycleOwner: LifecycleOwner) {}
+
 }

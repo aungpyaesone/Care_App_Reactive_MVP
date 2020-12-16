@@ -4,6 +4,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.aungpyaesone.patient.mvp.presenters.ConsultationPresenter
 import com.aungpyaesone.patient.mvp.view.ConsultationView
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
@@ -19,8 +20,8 @@ class ConsultationPresenterImpl : ConsultationPresenter,AbstractBasePresenter<Co
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        mCoreModel.getAllConsultationChatFromApi(onSuccess = {},onFailure = {})
-        mCoreModel.getAllConsultationChatFromDb().observe(lifecycleOwner, Observer {
+        mPatientModel.getAllConsultationChatFromApiWithPatientId(SessionManager.patient_id.toString(),onSuccess = {},onFailure = {})
+        mPatientModel.getAllConsultationFromDb().observe(lifecycleOwner, Observer {
             mView?.showConsultationList(it)
         })
     }

@@ -11,6 +11,7 @@ import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.*
+import com.aungpyaesone.shared.util.prepareNotification
 import com.padc.shared.mvp.presenter.AbstractBasePresenter
 
 class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
@@ -58,7 +59,9 @@ class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
                             consultationRequestVO.consultationchat_id = it
                             mDoctorModel.acceptRequest(documentId, "accept", consultationRequestVO,
                                         doctorVO, onSuccess = {
-                                    sendNotification(context, consultationRequestVO.patient?.deviceId, doctorVO)
+                                  //  prepareNotification(context,consultationRequestVO.patient?.deviceId,doctorVO,"")
+                                    prepareNotification(context,"cAKb6AMARVKmPkRxM3xsK7:APA91bH6EGlj4NnKW_r-VvrHu9DQYi1cTvwX6Mx8nD8Bw6Z_rd1PbIT8U-fE4vUj2QEtle9d49frW-PxiSR_muYPZPgdyCumdti7Bw3tg55VfcMcHv9lCssrRADcK4axkYVhOQ6EoWlt",doctorVO,"")
+                                   // sendNotification(context, consultationRequestVO.patient?.deviceId, doctorVO)
                                 }, onFailure = {})
 
                             consultationRequestVO.patient?.let { it1 -> mDoctorModel.addConsultedPatient(doctorId = SessionManager.user_id.toString(),patientVO = it1,onSuccess = {},

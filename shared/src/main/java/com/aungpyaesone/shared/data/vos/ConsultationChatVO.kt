@@ -22,4 +22,5 @@ data class ConsultationChatVO(
     var dateTime : String? = "",
     var note : String? = "",
     var status : Boolean? = false
+
 )

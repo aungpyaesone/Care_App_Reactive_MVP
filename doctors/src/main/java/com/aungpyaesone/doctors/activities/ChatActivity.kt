@@ -58,7 +58,7 @@ class ChatActivity : BaseActivity(),ChatView {
         rvChatView.apply {
             layoutManager = LinearLayoutManager(this@ChatActivity,RecyclerView.VERTICAL,false)
             adapter = mChatAdapter
-            scrollToPosition(0)
+
         }
     }
 
@@ -115,6 +115,7 @@ class ChatActivity : BaseActivity(),ChatView {
 
     }
     override fun showConsultationChat(consultationChatList: ConsultationChatVO) {
+        scrollView.scrollTo(0,scrollView.bottom)
         mConsultationChatVO = consultationChatList
         bindToolbar(consultationChatList.patient)
         mDoctorVO = consultationChatList.doctor
@@ -131,12 +132,14 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showAllChatMessage(chatMessageList: List<ChatMessageVO>) {
+        scrollView.scrollTo(0,scrollView.bottom)
         mChatAdapter.setData(chatMessageList)
     }
 
     override fun navigateToPrescribeMedicineScreen(speciality: String) {
         val data = Gson().toJson(mConsultationChatVO)
         startActivity(PrescriptionMedicineActivity.newInstance(this,data))
+        finish()
     }
 
     override fun navigateToGeneralQuestionTemplate(documentId: String) {
@@ -149,6 +152,7 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showPrescriptionList(prescriptionList: List<PrescriptionVO>) {
+        scrollView.scrollTo(0,scrollView.bottom)
         if(prescriptionList.isNotEmpty()){
             mPrescriptionViewPod.visibility = View.VISIBLE
             mDoctorVO?.photo?.let {

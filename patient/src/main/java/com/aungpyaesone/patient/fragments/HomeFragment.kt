@@ -141,7 +141,7 @@ class HomeFragment : BaseFragment(),HomeView {
         val confirmDialogFragment = ConfirmDialogFragment.newFragment()
         val bundle = Bundle()
         bundle.putString(BUNDLE_ID, recentDoctorVO.speciality)
-        bundle.putString(BUNDLE_NAME, recentDoctorVO.sp_myanmar_name)
+        bundle.putString(BUNDLE_NAME, recentDoctorVO.speciality_myanmar)
         confirmDialogFragment.arguments = bundle
         activity?.supportFragmentManager?.let {
             confirmDialogFragment.show(

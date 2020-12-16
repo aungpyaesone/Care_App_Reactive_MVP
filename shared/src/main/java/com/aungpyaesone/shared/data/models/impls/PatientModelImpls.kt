@@ -152,5 +152,23 @@ object PatientModelImpls : PatientModel, BaseModel() {
         mFirebaseApi.updatePatientData(patientVO,onSuccess,onFailure)
     }
 
+    override fun getAllConsultationChatFromApiWithPatientId(
+        patientId: String,
+        onSuccess: (List<ConsultationChatVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getConsultationChatWithPatientId(patientId,onSuccess ={
+            mTheDB.consultationChatDao().deleteAllConsultationChat()
+            mTheDB.consultationChatDao().insertConsultationChatList(it).dbOperationResult({},{})
+          //  onSuccess(it)
+        },onFailure = {
+            onFailure(it)
+        })
+    }
+
+    override fun getAllConsultationFromDb(): LiveData<List<ConsultationChatVO>> {
+        return mTheDB.consultationChatDao().getConsultationChat()
+    }
+
 
 }

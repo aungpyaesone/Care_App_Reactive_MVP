@@ -55,7 +55,12 @@ class PrescriptionMedicineActivity : BaseActivity(),PrescriptionView {
 
     private fun setupListener() {
         ivBack.setOnClickListener {
-            onBackPressed()
+            startActivity(mConsultationChatVO?.id?.let { it1 ->
+                ChatActivity.newInstance(this,
+                    it1
+                )
+            })
+            finish()
         }
         tvToolbarTitle.text = getString(R.string.prescribe_medicine)
 

@@ -136,7 +136,9 @@ object CloudFireStoreImpls : FirebaseApi {
             "doctor" to doctorVO,
             "patient" to patientVO,
             "dateTime" to dateTime,
-            "status" to false
+            "status" to false,
+            "note" to "",
+            "patient_id" to patientVO.id
         )
 
         db.collection(CONSULTATION_CHAT)
@@ -246,6 +248,36 @@ object CloudFireStoreImpls : FirebaseApi {
                     onSuccess(consultationChatList)
                 }
             }
+    }
+
+    override fun getConsultationChatWithPatientId(
+        patientId: String,
+        onSuccess: (List<ConsultationChatVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection(CONSULTATION_CHAT)
+            .whereEqualTo("patient_id",patientId)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val consultationChatVOList: MutableList<ConsultationChatVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<ConsultationChatVO>(
+                                Data,
+                                ConsultationChatVO::class.java
+                            )
+                        consultationChatVOList.add(docData)
+                    }
+                    onSuccess(consultationChatVOList)
+                }
+            }
+
     }
 
     override fun getAllCheckMessage(
@@ -472,7 +504,8 @@ object CloudFireStoreImpls : FirebaseApi {
             "speciality" to consultationChatVO.doctor?.speciality,
             "email" to consultationChatVO.doctor?.email,
             "deviceId" to consultationChatVO.doctor?.deviceId,
-            "phone" to consultationChatVO.doctor?.phone
+            "phone" to consultationChatVO.doctor?.phone,
+            "speciality_myanmar" to consultationChatVO.doctor?.speciality_myanmar
         )
         // add recently doctor
 

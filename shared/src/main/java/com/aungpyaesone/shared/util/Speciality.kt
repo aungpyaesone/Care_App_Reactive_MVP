@@ -106,3 +106,16 @@ fun prepareNotification(context:Context,to:String?,data:PatientVO):NotificationV
     notificationVO.data = dataVO
     return notificationVO
 }
+
+fun prepareNotification(context:Context,to:String?,data:DoctorVO,str:String):NotificationVO{
+    val notificationVO = NotificationVO()
+    val dataVO = DataVO()
+    notificationVO.to = to
+    dataVO.title = context.getString(R.string.noti_title)
+    dataVO.body = "${data.name}${context.getString(R.string.noti_body_for_doctor)}"
+    dataVO.id = data.id
+    notificationVO.data = dataVO
+    return notificationVO
+}
+
+

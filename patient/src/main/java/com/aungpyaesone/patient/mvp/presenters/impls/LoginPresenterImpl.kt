@@ -32,6 +32,9 @@ class LoginPresenterImpl : LoginPresenter,AbstractBasePresenter<LoginView>() {
                 })
                 mPatientModel.getPatientFromDbByEmail(email).observe(lifecycleOwner, Observer {
                     it?.let {
+                        it.deviceId = SessionManager.patient_device_id
+                        mPatientModel.addPatient(it,onSuccess = {},onFailure = {})
+
                         SessionManager.patient_name = it.name
                         SessionManager.patient_id = it.id
                         SessionManager.patient_dateOfBirth = it.dob
@@ -46,7 +49,9 @@ class LoginPresenterImpl : LoginPresenter,AbstractBasePresenter<LoginView>() {
                         SessionManager.created_date = it.created_date
                         SessionManager.address = it.address
                         SessionManager.phone = it.phone
+
                         Log.d("height",it.height.toString())
+
                         mView?.hideLoading()
                         mView?.navigateToHomeScreen(it)
                     }

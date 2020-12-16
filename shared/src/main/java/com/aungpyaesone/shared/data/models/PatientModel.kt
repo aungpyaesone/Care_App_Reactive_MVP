@@ -37,4 +37,6 @@ interface PatientModel {
 
     fun uploadPhotoUrl(bitmap:Bitmap,onSuccess: (url:String) -> Unit,onFailure: (String) -> Unit)
     fun addPatient(patientVO: PatientVO,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun getAllConsultationChatFromApiWithPatientId(patientId:String,onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
+    fun getAllConsultationFromDb() : LiveData<List<ConsultationChatVO>>
 }

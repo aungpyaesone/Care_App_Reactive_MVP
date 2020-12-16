@@ -15,7 +15,7 @@ class RecentDoctorViewHolder(itemView: View,val mDelegate: RecentlyDoctorDelegat
     init {
         itemView.setOnClickListener {
             mData?.let {
-                it.sp_myanmar_name = checkSpeciality(it.speciality)
+               // it.speciality = checkSpeciality(it.speciality)
                 mDelegate.onTapRecentlyDoctor(it)
             }
         }

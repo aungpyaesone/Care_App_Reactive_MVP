@@ -32,8 +32,8 @@ class MyServiceClass : FirebaseMessagingService() {
 
         if(remoteMessage.data.isNotEmpty()){
             val id = remoteMessage.data["id"]
-            val title = remoteMessage.data["name"]
-            val body = remoteMessage.data["dob"]
+            val title = remoteMessage.data["title"]
+            val body = remoteMessage.data["body"]
             notificationVO.data?.title = title
             notificationVO.data?.body = body
             createNotification(title,body)

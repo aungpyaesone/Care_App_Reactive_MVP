@@ -32,6 +32,8 @@ class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
                 })
                 mDoctorModel.getDoctorFromDbByEmail(email).observe(lifecycleOwner, Observer {
                     it?.let {
+                        it.deviceId = SessionManager.device_id
+                        mDoctorModel.addDoctor(it,onSuccess = {},onFailure = {})
                         SessionManager.user_id = it.id
                         SessionManager.doctor_name = it.name
                         SessionManager.device_id = it.deviceId

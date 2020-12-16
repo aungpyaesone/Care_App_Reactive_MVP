@@ -33,6 +33,7 @@ class ChatActivity : BaseActivity(),ChatView {
     private var mPatientVO: PatientVO? = null
     private var mDoctorVO : DoctorVO? = null
     private var mChatId : String? = null
+    private var finishStatus: Boolean? = false
 
     companion object{
         const val CHAT_ID = "chat_id"
@@ -93,16 +94,23 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showConsultationChat(consultationChatList: ConsultationChatVO) {
+        scrollView.scrollTo(0,scrollView.bottom)
         bindToolbar(consultationChatList.doctor)
         mPatientVO = consultationChatList.patient
         mDoctorVO = consultationChatList.doctor
+
         mPatientInfoViewPod.setData(consultationChatList.patient,consultationChatList.caseSummary)
+
+        finishStatus = consultationChatList.status
+
         when(consultationChatList.status){
             true ->{
                 sendTextLayout.visibility = View.GONE
+                mPrescriptionViewPod.visibility = View.VISIBLE
             }
             else ->{
                 sendTextLayout.visibility = View.VISIBLE
+                mPrescriptionViewPod.visibility = View.GONE
             }
         }
 
@@ -120,6 +128,7 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showAllChatMessage(chatMessageList: List<ChatMessageVO>) {
+        scrollView.scrollTo(0,scrollView.bottom)
         mChatAdapter.setData(chatMessageList)
     }
 

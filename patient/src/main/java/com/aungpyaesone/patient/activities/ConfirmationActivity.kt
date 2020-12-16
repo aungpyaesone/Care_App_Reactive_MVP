@@ -56,7 +56,6 @@ class ConfirmationActivity : BaseActivity(), ConfirmView {
     private fun loadData() {
         val patientData = SessionManager.get<PatientVO>(sharePreferencePatient) ?: PatientVO()
         val questionAnswerList = SessionManager.getList(sharePreferenceQandA)
-
         tvPName.text = patientData.name
         tvPDob.text = patientData.dob
         tvPHeight.text = patientData.height
