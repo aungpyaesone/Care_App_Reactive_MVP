@@ -10,9 +10,8 @@ import com.aungpyaesone.doctors.mvp.presenters.impls.RegisterPresenterImpls
 import com.aungpyaesone.doctors.mvp.views.RegisterView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
-import com.facebook.login.Login
 import com.google.firebase.messaging.FirebaseMessaging
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseActivity() , RegisterView {

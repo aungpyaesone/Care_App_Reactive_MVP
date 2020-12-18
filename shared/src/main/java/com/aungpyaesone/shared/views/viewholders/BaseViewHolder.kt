@@ -1,4 +1,4 @@
-package com.padc.shared.viewholders
+package com.aungpyaesone.shared.views.viewholders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -17,12 +17,15 @@ import kotlinx.android.synthetic.main.profile_empty_dialog_layout.view.*
 
 class ProfileEmptyDialog : DialogFragment() {
 
+    private var mPatientVO:PatientVO? = null
     companion object {
-        const val BUNDLE_NAME = "name"
-        const val BUNDLE_IMAGE = "photo"
-        const val BUNDLE_ID = "id"
-        fun newFragment(): ProfileEmptyDialog {
-            return ProfileEmptyDialog()
+        const val PATIENT = "patient"
+        fun newInstance(patient: String): ProfileEmptyDialog {
+            val args = Bundle()
+            args.putString(PATIENT, patient)
+            val fragment = ProfileEmptyDialog()
+            fragment.arguments = args
+            return fragment
         }
     }
 
@@ -37,13 +40,14 @@ class ProfileEmptyDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val data = arguments?.getString(PATIENT)
+        /* mPatientVO = Gson().fromJson(data,PatientVO::class.java)
+        val patient = Gson().toJson(mPatientVO)*/
         view.btnAddInfo.setOnClickListener {
             activity?.let {
-                val data = SessionManager.get<PatientVO>(sharePreferencePatient)
-                val patient = Gson().toJson(data)
-                startActivity(EditProfileActivity.newInstance(it,patient))
+                startActivity(data?.let { patient -> EditProfileActivity.newInstance(it, patient) })
             }
+            dismiss()
         }
 
         ivclose.setOnClickListener {

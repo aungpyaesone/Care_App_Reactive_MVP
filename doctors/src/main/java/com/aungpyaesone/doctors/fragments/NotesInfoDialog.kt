@@ -1,9 +1,6 @@
 package com.aungpyaesone.doctors.fragments
 
-import android.graphics.Color
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.aungpyaesone.doctors.R
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
-import com.aungpyaesone.shared.util.CONSULTATION_CHAT
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.notes_dialog_layouts.*
 import kotlinx.android.synthetic.main.notes_dialog_layouts.tvPDob

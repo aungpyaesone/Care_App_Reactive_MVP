@@ -3,7 +3,7 @@ package com.aungpyaesone.patient.views.viewholders
 import android.annotation.SuppressLint
 import android.view.View
 import com.aungpyaesone.shared.data.vos.PrescriptionVO
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.prescription_info_item_view.view.*
 
 class PrescriptionInfoViewHolder(itemView: View) : BaseViewHolder<PrescriptionVO>(itemView) {

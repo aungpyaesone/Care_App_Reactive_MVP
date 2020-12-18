@@ -10,9 +10,8 @@ import com.aungpyaesone.patient.mvp.presenters.RegisterPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.RegisterPresenterImpls
 import com.aungpyaesone.patient.mvp.view.RegisterView
 import com.aungpyaesone.shared.data.vos.PatientVO
-import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseActivity(),RegisterView {

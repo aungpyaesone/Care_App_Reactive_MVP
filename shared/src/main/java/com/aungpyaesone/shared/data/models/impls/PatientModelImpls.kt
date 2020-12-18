@@ -80,15 +80,15 @@ object PatientModelImpls : PatientModel, BaseModel() {
     }
 
     override fun getPatientByEmail(
-            email: String,
-            onSuccess: () -> Unit,
-            onError: (String) -> Unit
+        email: String,
+        onSuccess: (patientVO: PatientVO) -> Unit,
+        onError: (String) -> Unit
     ) {
         mFirebaseApi.getPatientByEmail(email,
                 onSuccess = {
+                    onSuccess(it)
                     mTheDB.patientDao().deleteAllPatientData()
                     mTheDB.patientDao().insertPatient(it).dbOperationResult({
-                        onSuccess()
                     }, {
                         onError(it)
                     })
@@ -166,8 +166,8 @@ object PatientModelImpls : PatientModel, BaseModel() {
         })
     }
 
-    override fun getAllConsultationFromDb(): LiveData<List<ConsultationChatVO>> {
-        return mTheDB.consultationChatDao().getConsultationChat()
+    override fun getAllConsultationByPatientIdFromDb(patientId: String): LiveData<List<ConsultationChatVO>> {
+        return mTheDB.consultationChatDao().getConsultationChatByPatientId(patientId)
     }
 
 

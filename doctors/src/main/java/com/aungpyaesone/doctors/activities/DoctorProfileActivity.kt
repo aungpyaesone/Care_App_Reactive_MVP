@@ -13,7 +13,7 @@ import com.aungpyaesone.doctors.mvp.views.AccountView
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.extensions.load
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_doctor_profile.*
 
 class DoctorProfileActivity : BaseActivity(),AccountView {

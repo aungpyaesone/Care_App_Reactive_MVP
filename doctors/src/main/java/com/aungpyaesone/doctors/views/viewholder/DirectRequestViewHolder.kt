@@ -10,7 +10,7 @@ import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.request_item_view_two.view.*
 
 class DirectRequestViewHolder(itemView: View, private val mDelegate: RequestItemDelegate) : BaseViewHolder<ConsultationRequestVO>(itemView) {

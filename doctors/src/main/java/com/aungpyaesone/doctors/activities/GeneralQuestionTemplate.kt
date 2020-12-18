@@ -11,7 +11,7 @@ import com.aungpyaesone.doctors.mvp.presenters.QuestionTemplatePresenter
 import com.aungpyaesone.doctors.mvp.presenters.impls.QuestionTemplatePresenterImpl
 import com.aungpyaesone.doctors.mvp.views.QuestionTemplateView
 import com.aungpyaesone.shared.data.vos.GeneralQuestionVO
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_general_question_template.*
 import kotlinx.android.synthetic.main.activity_general_question_template.ivBack
 

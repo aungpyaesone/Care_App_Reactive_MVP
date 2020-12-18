@@ -2,6 +2,7 @@ package com.aungpyaesone.shared.data.models.impls
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.aungpyaesone.shared.data.models.BaseModel
 import com.aungpyaesone.shared.data.models.DoctorModel
@@ -52,7 +53,7 @@ object DoctorModelImpls : DoctorModel, BaseModel() {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        TODO("Not yet implemented")
+
     }
 
     override fun getDoctorFromDbByEmail(email: String): LiveData<DoctorVO> {
@@ -214,6 +215,31 @@ object DoctorModelImpls : DoctorModel, BaseModel() {
         onFailure: (String) -> Unit
     ) {
         mFirebaseApi.updateDoctor(doctorVO,onSuccess,onFailure)
+    }
+
+    override fun getAllConsultationChat(
+        onSuccess: (List<ConsultationChatVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getConsultationChat(onSuccess={
+            mTheDB.consultationChatDao().deleteAllConsultationChat()
+            mTheDB.consultationChatDao().insertConsultationChatList(it).dbOperationResult(onSuccess = {
+                Log.d("insert cc",it)
+            },
+                onFailure = {
+                    onFailure(it)
+                })
+        },onFailure= {
+            onFailure(it)
+        })
+    }
+
+    override fun getAllConsultationChatFromDb(): LiveData<List<ConsultationChatVO>> {
+       return mTheDB.consultationChatDao().getConsultationChat()
+    }
+
+    override fun getAllConsultationChatByDoctorId(documentId: String): LiveData<List<ConsultationChatVO>> {
+        return mTheDB.consultationChatDao().getConsultationChatByDoctorId(documentId)
     }
 
 

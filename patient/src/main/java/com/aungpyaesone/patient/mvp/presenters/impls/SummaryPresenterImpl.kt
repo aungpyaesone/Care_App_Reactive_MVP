@@ -13,7 +13,7 @@ import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 import com.aungpyaesone.shared.util.sharePreferencePatient
 import com.aungpyaesone.shared.util.sharePreferenceQandA
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class SummaryPresenterImpl : SummaryPresenter, AbstractBasePresenter<SummaryView>() {
     private val mPatientModel: PatientModel = PatientModelImpls
@@ -61,10 +61,19 @@ class SummaryPresenterImpl : SummaryPresenter, AbstractBasePresenter<SummaryView
         questionAnswerList: List<QuestionAnswerVO>
     ) {
         SessionManager.putList(questionAnswerList, sharePreferenceQandA)
-        SessionManager.put(patientVO, sharePreferencePatient)
+      //  SessionManager.put(patientVO, sharePreferencePatient)
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
+
+        mPatientModel.getPatientByEmail(SessionManager.patient_email.toString(),onSuccess = {},onError = {})
+        mPatientModel.getPatientFromDbByEmail(SessionManager.patient_email.toString()).observe(lifecycleOwner,
+            Observer {
+                it?.let {
+                    mView?.showPatientVO(it)
+                }
+
+            })
     }
 
     override fun afterAnswer(position: Int, questionAnswerVO: QuestionAnswerVO) {

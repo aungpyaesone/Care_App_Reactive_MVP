@@ -16,7 +16,7 @@ import com.aungpyaesone.patient.mvp.view.ConsultationView
 import com.aungpyaesone.patient.views.view_pods.EmptyViewPod
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.google.gson.Gson
-import com.padc.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.fragments.BaseFragment
 import kotlinx.android.synthetic.main.fragment_consultation.*
 
 private const val ARG_PARAM1 = "param1"
@@ -74,7 +74,7 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
     }
 
     override fun showConsultationList(consultationList: List<ConsultationChatVO>) {
-        mAdapter.setData(consultationList)
+        mAdapter.setData(consultationList.asReversed())
     }
 
     override fun navigateToChatActivity(consultationChatVO: ConsultationChatVO) {
@@ -86,7 +86,8 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
         val data=  Gson().toJson(consultationChatVO)
         consultationChatVO?.let {
             val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(consultationChatVO.id,consultationChatVO.patient?.name,
-                consultationChatVO.dateTime)
+                consultationChatVO.dateTime
+            )
             activity?.supportFragmentManager?.let { it1 -> dialog.show(it1, "") }
         }
     }

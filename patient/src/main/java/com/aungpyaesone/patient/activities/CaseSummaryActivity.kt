@@ -8,7 +8,7 @@ import com.aungpyaesone.patient.adapters.PagerAdapter
 import com.aungpyaesone.patient.delegate.CaseSummaryDelegate
 import com.aungpyaesone.patient.mvp.presenters.SummaryPresenter
 import com.aungpyaesone.patient.utils.SessionManager
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_case_summary.*
 
 class CaseSummaryActivity : BaseActivity(),CaseSummaryDelegate {

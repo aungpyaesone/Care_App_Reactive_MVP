@@ -8,9 +8,9 @@ import com.aungpyaesone.shared.data.models.DoctorModel
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class NotePresenterImpl : NotePresenter,AbstractBasePresenter<NoteView>() {
+class NotePresenterImpl : NotePresenter, AbstractBasePresenter<NoteView>() {
     private val mCoreModel : CoreModel = CoreModelImpls
     private val mDoctorModel : DoctorModel = DoctorModelImpls
     override fun onTapWriteNote(

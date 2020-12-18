@@ -1,4 +1,4 @@
-package com.padc.shared.mvp.views
+package com.aungpyaesone.shared.mvp.views
 
 interface BaseView {
     fun showErrorMessage(error: String)

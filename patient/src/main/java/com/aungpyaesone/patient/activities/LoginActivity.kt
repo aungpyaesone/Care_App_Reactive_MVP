@@ -9,9 +9,8 @@ import com.aungpyaesone.patient.mvp.presenters.LoginPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.LoginPresenterImpl
 import com.aungpyaesone.patient.mvp.view.LoginView
 import com.aungpyaesone.patient.utils.SessionManager
-import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.util.sharePreferencePatient
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.btnRegister
 import kotlinx.android.synthetic.main.activity_login.etEmail
@@ -55,11 +54,10 @@ class LoginActivity : BaseActivity(), LoginView {
         startActivity(RegisterActivity.newInstance(this))
     }
 
-    override fun navigateToHomeScreen(patientVO: PatientVO) {
+    override fun navigateToHomeScreen() {
         SessionManager.login_status =true
-        SessionManager.put(patientVO, sharePreferencePatient)
         startActivity(HomeActivity.newInstance(this))
-        this.finish()
+        finish()
     }
 
     override fun showLoading() {

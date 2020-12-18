@@ -18,7 +18,7 @@ import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : BaseActivity(),ChatView {

@@ -14,9 +14,10 @@ import com.aungpyaesone.shared.data.vos.GeneralQuestionVO
 import com.aungpyaesone.shared.data.vos.SenderVO
 import com.aungpyaesone.shared.util.DateUtils
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class QuestionTemplatePresenterImpl : QuestionTemplatePresenter,AbstractBasePresenter<QuestionTemplateView>() {
+class QuestionTemplatePresenterImpl : QuestionTemplatePresenter,
+    AbstractBasePresenter<QuestionTemplateView>() {
 
     private val mDoctorModel : DoctorModel = DoctorModelImpls
     private val mCoreModel = CoreModelImpls

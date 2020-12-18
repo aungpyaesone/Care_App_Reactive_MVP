@@ -7,7 +7,7 @@ import com.aungpyaesone.doctors.mvp.views.CreateAccountView
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.DoctorVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class CreateAccountPresnterImpl : CreateAccountPresenter,
     AbstractBasePresenter<CreateAccountView>() {

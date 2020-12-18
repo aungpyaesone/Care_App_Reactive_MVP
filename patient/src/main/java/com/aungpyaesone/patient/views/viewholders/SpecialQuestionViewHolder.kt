@@ -7,7 +7,7 @@ import android.view.View
 import com.aungpyaesone.patient.delegate.SpecialitiesQuestionDelegate
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.special_question_item_view.view.*
 
 class SpecialQuestionViewHolder(itemView: View,private val mQuestionAnswerList : List<QuestionAnswerVO>,private val mDelegate: SpecialitiesQuestionDelegate) : BaseViewHolder<SpecialQuestionVO>(itemView) {

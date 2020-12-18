@@ -1,7 +1,7 @@
-package com.padc.shared.mvp.presenter
+package com.aungpyaesone.shared.mvp.presenter
 
 import androidx.lifecycle.ViewModel
-import com.padc.shared.mvp.views.BaseView
+import com.aungpyaesone.shared.mvp.views.BaseView
 
 abstract class AbstractBasePresenter<T: BaseView> : BasePresenter<T>, ViewModel(){
     var mView : T? = null

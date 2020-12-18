@@ -7,7 +7,7 @@ import com.aungpyaesone.patient.delegate.AcceptDoctorDelegate
 import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.checkSpeciality
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.start_consultation_view_pod.view.*
 
 class AcceptDoctorViewHolder(itemView: View,private val mDelegate: AcceptDoctorDelegate) : BaseViewHolder<ConsultationRequestVO>(itemView){

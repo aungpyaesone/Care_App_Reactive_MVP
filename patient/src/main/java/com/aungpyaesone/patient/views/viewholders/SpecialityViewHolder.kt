@@ -6,7 +6,7 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.delegate.SpecialitiesDelegate
 import com.aungpyaesone.shared.data.vos.SpecialitiesVO
 import com.aungpyaesone.shared.extensions.load
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.specialities_item_view.view.*
 
 class SpecialityViewHolder(itemView: View, private val mDelegate: SpecialitiesDelegate) :

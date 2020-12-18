@@ -17,10 +17,9 @@ import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.aungpyaesone.shared.data.vos.MedicineVO
 import com.aungpyaesone.shared.data.vos.PrescriptionVO
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_prescription_medicine.*
 import kotlinx.android.synthetic.main.activity_prescription_medicine.ivBack
-import kotlinx.android.synthetic.main.activity_prescription_medicine.tvToolbarTitle
 
 class PrescriptionMedicineActivity : BaseActivity(),PrescriptionView {
     private lateinit var mPresenter : PrescriptionPresenter

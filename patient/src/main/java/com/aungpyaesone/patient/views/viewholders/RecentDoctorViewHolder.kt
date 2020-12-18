@@ -7,7 +7,7 @@ import com.aungpyaesone.patient.delegate.RecentlyDoctorDelegate
 import com.aungpyaesone.shared.data.vos.RecentDoctorVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.checkSpeciality
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.recent_doctor_item_view.view.*
 
 class RecentDoctorViewHolder(itemView: View,val mDelegate: RecentlyDoctorDelegate) : BaseViewHolder<RecentDoctorVO>(itemView){

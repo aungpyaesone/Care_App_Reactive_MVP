@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,10 +25,8 @@ import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.RecentDoctorVO
 import com.aungpyaesone.shared.data.vos.SpecialitiesVO
 import com.aungpyaesone.shared.util.checkSpeciality
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.ktx.messaging
 import com.google.gson.Gson
-import com.padc.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.fragments.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match

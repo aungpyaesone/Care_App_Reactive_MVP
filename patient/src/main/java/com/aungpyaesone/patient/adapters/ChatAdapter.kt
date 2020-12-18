@@ -7,10 +7,10 @@ import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.patient.views.viewholders.ChatItemViewHolder
 import com.aungpyaesone.patient.views.viewholders.ChatItemViewHolderTwo
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
-import com.padc.shared.adapters.BaseAdapter
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.adapters.BaseAdapter
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 
-class ChatAdapter : BaseAdapter<BaseViewHolder<ChatMessageVO>,ChatMessageVO>() {
+class ChatAdapter : BaseAdapter<BaseViewHolder<ChatMessageVO>, ChatMessageVO>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ChatMessageVO> {
         return when(viewType){

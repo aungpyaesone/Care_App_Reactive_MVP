@@ -10,9 +10,9 @@ import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class ChatPresenterImpl :  ChatPresenter,AbstractBasePresenter<ChatView>(){
+class ChatPresenterImpl :  ChatPresenter, AbstractBasePresenter<ChatView>(){
     private val mCoreModel: CoreModel = CoreModelImpls
     private val mPatientModel : PatientModel = PatientModelImpls
 
@@ -28,7 +28,8 @@ class ChatPresenterImpl :  ChatPresenter,AbstractBasePresenter<ChatView>(){
     }
 
     override fun onTapPrescribeMedicine() {
-        mView?.navigateToPrescribeMedicineScreen()
+        mView?.showErrorMessage("checkout is not available in this version")
+       // mView?.navigateToPrescribeMedicineScreen()
     }
 
     override fun onReady(chatId: String, lifecycleOwner: LifecycleOwner) {

@@ -5,9 +5,8 @@ import androidx.core.net.toUri
 import com.aungpyaesone.doctors.R
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
 import com.aungpyaesone.shared.extensions.load
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.chat_item_view_two.view.*
-import java.util.*
 
 class ChatItemViewHolderTwo (itemView: View) : BaseViewHolder<ChatMessageVO>(itemView) {
 

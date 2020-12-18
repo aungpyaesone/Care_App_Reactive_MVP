@@ -14,7 +14,7 @@ import com.aungpyaesone.doctors.mvp.views.ConfirmView
 import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.extensions.load
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_confirm.*
 
 class ConfirmActivity : BaseActivity(),ConfirmView {

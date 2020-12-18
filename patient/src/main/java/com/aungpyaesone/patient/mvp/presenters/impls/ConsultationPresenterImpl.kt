@@ -8,9 +8,9 @@ import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class ConsultationPresenterImpl : ConsultationPresenter,AbstractBasePresenter<ConsultationView>() {
+class ConsultationPresenterImpl : ConsultationPresenter, AbstractBasePresenter<ConsultationView>() {
 
     private var mPatientModel = PatientModelImpls
     private var mCoreModel = CoreModelImpls
@@ -20,9 +20,9 @@ class ConsultationPresenterImpl : ConsultationPresenter,AbstractBasePresenter<Co
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        mPatientModel.getAllConsultationChatFromApiWithPatientId(SessionManager.patient_id.toString(),onSuccess = {},onFailure = {})
-        mPatientModel.getAllConsultationFromDb().observe(lifecycleOwner, Observer {
-            mView?.showConsultationList(it)
+        mCoreModel.getAllConsultationChatFromApi(onSuccess = {},onFailure = {})
+        mPatientModel.getAllConsultationByPatientIdFromDb(SessionManager.patient_id.toString()).observe(lifecycleOwner, Observer {
+            mView?.showConsultationList(it.asReversed())
         })
     }
 

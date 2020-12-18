@@ -13,7 +13,7 @@ import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.util.prepareNotification
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class HomePresenterImpl : HomePresenter, AbstractBasePresenter<HomeView>() {
 
@@ -32,10 +32,8 @@ class HomePresenterImpl : HomePresenter, AbstractBasePresenter<HomeView>() {
                 consultationRequestVO,
                 it,
                 onSuccess = {
-
                 },
                 onFailure = {
-
                 })
         }
         val notiObj = prepareNotification(
@@ -58,9 +56,13 @@ class HomePresenterImpl : HomePresenter, AbstractBasePresenter<HomeView>() {
                 mView?.payConsultedPatientList(it)
             }
         })
-        mCoreModel.getAllConsultationChatFromApi(onSuccess = {}, onFailure = {})
-        mCoreModel.getAllConsultationChatFromDb().observe(lifecycleOwner, Observer {
-            mView?.showAcceptRequestList(it)
+
+        mDoctorModel.getAllConsultationChat(onSuccess = {
+        }, onFailure = {})
+        mDoctorModel.getAllConsultationChatByDoctorId(SessionManager.user_id.toString()).observe(lifecycleOwner, Observer {
+            it?.let {
+                mView?.showAcceptRequestList(it.asReversed())
+            }
         })
         mCoreModel.getAllConsultationRequestFromApi(
             speciality = SessionManager.speciality.toString(),

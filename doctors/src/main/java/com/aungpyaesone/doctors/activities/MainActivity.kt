@@ -29,7 +29,7 @@ import com.aungpyaesone.shared.extensions.load
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.post_pone_dialog.view.*
 
@@ -191,7 +191,8 @@ class MainActivity : BaseActivity(),HomeView {
         val data=  Gson().toJson(consultationChatVO)
         consultationChatVO?.let {
             val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(consultationChatVO.id,consultationChatVO.patient?.name,
-            consultationChatVO.dateTime)
+            consultationChatVO.dateTime
+            )
             dialog.show(supportFragmentManager, "")
         }
     }

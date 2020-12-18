@@ -1,14 +1,13 @@
-package com.padc.shared.activites
+package com.aungpyaesone.shared.activites
 
-import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
-import com.padc.shared.mvp.views.BaseView
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.views.BaseView
 
-abstract class BaseActivity : AppCompatActivity(),BaseView{
+abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     companion object{
 

@@ -21,7 +21,7 @@ import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : BaseActivity(),ChatView {
@@ -132,8 +132,8 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showAllChatMessage(chatMessageList: List<ChatMessageVO>) {
-        scrollView.scrollTo(0,scrollView.bottom)
         mChatAdapter.setData(chatMessageList)
+        scrollView.scrollTo(0,scrollView.bottom)
     }
 
     override fun navigateToPrescribeMedicineScreen(speciality: String) {

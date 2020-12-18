@@ -8,9 +8,9 @@ import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.AuthenticationModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.PatientVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class ProfilePresenterImpl : ProfilePresenter,AbstractBasePresenter<ProfileView>() {
+class ProfilePresenterImpl : ProfilePresenter, AbstractBasePresenter<ProfileView>() {
     private val mPatientModel = PatientModelImpls
     private val mAuthModel = AuthenticationModelImpls
     override fun onTapSave(bitmap: Bitmap, patientVO: PatientVO) {
@@ -40,8 +40,20 @@ class ProfilePresenterImpl : ProfilePresenter,AbstractBasePresenter<ProfileView>
                 mPatientModel.addPatient(patientVo,onSuccess = {}, onFailure = {})
             },
             onFailure = {
+                mView?.hideLoading()
                 mView?.showErrorMessage(it)
             })
+    }
+
+    override fun onTapUpdatePatient(patientVO: PatientVO) {
+        mView?.showLoading()
+        mPatientModel.addPatient(patientVO,onSuccess = {
+            mView?.hideLoading()
+            mView?.navigateToProfileScreen()
+        }, onFailure = {
+            mView?.hideLoading()
+            mView?.showErrorMessage(it)
+        })
     }
 
     override fun onTapUploadPhoto() {

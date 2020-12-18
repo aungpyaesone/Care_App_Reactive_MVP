@@ -3,7 +3,7 @@ package com.aungpyaesone.doctors.mvp.views
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
 import com.aungpyaesone.shared.data.vos.ConsultedPatientVO
-import com.padc.shared.mvp.views.BaseView
+import com.aungpyaesone.shared.mvp.views.BaseView
 
 interface HomeView : BaseView {
     fun showConsultationList(consultationList:List<ConsultationRequestVO>)

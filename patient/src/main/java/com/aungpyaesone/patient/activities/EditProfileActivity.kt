@@ -1,7 +1,6 @@
 package com.aungpyaesone.patient.activities
 
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -17,11 +16,12 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.mvp.presenters.ProfilePresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.ProfilePresenterImpl
 import com.aungpyaesone.patient.mvp.view.ProfileView
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_edit_profile.btnContinue
 import kotlinx.android.synthetic.main.activity_edit_profile.etHeight
@@ -95,6 +95,12 @@ class EditProfileActivity : BaseActivity(),ProfileView {
             mPatientVO?.address = etAddress.text.toString()
             mPatientVO?.allergic_medicine = etComment.text.toString()
             bitmap?.let { it1 -> mPatientVO?.let { pVO -> mPresenter.onTapSave(it1 , pVO) } }
+                ?: kotlin.run {
+                    mPatientVO?.let {
+                        SessionManager.patient_name = it.name
+                        mPresenter.onTapUpdatePatient(it)
+                    }
+                }
 
         }
         ivPatientProfile.setOnClickListener{
@@ -218,7 +224,6 @@ class EditProfileActivity : BaseActivity(),ProfileView {
     }
 
     override fun showLoading() {
-
         progress_bar.visibility = View.VISIBLE
     }
 

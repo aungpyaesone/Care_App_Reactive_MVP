@@ -3,7 +3,7 @@ package com.aungpyaesone.doctors.views.viewholder
 import android.annotation.SuppressLint
 import android.view.View
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.question_answer_item_view.view.*
 
 class QuestionAnswerViewHolder(itemView: View) : BaseViewHolder<QuestionAnswerVO>(itemView) {

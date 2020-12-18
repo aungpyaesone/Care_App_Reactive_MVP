@@ -3,18 +3,14 @@ package com.aungpyaesone.patient.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.net.toUri
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.patient.R
-import com.aungpyaesone.patient.adapters.QuestionAnswerAdapter
 import com.aungpyaesone.patient.mvp.presenters.SeePatientInfoPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.SeePatientInfoPresenterImpl
 import com.aungpyaesone.patient.mvp.view.SeePatientInfoView
 import com.aungpyaesone.patient.views.view_pods.PatientItemViewPodTwo
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_see_patient_info.*
 
 class SeePatientInfoActivity : BaseActivity(),SeePatientInfoView {

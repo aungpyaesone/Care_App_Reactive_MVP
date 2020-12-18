@@ -10,10 +10,9 @@ import com.aungpyaesone.shared.data.models.PatientModel
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.*
-import com.google.gson.Gson
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class HomePresenterImpl  : HomePresenter,AbstractBasePresenter<HomeView>(){
+class HomePresenterImpl  : HomePresenter, AbstractBasePresenter<HomeView>(){
     private val mCoreModel : CoreModel = CoreModelImpls
     private val mPatientModel : PatientModel = PatientModelImpls
 

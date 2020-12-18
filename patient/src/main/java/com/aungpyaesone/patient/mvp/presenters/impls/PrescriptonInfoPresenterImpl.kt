@@ -6,11 +6,10 @@ import com.aungpyaesone.patient.mvp.presenters.PrescriptonInfoPresenter
 import com.aungpyaesone.patient.mvp.view.PrescriptionInfoView
 import com.aungpyaesone.shared.data.models.DoctorModel
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
-import com.aungpyaesone.shared.data.vos.PrescriptionVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
-import java.util.ArrayList
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class PrescriptonInfoPresenterImpl : PrescriptonInfoPresenter,AbstractBasePresenter<PrescriptionInfoView>() {
+class PrescriptonInfoPresenterImpl : PrescriptonInfoPresenter,
+    AbstractBasePresenter<PrescriptionInfoView>() {
 
     private val mDoctorModel : DoctorModel = DoctorModelImpls
 

@@ -9,9 +9,9 @@ import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.aungpyaesone.shared.data.vos.MedicineVO
 import com.aungpyaesone.shared.data.vos.PrescriptionVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class PrescriptionPresenterImpl : PrescriptionPresenter,AbstractBasePresenter<PrescriptionView>() {
+class PrescriptionPresenterImpl : PrescriptionPresenter, AbstractBasePresenter<PrescriptionView>() {
 
     private val mDoctorModel: DoctorModel = DoctorModelImpls
 

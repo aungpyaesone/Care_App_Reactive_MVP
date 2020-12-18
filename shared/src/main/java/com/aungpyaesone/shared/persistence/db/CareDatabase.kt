@@ -21,7 +21,7 @@ import com.aungpyaesone.shared.persistence.daos.*
     ChatMessageVO::class,
     RecentDoctorVO::class,
     ConsultedPatientVO::class
-],version = 1,exportSchema = false)
+],version = 3,exportSchema = false)
 abstract class CareDatabase : RoomDatabase(){
     companion object {
         val DB_NAME = "CARE_DB"

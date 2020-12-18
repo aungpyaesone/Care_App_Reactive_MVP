@@ -14,7 +14,7 @@ import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.util.sharePreferencePatient
 import com.aungpyaesone.shared.util.sharePreferenceQandA
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_confirmation.*
 import kotlinx.android.synthetic.main.activity_confirmation.ivBack
 import kotlinx.android.synthetic.main.activity_confirmation.tvToolbarTitle

@@ -6,10 +6,10 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.delegate.AcceptDoctorDelegate
 import com.aungpyaesone.patient.views.viewholders.AcceptDoctorViewHolder
 import com.aungpyaesone.shared.data.vos.ConsultationRequestVO
-import com.padc.shared.adapters.BaseAdapter
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.adapters.BaseAdapter
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 
-class AcceptRequestAdapter(private val mDelegate: AcceptDoctorDelegate) : BaseAdapter<BaseViewHolder<ConsultationRequestVO>,ConsultationRequestVO>() {
+class AcceptRequestAdapter(private val mDelegate: AcceptDoctorDelegate) : BaseAdapter<BaseViewHolder<ConsultationRequestVO>, ConsultationRequestVO>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

@@ -16,6 +16,7 @@
     <color name="date_color">#818181</color>
     <color name="speciality_color">#00122d</color>
     <color name="toolbar_title_color">#474747</color>
+    <color name="background_color">#f6f6f6</color>
 
 
 </resources>

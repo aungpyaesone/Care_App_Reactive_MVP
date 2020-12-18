@@ -11,13 +11,12 @@ import com.aungpyaesone.doctors.mvp.views.LoginView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.btnRegister
 import kotlinx.android.synthetic.main.activity_login.etEmail
 import kotlinx.android.synthetic.main.activity_login.etPassword
 import kotlinx.android.synthetic.main.activity_login.progressView
-import kotlinx.android.synthetic.main.activity_register.*
 
 class LoginActivity : BaseActivity(),LoginView{
 

@@ -6,12 +6,13 @@ import androidx.core.net.toUri
 import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.delegate.AcceptPatientListDelegate
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
+import com.aungpyaesone.shared.data.vos.ConsultedPatientVO
 import com.aungpyaesone.shared.extensions.load
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.medicine_note_item_view.view.*
 import java.text.DateFormat
 
-class AcceptRequestViewHolder(itemView: View, private val mDelegate: AcceptPatientListDelegate) : BaseViewHolder<ConsultationChatVO>(itemView) {
+class AcceptRequestViewHolder(itemView: View, private val mConsultList : List<ConsultedPatientVO>, private val mDelegate: AcceptPatientListDelegate) : BaseViewHolder<ConsultationChatVO>(itemView) {
 
     @SuppressLint("SetTextI18n")
     override fun bindData(data: ConsultationChatVO) {

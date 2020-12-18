@@ -20,8 +20,22 @@ import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.aungpyaesone.shared.util.checkMyanToEng
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
+import kotlinx.android.synthetic.main.activity_edit_doctor.*
 import kotlinx.android.synthetic.main.activity_update_doctor_profile.*
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.etAddress
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.etBiography
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.etPhoneNumber
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.etUserName
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.et_experience
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.female
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.ivBack
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.male
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.radioGroup
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.spDay
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.spMonth
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.spSpeciality
+import kotlinx.android.synthetic.main.activity_update_doctor_profile.spYear
 import java.io.IOException
 
 class FillFormActivity : BaseActivity(),CreateAccountView {
@@ -111,6 +125,10 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
                 }
                 R.id.female ->{
                     gender = female.text.toString()
+                    return@setOnCheckedChangeListener
+                }
+                else ->{
+                    gender = male.text.toString()
                     return@setOnCheckedChangeListener
                 }
             }

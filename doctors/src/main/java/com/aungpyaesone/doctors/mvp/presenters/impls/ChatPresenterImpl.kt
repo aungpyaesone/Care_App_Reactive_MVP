@@ -9,9 +9,9 @@ import com.aungpyaesone.shared.data.models.DoctorModel
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class ChatPresenterImpl : ChatPresenter,AbstractBasePresenter<ChatView>() {
+class ChatPresenterImpl : ChatPresenter, AbstractBasePresenter<ChatView>() {
 
     private val mCoreModel:CoreModel = CoreModelImpls
     private val mDoctorModel: DoctorModel = DoctorModelImpls

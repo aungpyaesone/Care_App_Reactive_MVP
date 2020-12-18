@@ -1,7 +1,7 @@
-package com.padc.shared.adapters
+package com.aungpyaesone.shared.adapters
 
 import androidx.recyclerview.widget.RecyclerView
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 
 abstract class BaseAdapter<T: BaseViewHolder<W>,W> : RecyclerView.Adapter<T>(){
     protected var mDataList:MutableList<W> = mutableListOf()

@@ -8,9 +8,9 @@ import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.AuthenticationModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.DoctorVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class EditProfilePresenterImpl : EditProfilePresenter,AbstractBasePresenter<EditProfileView>() {
+class EditProfilePresenterImpl : EditProfilePresenter, AbstractBasePresenter<EditProfileView>() {
     private val mDoctoModel = DoctorModelImpls
     private val mAuthModel = AuthenticationModelImpls
     override fun onTapSave(

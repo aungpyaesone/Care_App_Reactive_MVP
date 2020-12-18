@@ -7,9 +7,9 @@ import com.aungpyaesone.doctors.mvp.views.AccountView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.DoctorVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
-class AccountPresenterImpl : AccountPresenter,AbstractBasePresenter<AccountView>() {
+class AccountPresenterImpl : AccountPresenter, AbstractBasePresenter<AccountView>() {
     private val mDoctorModel = DoctorModelImpls
     override fun onTapLogout() {
        SessionManager.logout()

@@ -13,7 +13,7 @@ import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.data.vos.NotificationVO
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.util.*
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class ConfirmPresenterImpl : ConfirmPresenter, AbstractBasePresenter<ConfirmView>() {
     private val mCoreModel = CoreModelImpls

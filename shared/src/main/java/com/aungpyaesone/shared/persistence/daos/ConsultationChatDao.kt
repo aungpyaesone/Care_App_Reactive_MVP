@@ -13,6 +13,12 @@ interface ConsultationChatDao {
     @Query("SELECT * FROM consultation_chat")
     fun getConsultationChat() : LiveData<List<ConsultationChatVO>>
 
+    @Query("SELECT * FROM consultation_chat WHERE patient_id = :patientId")
+    fun getConsultationChatByPatientId(patientId :String) : LiveData<List<ConsultationChatVO>>
+
+    @Query("SELECT * FROM consultation_chat WHERE doctor_id = :doctorId")
+    fun getConsultationChatByDoctorId(doctorId :String) : LiveData<List<ConsultationChatVO>>
+
     @Query("SELECT * FROM consultation_chat WHERE id = :consultChatId")
     fun getConsultationChatById(consultChatId :String) : LiveData<ConsultationChatVO>
 

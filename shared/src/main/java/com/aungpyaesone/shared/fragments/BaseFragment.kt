@@ -1,12 +1,12 @@
-package com.padc.shared.fragments
+package com.aungpyaesone.shared.fragments
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
-import com.padc.shared.mvp.views.BaseView
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.views.BaseView
 
-abstract class BaseFragment: Fragment(),BaseView {
+abstract class BaseFragment: Fragment(), BaseView {
 
     inline fun <reified T : AbstractBasePresenter<W>, reified W: BaseView> getPresenter(): T {
         val presenter = ViewModelProviders.of(this).get(T::class.java)

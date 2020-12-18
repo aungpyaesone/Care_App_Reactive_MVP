@@ -53,24 +53,10 @@ object CloudFireStoreImpls : FirebaseApi {
         onSuccess: () -> Unit,
         onFialure: (String) -> Unit
     ) {
-        val patientMap = hashMapOf(
-            "id" to patientVO.id,
-            "name" to patientVO.name,
-            "photo" to patientVO.photo,
-            "dob" to patientVO.dob,
-            "blood_type" to patientVO.blood_type,
-            "blood_pressure" to patientVO.blood_pressure,
-            "email" to patientVO.email,
-            "deviceId" to patientVO.deviceId,
-            "height" to patientVO.height,
-            "weight" to patientVO.weight,
-            "allergic_medicine" to patientVO.allergic_medicine,
-            "created_date" to patientVO.created_date
-        )
-        patientVO.name?.let {
+
             db.collection(PATIENT)
                 .document(patientVO.id)
-                .set(patientMap)
+                .set(patientVO)
                 .addOnSuccessListener {
                     Log.d("success", "Successfully add patient")
                     onSuccess()
@@ -80,8 +66,6 @@ object CloudFireStoreImpls : FirebaseApi {
                     onFialure("Failed to add patient")
                 }
         }
-
-    }
 
     override fun getSpeciality(
         onSuccess: (List<SpecialitiesVO>) -> Unit,
@@ -103,22 +87,7 @@ object CloudFireStoreImpls : FirebaseApi {
             }.addOnFailureListener {
                 onFailure(it.message ?: EN_ERROR_MESSAGE)
             }
-        /*.addSnapshotListener { value, error ->
-            error?.let {
-                onFailure(it.message ?: "Please check internet connection")
-            } ?: run {
-                val specialitesList: MutableList<SpecialitiesVO> = arrayListOf()
-                val result = value?.documents ?: arrayListOf()
-                for (document in result) {
-                    val hashmap = document.data
-                    hashmap?.put("id", document.id)
-                    val Data = Gson().toJson(hashmap)
-                    val docData = Gson().fromJson<SpecialitiesVO>(Data, SpecialitiesVO::class.java)
-                    specialitesList.add(docData)
-                }
-                onSuccess(specialitesList)
-            }
-        }*/
+
     }
 
     override fun startConsultation(
@@ -138,7 +107,8 @@ object CloudFireStoreImpls : FirebaseApi {
             "dateTime" to dateTime,
             "status" to false,
             "note" to "",
-            "patient_id" to patientVO.id
+            "patient_id" to patientVO.id,
+            "doctor_id" to doctorVO.id
         )
 
         db.collection(CONSULTATION_CHAT)
@@ -280,6 +250,35 @@ object CloudFireStoreImpls : FirebaseApi {
 
     }
 
+    override fun getConsultationChatWithDoctorId(
+        doctorId: String,
+        onSuccess: (List<ConsultationChatVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection(CONSULTATION_CHAT)
+            .whereEqualTo("doctor_id",doctorId)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val consultationChatVOList: MutableList<ConsultationChatVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<ConsultationChatVO>(
+                                Data,
+                                ConsultationChatVO::class.java
+                            )
+                        consultationChatVOList.add(docData)
+                    }
+                    onSuccess(consultationChatVOList)
+                }
+            }
+    }
+
     override fun getAllCheckMessage(
         documentId: String,
         onSuccess: (List<ChatMessageVO>) -> Unit,
@@ -323,6 +322,7 @@ object CloudFireStoreImpls : FirebaseApi {
             "patient" to patientVO,
             "doctor" to doctorVO,
             "patient_id" to patientVO.id,
+            "doctor_id" to doctorVO.id,
             "speciality" to speciality,
             "date_time" to dateTime,
             "status" to "new"
@@ -434,6 +434,7 @@ object CloudFireStoreImpls : FirebaseApi {
             "speciality" to doctorVO.speciality,
             "consultationchat_id" to consultationRequestVO.consultationchat_id,
             "patient_id" to consultationRequestVO.patient?.id,
+            "doctor_id" to doctorVO.id,
             "date_time" to consultationRequestVO.date_time,
             "case_summary" to consultationRequestVO.case_summary
         )
@@ -462,6 +463,7 @@ object CloudFireStoreImpls : FirebaseApi {
             "doctor" to consultationChatVO.doctor,
             "patient" to consultationChatVO.patient,
             "patient_id" to consultationChatVO.patient_id,
+            "doctor_id" to consultationChatVO.doctor_id,
             "dateTime" to consultationChatVO.dateTime,
             "note" to consultationChatVO.note,
             "status" to true
@@ -909,8 +911,10 @@ object CloudFireStoreImpls : FirebaseApi {
             .document(patientVO.id)
             .set(patientVO)
             .addOnSuccessListener {
+                onSuccess()
                 Log.d("Success", "Successfully") }
             .addOnFailureListener {
+                onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
                 Log.d("Failure", "Failed ") }
     }
 
@@ -926,6 +930,7 @@ object CloudFireStoreImpls : FirebaseApi {
                 onSuccess()
                 Log.d("add doctor Success", "Successfully") }
             .addOnFailureListener {
+                onFailure(it.localizedMessage ?: EN_ERROR_MESSAGE)
                 Log.d("Failure", "Failed ") }
     }
 }

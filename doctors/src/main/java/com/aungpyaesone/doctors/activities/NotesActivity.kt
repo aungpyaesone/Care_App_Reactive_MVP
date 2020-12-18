@@ -9,7 +9,7 @@ import com.aungpyaesone.doctors.mvp.presenters.impls.NotePresenterImpl
 import com.aungpyaesone.doctors.mvp.views.NoteView
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_notes.*
 import kotlinx.android.synthetic.main.activity_notes.ivBack
 import java.text.DateFormat

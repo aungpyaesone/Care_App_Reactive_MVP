@@ -8,8 +8,9 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.fragments.AccountFragment
 import com.aungpyaesone.patient.fragments.ConsultationFragment
 import com.aungpyaesone.patient.fragments.HomeFragment
+import com.aungpyaesone.patient.utils.SessionManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity : BaseActivity() {
@@ -18,9 +19,10 @@ class HomeActivity : BaseActivity() {
     private var mData : String? = null
 
     companion object{
-        fun newInstance(context: Context)= Intent(context,HomeActivity::class.java)
-    }
+        fun newInstance(context: Context)= Intent(context,HomeActivity::class.java).apply{
 
+        }
+    }
     private val homeFragment = HomeFragment.newInstance("","")
     private val consultationFragment = ConsultationFragment.newInstance("","")
     private val accountFragment = AccountFragment.newInstance("","")

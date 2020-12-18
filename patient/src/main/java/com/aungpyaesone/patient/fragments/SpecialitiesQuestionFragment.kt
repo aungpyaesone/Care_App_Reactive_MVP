@@ -1,7 +1,6 @@
 package com.aungpyaesone.patient.fragments
 
 import android.os.Bundle
-import android.se.omapi.Session
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +17,8 @@ import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
-import com.padc.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.util.sharePreferencePatient
 import kotlinx.android.synthetic.main.fragment_specialities_question.*
 
 private const val ARG_PARAM1 = "param1"
@@ -32,6 +32,7 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
     private lateinit var mAdapter : SpecialQuestionAdapter
     private lateinit var mDelegate: CaseSummaryDelegate
     private  var questionAnswerList : ArrayList<QuestionAnswerVO> = arrayListOf()
+    private var mPatientVO: PatientVO? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +53,7 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
         setupPresenter()
         setupRecycler()
         setupListener()
+        mPresenter.onUiReady(this)
         mSpeciality?.let { mPresenter.getSpecialQuestion(it,this) }
     }
 
@@ -62,22 +64,7 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
                 Log.d("data",item.answer.toString())
             }
 
-            val patientVO = PatientVO()
-            patientVO.id = SessionManager.patient_id.toString()
-            patientVO.name = SessionManager.patient_name
-            patientVO.dob = SessionManager.patient_dateOfBirth
-            patientVO.deviceId = SessionManager.patient_device_id
-            patientVO.email = SessionManager.patient_email
-            patientVO.allergic_medicine = SessionManager.comment
-            patientVO.blood_pressure = SessionManager.bloodPressure.toString()
-            patientVO.blood_type = SessionManager.patient_blood_type
-            patientVO.height = SessionManager.patient_height
-            patientVO.weight = SessionManager.weight
-            patientVO.address = SessionManager.address
-            patientVO.phone = SessionManager.phone
-            patientVO.photo = SessionManager.photo
-            patientVO.created_date = SessionManager.created_date
-            mPresenter.onTapStartConsultation(patientVO,questionAnswerList)
+            mPatientVO?.let { it1 -> mPresenter.onTapStartConsultation(it1,questionAnswerList) }
             mDelegate.onTapStartConsultationButton()
         }
     }
@@ -119,6 +106,11 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
 
     override fun showSecondLayout() {
 
+    }
+
+    override fun showPatientVO(patientVO: PatientVO) {
+        SessionManager.put(patientVO, sharePreferencePatient)
+        mPatientVO = patientVO
     }
 
     override fun showLoading() {

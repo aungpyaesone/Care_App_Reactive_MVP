@@ -5,7 +5,7 @@ import com.aungpyaesone.patient.delegate.SpecialitiesQuestionDelegate
 import com.aungpyaesone.patient.mvp.view.SummaryView
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.data.vos.PatientVO
-import com.padc.shared.mvp.presenter.BasePresenter
+import com.aungpyaesone.shared.mvp.presenter.BasePresenter
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 

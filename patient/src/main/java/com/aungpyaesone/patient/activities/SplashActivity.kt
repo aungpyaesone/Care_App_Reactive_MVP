@@ -6,7 +6,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.utils.SessionManager
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

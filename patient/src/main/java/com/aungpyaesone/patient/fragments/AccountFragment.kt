@@ -1,28 +1,27 @@
 package com.aungpyaesone.patient.fragments
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.activities.EditProfileActivity
 import com.aungpyaesone.patient.activities.LoginActivity
-import com.aungpyaesone.patient.dialog.ConfirmDialogFragment
 import com.aungpyaesone.patient.dialog.ProfileEmptyDialog
 import com.aungpyaesone.patient.mvp.presenters.AccountPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.AccountPresenterImpl
 import com.aungpyaesone.patient.mvp.view.AccountView
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.aungpyaesone.shared.extensions.load
 import com.google.gson.Gson
-import com.padc.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.util.sharePreferencePatient
 import kotlinx.android.synthetic.main.fragment_account.*
 
 
@@ -100,9 +99,8 @@ class AccountFragment : BaseFragment(),AccountView {
                 && patientVO.height.isNullOrBlank() && patientVO.allergic_medicine.isNullOrBlank()
                 && patientVO.address.isNullOrBlank())
             {
-                val emptyDialogFragment = ProfileEmptyDialog.newFragment()
-                val bundle = Bundle()
-                emptyDialogFragment.arguments = bundle
+                val data = Gson().toJson(mPatientVO)
+                val emptyDialogFragment = ProfileEmptyDialog.newInstance(data)
                 activity?.supportFragmentManager?.let {
                     emptyDialogFragment.show(
                         it, ""

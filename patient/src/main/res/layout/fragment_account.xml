@@ -13,27 +13,23 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <org.mmtextview.components.MMTextView
-                    android:id="@+id/tvToolbarTitle"
-                    android:layout_width="23dp"
-                    android:layout_height="18dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/margin_medium" />
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/tvDoctorName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/profile"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/title_text_color"
-                    android:textSize="@dimen/text_regular_2" />
+                    android:textSize="@dimen/text_regular_3" />
 
                 <com.aungpyaesone.patient.views.components.RoundedCornerImageView
                     android:id="@+id/ivEditProfile"
@@ -226,7 +222,7 @@
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:fontFamily="@font/poppins_regular"
                 android:textColor="#020510"
-                android:textSize="@dimen/text_regular_3"
+                android:textSize="@dimen/text_regular_2"
                 tools:text="No 11 blah blah blah" />
 
 

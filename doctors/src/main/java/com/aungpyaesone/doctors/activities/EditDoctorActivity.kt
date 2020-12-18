@@ -1,7 +1,6 @@
 package com.aungpyaesone.doctors.activities
 
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -22,7 +21,7 @@ import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.google.gson.Gson
-import com.padc.shared.activites.BaseActivity
+import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_doctor.*
 import java.io.IOException
 
@@ -102,11 +101,11 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
             mDoctorVO?.gender = gender
             mDoctorVO?.experience = et_experience.text.toString()
             mDoctorVO?.biography = etBiography.text.toString()
-            bitmap?.let { it1 -> mDoctorVO?.let { dVO ->
+            bitmap?.let { it1 ->
+                mDoctorVO?.let { dVO ->
                 SessionManager.doctor_name = dVO.name
                 mPresenter.onTapSave(it1,dVO) }
-            }
-                ?: kotlin.run {
+            } ?: kotlin.run {
                     mDoctorVO?.let {
                         SessionManager.doctor_name = it.name
                         mPresenter.onTapSave(it)
@@ -190,6 +189,10 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
                 }
                 R.id.female ->{
                     gender = female.text.toString()
+                    return@setOnCheckedChangeListener
+                }
+                else ->{
+                    gender = male.text.toString()
                     return@setOnCheckedChangeListener
                 }
             }

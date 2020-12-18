@@ -7,10 +7,10 @@ import com.aungpyaesone.patient.delegate.SpecialitiesQuestionDelegate
 import com.aungpyaesone.patient.views.viewholders.SpecialQuestionViewHolder
 import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
-import com.padc.shared.adapters.BaseAdapter
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.adapters.BaseAdapter
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 
-class SpecialQuestionAdapter(private val mDelegate: SpecialitiesQuestionDelegate) : BaseAdapter<BaseViewHolder<SpecialQuestionVO>,SpecialQuestionVO>() {
+class SpecialQuestionAdapter(private val mDelegate: SpecialitiesQuestionDelegate) : BaseAdapter<BaseViewHolder<SpecialQuestionVO>, SpecialQuestionVO>() {
 
     var mQuestionAnswerList: List<QuestionAnswerVO> = arrayListOf()
 

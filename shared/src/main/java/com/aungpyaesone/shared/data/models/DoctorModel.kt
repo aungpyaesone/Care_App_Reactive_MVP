@@ -45,4 +45,8 @@ interface DoctorModel {
 
     fun uploadPhotoUrl(bitmap: Bitmap, onSuccess: (url:String) -> Unit, onFailure: (String) -> Unit)
     fun addDoctor(doctorVO: DoctorVO, onSuccess: () -> Unit, onFailure: (String) -> Unit)
+
+    fun getAllConsultationChat(onSuccess: (List<ConsultationChatVO>) -> Unit,onFailure: (String) -> Unit)
+    fun getAllConsultationChatFromDb():LiveData<List<ConsultationChatVO>>
+    fun getAllConsultationChatByDoctorId(doctorId: String):LiveData<List<ConsultationChatVO>>
 }

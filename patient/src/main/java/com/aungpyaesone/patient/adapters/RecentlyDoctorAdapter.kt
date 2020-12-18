@@ -6,10 +6,10 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.delegate.RecentlyDoctorDelegate
 import com.aungpyaesone.patient.views.viewholders.RecentDoctorViewHolder
 import com.aungpyaesone.shared.data.vos.RecentDoctorVO
-import com.padc.shared.adapters.BaseAdapter
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.adapters.BaseAdapter
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 
-class RecentlyDoctorAdapter(private val mDelegate: RecentlyDoctorDelegate) : BaseAdapter<BaseViewHolder<RecentDoctorVO>,RecentDoctorVO>() {
+class RecentlyDoctorAdapter(private val mDelegate: RecentlyDoctorDelegate) : BaseAdapter<BaseViewHolder<RecentDoctorVO>, RecentDoctorVO>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

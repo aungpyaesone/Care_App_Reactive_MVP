@@ -1,16 +1,13 @@
 package com.aungpyaesone.doctors.mvp.presenters.impls
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.ConfirmPresenter
 import com.aungpyaesone.doctors.mvp.views.ConfirmView
-import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class ConfirmPresenterImpl : ConfirmPresenter, AbstractBasePresenter<ConfirmView>() {
     private val mDoctorModel = DoctorModelImpls

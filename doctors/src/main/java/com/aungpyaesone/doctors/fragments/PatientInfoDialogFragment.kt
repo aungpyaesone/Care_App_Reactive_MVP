@@ -35,8 +35,6 @@ class PatientInfoDialogFragment : DialogFragment() {
     companion object {
 
         private const val KEY_CONSULATIONCHATVO = "cousulationChatVO"
-
-
         fun newInstance(cousulationChatVO: String): PatientInfoDialogFragment {
             val args = Bundle()
             args.putString(KEY_CONSULATIONCHATVO, cousulationChatVO)

@@ -7,7 +7,7 @@ import com.aungpyaesone.patient.delegate.ConsultationDelegate
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.checkSpeciality
-import com.padc.shared.viewholders.BaseViewHolder
+import com.aungpyaesone.shared.views.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.consulted_item_view.view.*
 import java.text.DateFormat
 

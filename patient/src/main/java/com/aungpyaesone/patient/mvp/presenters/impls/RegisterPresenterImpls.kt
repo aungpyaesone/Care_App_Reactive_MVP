@@ -3,13 +3,12 @@ package com.aungpyaesone.patient.mvp.presenters.impls
 import androidx.lifecycle.LifecycleOwner
 import com.aungpyaesone.patient.mvp.presenters.RegisterPresenter
 import com.aungpyaesone.patient.mvp.view.RegisterView
-import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.models.AuthenticationModel
 import com.aungpyaesone.shared.data.models.CoreModel
 import com.aungpyaesone.shared.data.models.impls.AuthenticationModelImpls
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.vos.PatientVO
-import com.padc.shared.mvp.presenter.AbstractBasePresenter
+import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class RegisterPresenterImpls : RegisterPresenter, AbstractBasePresenter<RegisterView>() {
     private val mAuthenticationModel: AuthenticationModel = AuthenticationModelImpls
@@ -27,7 +26,7 @@ class RegisterPresenterImpls : RegisterPresenter, AbstractBasePresenter<Register
                     registerVO.id = userId
                     registerVO.deviceId = token
                     mCoreModel.addPatient(registerVO,onSuccess = {
-                        mView?.navigateToLoginScreen(userId)
+                     mView?.navigateToLoginScreen(userId)
                     },onFailure = {
                         mView?.hideLoading()
                         mView?.showErrorMessage(it)

@@ -10,7 +10,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.aungpyaesone.patient.R
-import com.aungpyaesone.patient.adapters.AcceptRequestAdapter
 import com.aungpyaesone.patient.delegate.CaseSummaryDelegate
 import com.aungpyaesone.patient.mvp.presenters.SummaryPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.SummaryPresenterImpl
@@ -22,7 +21,7 @@ import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 import com.aungpyaesone.shared.util.DateUtils
 import com.aungpyaesone.shared.util.sharePreferencePatient
 import com.google.android.material.snackbar.Snackbar
-import com.padc.shared.fragments.BaseFragment
+import com.aungpyaesone.shared.fragments.BaseFragment
 import kotlinx.android.synthetic.main.fragment_general_question.*
 import kotlinx.android.synthetic.main.one_time_view_pod.*
 
@@ -171,12 +170,11 @@ class GeneralQuestionFragment : BaseFragment(),SummaryView {
                     if (height.isNotEmpty() && comment.isNotEmpty() && weight.isNotEmpty() && bloodPressure.isNotEmpty())
                     {
                         SessionManager.patient_dateOfBirth = "$day/$month/$year"
-                        SessionManager.patient_height = "$height ft"
+                        SessionManager.patient_height = "$height"
                         SessionManager.patient_blood_type = "$bloodType"
                         SessionManager.comment = comment
-                        SessionManager.patient_height = "$height ft"
-                        SessionManager.bloodPressure = "$bloodPressure mmHg"
-                        SessionManager.weight = "$weight lb"
+                        SessionManager.bloodPressure = "$bloodPressure"
+                        SessionManager.weight = "$weight"
                         mListener.onTapContinueCallback()
                     } else {
                         val snackBar = Snackbar.make(
@@ -242,6 +240,9 @@ class GeneralQuestionFragment : BaseFragment(),SummaryView {
        etComment.visibility = View.GONE
        tvComment.visibility = View.GONE
        layoutStatus = false
+    }
+
+    override fun showPatientVO(patientVO: PatientVO) {
     }
 
     override fun showLoading() {
