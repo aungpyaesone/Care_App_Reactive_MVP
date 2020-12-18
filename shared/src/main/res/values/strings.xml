@@ -21,7 +21,7 @@
     <string name="dob_label">မွေးနေ့</string>
     <string name="exp_label">လုပ်သက် </string>
     <string name="gender_label">အမျိုးသား/အမျိုးသမီး </string>
-    <string name="blood_type_label">သွေးအုပ်စုအမျိုးအစား</string>
+    <string name="blood_type_label">သွေးအုပ်စု</string>
     <string name="continue_button_label">ဆက်ရန်</string>
     <string name="male">အမျိုးသား</string>
     <string name="amount">ပမာဏ</string>
@@ -32,6 +32,8 @@
 
 
     <string name="medicine_note">ဆေးကုသမှုမှတ်တမ်း</string>
+    <string name="medicine_writ_note">ဆေးကုသမှုမှတ်တမ်း ရေးသားရန်</string>
+    <string name="notes">ဆေးမှတ်တမ်း</string>
 
     <string name="consultation_request_button_label">ချိန်းဆိုမှုပြုလုပ်မည်</string>
     <string name="confirm_patient_data_label">လူနာအချက်အလက်များအတည်ပြုပေးပါ</string>
@@ -58,13 +60,17 @@
     <string name="consultations_label">ချိန်းဆိုမှုများ</string>
     <string name="profile_label">အကောင့်</string>
     <string name="profile">ပရိုဖိုင်</string>
+    <string name="insert_profile">ပရိုဖိုင်ဖြည့်သွင်းမည်</string>
     <string name="update">ပုံတင်မည်</string>
+
+    <string name="no_consultation">လတ်တလောဆွေးနွေးမှုမရှိသေးပါ</string>
 
 
     <!-- for doctor -->
     <string name="skip_btn_label">ကျော်မည်</string>
     <string name="accept_btn_label">လက်ခံမည်</string>
     <string name="new_patient_label">လူနာအသစ်</string>
+    <string name="no_notes">မှတ်ချက်မရှိသေးပါ</string>
     <string name="consult_request_label">ရက်ချိန်းယူခြင်းတောင်းဆိုမှု</string>
     <string name="old_patient_label">ဆွေးနွေးခဲ့ဖူးသောလူနာ</string>
     <string name="later_label">နောက်မှ</string>
@@ -98,6 +104,7 @@
     <string name="add_btn_label">ထည့်မည်</string>
     <string name="finish_consultation">ဆေးညွှန်းပြီး ဆွေးနွေးမှုကို ပြီးဆုံးမည်</string>
     <string name="save_btn_label">သိမ်းမည်</string>
+    <string name="no_prescription">ဆေးညွှန်းမရှိသေးပါ</string>
     
     <string name="biography_label">ကိုယ်ရေးအကျဉ်း</string>
     <string name="degree_label">ရရှိထားသောဘွဲ့များ</string>
@@ -110,7 +117,7 @@
     <string name="no_info">သင့်ပရိုဖိုင်မှာ အချက်အလက်မဖြည့်ရသေးပါ</string>
     <string name="patient_information">လူနာအချက်အလက်</string>
     <string name="des_question">ရောဂါဆိုင်ရာ အချက်အလက်များ</string>
-    <string name="show_more">ထပ်ကြည့်မယ်</string>
+    <string name="show_more">ထပ်ကြည့်မယ် >></string>
     <string name="write">ရေးသားပါ</string>
 
     <string name="noti_title">အကြောင်းကြားစာ</string>
@@ -134,5 +141,6 @@
     <string name="speciality_label">အထူးကု</string>
 
     <string name="app_title">The CareMM</string>
+    <string name="disscut_time">ဆွေးနွေးမည့်အချိန်‌ရွေးမည်</string>
 
 </resources>

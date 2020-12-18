@@ -12,7 +12,6 @@ import com.google.gson.Gson
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_notes.*
 import kotlinx.android.synthetic.main.activity_notes.ivBack
-import kotlinx.android.synthetic.main.activity_notes.tvToolbarTitle
 import java.text.DateFormat
 
 class NotesActivity : BaseActivity(),NoteView {
@@ -46,7 +45,6 @@ class NotesActivity : BaseActivity(),NoteView {
         ivBack.setOnClickListener {
             onBackPressed()
         }
-        tvToolbarTitle.text = getString(R.string.medicine_note)
 
         tvPName.text = consultationChatVO?.patient?.name
         tvPDob.text = consultationChatVO?.patient?.dob

@@ -39,11 +39,28 @@ class EditProfilePresenterImpl : EditProfilePresenter,AbstractBasePresenter<Edit
                     address = doctorVO.address,
                     speciality_myanmar = doctorVO.speciality_myanmar
                     )
-                mDoctoModel.addDoctor(dvO,onSuccess = {}, onFailure = {})
+                mDoctoModel.addDoctor(dvO,onSuccess = {
+                    mView?.hideLoading()
+                    mView?.navigateToProfileScreen()
+                }, onFailure = {})
+
             },
             onFailure = {
                 mView?.showErrorMessage(it)
             })
+    }
+
+    override fun onTapSave(doctorVO: DoctorVO) {
+        mView?.showLoading()
+        mDoctoModel.addDoctor(doctorVO,onSuccess = {
+            mView?.hideLoading()
+            mView?.navigateToProfileScreen()
+        }, onFailure = {
+            mView?.hideLoading()
+            mView?.showErrorMessage(it)
+        })
+
+
     }
 
     override fun onTapUploadPhoto() {

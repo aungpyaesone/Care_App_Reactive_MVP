@@ -1,9 +1,13 @@
 package com.aungpyaesone.doctors.activities
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,10 +17,12 @@ import com.aungpyaesone.doctors.mvp.presenters.impls.CreateAccountPresnterImpl
 import com.aungpyaesone.doctors.mvp.views.CreateAccountView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
+import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.aungpyaesone.shared.util.checkMyanToEng
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_update_doctor_profile.*
+import java.io.IOException
 
 class FillFormActivity : BaseActivity(),CreateAccountView {
 
@@ -30,6 +36,7 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
     private var gender:String? = ""
     private var mDoctorVO: DoctorVO? = null
     companion object{
+            const val PICK_IMAGE_REQUEST = 1001
             fun newInstance(context: Context)= Intent(context,FillFormActivity::class.java)
     }
 
@@ -114,11 +121,12 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
         btnCreateAccount.setOnClickListener {
             val doctorVO = DoctorVO()
             val dateofbirth = "$day  $month $year"
-            if(etUserName.text.isNullOrBlank() || etPhoneNumber.text.isNullOrBlank() ||
+            if (etUserName.text.isNullOrBlank() || etPhoneNumber.text.isNullOrBlank() ||
                 etAddress.text.isNullOrBlank() || et_experience.text.isNullOrBlank() ||
-                etBiography.text.isNullOrBlank() || etDegree.text.isNullOrBlank()  ){
+                etBiography.text.isNullOrBlank() || etDegree.text.isNullOrBlank()
+            ) {
                 showErrorMessage("Please fill form completely")
-            }else {
+            } else {
                 doctorVO.id = SessionManager.user_id.toString()
                 doctorVO.name = etUserName.text.toString()
                 doctorVO.phone = etPhoneNumber.text.toString()
@@ -132,9 +140,17 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
                 doctorVO.degree = etDegree.text.toString()
                 doctorVO.email = SessionManager.doctor_email
                 doctorVO.deviceId = SessionManager.device_id
-                mPresenter.createAccount(doctorVO = doctorVO)
+                bitmap?.let { bitmap ->
+                        mPresenter.createAccount(
+                            bitmap = bitmap,
+                            doctorVO = doctorVO
+                        )
+                }
             }
+        }
 
+        wtfImage.setOnClickListener {
+            openGallary()
         }
     }
 
@@ -172,11 +188,56 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
        startActivity(LoginActivity.newInstance(this))
     }
 
+    private fun openGallary() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(
+            Intent.createChooser(intent, "Select Picture"),
+            PICK_IMAGE_REQUEST
+        )
+    }
+
     override fun showLoading() {
         progress_bar.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
         progress_bar.visibility = View.INVISIBLE
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+            if (requestCode ==  PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+                if (data == null || data.data == null) {
+                    return
+                }
+
+                val filePath = data.data
+                try {
+                    filePath?.let {
+                        if (Build.VERSION.SDK_INT >= 29) {
+                            val source: ImageDecoder.Source =
+                                ImageDecoder.createSource(this.contentResolver, filePath)
+
+                            bitmap = ImageDecoder.decodeBitmap(source)
+                            wtfImage.load(it, R.drawable.image_placeholder)
+                            //  mPresenter.onPhotoTaken(bitmap)
+                        } else {
+                            bitmap = MediaStore.Images.Media.getBitmap(
+                                applicationContext.contentResolver, filePath
+                            )
+                            wtfImage.load(it, R.drawable.image_placeholder)
+                            //   mPresenter.onPhotoTaken(bitmap)
+                        }
+                    }
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+
     }
 }

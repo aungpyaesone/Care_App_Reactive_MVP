@@ -8,5 +8,5 @@ interface RequestItemDelegate {
     fun onTapAcceptButton(context: Context,documentId:String,status:String,consultationRequestVO: ConsultationRequestVO,doctorVO: DoctorVO)
     fun onTapSkipButton(consultId:String)
     fun onTapLaterButton(consultId:String)
-    fun onTapChooseTimeButton()
+    fun onTapChooseTimeButton(consultationRequestVO: ConsultationRequestVO)
 }

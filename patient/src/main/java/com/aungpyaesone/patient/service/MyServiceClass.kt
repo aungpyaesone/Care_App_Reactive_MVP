@@ -10,7 +10,7 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.aungpyaesone.patient.R
-import com.aungpyaesone.patient.activities.MainActivity
+import com.aungpyaesone.patient.activities.HomeActivity
 import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.NotificationVO
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -54,7 +54,7 @@ class MyServiceClass : FirebaseMessagingService() {
     }
 
     private fun createNotification(messageTitle:String?,messageBody:String?){
-        val intent = Intent(applicationContext, MainActivity::class.java).apply {
+        val intent = Intent(applicationContext, HomeActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
            /* putExtra("notification","yes")
             val bundle = Bundle()

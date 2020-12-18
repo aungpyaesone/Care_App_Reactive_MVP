@@ -4,17 +4,14 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.net.toUri
 import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.AccountPresenter
 import com.aungpyaesone.doctors.mvp.presenters.impls.AccountPresenterImpl
 import com.aungpyaesone.doctors.mvp.views.AccountView
-import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.extensions.load
-import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import com.google.gson.Gson
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_doctor_profile.*
@@ -47,7 +44,7 @@ class DoctorProfileActivity : BaseActivity(),AccountView {
         }
 
         ivEditProfile.setOnClickListener {
-            mPresenter.onTapEdit()
+            mDoctorVO?.let { it1 -> mPresenter.onTapEdit(it1) }
         }
 
         ivBack.setOnClickListener {
@@ -88,8 +85,8 @@ class DoctorProfileActivity : BaseActivity(),AccountView {
             .show()
     }
 
-    override fun navigateToEditProfileScreen() {
-        val doctorVO = SessionManager.get<DoctorVO>(sharePreferenceDoctor)
+    override fun navigateToEditProfileScreen(doctorVO: DoctorVO) {
+     //   val doctorVO = SessionManager.get<DoctorVO>(sharePreferenceDoctor)
         val data = Gson().toJson(doctorVO)
         startActivity(EditDoctorActivity.newInstance(this,data))
     }

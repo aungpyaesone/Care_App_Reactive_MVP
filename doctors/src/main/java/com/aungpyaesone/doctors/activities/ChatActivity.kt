@@ -58,7 +58,6 @@ class ChatActivity : BaseActivity(),ChatView {
         rvChatView.apply {
             layoutManager = LinearLayoutManager(this@ChatActivity,RecyclerView.VERTICAL,false)
             adapter = mChatAdapter
-
         }
     }
 
@@ -82,7 +81,6 @@ class ChatActivity : BaseActivity(),ChatView {
                     }
 
                 }
-
             }
         }
 
@@ -100,7 +98,9 @@ class ChatActivity : BaseActivity(),ChatView {
                 mPresenter.onTapNote()
             }
         }
-
+        ivAttachment.setOnClickListener{
+            showErrorMessage("function is not available in this version")
+        }
     }
 
 
@@ -187,7 +187,9 @@ class ChatActivity : BaseActivity(),ChatView {
             onBackPressed()
         }
         patientVO?.let {
-            tvToolbarTitle.text = it.name
+            it.name?.let{
+                tvDoctorName.text = it
+            }
             it.photo?.toUri()?.let { it1 -> ivProfile.load(it1,R.drawable.image_placeholder) }
         }
 

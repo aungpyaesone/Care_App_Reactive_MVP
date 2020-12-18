@@ -14,7 +14,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -25,25 +25,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_arrow_back_ios_24" />
-
-                <org.mmtextview.components.MMTextView
-                    android:id="@+id/tvToolbarTitle"
-                    android:layout_width="23dp"
-                    android:layout_height="18dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:layout_toEndOf="@id/ivBack" />
+                    android:src="@drawable/arrow_down_short" />
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/tvDoctorName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_regular_2"
+                    android:textSize="@dimen/text_regular_3"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/title_text_color"
-                    android:layout_margin="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_medium_2"
                     android:layout_toEndOf="@id/ivBack"
-                    android:text="@string/profile"
+                    android:text="@string/insert_profile"
                     />
             </RelativeLayout>
 
@@ -88,6 +82,7 @@
             <org.mmtextview.components.MMTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
                 android:text="@string/name_label"
                 android:layout_margin="@dimen/margin_medium"/>
             
@@ -103,6 +98,7 @@
             <org.mmtextview.components.MMTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:text="@string/enter_phone"/>
@@ -114,7 +110,7 @@
                 android:layout_marginStart="@dimen/margin_medium"
                 android:paddingStart="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:background="@drawable/register_input_background"
+                android:background="@drawable/edit_profile_input_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>
 
 
@@ -142,7 +138,7 @@
                     style="@style/spinnerStyle"
                     android:layout_width="0dp"
                     android:layout_height="54dp"
-                    android:background="@drawable/register_input_background"
+                    android:background="@drawable/edit_profile_input_background"
                     app:layout_constraintEnd_toStartOf="@+id/spMonth"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +164,7 @@
                     style="@style/spinnerStyle"
                     android:layout_width="0dp"
                     android:layout_height="54dp"
-                    android:background="@drawable/register_input_background"
+                    android:background="@drawable/edit_profile_input_background"
                     android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
                     android:drawableTint="@color/color_primary"
                     android:spinnerMode="dropdown"
@@ -183,7 +179,7 @@
                     style="@style/spinnerStyle"
                     android:layout_width="0dp"
                     android:layout_height="54dp"
-                    android:background="@drawable/register_input_background"
+                    android:background="@drawable/edit_profile_input_background"
                     android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
                     android:drawableTint="@color/color_primary"
                     android:spinnerMode="dropdown"
@@ -279,14 +275,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView3" />
 
                 <ImageView
+                    android:id="@+id/two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
                     android:elevation="@dimen/margin_small"
-                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:src="@drawable/ios_arrow_dropdown"
                     app:layout_constraintBottom_toBottomOf="@+id/spBloodType"
                     app:layout_constraintEnd_toEndOf="@+id/spBloodType"
-                    app:layout_constraintTop_toTopOf="@+id/spBloodType" />
+                    app:layout_constraintTop_toTopOf="@+id/spBloodType"
+                    app:tint="@color/title_text_color" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -348,10 +347,11 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnContinue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="175dp"
+                    android:layout_height="@dimen/button_height"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="@dimen/margin_medium_2"
+                    android:fontFamily="@font/poppins_bold"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:backgroundTint="@color/blue"

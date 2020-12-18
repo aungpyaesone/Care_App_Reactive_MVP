@@ -87,13 +87,15 @@
                         android:padding="5dp"/>
                 </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="60dp"
-                    android:nestedScrollingEnabled="false"
-                    android:id="@+id/rc_medicinelist"/>
+                    <com.aungpyaesone.patient.views.components.SmartRecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="60dp"
+                        android:nestedScrollingEnabled="false"
+                        android:id="@+id/rc_medicinelist"/>
+
+
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -105,7 +107,7 @@
         android:textSize="12sp"
         android:paddingBottom="5dp"
         android:textColor="@color/white"
-        android:layout_height="54dp"
+        android:layout_height="@dimen/button_height"
         android:layout_gravity="center"
         android:backgroundTint="@color/color_primary"
         android:id="@+id/btn_close"

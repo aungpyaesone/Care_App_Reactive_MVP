@@ -46,7 +46,7 @@ class AcceptRequestViewHolder(itemView: View, private val mDelegate: AcceptPatie
 
         itemView.tvNote.setOnClickListener {
             mData?.let {
-                mDelegate.onTapNote()
+                mDelegate.onTapNote(it)
             }
         }
     }

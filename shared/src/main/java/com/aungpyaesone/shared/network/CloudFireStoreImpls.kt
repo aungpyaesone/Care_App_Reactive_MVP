@@ -923,7 +923,8 @@ object CloudFireStoreImpls : FirebaseApi {
             .document(doctorVO.id)
             .set(doctorVO)
             .addOnSuccessListener {
-                Log.d("Success", "Successfully") }
+                onSuccess()
+                Log.d("add doctor Success", "Successfully") }
             .addOnFailureListener {
                 Log.d("Failure", "Failed ") }
     }

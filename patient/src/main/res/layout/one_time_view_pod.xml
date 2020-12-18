@@ -14,11 +14,10 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/MMTextView8"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/name_of_patient_label"
-            android:textColor="@color/title_text_color"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +42,7 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvPName"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -55,11 +54,10 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/MMTextView10"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/dob_label"
-            android:textColor="@color/title_text_color"
             app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/MMTextView8" />
@@ -76,7 +74,7 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvPDob"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -89,18 +87,17 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/MMTextView14"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/height_label"
-            android:textColor="@color/title_text_color"
             app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/MMTextView10" />
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvPHeight"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -121,7 +118,7 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvPbloodType"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -134,11 +131,10 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/MMTextView16"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/blood_type_label"
-            android:textColor="@color/title_text_color"
             app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/MMTextView14" />
@@ -154,11 +150,10 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/MMTextView18"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/allergic"
-            android:textColor="@color/title_text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
             app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +161,7 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvPAllergic"
-            style="@style/RegularStyle"
+            style="@style/RegularStyleForGeneralQuestionFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"

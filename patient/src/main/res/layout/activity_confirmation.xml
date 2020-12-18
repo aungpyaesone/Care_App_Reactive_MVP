@@ -382,13 +382,15 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnStartConsultation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="224dp"
+                    android:layout_height="@dimen/button_height"
                     android:layout_margin="@dimen/margin_medium_2"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/text_regular_2"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="bottom|center"
-                    android:backgroundTint="@color/color_primary"
+                    android:backgroundTint="@color/blue"
                     android:text="@string/consultation_request_button_label"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

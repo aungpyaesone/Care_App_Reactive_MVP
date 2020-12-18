@@ -17,6 +17,7 @@ import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.EditProfilePresenter
 import com.aungpyaesone.doctors.mvp.presenters.impls.EditProfilePresenterImpl
 import com.aungpyaesone.doctors.mvp.views.EditProfileView
+import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
@@ -92,6 +93,7 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
     private fun setupListener() {
         btnContinue.setOnClickListener {
             val dateofbirth = "$day  $month $year"
+            mDoctorVO?.photo?.toUri()?.let { it1 -> ivPatientProfile.load(it1,R.drawable.d_94_e_xav_xyaa_3_w_ke) }
             mDoctorVO?.name = etUserName.text.toString()
             mDoctorVO?.phone = etPhoneNumber.text.toString()
             mDoctorVO?.dob = dateofbirth
@@ -99,7 +101,17 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
             mDoctorVO?.address = etAddress.text.toString()
             mDoctorVO?.gender = gender
             mDoctorVO?.experience = et_experience.text.toString()
-            bitmap?.let { it1 -> mDoctorVO?.let { dVO -> mPresenter.onTapSave(it1,dVO) } }
+            mDoctorVO?.biography = etBiography.text.toString()
+            bitmap?.let { it1 -> mDoctorVO?.let { dVO ->
+                SessionManager.doctor_name = dVO.name
+                mPresenter.onTapSave(it1,dVO) }
+            }
+                ?: kotlin.run {
+                    mDoctorVO?.let {
+                        SessionManager.doctor_name = it.name
+                        mPresenter.onTapSave(it)
+                    }
+                }
 
         }
         ivPatientProfile.setOnClickListener {
@@ -113,6 +125,12 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
         mDoctorVO?.photo?.toUri()?.let { ivPatientProfile.load(it, R.drawable.image_placeholder) }
         etUserName.setText(mDoctorVO?.name)
         etPhoneNumber.setText(mDoctorVO?.phone)
+        etAddress.setText(mDoctorVO?.address)
+        et_experience.setText(mDoctorVO?.experience)
+        etBiography.setText(mDoctorVO?.biography)
+        gender = mDoctorVO?.gender
+
+        val dayMonthYear: List<String>? = mDoctorVO?.dob?.split("")
 
         spDay.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -121,6 +139,7 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
                 position: Int,
                 id: Long
             ) {
+              //  day = dayMonthYear?.get(0).toString()
                 day = parent.getItemAtPosition(position).toString()
             }
 
@@ -196,13 +215,17 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
     override fun hideProgressDialog() {
     }
 
+    override fun navigateToProfileScreen() {
+      //  startActivity(DoctorProfileActivity.newInstance(this))
+        finish()
+    }
+
     override fun showLoading() {
         progressBar.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
         progressBar.visibility = View.GONE
-        finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

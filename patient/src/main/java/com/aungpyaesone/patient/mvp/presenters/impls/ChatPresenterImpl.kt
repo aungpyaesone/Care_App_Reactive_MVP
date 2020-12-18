@@ -9,8 +9,8 @@ import com.aungpyaesone.shared.data.models.PatientModel
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.ChatMessageVO
+import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.padc.shared.mvp.presenter.AbstractBasePresenter
-import io.reactivex.internal.operators.observable.ObservableError
 
 class ChatPresenterImpl :  ChatPresenter,AbstractBasePresenter<ChatView>(){
     private val mCoreModel: CoreModel = CoreModelImpls
@@ -63,5 +63,9 @@ class ChatPresenterImpl :  ChatPresenter,AbstractBasePresenter<ChatView>(){
 
     override fun onTapPrescription() {
 
+    }
+
+    override fun onTapSeenPatientInfo(consultationChatVO: ConsultationChatVO?) {
+        mView?.navigateToSeePatientInfoScreen(consultationChatVO)
     }
 }

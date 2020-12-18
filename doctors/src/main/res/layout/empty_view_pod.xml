@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aungpyaesone.doctors.views.view_pod.EmptyViewPod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+                android:id="@+id/image"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:src="@drawable/group_839"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                />
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_centerHorizontal="true"
+                android:text="@string/no_consultation"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</com.aungpyaesone.doctors.views.view_pod.EmptyViewPod>

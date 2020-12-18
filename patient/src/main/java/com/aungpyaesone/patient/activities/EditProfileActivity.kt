@@ -29,8 +29,6 @@ import kotlinx.android.synthetic.main.activity_edit_profile.spBloodType
 import kotlinx.android.synthetic.main.activity_edit_profile.spDay
 import kotlinx.android.synthetic.main.activity_edit_profile.spMonth
 import kotlinx.android.synthetic.main.activity_edit_profile.spYear
-import kotlinx.android.synthetic.main.activity_register.etUserName
-import kotlinx.android.synthetic.main.fragment_general_question.*
 import java.io.IOException
 
 class EditProfileActivity : BaseActivity(),ProfileView {
@@ -95,6 +93,7 @@ class EditProfileActivity : BaseActivity(),ProfileView {
             mPatientVO?.height = etHeight.text.toString() + "ft"
             mPatientVO?.blood_type = bloodType
             mPatientVO?.address = etAddress.text.toString()
+            mPatientVO?.allergic_medicine = etComment.text.toString()
             bitmap?.let { it1 -> mPatientVO?.let { pVO -> mPresenter.onTapSave(it1 , pVO) } }
 
         }
@@ -110,6 +109,9 @@ class EditProfileActivity : BaseActivity(),ProfileView {
         etUserName.setText(mPatientVO?.name)
         etPhoneNumber.setText(mPatientVO?.phone)
         etHeight.setText(mPatientVO?.height)
+        etPhoneNumber.setText(mPatientVO?.phone)
+        etComment.setText(mPatientVO?.allergic_medicine)
+        etAddress.setText(mPatientVO?.address)
 
 
         spDay.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -178,9 +180,8 @@ class EditProfileActivity : BaseActivity(),ProfileView {
 
     }
 
-    override fun hideProgressDialog() {
-
-
+    override fun navigateToProfileScreen() {
+        finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -218,9 +219,11 @@ class EditProfileActivity : BaseActivity(),ProfileView {
 
     override fun showLoading() {
 
+        progress_bar.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
-        finish()
+        progress_bar.visibility = View.GONE
+
     }
 }

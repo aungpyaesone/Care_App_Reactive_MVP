@@ -1,7 +1,7 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -30,15 +30,20 @@
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_bold"
+                    android:paddingStart="@dimen/margin_medium"
+                    android:paddingEnd="@dimen/margin_medium"
                     android:background="@drawable/yellow_bakground"
-                    android:text="@string/medicine_note"
+                    android:text="@string/notes"
                     android:padding="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:textColor="@color/patient_info_color"
                     android:text="@string/patient_info"
                     android:padding="5dp"/>
                 <LinearLayout
@@ -52,17 +57,19 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/title_text_color"
+                        android:textColor="@color/notes_color"
                         android:text="@string/name_label"
+                        android:fontFamily="@font/poppins_regular"
                         android:padding="5dp"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text=": "
+                        android:fontFamily="@font/poppins_regular"
                         android:id="@+id/pname"
                         android:textSize="12sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
                         android:padding="5dp"/>
                 </LinearLayout>
                 <LinearLayout
@@ -75,7 +82,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/title_text_color"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/notes_color"
                         android:text="@string/dob_label"
                         android:padding="5dp"/>
                     <TextView
@@ -83,7 +91,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text=": "
-                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/notes_color"
                         android:textSize="12sp"
                         android:id="@+id/pdateofBirth"
                         android:padding="5dp"/>
@@ -99,14 +108,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/height_label"
-                        android:textColor="@color/title_text_color"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/notes_color"
                         android:padding="5dp"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text=": "
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
                         android:textSize="12sp"
                         android:id="@+id/pheight"
                         android:padding="5dp"/>
@@ -121,7 +131,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/title_text_color"
+                        android:textColor="@color/notes_color"
                         android:text="@string/consulted_dated"
                         android:padding="5dp"/>
                     <TextView
@@ -129,7 +139,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:textSize="12sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
+                        android:fontFamily="@font/poppins_regular"
                         android:text=": "
                         android:id="@+id/pbloodtype"
                         android:padding="5dp"/>
@@ -145,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/blood_type_label"
-                        android:textColor="@color/title_text_color"
+                        android:textColor="@color/notes_color"
                         android:padding="5dp"/>
                     <TextView
                         android:layout_width="0dp"
@@ -153,7 +164,7 @@
                         android:layout_weight="1.4"
                         android:text=": "
                         android:id="@+id/pweight"
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
                         android:padding="5dp"/>
                 </LinearLayout>
                 <LinearLayout
@@ -166,7 +177,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/title_text_color"
+                        android:textColor="@color/notes_color"
                         android:text="@string/blood_pressure_label"
                         android:padding="5dp"/>
                     <TextView
@@ -176,7 +187,7 @@
                         android:text=": "
                         android:textSize="12sp"
                         android:id="@+id/pbloodpressure"
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
                         android:padding="5dp"/>
                 </LinearLayout>
                 <LinearLayout
@@ -189,7 +200,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/title_text_color"
+                        android:textColor="@color/notes_color"
                         android:text="@string/weight_label"
                         android:padding="5dp"/>
                     <TextView
@@ -197,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text=": "
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
                         android:textSize="12sp"
                         android:id="@+id/weight"
                         android:padding="5dp"/>
@@ -212,7 +223,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/title_text_color"
+                        android:textColor="@color/notes_color"
                         android:text="@string/allergic"
                         android:padding="5dp"/>
                     <TextView
@@ -220,24 +231,24 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text=": "
-                        android:textColor="@color/black"
+                        android:textColor="@color/notes_color"
                         android:textSize="12sp"
                         android:id="@+id/pcomment"
                         android:padding="5dp"/>
                 </LinearLayout>
-                <TextView
+                <org.mmtextview.components.MMTextView
                     android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/notes_color"
                     android:layout_gravity="left"
-                    android:padding="8dp"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="left"
                     android:textStyle="bold"
                     android:text="@string/question_for_des_type"/>
-
                 <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
@@ -255,7 +266,9 @@
         android:textSize="12sp"
         android:paddingBottom="5dp"
         android:textColor="@color/white"
-        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        app:cornerRadius="@dimen/corner_radius_for_button"
+        android:layout_height="@dimen/button_height"
         android:layout_gravity="center"
         android:backgroundTint="@color/color_primary"
         android:id="@+id/btn_close"

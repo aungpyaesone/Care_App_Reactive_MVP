@@ -3,9 +3,7 @@ package com.aungpyaesone.patient.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.mvp.presenters.LoginPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.LoginPresenterImpl
@@ -60,7 +58,7 @@ class LoginActivity : BaseActivity(), LoginView {
     override fun navigateToHomeScreen(patientVO: PatientVO) {
         SessionManager.login_status =true
         SessionManager.put(patientVO, sharePreferencePatient)
-        startActivity(MainActivity.newInstance(this))
+        startActivity(HomeActivity.newInstance(this))
         this.finish()
     }
 

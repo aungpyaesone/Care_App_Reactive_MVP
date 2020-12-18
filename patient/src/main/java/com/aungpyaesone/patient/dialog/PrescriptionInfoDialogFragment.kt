@@ -16,10 +16,12 @@ import com.aungpyaesone.patient.adapters.PrescriptionInfoAdapter
 import com.aungpyaesone.patient.mvp.presenters.PrescriptonInfoPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.PrescriptonInfoPresenterImpl
 import com.aungpyaesone.patient.mvp.view.PrescriptionInfoView
+import com.aungpyaesone.patient.views.view_pods.EmptyViewPod
 import com.aungpyaesone.shared.data.models.PatientModel
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.data.vos.PrescriptionVO
+import kotlinx.android.synthetic.main.fragment_prescription_info_dialog.*
 import kotlinx.android.synthetic.main.fragment_prescription_info_dialog.view.*
 import java.text.DateFormat
 
@@ -29,6 +31,7 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
 
     private lateinit var mAdapter: PrescriptionInfoAdapter
     private var chat_id: String? = null
+  //  private lateinit var mViewPod: EmptyViewPod
 
     companion object {
         private const val KEY_Chat_id = "KEY_Chat_id"
@@ -62,6 +65,7 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupPresenter()
+        setupViePod()
         setupView(view)
         setupClickListeners(view)
         mPresenter.onUiReady(this)
@@ -73,6 +77,10 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
                 mAdapter.setData(it)
             }
         })
+    }
+
+    private fun setupViePod() {
+       // mViewPod = emptyView as EmptyViewPod
     }
 
     private fun setupPresenter() {
@@ -105,8 +113,6 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
         view.rc_medicinelist.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         view.rc_medicinelist.adapter = mAdapter
         view.rc_medicinelist.setHasFixedSize(false)
-
-
     }
 
     private fun setupClickListeners(view: View) {

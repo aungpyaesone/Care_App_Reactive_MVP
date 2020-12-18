@@ -114,10 +114,15 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
     }
 
     override fun displayPrescriptionList(prescription_list: List<PrescriptionVO>) {
-        context?.let {
-            Toast.makeText(context,prescription_list.size,Toast.LENGTH_SHORT).show()
+
+        if(prescription_list.isNotEmpty()){
+            context?.let {
+                Toast.makeText(context,R.string.no_prescription,Toast.LENGTH_SHORT).show()
+            }
+        }else{
+            mAdapter.setData(prescription_list)
         }
-        mAdapter.setData(prescription_list)
+
     }
 
     override fun showErrorMessage(error: String) {

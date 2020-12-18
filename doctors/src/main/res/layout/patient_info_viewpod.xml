@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     android:layout_marginBottom="-56dp"
-    app:cardCornerRadius="@dimen/margin_medium_2"
-    android:layout_margin="@dimen/margin_small"
+    app:cardCornerRadius="19dp"
     app:cardUseCompatPadding="true"
     tools:context=".activities.ConfirmActivity">
 
@@ -22,7 +21,7 @@
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/MMTextView2"
-                style="@style/RegularStyle"
+                style="@style/patientInfoViewPodTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/patient_information"
@@ -35,8 +34,10 @@
                 style="@style/RegularStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="@string/name_of_patient_label"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="0.468"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MMTextView2" />
 
@@ -266,7 +267,7 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvQuestions"
-            style="@style/RegularStyle"
+            style="@style/patientInfoViewPodTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/constraintLayout2"
@@ -277,7 +278,9 @@
             android:id="@+id/rvQuestionAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvQuestions" />
+            android:layout_below="@id/tvQuestions"
+            tools:listitem="@layout/question_answer_item_view"
+            />
 
         <View
             android:id="@+id/divider"
@@ -289,12 +292,13 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvShowAgain"
-            style="@style/RegularStyle"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/raleway_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/divider"
             android:layout_centerHorizontal="true"
-            android:drawableEnd="@drawable/ic_baseline_double_arrow_24"
+            android:layout_margin="@dimen/margin_medium_2"
             android:drawableTint="@android:color/darker_gray"
             android:gravity="center"
             android:padding="@dimen/margin_small"

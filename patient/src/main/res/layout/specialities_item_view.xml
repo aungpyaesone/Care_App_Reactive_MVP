@@ -26,12 +26,14 @@
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/tvSpeciality"
-                style="@style/RegularStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/margin_medium"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#00122d"
+                android:textSize="@dimen/text_regular"
+                android:layout_width="match_parent"
                 android:maxLines="2"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/margin_medium"
                 android:layout_toEndOf="@id/ivSpeciality"
                 android:text="သွားဖက်ဆိုင်ရာ" />
 

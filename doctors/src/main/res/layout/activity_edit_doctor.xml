@@ -55,6 +55,9 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
        <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent">
@@ -91,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_margin="@dimen/margin_medium"/>
 
             <EditText
@@ -99,6 +103,7 @@
                 android:layout_height="47dp"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:paddingStart="@dimen/margin_medium_2"
+                android:fontFamily="@font/poppins_regular"
                 android:background="@drawable/border_blue_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>
 
@@ -107,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium"
+                style="@style/doctorEditProfileLableStyle"
                 android:text="@string/enter_phone"/>
 
             <EditText
@@ -124,6 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium"
+                style="@style/doctorEditProfileLableStyle"
                 android:text="@string/speciality_label"/>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -134,6 +141,7 @@
                     android:layout_height="47dp"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:paddingStart="@dimen/margin_medium_2"
+                    android:entries="@array/specialities"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:background="@drawable/register_input_background"
                     android:layout_marginEnd="@dimen/margin_medium"/>
@@ -158,15 +166,16 @@
                 app:layout_constraintTop_toTopOf="parent">
 
 
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/MMTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dob_label"
-                android:layout_marginTop="@dimen/margin_medium_2"
-                android:layout_marginStart="@dimen/margin_medium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:text="@string/dob_label"
+                    style="@style/doctorEditProfileLableStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Spinner
                     android:id="@+id/spDay"
@@ -227,32 +236,33 @@
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView"
                     tools:text="2020" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/margin_small"
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:src="@drawable/ios_arrow_dropdown"
-                app:layout_constraintBottom_toBottomOf="@+id/spYear"
-                app:layout_constraintEnd_toEndOf="@+id/spYear"
-                app:layout_constraintTop_toTopOf="@+id/spYear" />
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spYear"
+                    app:layout_constraintEnd_toEndOf="@+id/spYear"
+                    app:layout_constraintTop_toTopOf="@+id/spYear" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/margin_small"
-                android:src="@drawable/ios_arrow_dropdown"
-                android:layout_marginEnd="@dimen/margin_medium"
-                app:layout_constraintBottom_toBottomOf="@+id/spMonth"
-                app:layout_constraintEnd_toEndOf="@+id/spMonth"
-                app:layout_constraintTop_toTopOf="@+id/spMonth" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spMonth"
+                    app:layout_constraintEnd_toEndOf="@+id/spMonth"
+                    app:layout_constraintTop_toTopOf="@+id/spMonth" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <org.mmtextview.components.MMTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/exp_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium"/>
             <RelativeLayout
@@ -281,6 +291,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gender_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
 
@@ -296,6 +307,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
+                    android:textColor="@color/black"
                     android:buttonTint="@color/color_primary"
                     android:layout_marginStart="@dimen/margin_medium_2"
                     android:text="@string/male"/>
@@ -305,6 +317,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium_2"
+                    android:textColor="@color/black"
                     android:buttonTint="@color/color_primary"
                     android:text="@string/female"/>
             </RadioGroup>
@@ -313,6 +326,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/address_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
 
@@ -321,7 +335,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="187dp"
                 android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_regular_2"
+                android:gravity="top"
                 android:paddingStart="@dimen/margin_medium_2"
+                android:paddingEnd="@dimen/margin_medium_2"
+                android:paddingTop="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:background="@drawable/register_input_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>
@@ -330,6 +349,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/biography_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
             <EditText
@@ -337,6 +357,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="187dp"
                 android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_regular_2"
+                android:paddingTop="@dimen/margin_medium_2"
+                android:gravity="top"
+                android:paddingEnd="@dimen/margin_medium_2"
                 android:paddingStart="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:background="@drawable/register_input_background"
@@ -345,12 +370,14 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnContinue"
                 android:layout_width="175dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/button_height"
+                app:cornerRadius="@dimen/corner_radius_for_button"
                 android:layout_margin="@dimen/margin_medium_2"
                 android:layout_marginEnd="8dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="#005ccc"
+                android:fontFamily="@font/poppins_bold"
                 android:text="@string/save_btn_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/etAddress"
@@ -366,6 +393,7 @@
                android:visibility="gone"
                />
        </RelativeLayout>
+        </FrameLayout>
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

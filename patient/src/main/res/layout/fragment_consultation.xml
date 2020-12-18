@@ -14,7 +14,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:elevation="@dimen/margin_medium_2">
 
             <RelativeLayout
@@ -36,8 +36,9 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/margin_medium"
                     android:text="@string/consultation_history_label"
-                    android:textColor="@color/title_text_color"
-                    android:textSize="@dimen/text_regular_2"
+                    android:textColor="@color/toolbar_title_color"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/text_regular_3"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -47,14 +48,27 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         >
-
-        <com.aungpyaesone.patient.views.components.SmartRecyclerView
-            android:id="@+id/rvConsultationView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/toolBar" />
+            android:layout_height="match_parent">
+            <com.aungpyaesone.patient.views.components.SmartRecyclerView
+                android:id="@+id/rvConsultationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/consulted_item_view"
+                />
+            <include
+                android:id="@+id/emptyView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                layout="@layout/empty_view_pod"/>
+        </RelativeLayout>
+
 
     </androidx.core.widget.NestedScrollView>
 

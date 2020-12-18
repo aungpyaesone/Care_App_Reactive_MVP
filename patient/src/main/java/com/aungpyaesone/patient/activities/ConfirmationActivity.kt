@@ -67,7 +67,7 @@ class ConfirmationActivity : BaseActivity(), ConfirmView {
     }
 
     override fun navigateToHomeScreen() {
-        startActivity(MainActivity.newInstance(this))
+        startActivity(HomeActivity.newInstance(this))
         this.finishAffinity()
     }
 

@@ -12,6 +12,5 @@ class CareApplication : Application() {
     CoreModelImpls.initDatabase(applicationContext)
     DoctorModelImpls.initDatabase(applicationContext)
     SessionManager.init(applicationContext)
-    FacebookSdk.sdkInitialize(applicationContext);
     }
 }

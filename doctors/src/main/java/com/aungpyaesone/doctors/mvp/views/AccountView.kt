@@ -7,5 +7,5 @@ interface AccountView : BaseView {
     fun showAccount(doctorVO: DoctorVO)
     fun showStatusDialog()
     fun logoutView()
-    fun navigateToEditProfileScreen()
+    fun navigateToEditProfileScreen(doctorVO: DoctorVO)
 }

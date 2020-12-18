@@ -31,7 +31,9 @@ class DirectRequestViewHolder(itemView: View, private val mDelegate: RequestItem
             mData?.let { mDelegate.onTapLaterButton(it.id) }
         }
         itemView.btnChooseTime.setOnClickListener {
-            mData?.let { mDelegate.onTapChooseTimeButton() }
+            mData?.let {
+                mDelegate.onTapChooseTimeButton(it)
+            }
         }
         itemView.btnAccept.setOnClickListener {
             val doctorVO = SessionManager.get<DoctorVO>(sharePreferenceDoctor) ?: DoctorVO()

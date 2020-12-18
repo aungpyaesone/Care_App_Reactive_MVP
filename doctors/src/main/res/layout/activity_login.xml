@@ -96,7 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/margin_large_xxxx"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:backgroundTint="@color/color_primary"
             android:text="Login"
@@ -111,14 +111,25 @@
             android:id="@+id/tvDontHaveAnAcount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Don't have an account?"
             android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginWithFacebook" />
 
+        <org.mmtextview.components.MMTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOCTOR APP"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/text_regular_2"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.568"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
         <TextView
             android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
@@ -132,13 +143,13 @@
             app:layout_constraintTop_toTopOf="@+id/tvDontHaveAnAcount"
             app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
+        <ImageButton
             android:id="@+id/btnLoginWithFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/group_577"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"

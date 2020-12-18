@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f6f6f6"
     tools:context=".fragments.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -37,7 +38,7 @@
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/recentConsultation"
-                style="@style/TitleTextStyle"
+                style="@style/TitleTextStyleHomeFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvAcceptConsultationView"
@@ -56,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvRecentDoctor"
                 android:text="@string/type_of_des"
-                style="@style/TitleTextStyle"/>
+                style="@style/TitleTextStyleHomeFragment"/>
             <com.aungpyaesone.patient.views.components.SmartRecyclerView
                 android:id="@+id/rvSpecialities"
                 android:layout_width="match_parent"

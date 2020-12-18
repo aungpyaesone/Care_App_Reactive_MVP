@@ -31,11 +31,11 @@ class RegisterPresenterImpls: RegisterPresenter, AbstractBasePresenter<RegisterV
                     SessionManager.user_id = userId
                     SessionManager.doctor_email = email
                     SessionManager.device_id = token
+                    mView?.navigateToCreateAccountScreen()
                     }, onFailure = {
                     mView?.showErrorMessage(it)
                     mView?.hideLoading()
                 })
-                mView?.navigateToCreateAccountScreen()
             }
         }
     }

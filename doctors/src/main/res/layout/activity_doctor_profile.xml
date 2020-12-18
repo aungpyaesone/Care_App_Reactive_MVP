@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,23 +24,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
-
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/tvToolbarTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_toEndOf="@id/ivBack" />
+                android:src="@drawable/arrow_down_short" />
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/tvDoctorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:text="@string/profile"
+                android:textColor="@color/title_text_color"
+                android:textSize="@dimen/text_regular_3"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
                 android:layout_toEndOf="@id/ivBack"
-                tools:text="Dr. Aung Aung" />
+                />
 
             <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
                 android:id="@+id/ivEditProfile"
@@ -82,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/subTitleStyle"
+                android:fontFamily="@font/poppins_regular"
                 tools:text="@string/name_of_patient_label"
                 android:layout_toEndOf="@id/ivDoctorProfile"
                 android:layout_alignBottom="@id/ivDoctorProfile"/>
@@ -91,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/subTitleStyle"
+                android:fontFamily="@font/poppins_regular"
                 tools:text="098756566"
                 android:layout_marginBottom="@dimen/margin_medium"
                 android:layout_toEndOf="@id/ivDoctorProfile"
@@ -101,6 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_regular_3"
+                android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/title_text_color"
                 android:textStyle="bold"
                 tools:text="098756566"
@@ -205,9 +205,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvAddressLabel"
-                android:textSize="@dimen/text_regular_3"
+                android:textSize="@dimen/text_regular_2"
                 android:textStyle="bold"
-                android:textColor="@color/title_text_color"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="#020510"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium_2"
                 tools:text = "No 11 blah blah blah"/>
@@ -219,8 +220,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvAddress"
                 android:layout_alignStart="@+id/tvAddress"
-                android:layout_marginStart="-8dp"
                 android:layout_marginTop="@dimen/margin_medium_2"
+                android:fontFamily="@font/poppins_bold"
                 android:background="@drawable/blue_background"
                 android:paddingStart="@dimen/margin_medium_2"
                 android:paddingTop="@dimen/margin_medium"
@@ -228,19 +229,19 @@
                 android:paddingBottom="@dimen/margin_medium"
                 android:text="@string/degree_label"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_regular_2" />
+                android:textSize="@dimen/text_regular" />
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/tvDegree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvDegreeLabel"
-
+                android:fontFamily="@font/poppins_regular"
                 android:layout_marginStart="@dimen/margin_medium_2"
-                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:text="blah blah blah blah blah blahblah"
-                android:textSize="@dimen/text_regular_3" />
+                android:textSize="@dimen/text_regular_2" />
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/tvBiographyLabel"
@@ -249,6 +250,7 @@
                 android:layout_below="@id/tvDegree"
                 android:layout_alignStart="@+id/tvDegree"
                 android:layout_marginStart="0dp"
+                android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:background="@drawable/blue_background"
                 android:paddingStart="@dimen/margin_medium_2"
@@ -257,14 +259,16 @@
                 android:paddingBottom="@dimen/margin_medium"
                 android:text="@string/biography_label"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_regular_2" />
+                android:textSize="@dimen/text_regular" />
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/tvBiography"
                 android:layout_width="wrap_content"
                 android:layout_height ="wrap_content"
                 android:layout_marginEnd="@dimen/margin_medium"
-                android:textSize="@dimen/text_regular_3"
+                android:textSize="@dimen/text_regular"
+                android:layout_marginBottom="@dimen/margin_large_xxx"
+                android:fontFamily="@font/poppins_regular"
                 android:text="blah blah blah blah blah blahblah"
                 android:layout_below="@id/tvBiographyLabel"
                 android:layout_marginStart="@dimen/margin_medium_2"
@@ -278,8 +282,9 @@
                 android:text="@string/logout"
                 android:layout_alignParentBottom="true"
                 android:textSize="@dimen/text_regular"
+                android:fontFamily="@font/poppins_bold"
                 android:layout_margin="@dimen/margin_medium_2"
-                android:textColor="@color/title_text_color"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
 
@@ -291,8 +296,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:textSize="@dimen/text_regular"
+                android:fontFamily="@font/poppins_bold"
                 android:layout_margin="@dimen/margin_medium_2"
-                android:textColor="@color/title_text_color"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
 

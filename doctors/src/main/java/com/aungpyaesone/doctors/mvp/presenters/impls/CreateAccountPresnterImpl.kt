@@ -1,25 +1,42 @@
 package com.aungpyaesone.doctors.mvp.presenters.impls
 
+import android.graphics.Bitmap
 import androidx.lifecycle.LifecycleOwner
 import com.aungpyaesone.doctors.mvp.presenters.CreateAccountPresenter
 import com.aungpyaesone.doctors.mvp.views.CreateAccountView
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
+import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.padc.shared.mvp.presenter.AbstractBasePresenter
 
 class CreateAccountPresnterImpl : CreateAccountPresenter,
     AbstractBasePresenter<CreateAccountView>() {
     private val mCoreModel = CoreModelImpls
-    override fun createAccount(doctorVO: DoctorVO) {
+    private val mDoctorModel = DoctorModelImpls
+    override fun createAccount(
+        bitmap: Bitmap,
+        doctorVO: DoctorVO
+    ) {
         mView?.showLoading()
-        mCoreModel.addDoctor(doctorVO, onSuccess = {
-            mView?.navigateToLoginScreen()
+        mDoctorModel.uploadPhotoUrl(bitmap,onSuccess = {
+            doctorVO.photo = it
             mView?.hideLoading()
-        }, onFailure = {
+            mCoreModel.addDoctor(doctorVO, onSuccess = {
+                mView?.hideLoading()
+                mView?.navigateToLoginScreen()
+            }, onFailure = {
+                mView?.showErrorMessage(it)
+                mView?.hideLoading()
+            })
+
+        },
+        onFailure = {
             mView?.showErrorMessage(it)
             mView?.hideLoading()
         })
+
     }
+
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
 

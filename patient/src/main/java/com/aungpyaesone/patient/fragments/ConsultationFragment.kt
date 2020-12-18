@@ -13,6 +13,7 @@ import com.aungpyaesone.patient.dialog.PrescriptionInfoDialogFragment
 import com.aungpyaesone.patient.mvp.presenters.ConsultationPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.ConsultationPresenterImpl
 import com.aungpyaesone.patient.mvp.view.ConsultationView
+import com.aungpyaesone.patient.views.view_pods.EmptyViewPod
 import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.google.gson.Gson
 import com.padc.shared.fragments.BaseFragment
@@ -28,6 +29,7 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
 
     private lateinit var mPresenter : ConsultationPresenter
     private lateinit var mAdapter : ConsultationAdapter
+    private lateinit var mEmptyView : EmptyViewPod
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +50,14 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpPresenter()
+        setupViewPod()
         setupRecycler()
+
         mPresenter.onUiReady(this)
+    }
+
+    private fun setupViewPod() {
+        mEmptyView = emptyView as EmptyViewPod
     }
 
     private fun setupRecycler() {
@@ -57,6 +65,7 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
         rvConsultationView.apply {
             layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
             adapter = mAdapter
+            setEmptyView(mEmptyView)
         }
     }
 

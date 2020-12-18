@@ -9,6 +9,8 @@
         android:id="@+id/tvQuestion"
         style="@style/RegularStyle"
         android:layout_width="0dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#2b2b2b"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium_2"
-        android:background="@drawable/drawable_background_white"
+        android:background="@drawable/spinner_input_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
@@ -30,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="@dimen/margin_medium_2"
-        android:background="@android:color/darker_gray"
+        android:background="@color/browser_actions_divider_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAnswer" />

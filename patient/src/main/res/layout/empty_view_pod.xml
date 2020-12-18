@@ -8,13 +8,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardUseCompatPadding="true"
-        app:cardCornerRadius="@dimen/margin_medium_2"
-        app:contentPadding="@dimen/margin_medium_2"
-        app:cardElevation="@dimen/margin_medium"
+
         >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
+            <com.aungpyaesone.patient.views.components.RoundedCornerImageView
+                android:id="@+id/image"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:src="@drawable/group_839"
+                android:layout_centerInParent="true"/>
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_centerHorizontal="true"
+                android:text="@string/no_consultation"/>
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

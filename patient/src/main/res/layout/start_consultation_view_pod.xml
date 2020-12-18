@@ -16,14 +16,16 @@
             style="@style/TitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_new_releases_24"
-            android:drawableTint="@color/blue_A200"
+            android:fontFamily="@font/poppins_bold"
+            android:drawablePadding="@dimen/margin_medium"
+            android:drawableLeft="@drawable/information_filled"
             android:text="@string/start_consultation_title"
-            android:textColor="@color/blue_A200" />
+            android:textColor="@color/blue" />
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvAcceptTitle"
             style="@style/RegularStyle"
+            android:textColor="#202020"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvStartConsultation"
@@ -31,9 +33,8 @@
 
         <com.aungpyaesone.patient.views.components.RoundedCornerImageView
             android:id="@+id/ivProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_below="@id/tvAcceptTitle"
             android:layout_alignStart="@id/tvAcceptTitle"
             android:src="@mipmap/ic_launcher"
@@ -41,7 +42,10 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvDoctorName"
-            style="@style/TitleTextStyle"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/title_text_color"
+            android:textSize="@dimen/text_regular_2"
+            android:layout_marginStart="@dimen/margin_medium_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/ivProfile"
@@ -50,32 +54,39 @@
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvTypeOfSpeciality"
-            style="@style/RegularStyleTwo"
+            android:textSize="@dimen/text_regular_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvDoctorName"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_alignStart="@id/tvDoctorName"
+            android:textColor="#00122d"
             android:layout_toEndOf="@id/ivProfile"
             android:text="@string/type" />
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvBiography"
-            style="@style/RegularStyleTwo"
+            android:fontFamily="@font/poppins_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ivProfile"
             android:layout_alignStart="@id/ivProfile"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
             android:text="blah blah blah blah blah" />
 
-        <com.google.android.material.button.MaterialButton
+        <org.mmtextview.components.MMTextView
             android:id="@+id/btnStartConsult"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvBiography"
             android:layout_alignParentEnd="true"
+            android:textSize="@dimen/text_regular_2"
+            android:fontFamily="@font/poppins_bold"
             android:layout_margin="@dimen/margin_medium"
             android:text="@string/start_consultation_button_label"
-            android:textColor="@color/blue_A200" />
+            android:textColor="@color/blue" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

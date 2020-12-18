@@ -67,10 +67,32 @@
             android:orientation="vertical"
             >
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium">
+
+                <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+                    android:id="@+id/wtfImage"
+                    android:layout_width="@dimen/doctor_profile_width"
+                    android:layout_height="@dimen/doctor_profile_height"
+                    android:src="@drawable/d_94_e_xav_xyaa_3_w_ke" />
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="@dimen/doctor_profile_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/update"
+                    android:layout_gravity="bottom"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rectangle_226"
+                    android:gravity="center"/>
+            </FrameLayout>
+
             <org.mmtextview.components.MMTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_margin="@dimen/margin_medium"/>
 
             <EditText
@@ -78,6 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginStart="@dimen/margin_medium"
+                android:maxLines="1"
                 android:paddingStart="@dimen/margin_medium_2"
                 android:background="@drawable/border_blue_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>
@@ -97,6 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dob_label"
+                    style="@style/doctorEditProfileLableStyle"
                     android:layout_marginTop="@dimen/margin_medium_2"
                     android:layout_marginStart="@dimen/margin_medium"
                     app:layout_constraintStart_toStartOf="parent"
@@ -187,6 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium"
+                style="@style/doctorEditProfileLableStyle"
                 android:text="@string/enter_phone"/>
 
             <EditText
@@ -195,7 +220,9 @@
                 android:layout_height="47dp"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:paddingStart="@dimen/margin_medium_2"
+                android:maxLines="1"
                 android:layout_marginTop="@dimen/margin_medium"
+                android:fontFamily="@font/poppins_regular"
                 android:background="@drawable/register_input_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>
 
@@ -266,6 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/exp_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:layout_marginStart="@dimen/margin_medium"/>
             <RelativeLayout
@@ -276,6 +304,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
                     android:layout_marginStart="@dimen/margin_medium"
+                    android:inputType="text"
+                    android:fontFamily="@font/poppins_regular"
+                    android:maxLines="1"
                     android:paddingStart="@dimen/margin_medium_2"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:background="@drawable/register_input_with_border_background"
@@ -294,6 +325,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/degree_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
 
@@ -303,8 +335,10 @@
                 android:layout_height="187dp"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:gravity="top"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingTop="@dimen/margin_medium_2"
                 android:paddingStart="@dimen/margin_medium_2"
+                android:paddingEnd="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:background="@drawable/register_input_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>
@@ -314,6 +348,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/biography_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
             <EditText
@@ -322,7 +357,9 @@
                 android:layout_height="187dp"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:paddingStart="@dimen/margin_medium_2"
+                android:paddingEnd="@dimen/margin_medium_2"
                 android:gravity="top"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingTop="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:background="@drawable/register_input_background"
@@ -333,6 +370,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/address_label"
+                style="@style/doctorEditProfileLableStyle"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
 
@@ -344,6 +382,8 @@
                 android:gravity="top"
                 android:paddingTop="@dimen/margin_medium_2"
                 android:paddingStart="@dimen/margin_medium_2"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingEnd="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:background="@drawable/register_input_background"
                 android:layout_marginEnd="@dimen/margin_medium"/>

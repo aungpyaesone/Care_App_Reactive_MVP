@@ -1,194 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.NotesActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_down_short" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:textSize="@dimen/text_regular_3"
+                    android:text="@string/medicine_note"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_toEndOf="@id/ivBack"
+                     />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+                android:layout_marginTop="18dp">
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView8"
+                    style="@style/RegularStyleMedicineNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_of_patient_label"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView2" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fullcolon"
+                    app:layout_constraintBottom_toBottomOf="@+id/MMTextView8"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/MMTextView8"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvPName"
+                    style="@style/RegularStyleMedicineNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView2"
+                    tools:text="Mg Mg" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView10"
+                    style="@style/RegularStyleMedicineNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dob_label"
+                    app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView8" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fullcolon"
+                    app:layout_constraintBottom_toBottomOf="@+id/MMTextView10"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/MMTextView10" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvPDob"
+                    style="@style/RegularStyleMedicineNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPName"
+                    tools:text="Mg Mg" />
+
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/colon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fullcolon"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPHeight"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintHorizontal_bias="0.666"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tvPHeight"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView14"
+                    style="@style/RegularStyleMedicineNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/consulted_date"
+                    app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView10" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvPHeight"
+                    style="@style/RegularStyleMedicineNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPDob"
+                    tools:text="Mg Mg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <org.mmtextview.components.MMTextView
-                android:id="@+id/tvToolbarTitle"
+                android:id="@+id/labelNote"
+                style="@style/RegularStyleMedicineNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_toEndOf="@id/ivBack" />
+                android:layout_below="@id/constraintLayout"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="@string/medicine_note" />
 
-            <org.mmtextview.components.MMTextView
-                android:id="@+id/tvDoctorName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:layout_toEndOf="@id/ivBack"
-                tools:text="Dr. Aung Aung" />
+            <EditText
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="469dp"
+                android:layout_below="@id/labelNote"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:hint="@string/medicine_note"
+                android:background="@drawable/border_background"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:paddingTop="14dp"
+                android:paddingStart="@dimen/margin_medium_2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="160dp"
+                android:layout_height="54dp"
+                android:layout_below="@id/etNote"
+                app:cornerRadius="@dimen/margin_medium_2"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginBottom="37dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_large"
+                android:backgroundTint="@color/color_primary"
+                android:text="@string/save_btn_label" />
+
         </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolBar"
-        android:layout_marginTop="@dimen/margin_medium_2"
-        >
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/MMTextView8"
-            style="@style/RegularStyleMedicineNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/name_of_patient_label"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MMTextView2" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/MMTextView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fullcolon"
-            app:layout_constraintBottom_toBottomOf="@+id/MMTextView8"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/MMTextView8"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/tvPName"
-            style="@style/RegularStyleMedicineNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginEnd="@dimen/margin_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/MMTextView9"
-            app:layout_constraintTop_toBottomOf="@+id/MMTextView2"
-            tools:text="Mg Mg" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/MMTextView10"
-            style="@style/RegularStyleMedicineNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/dob_label"
-            app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MMTextView8" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/MMTextView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fullcolon"
-            app:layout_constraintBottom_toBottomOf="@+id/MMTextView10"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/MMTextView10" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/tvPDob"
-            style="@style/RegularStyleMedicineNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginEnd="@dimen/margin_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/MMTextView9"
-            app:layout_constraintTop_toBottomOf="@+id/tvPName"
-            tools:text="Mg Mg" />
+    </androidx.core.widget.NestedScrollView>
 
 
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/colon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fullcolon"
-            app:layout_constraintBottom_toBottomOf="@+id/tvPHeight"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/tvPHeight"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/MMTextView14"
-            style="@style/RegularStyleMedicineNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/consulted_date"
-            app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MMTextView10" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/tvPHeight"
-            style="@style/RegularStyleMedicineNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginEnd="@dimen/margin_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/MMTextView9"
-            app:layout_constraintTop_toBottomOf="@+id/tvPDob"
-            tools:text="Mg Mg" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <org.mmtextview.components.MMTextView
-        android:id="@+id/labelNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/medicine_note"
-        style="@style/RegularStyleMedicineNote"
-        android:layout_below="@id/constraintLayout"
-        android:layout_marginStart="@dimen/margin_medium_2"
-        android:layout_marginTop="@dimen/margin_medium_2"/>
-
-    <EditText
-        android:id="@+id/etNote"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:gravity="top"
-        android:paddingStart="@dimen/margin_medium_2"
-        android:inputType="textMultiLine"
-        android:layout_marginStart="@dimen/margin_medium_2"
-        android:layout_marginEnd="@dimen/margin_medium_2"
-        android:background="@drawable/border_background"
-        android:layout_below="@id/labelNote"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSave"
-        android:layout_width="151dp"
-        android:layout_height="45dp"
-        android:layout_below="@id/etNote"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/color_primary"
-        android:text="@string/save_btn_label"
-        android:layout_marginTop="@dimen/margin_large"/>
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

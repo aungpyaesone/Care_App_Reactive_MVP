@@ -60,7 +60,6 @@ class GeneralQuestionTemplate : BaseActivity(),QuestionTemplateView {
         ivBack.setOnClickListener {
             onBackPressed()
         }
-        tvToolbarTitle.text = getString(R.string.question_label)
     }
 
     private fun setUpRecycler() {

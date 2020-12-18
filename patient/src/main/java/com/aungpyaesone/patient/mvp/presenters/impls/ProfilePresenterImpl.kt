@@ -14,10 +14,12 @@ class ProfilePresenterImpl : ProfilePresenter,AbstractBasePresenter<ProfileView>
     private val mPatientModel = PatientModelImpls
     private val mAuthModel = AuthenticationModelImpls
     override fun onTapSave(bitmap: Bitmap, patientVO: PatientVO) {
+        mView?.showLoading()
         mPatientModel.uploadPhotoUrl(bitmap,
             onSuccess = {
                 mAuthModel.updateProfile(it,onSuccess = {}, onFailure = {})
-                mView?.hideProgressDialog()
+                mView?.hideLoading()
+                mView?.navigateToProfileScreen()
 
                 val patientVo = PatientVO(
                     id= SessionManager.patient_id.toString(),

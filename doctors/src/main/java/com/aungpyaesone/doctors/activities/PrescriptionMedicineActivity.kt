@@ -62,9 +62,6 @@ class PrescriptionMedicineActivity : BaseActivity(),PrescriptionView {
             })
             finish()
         }
-        tvToolbarTitle.text = getString(R.string.prescribe_medicine)
-
-
         searchView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(charSequence: CharSequence, start: Int, before: Int, count: Int) {}
@@ -145,6 +142,7 @@ class PrescriptionMedicineActivity : BaseActivity(),PrescriptionView {
     }
 
     override fun finishConsultation() {
+        startActivity(mConsultationChatVO?.id?.let { ChatActivity.newInstance(this, it) })
         this.finish()
     }
 

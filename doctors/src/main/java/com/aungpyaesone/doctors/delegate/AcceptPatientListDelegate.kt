@@ -5,6 +5,6 @@ import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 interface AcceptPatientListDelegate {
     fun onTapSendTextMessage(consultChatId:String)
     fun onTapMedicineNote(consultationChatVO: ConsultationChatVO)
-    fun onTapNote()
+    fun onTapNote(consultationChatVO: ConsultationChatVO)
     fun onTapPrescribe(consultationChatVO: ConsultationChatVO)
 }

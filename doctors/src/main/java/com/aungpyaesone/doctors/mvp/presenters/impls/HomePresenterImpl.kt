@@ -12,27 +12,60 @@ import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.util.prepareNotification
+import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import com.padc.shared.mvp.presenter.AbstractBasePresenter
 
-class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
+class HomePresenterImpl : HomePresenter, AbstractBasePresenter<HomeView>() {
 
     private val mDoctorModel = DoctorModelImpls
     private val mCoreModel = CoreModelImpls
-    private val chatId: String?  = ""
+    private val chatId: String? = ""
+    override fun onTapPostponeTime(
+        context: Context,
+        str: String,
+        consultationRequestVO: ConsultationRequestVO
+    ) {
+        val doctor = SessionManager.get<DoctorVO>(sharePreferenceDoctor)
+        doctor?.let {
+            mDoctorModel.acceptRequest(consultationRequestVO.id,
+                "postpone $str",
+                consultationRequestVO,
+                it,
+                onSuccess = {
+
+                },
+                onFailure = {
+
+                })
+        }
+        val notiObj = prepareNotification(
+            context,
+            consultationRequestVO.patient?.deviceId,
+            consultationRequestVO.doctor,
+            ""
+        )
+        mDoctorModel.sendNotificationToPatient(notiObj, onSuccess = {}, onFailure = {})
+    }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
 
-        mDoctorModel.getAllConsultedPatientFromApi(SessionManager.user_id.toString(), onSuccess = {},onFailure = {})
+        mDoctorModel.getAllConsultedPatientFromApi(
+            SessionManager.user_id.toString(),
+            onSuccess = {},
+            onFailure = {})
         mDoctorModel.getAllConsultedPatientFromDb().observe(lifecycleOwner, Observer {
             it?.let {
                 mView?.payConsultedPatientList(it)
             }
         })
-        mCoreModel.getAllConsultationChatFromApi(onSuccess = {},onFailure = {})
+        mCoreModel.getAllConsultationChatFromApi(onSuccess = {}, onFailure = {})
         mCoreModel.getAllConsultationChatFromDb().observe(lifecycleOwner, Observer {
             mView?.showAcceptRequestList(it)
         })
-        mCoreModel.getAllConsultationRequestFromApi(speciality =SessionManager.speciality.toString(), onSuccess = {}, onFailure = {})
+        mCoreModel.getAllConsultationRequestFromApi(
+            speciality = SessionManager.speciality.toString(),
+            onSuccess = {},
+            onFailure = {})
         mCoreModel.getAllConsultationRequestFromDb().observe(lifecycleOwner, Observer {
             it?.let { consultRequestVoList ->
                 mView?.showConsultationList(consultRequestVoList)
@@ -42,41 +75,50 @@ class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
     }
 
     override fun onTapAcceptButton(
-            context: Context,
-            documentId: String,
-            status: String,
-            consultationRequestVO: ConsultationRequestVO,
-            doctorVO: DoctorVO
+        context: Context,
+        documentId: String,
+        status: String,
+        consultationRequestVO: ConsultationRequestVO,
+        doctorVO: DoctorVO
     ) {
         // write consultation chat node and update status on consultation request
         mCoreModel.startConsultation(
-        consultationRequestVO.case_summary ?: arrayListOf()
-                        , consultationRequestVO.patient ?: PatientVO()
-                        , doctorVO,
-                        System.currentTimeMillis().toString(),
-                        onSuccess = {
-                            // for add chat id to consultation request node
-                            consultationRequestVO.consultationchat_id = it
-                            mDoctorModel.acceptRequest(documentId, "accept", consultationRequestVO,
-                                        doctorVO, onSuccess = {
-                                  //  prepareNotification(context,consultationRequestVO.patient?.deviceId,doctorVO,"")
-                                    val noti = prepareNotification(context,consultationRequestVO.patient?.deviceId,doctorVO,"")
-                                    mDoctorModel.sendNotificationToPatient( noti, onSuccess = {
-                                        Log.d("onsuccess", it.success.toString())
-                                    }, onFailure = {
-                                        Log.d("onFailure", it)
-                                    })
+            consultationRequestVO.case_summary ?: arrayListOf()
+            , consultationRequestVO.patient ?: PatientVO()
+            , doctorVO,
+            System.currentTimeMillis().toString(),
+            onSuccess = {
+                // for add chat id to consultation request node
+                consultationRequestVO.consultationchat_id = it
+                mDoctorModel.acceptRequest(documentId, "accept", consultationRequestVO,
+                    doctorVO, onSuccess = {
+                        //  prepareNotification(context,consultationRequestVO.patient?.deviceId,doctorVO,"")
+                        val noti = prepareNotification(
+                            context,
+                            consultationRequestVO.patient?.deviceId,
+                            doctorVO,
+                            ""
+                        )
+                        mDoctorModel.sendNotificationToPatient(noti, onSuccess = {
+                            Log.d("onsuccess", it.success.toString())
+                        }, onFailure = {
+                            Log.d("onFailure", it)
+                        })
 
-                                }, onFailure = {})
+                    }, onFailure = {})
 
-                            consultationRequestVO.patient?.let { it1 -> mDoctorModel.addConsultedPatient(doctorId = SessionManager.user_id.toString(),patientVO = it1,onSuccess = {},
-                            onFailure = {}) }
-                        },
+                consultationRequestVO.patient?.let { it1 ->
+                    mDoctorModel.addConsultedPatient(doctorId = SessionManager.user_id.toString(),
+                        patientVO = it1,
+                        onSuccess = {},
                         onFailure = {})
+                }
+            },
+            onFailure = {})
         mView?.navigateToConfirmScreen(consultationRequestVO.id)
     }
 
-    override fun onTapSkipButton(consultId:String) {
+    override fun onTapSkipButton(consultId: String) {
         mDoctorModel.deleteSkipPatientRequestFromDb(consultId)
     }
 
@@ -84,8 +126,8 @@ class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
         mDoctorModel.deleteSkipPatientRequestFromDb(consultId)
     }
 
-    override fun onTapChooseTimeButton() {
-        mView?.showChooseTimeDialog()
+    override fun onTapChooseTimeButton(consultationRequestVO: ConsultationRequestVO) {
+        mView?.showChooseTimeDialog(consultationRequestVO)
     }
 
     override fun onTapSendTextMessage(consultChatId: String) {
@@ -96,8 +138,8 @@ class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
         mView?.showPatientInfoDialog(consultationChatVO)
     }
 
-    override fun onTapNote() {
-
+    override fun onTapNote(consultationChatVO: ConsultationChatVO) {
+        mView?.showNotesDialog(consultationChatVO)
     }
 
     override fun onTapPrescribe(consultationChatVO: ConsultationChatVO) {

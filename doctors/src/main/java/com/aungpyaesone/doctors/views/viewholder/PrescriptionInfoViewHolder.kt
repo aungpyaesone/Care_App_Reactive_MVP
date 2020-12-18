@@ -14,7 +14,7 @@ class PrescriptionInfoViewHolder(itemView: View) : BaseViewHolder<PrescriptionVO
         data?.let {
             itemView.medicine_name.text = data.medicine_name
             itemView.amount.text  = data?.routineVO?.amount +" mg"
-            itemView.txt_quality.text = data.routineVO?.times + " Tablet"
+            itemView.txt_quality.text = data.routineVO?.tab + " Tablet"
             itemView.txt_time.text = data.routineVO?.day
             val times = data.routineVO?.times.toString()
             itemView.txt_count.text = times

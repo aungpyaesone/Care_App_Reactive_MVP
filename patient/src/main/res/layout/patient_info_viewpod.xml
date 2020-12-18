@@ -21,9 +21,12 @@
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/MMTextView2"
-                style="@style/RegularStyle"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/text_regular_2"
+                android:layout_margin="@dimen/margin_medium_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/title_text_color"
                 android:text="@string/patient_information"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +173,7 @@
                 style="@style/RegularStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/allergic_label"
+                android:text="@string/allergic"
                 app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MMTextView16" />
@@ -223,7 +226,7 @@
                 style="@style/RegularStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/allergic_label"
+                tools:text="@string/allergic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/MMTextView17"
                 app:layout_constraintTop_toBottomOf="@+id/tvPAllergic" />
@@ -287,12 +290,12 @@
             android:background="@android:color/darker_gray" />
 
         <org.mmtextview.components.MMTextView
+            android:id="@+id/tvShowMore"
             style="@style/RegularStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/divider"
             android:layout_centerHorizontal="true"
-            android:drawableEnd="@drawable/ic_baseline_double_arrow_24"
             android:drawableTint="@android:color/darker_gray"
             android:gravity="center"
             android:padding="@dimen/margin_small"

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aungpyaesone.patient.views.view_pods.PatientItemViewPodTwo xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="-56dp"
+    app:cardCornerRadius="@dimen/margin_medium_2"
+    android:layout_margin="@dimen/margin_small"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView2"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/text_regular_2"
+                android:layout_margin="@dimen/margin_medium_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_text_color"
+                android:text="@string/patient_information"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView8"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name_of_patient_label"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView2" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintBottom_toBottomOf="@+id/MMTextView8"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView8"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPName"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView2"
+                tools:text="Mg Mg" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView10"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/dob_label"
+                app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView8" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintBottom_toBottomOf="@+id/MMTextView10"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView10" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPDob"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                app:layout_constraintTop_toBottomOf="@+id/tvPName"
+                tools:text="Mg Mg" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView14"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/height_label"
+                app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView10" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPHeight"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                app:layout_constraintTop_toBottomOf="@+id/tvPDob"
+                tools:text="Mg Mg" />
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView14" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPbloodType"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                app:layout_constraintTop_toBottomOf="@+id/tvPHeight"
+                tools:text="Mg Mg" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView16"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/blood_type_label"
+                app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView14" />
+
+            <org.mmtextview.components.MMTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintBottom_toBottomOf="@+id/MMTextView16"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView16" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView18"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/allergic"
+                app:layout_constraintEnd_toStartOf="@+id/MMTextView11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView16" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPAllergic"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView9"
+                app:layout_constraintTop_toBottomOf="@+id/tvPbloodType"
+                tools:text="Mg Mg" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintBottom_toBottomOf="@+id/MMTextView18"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView18" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView15"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/weight_label"
+                app:layout_constraintEnd_toStartOf="@+id/MMTextView17"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView18" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintBottom_toBottomOf="@+id/MMTextView15"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView15" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvWeight"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@string/allergic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView17"
+                app:layout_constraintTop_toBottomOf="@+id/tvPAllergic" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView19"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/blood_pressure_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/MMTextView20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MMTextView15" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/MMTextView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullcolon"
+                app:layout_constraintBottom_toBottomOf="@+id/MMTextView19"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/MMTextView19" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvBloodPressure"
+                style="@style/RegularStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/blood_pressure_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/MMTextView20"
+                app:layout_constraintTop_toBottomOf="@+id/tvWeight" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvQuestions"
+            style="@style/RegularStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constraintLayout2"
+            android:text="@string/question_for_des_type"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvQuestionAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvQuestions"
+            android:paddingBottom="@dimen/margin_medium"
+            />
+
+    </RelativeLayout>
+</com.aungpyaesone.patient.views.view_pods.PatientItemViewPodTwo>

@@ -7,71 +7,86 @@
     tools:context=".activities.MainActivity">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:fitsSystemWindows="true"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        >
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
-            android:id="@+id/ivProfile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/margin_medium_2"
-            android:src="@mipmap/ic_launcher"
-            app:cornerRadius="@dimen/margin_large_xxxx"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/tvDoctorName"
-            style="@style/RegularStyleTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium_2"
-            android:text="@string/app_name"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
-            app:layout_constraintStart_toEndOf="@+id/ivProfile"
-            app:layout_constraintTop_toTopOf="@+id/ivProfile" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRequest"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProfile"
-            />
+            android:layout_height="match_parent">
 
-        <org.mmtextview.components.MMTextView
-            android:id="@+id/tvLabel"
-            style="@style/RegularStyle_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium_2"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            android:text="@string/consult_request_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvRequest" />
+            <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/margin_medium_2"
+                android:src="@mipmap/ic_launcher"
+                app:cornerRadius="@dimen/margin_large_xxxx"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvConsultNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:listitem="@layout/medicine_note_item_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvDoctorName"
+                style="@style/RegularStyleTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:text="@string/app_name"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="@+id/ivProfile" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvLabel"
+                style="@style/RegularStyle_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="@string/consult_request_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvRequest" />
+
+            <com.aungpyaesone.doctors.views.component.SmartRecyclerView
+                android:id="@+id/rvConsultNote"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabel"
+                tools:listitem="@layout/medicine_note_item_view" />
+
+            <include
+                android:id="@+id/emptyView"
+                layout="@layout/empty_view_pod"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.core.widget.NestedScrollView>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

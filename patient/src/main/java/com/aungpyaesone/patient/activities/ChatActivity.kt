@@ -20,9 +20,6 @@ import com.aungpyaesone.shared.util.DateUtils
 import com.google.gson.Gson
 import com.padc.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_chat.*
-import kotlinx.android.synthetic.main.activity_chat.ivBack
-import kotlinx.android.synthetic.main.activity_chat.tvToolbarTitle
-import kotlinx.android.synthetic.main.fragment_general_question.*
 
 class ChatActivity : BaseActivity(),ChatView {
 
@@ -83,10 +80,15 @@ class ChatActivity : BaseActivity(),ChatView {
 
             }
         }
+
+        ivAttachment.setOnClickListener{
+            showErrorMessage("function is not available in this version")
+        }
     }
     private fun setupViewPod() {
         mPatientInfoViewPod = vpatientInfoViewPod as PatientItemViewPod
         mPrescriptionViewPod = prescriptionViewPod as PrescriptionViewPod
+        mPatientInfoViewPod.setDelegate(mPresenter)
 
     }
     private fun setupPresenter() {
@@ -99,7 +101,7 @@ class ChatActivity : BaseActivity(),ChatView {
         mPatientVO = consultationChatList.patient
         mDoctorVO = consultationChatList.doctor
 
-        mPatientInfoViewPod.setData(consultationChatList.patient,consultationChatList.caseSummary)
+        mPatientInfoViewPod.setData(consultationChatList)
 
         finishStatus = consultationChatList.status
 
@@ -121,7 +123,8 @@ class ChatActivity : BaseActivity(),ChatView {
             onBackPressed()
         }
         doctorVO?.let {
-            tvToolbarTitle.text = it.name
+            tvDoctorName.text = it.name
+            tvSpeciality.text = it.speciality_myanmar
             it.photo?.toUri()?.let { it1 -> ivProfile.load(it1,R.drawable.image_placeholder) }
         }
 
@@ -137,6 +140,7 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showPrescriptionList(prescriptionList: List<PrescriptionVO>) {
+        scrollView.scrollTo(0,scrollView.bottom)
         if(prescriptionList.isNotEmpty()){
             mPrescriptionViewPod.visibility = View.VISIBLE
             mDoctorVO?.photo?.let {
@@ -150,6 +154,11 @@ class ChatActivity : BaseActivity(),ChatView {
         }
 
 
+    }
+
+    override fun navigateToSeePatientInfoScreen(consultationChatVO: ConsultationChatVO?) {
+        val data = Gson().toJson(consultationChatVO)
+        startActivity(SeePatientInfoActivity.newInstance(this,data))
     }
 
     override fun showLoading() {

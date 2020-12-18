@@ -37,20 +37,48 @@
 
     <style name="subTitleStyle">
         <item name="android:textSize">@dimen/text_regular</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/title_text_color</item>
+        <item name="android:textColor">#020510</item>
+        <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="RegularStyle">
+        <item name="android:textSize">@dimen/text_regular</item>
+        <item name="android:layout_margin">@dimen/margin_medium_2</item>
+        <item name="android:textColor">#3b3b3b</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="patientInfoViewPodTextStyle">
         <item name="android:textSize">@dimen/text_regular_2</item>
         <item name="android:layout_margin">@dimen/margin_medium_2</item>
-        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:textColor">#414141</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name="RegularStyleMedicineNote">
         <item name="android:textSize">@dimen/text_regular_2</item>
         <item name="android:layout_margin">@dimen/margin_medium_2</item>
         <item name="android:textColor">@color/note_color</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="RegularStyleNote">
+        <item name="android:textSize">@dimen/text_regular_2</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium_2</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium_2</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium_2</item>
+        <item name="android:textColor">@color/note_color</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+
+    <style name="toolbarTitleStyle">
+        <item name="android:textSize">@dimen/text_regular_3</item>
+        <item name="android:textColor">@color/title_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:layout_marginStart">20dp</item>
     </style>
 
     <style name="dialogTextStyle">
@@ -68,6 +96,7 @@
         <item name="android:textSize">@dimen/text_regular</item>
         <item name="android:layout_marginStart">@dimen/margin_medium_2</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="NegativeButtonStyle"  parent="Widget.MaterialComponents.Button.TextButton">
@@ -96,5 +125,11 @@
         <item name="android:layout_margin">@dimen/margin_medium_2</item>
         <item name="android:padding">@dimen/margin_medium_2</item>
         <item name="android:elevation">@dimen/margin_small</item>
+    </style>
+
+
+    <style name="doctorEditProfileLableStyle">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#7a7c85</item>
     </style>
 </resources>

@@ -150,11 +150,13 @@ class RoutineDialogFragment : DialogFragment() {
                 false ->{
                     view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
                     view.tvFirstNote.setTextColor(Color.WHITE)
+                    eatingtime = tvFirstNote.text.toString()
                     true
                 }
                 else ->{
                     view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
                     view.tvFirstNote.setTextColor(Color.BLACK)
+                    eatingtime = tvSecondNode.text.toString()
                     false
                 }
             }

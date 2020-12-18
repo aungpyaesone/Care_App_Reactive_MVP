@@ -36,8 +36,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Medicine Recommendiation"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="@dimen/text_regular_2"
                     android:textStyle="bold"
                     />
 
@@ -50,20 +51,25 @@
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="5dp"
                     android:padding="2dp"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="@dimen/text_regular_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Medicine Name"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
                     android:id="@+id/txt_medicineList"
                     />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-        <ImageView
+        <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="2dp"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:cornerRadius="@dimen/margin_large_xxxx"
             android:src="@drawable/group_909"
             android:id="@+id/pdoctor_photo"/>
     </LinearLayout>

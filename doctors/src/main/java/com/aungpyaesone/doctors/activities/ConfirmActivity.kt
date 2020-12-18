@@ -42,6 +42,10 @@ class ConfirmActivity : BaseActivity(),ConfirmView {
         btnStatConsultation.setOnClickListener {
             mPresenter.onTapStartConsultation(this)
         }
+
+        ivBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun setUpRecycler() {

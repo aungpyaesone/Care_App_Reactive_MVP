@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="chat_text_color">#424656</color>
+    <color name="search_color">#f9f9f9</color>
+    <color name="prescripton_text_color">#3b3b3b</color>
+    <color name="patient_info_color">#414141</color>
 </resources>

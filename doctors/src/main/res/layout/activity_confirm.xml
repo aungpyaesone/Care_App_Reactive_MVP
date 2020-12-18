@@ -28,7 +28,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+                        android:src="@drawable/arrow_down_short"/>
 
                     <org.mmtextview.components.MMTextView
                         android:id="@+id/tvToolbarTitle"
@@ -36,7 +36,10 @@
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@id/ivBack"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/margin_medium"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/text_regular_3"
+                        android:text="@string/patient_information"
+                        android:layout_marginStart="@dimen/margin_medium_2"
                         />
                 </RelativeLayout>
 
@@ -327,12 +330,15 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/constraintLayout2"
                 android:layout_marginTop="@dimen/margin_medium_2"
-                android:background="@drawable/grey_background"
+                android:fontFamily="@font/poppins_medium"
+                android:background="#f6f6f6"
+                android:textSize="@dimen/text_regular_2"
                 android:paddingStart="@dimen/margin_medium_2"
                 android:paddingTop="@dimen/margin_medium"
                 android:paddingBottom="@dimen/margin_medium"
+                android:textColor="#414141"
                 android:text="@string/question_for_des_type"
-                android:textStyle="bold" />
+                 />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPatientSummary"

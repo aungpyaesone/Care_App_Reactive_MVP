@@ -34,7 +34,94 @@
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/MMTextView"
-                    style="@style/RegularStyle"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dob_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spDay"
+                    style="@style/spinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/spinner_input_background"
+                    app:layout_constraintEnd_toStartOf="@+id/spMonth"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView"
+                    tools:text="23" />
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spDay"
+                    app:layout_constraintEnd_toEndOf="@+id/spDay"
+                    app:layout_constraintTop_toTopOf="@+id/spDay" />
+
+
+                <Spinner
+                    android:id="@+id/spMonth"
+                    style="@style/spinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/spinner_input_background"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:drawableTint="@color/color_primary"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintEnd_toStartOf="@+id/spYear"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/spDay"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView"
+                    tools:text="Nov" />
+
+                <Spinner
+                    android:id="@+id/spYear"
+                    style="@style/spinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/spinner_input_background"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:drawableTint="@color/color_primary"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/spMonth"
+                    app:layout_constraintTop_toBottomOf="@+id/MMTextView"
+                    tools:text="2020" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spYear"
+                    app:layout_constraintEnd_toEndOf="@+id/spYear"
+                    app:layout_constraintTop_toTopOf="@+id/spYear"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintBottom_toBottomOf="@+id/spMonth"
+                    app:layout_constraintEnd_toEndOf="@+id/spMonth"
+                    app:layout_constraintTop_toTopOf="@+id/spMonth" />
+
+
+                <!--<org.mmtextview.components.MMTextView
+                    android:id="@+id/MMTextView"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dob_label"
@@ -111,11 +198,11 @@
                     android:src="@drawable/ic_baseline_arrow_drop_down_24"
                     app:layout_constraintBottom_toBottomOf="@+id/spYear"
                     app:layout_constraintEnd_toEndOf="@+id/spMonth"
-                    app:layout_constraintTop_toTopOf="@+id/spMonth" />
+                    app:layout_constraintTop_toTopOf="@+id/spMonth" />-->
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/MMTextView2"
-                    style="@style/RegularStyle"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/height_label"
@@ -151,13 +238,23 @@
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/MMTextView3"
-                    style="@style/RegularStyle"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blood_type_label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etHeight" />
 
+                <ImageView
+                    android:id="@+id/two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="@dimen/margin_small"
+                    android:src="@drawable/ios_arrow_dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spBloodType"
+                    app:layout_constraintEnd_toEndOf="@+id/spBloodType"
+                    app:layout_constraintTop_toTopOf="@+id/spBloodType" />
                 <Spinner
                     android:id="@+id/spBloodType"
                     android:padding="@dimen/margin_medium_2"
@@ -174,15 +271,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView3" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_medium"
-                    android:elevation="@dimen/margin_small"
-                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/spBloodType"
-                    app:layout_constraintEnd_toEndOf="@+id/spBloodType"
-                    app:layout_constraintTop_toTopOf="@+id/spBloodType" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -191,7 +279,7 @@
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/MMTextView4"
-                    style="@style/RegularStyle"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/weight_label"
@@ -202,6 +290,7 @@
                     android:id="@+id/etWeight"
                     style="@style/editTextStyle"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView4"
                     tools:layout_editor_absoluteX="16dp" />
@@ -222,7 +311,7 @@
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/MMTextView5"
-                    style="@style/RegularStyle"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blood_pressure_label"
@@ -254,7 +343,7 @@
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/tvComment"
-                    style="@style/RegularStyle"
+                    style="@style/RegularStyleForGeneralQuestionFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/allergic_label"
@@ -266,9 +355,10 @@
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/drawable_background_white"
+                    android:background="@drawable/spinner_input_background"
                     android:elevation="@dimen/margin_medium"
                     android:textSize="@dimen/text_regular_2"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="@string/allergic_label"
                     android:gravity="top"
                     android:inputType="textMultiLine"
@@ -280,12 +370,14 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnContinue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/button_height"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="@dimen/margin_medium_2"
+                    android:textSize="@dimen/text_regular_2"
+                    android:fontFamily="@font/poppins_bold"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/color_primary"
+                    android:backgroundTint="@color/blue"
                     android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                     android:text="@string/continue_button_label"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -11,7 +11,9 @@ interface HomeView : BaseView {
     fun payConsultedPatientList(consultationList: List<ConsultedPatientVO>)
     fun navigateToConfirmScreen(id:String)
     fun navigateToChatScreen(consultChatId:String)
-    fun showChooseTimeDialog()
+    fun showChooseTimeDialog(consultationRequestVO: ConsultationRequestVO)
+
+    fun showNotesDialog(consultationChatVO: ConsultationChatVO)
 
     fun showPatientInfoDialog(consultationChatVO: ConsultationChatVO)
     fun showPrescriptionInfoDialog(consultationChatVO: ConsultationChatVO)

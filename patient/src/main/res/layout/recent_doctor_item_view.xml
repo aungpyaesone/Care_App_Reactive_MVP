@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
+    android:layout_width="144dp"
     android:layout_height="181dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/margin_medium"
@@ -16,6 +16,7 @@
             android:layout_height="54dp"
             android:layout_marginTop="@dimen/margin_medium"
             android:src="@drawable/no_path"
+            app:cornerRadius="@dimen/margin_large"
             android:layout_centerHorizontal="true"/>
 
         <org.mmtextview.components.MMTextView
@@ -23,9 +24,11 @@
             android:textSize="@dimen/text_regular_2"
             android:layout_width="match_parent"
             android:paddingStart="5dp"
+            android:fontFamily="@font/poppins_bold"
             android:textColor="@color/title_text_color"
             android:paddingEnd="5dp"
             android:textStyle="bold"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_below="@id/ivProfile"
             android:layout_marginTop="19dp"
@@ -36,9 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvName"
+            android:fontFamily="@font/poppins_medium"
             android:text="Dentist"
             android:layout_marginBottom="@dimen/margin_medium"
-            android:textColor="@color/title_text_color"
+            android:textColor="#00122d"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
 
