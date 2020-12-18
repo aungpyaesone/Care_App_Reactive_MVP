@@ -16,7 +16,7 @@
             android:layout_height="54dp"
             android:layout_marginTop="@dimen/margin_medium"
             android:src="@drawable/no_path"
-            app:cornerRadius="@dimen/margin_large"
+            app:cornerRadius="@dimen/margin_large_xxxx"
             android:layout_centerHorizontal="true"/>
 
         <org.mmtextview.components.MMTextView

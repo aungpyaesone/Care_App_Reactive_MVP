@@ -170,6 +170,11 @@ class HomeFragment : BaseFragment(),HomeView {
         } })
     }
 
+    override fun onStart() {
+        super.onStart()
+
+    }
+
     override fun showLoading() {
 
     }

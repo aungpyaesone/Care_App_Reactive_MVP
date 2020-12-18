@@ -89,6 +89,7 @@ class ChatActivity : BaseActivity(),ChatView {
         mPatientInfoViewPod = vpatientInfoViewPod as PatientItemViewPod
         mPrescriptionViewPod = prescriptionViewPod as PrescriptionViewPod
         mPatientInfoViewPod.setDelegate(mPresenter)
+        mPrescriptionViewPod.setDelegate(mPresenter)
 
     }
     private fun setupPresenter() {
@@ -136,7 +137,7 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun navigateToPrescribeMedicineScreen() {
-
+        showErrorMessage("This function is not available in this version")
     }
 
     override fun showPrescriptionList(prescriptionList: List<PrescriptionVO>) {

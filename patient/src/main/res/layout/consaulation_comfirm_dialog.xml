@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_medium_2"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_medium_2"
-        android:paddingBottom="@dimen/margin_medium_2"
+        app:cardCornerRadius="@dimen/margin_medium_2"
         >
-        <androidx.cardview.widget.CardView
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="440dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
             >
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:src="@drawable/appt_confirmation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large_xxx"
+                android:src="@drawable/appt_confirmation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                </ImageView>
+            </ImageView>
 
 
-                <org.mmtextview.components.MMTextView
-                    android:id="@+id/tvBody"
-                    style="@style/dialogTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvConsultationConfirm"
-                    android:layout_centerHorizontal="true"
-                    android:lineSpacingExtra="19sp"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_large"
-                    android:layout_marginEnd="@dimen/margin_medium"
-                    android:text="@string/confirm_body_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvConsultationConfirm" />
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvBody"
+                style="@style/dialogTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:lineSpacingExtra="19sp"
+                android:text="@string/confirm_body_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvConsultationConfirm" />
 
-                <org.mmtextview.components.MMTextView
-                    android:id="@+id/tvConsultationConfirm"
-                    style="@style/TitleTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/confirm_title_text"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvConsultationConfirm"
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/confirm_title_text"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnPositive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvBody"
-                    android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/poppins_bold"
-                    android:layout_margin="@dimen/margin_medium_2"
-                    android:backgroundTint="@color/color_primary"
-                    android:text="@string/positive_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvBody" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPositive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBody"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/margin_medium_2"
+                android:backgroundTint="@color/color_primary"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/positive_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBody" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnNegative"
-                    style="@style/NegativeButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvBody"
-                    android:layout_marginEnd="@dimen/margin_medium"
-                    android:layout_toStartOf="@id/btnPositive"
-                    android:text="@string/negative_button"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="#4085d9"
-                    app:layout_constraintBottom_toBottomOf="@+id/btnPositive"
-                    app:layout_constraintEnd_toStartOf="@+id/btnPositive"
-                    app:layout_constraintTop_toTopOf="@+id/btnPositive" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNegative"
+                style="@style/NegativeButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBody"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_toStartOf="@id/btnPositive"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/negative_button"
+                android:textColor="#4085d9"
+                app:layout_constraintBottom_toBottomOf="@+id/btnPositive"
+                app:layout_constraintEnd_toStartOf="@+id/btnPositive"
+                app:layout_constraintTop_toTopOf="@+id/btnPositive" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-    </RelativeLayout>
-
-</RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
 
