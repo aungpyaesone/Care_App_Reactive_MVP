@@ -8,6 +8,7 @@
     tools:context=".activities.ChatActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -67,6 +68,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants"
         android:fitsSystemWindows="true"
         android:layout_above="@id/sendTextLayout"
         >
@@ -88,6 +90,7 @@
             android:id="@+id/rvChatView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="false"
             android:layout_below="@+id/vpatientInfoViewPod"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="@dimen/margin_medium" />

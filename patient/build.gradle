@@ -96,4 +96,5 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     // firestore
     implementation 'com.google.firebase:firebase-firestore-ktx:21.6.0'
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
 }

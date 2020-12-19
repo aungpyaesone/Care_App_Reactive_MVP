@@ -2,10 +2,8 @@ package com.aungpyaesone.doctors.activities
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,12 +16,12 @@ import com.aungpyaesone.doctors.mvp.views.ChatView
 import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.doctors.views.view_pod.PatientItemViewPod
 import com.aungpyaesone.doctors.views.view_pod.PrescriptionViewPod
+import com.aungpyaesone.shared.activites.BaseActivity
 import com.aungpyaesone.shared.data.vos.*
 import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import com.google.gson.Gson
-import com.aungpyaesone.shared.activites.BaseActivity
 import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : BaseActivity(),ChatView {
@@ -54,6 +52,10 @@ class ChatActivity : BaseActivity(),ChatView {
         setupRecycler()
         mChatId = intent.getStringExtra(DOCUMENT_ID)
         mChatId?.let { mPresenter.onReady(it,this) }
+       /* scrollView.postDelayed(Runnable {
+            appbar.setExpanded(false, true) //appbar.setExpanded(expanded, animated);
+            scrollView.fullScroll(View.FOCUS_DOWN)
+        }, 400)*/
     }
 
     private fun setupRecycler() {

@@ -11,7 +11,7 @@ import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
 import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 
 class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
-    private val mAuthModel  : AuthenticationModel = AuthenticationModelImpls
+    private val mAuthModel: AuthenticationModel = AuthenticationModelImpls
     private val mPatientModel = PatientModelImpls
     override fun onTapLogin(
         context: Context,
@@ -19,18 +19,18 @@ class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
         password: String,
         lifecycleOwner: LifecycleOwner
     ) {
-        if(email.isEmpty() || password.isEmpty()){
+        if (email.isEmpty() || password.isEmpty()) {
             mView?.showErrorMessage("Please enter all the fields")
         } else {
             mView?.showLoading()
             mAuthModel.login(email, password, onSuccess = {
                 mPatientModel.getPatientByEmail(email, onSuccess = {
                     it.deviceId = SessionManager.patient_device_id
-                    mPatientModel.addPatient(it,onSuccess = {},onFailure = {})
+                    mPatientModel.addPatient(it, onSuccess = {}, onFailure = {})
                     SessionManager.patient_name = it.name
                     SessionManager.patient_id = it.id
                     SessionManager.patient_dateOfBirth = it.dob
-                    SessionManager.comment= it.allergic_medicine
+                    SessionManager.comment = it.allergic_medicine
                     SessionManager.patient_email = it.email
                     SessionManager.patient_height = it.height
                     SessionManager.patient_blood_type = it.blood_type
@@ -55,7 +55,7 @@ class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
     }
 
     override fun onTapRegister() {
-       mView?.navigateToRegisterScreen()
+        mView?.navigateToRegisterScreen()
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {

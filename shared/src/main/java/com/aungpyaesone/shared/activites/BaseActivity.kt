@@ -1,5 +1,6 @@
 package com.aungpyaesone.shared.activites
 
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import androidx.annotation.StringRes
@@ -12,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.aungpyaesone.shared.mvp.presenter.AbstractBasePresenter
 import com.aungpyaesone.shared.mvp.views.BaseView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.kaopiz.kprogresshud.KProgressHUD
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
@@ -47,6 +49,17 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
                 show()
             }
         }
+    }
+
+    fun showLoadingProgress(context:Context) : KProgressHUD{
+        return KProgressHUD.create(context)
+            .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+            .setLabel("Please wait")
+            .setDetailsLabel("")
+            .setCancellable(true)
+            .setAnimationSpeed(2)
+            .setDimAmount(0.5f)
+
     }
 
 

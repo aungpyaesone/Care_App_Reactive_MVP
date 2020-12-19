@@ -150,10 +150,14 @@ class RoutineDialogFragment : DialogFragment() {
                 false ->{
                     view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
                     view.tvFirstNote.setTextColor(Color.WHITE)
+                    view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
+                    view.tvFirstNote.setTextColor(Color.BLACK)
                     eatingtime = tvFirstNote.text.toString()
                     true
                 }
                 else ->{
+                    view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
+                    view.tvFirstNote.setTextColor(Color.WHITE)
                     view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
                     view.tvFirstNote.setTextColor(Color.BLACK)
                     false
@@ -166,10 +170,14 @@ class RoutineDialogFragment : DialogFragment() {
                 false ->{
                     view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
                     view.tvSecondNode.setTextColor(Color.WHITE)
+                    view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
+                    view.tvSecondNode.setTextColor(Color.BLACK)
                     eatingtime = tvSecondNode.text.toString()
                     true
                 }
                 else ->{
+                    view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
+                    view.tvSecondNode.setTextColor(Color.WHITE)
                     view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
                     view.tvSecondNode.setTextColor(Color.BLACK)
                     false

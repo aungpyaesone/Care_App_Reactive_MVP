@@ -39,20 +39,21 @@ import kotlinx.android.synthetic.main.activity_update_doctor_profile.spSpecialit
 import kotlinx.android.synthetic.main.activity_update_doctor_profile.spYear
 import java.io.IOException
 
-class FillFormActivity : BaseActivity(),CreateAccountView {
+class FillFormActivity : BaseActivity(), CreateAccountView {
 
-    private lateinit var mPresenter : CreateAccountPresenter
+    private lateinit var mPresenter: CreateAccountPresenter
     private var year: String? = null
     private var month: String? = null
     private var day: String? = null
     private var specialityEng: String? = null
     private var bitmap: Bitmap? = null
     private var specialityMyanmar: String? = null
-    private var gender:String? = ""
+    private var gender: String? = ""
     private var mDoctorVO: DoctorVO? = null
-    companion object{
-            const val PICK_IMAGE_REQUEST = 1001
-            fun newInstance(context: Context)= Intent(context,FillFormActivity::class.java)
+
+    companion object {
+        const val PICK_IMAGE_REQUEST = 1001
+        fun newInstance(context: Context) = Intent(context, FillFormActivity::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +67,7 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
     }
 
     private fun setupPresenter() {
-       mPresenter = getPresenter<CreateAccountPresnterImpl,CreateAccountView>()
+        mPresenter = getPresenter<CreateAccountPresnterImpl, CreateAccountView>()
     }
 
     private fun setupLayout() {
@@ -116,19 +117,20 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
             ) {
                 year = parent.getItemAtPosition(position).toString()
             }
+
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            when(checkedId){
-                R.id.male ->{
+            when (checkedId) {
+                R.id.male -> {
                     gender = getString(R.string.male)
                     return@setOnCheckedChangeListener
                 }
-                R.id.female ->{
+                R.id.female -> {
                     gender = getString(R.string.female)
                     return@setOnCheckedChangeListener
                 }
-                else ->{
+                else -> {
                     gender = getString(R.string.male)
                     return@setOnCheckedChangeListener
                 }
@@ -160,14 +162,15 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
                 doctorVO.email = SessionManager.doctor_email
                 doctorVO.deviceId = SessionManager.device_id
                 bitmap?.let { bitmap ->
-                        SessionManager.doctor_name = doctorVO.name
-                        mPresenter.createAccount(
-                            bitmap = bitmap,
-                            doctorVO = doctorVO
-                        )
+                    SessionManager.doctor_name = doctorVO.name
+                    mPresenter.createAccount(
+                        bitmap = bitmap,
+                        doctorVO = doctorVO
+                    )
                 } ?: kotlin.run {
                     showErrorMessage("please choose profile photo")
                 }
+
             }
         }
 
@@ -207,7 +210,9 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
     }
 
     override fun navigateToLoginScreen() {
-       startActivity(LoginActivity.newInstance(this))
+        SessionManager.login_status = true
+        startActivity(MainActivity.newInstance(this))
+        finish()
     }
 
     private fun openGallary() {
@@ -221,45 +226,45 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
     }
 
     override fun showLoading() {
-        progress_bar.visibility = View.VISIBLE
+        showLoadingProgress(this).show()
     }
 
     override fun hideLoading() {
-        progress_bar.visibility = View.INVISIBLE
+        showLoadingProgress(this).dismiss()
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-            if (requestCode ==  PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-                if (data == null || data.data == null) {
-                    return
-                }
-
-                val filePath = data.data
-                try {
-                    filePath?.let {
-                        if (Build.VERSION.SDK_INT >= 29) {
-                            val source: ImageDecoder.Source =
-                                ImageDecoder.createSource(this.contentResolver, filePath)
-
-                            bitmap = ImageDecoder.decodeBitmap(source)
-                            wtfImage.load(it, R.drawable.image_placeholder)
-                            //  mPresenter.onPhotoTaken(bitmap)
-                        } else {
-                            bitmap = MediaStore.Images.Media.getBitmap(
-                                applicationContext.contentResolver, filePath
-                            )
-                            wtfImage.load(it, R.drawable.image_placeholder)
-                            //   mPresenter.onPhotoTaken(bitmap)
-                        }
-                    }
-
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            if (data == null || data.data == null) {
+                return
             }
+
+            val filePath = data.data
+            try {
+                filePath?.let {
+                    if (Build.VERSION.SDK_INT >= 29) {
+                        val source: ImageDecoder.Source =
+                            ImageDecoder.createSource(this.contentResolver, filePath)
+
+                        bitmap = ImageDecoder.decodeBitmap(source)
+                        wtfImage.load(it, R.drawable.image_placeholder)
+                        //  mPresenter.onPhotoTaken(bitmap)
+                    } else {
+                        bitmap = MediaStore.Images.Media.getBitmap(
+                            applicationContext.contentResolver, filePath
+                        )
+                        wtfImage.load(it, R.drawable.image_placeholder)
+                        //   mPresenter.onPhotoTaken(bitmap)
+                    }
+                }
+
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
 
     }
 }

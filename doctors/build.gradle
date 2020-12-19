@@ -96,4 +96,5 @@ dependencies {
     implementation 'com.github.okdroid:checkablechipview:2.0.0'
     // firestore
     implementation 'com.google.firebase:firebase-firestore-ktx:21.6.0'
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
 }

@@ -76,13 +76,15 @@ class RegisterActivity : BaseActivity() , RegisterView {
 
     override fun navigateToCreateAccountScreen() {
         startActivity(FillFormActivity.newInstance(this))
+        finish()
     }
 
     override fun showLoading() {
-        progressView.visibility = View.VISIBLE
+       // progressView.visibility = View.VISIBLE
+        showLoadingProgress(this).show()
     }
 
     override fun hideLoading() {
-        progressView.visibility = View.GONE
+        showLoadingProgress(this).dismiss()
     }
 }

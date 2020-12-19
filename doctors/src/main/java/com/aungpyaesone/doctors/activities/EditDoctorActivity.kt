@@ -212,7 +212,6 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
             Intent.createChooser(intent, "Select Picture"),
             PICK_IMAGE_REQUEST
         )
-
     }
 
     override fun hideProgressDialog() {
@@ -224,11 +223,11 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
     }
 
     override fun showLoading() {
-        progressBar.visibility = View.VISIBLE
+        showLoadingProgress(this).show()
     }
 
     override fun hideLoading() {
-        progressBar.visibility = View.GONE
+        showLoadingProgress(this).dismiss()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

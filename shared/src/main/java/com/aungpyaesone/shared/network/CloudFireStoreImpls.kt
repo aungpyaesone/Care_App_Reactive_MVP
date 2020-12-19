@@ -768,7 +768,7 @@ object CloudFireStoreImpls : FirebaseApi {
             "doctor" to consultationChatVO.doctor,
             "patient" to consultationChatVO.patient,
             "patient_id" to consultationChatVO.patient_id,
-            "docotr_id" to consultationChatVO.doctor_id,
+            "doctor_id" to consultationChatVO.doctor_id,
             "dateTime" to consultationChatVO.dateTime,
             "note" to consultationChatVO.note,
             "status" to false

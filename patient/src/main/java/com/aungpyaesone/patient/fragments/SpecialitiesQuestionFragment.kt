@@ -21,7 +21,9 @@ import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 import com.aungpyaesone.shared.fragments.BaseFragment
 import com.aungpyaesone.shared.util.sharePreferencePatient
 import com.aungpyaesone.shared.util.sharePreferencePatientEmail
+import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.fragment_specialities_question.*
+import kotlinx.android.synthetic.main.fragment_specialities_question.scrollView
 
 private const val ARG_PARAM1 = "param1"
 
@@ -72,6 +74,7 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
     }
 
     private fun setupRecycler() {
+        scrollView.scrollTo(0,scrollView.top)
         mAdapter = SpecialQuestionAdapter(mPresenter)
         rvSpecialQuestion.apply {
             layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)

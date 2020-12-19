@@ -16,7 +16,7 @@ interface DoctorModel {
     fun getDoctorFromDbByEmail(email: String) : LiveData<DoctorVO>
     fun getDoctorByEmailFromApi(
         email: String,
-        onSuccess: () -> Unit,
+        onSuccess: (doctorVO:DoctorVO) -> Unit,
         onError: (String) -> Unit
     )
 

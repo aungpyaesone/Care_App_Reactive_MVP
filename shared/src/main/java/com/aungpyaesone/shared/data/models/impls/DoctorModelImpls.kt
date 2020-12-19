@@ -62,16 +62,16 @@ object DoctorModelImpls : DoctorModel, BaseModel() {
 
     override fun getDoctorByEmailFromApi(
         email: String,
-        onSuccess: () -> Unit,
+        onSuccess: (doctorVO: DoctorVO) -> Unit,
         onError: (String) -> Unit
     ) {
         mFirebaseModel.getDoctorByEmail(email, onSuccess = {
             mTheDB.doctorDao().deleteAllDoctor()
             mTheDB.doctorDao().insertDoctor(it).dbOperationResult({
-                onSuccess()
             }, {
                 onError(it)
             })
+            onSuccess(it)
         }, onFailure = {
             onError(it)
         })

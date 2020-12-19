@@ -25,30 +25,25 @@ class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
             mView?.showLoading()
             mAuthModel.login(email, password, onSuccess = {
                 mDoctorModel.getDoctorByEmailFromApi(email, onSuccess = {
+                    it.deviceId = SessionManager.device_id
+                    mDoctorModel.addDoctor(it,onSuccess = {},onFailure = {})
+                    SessionManager.user_id = it.id
+                    SessionManager.doctor_name = it.name
+                    SessionManager.device_id = it.deviceId
+                    SessionManager.speciality = it.speciality
+                    SessionManager.biography = it.biography
+                    SessionManager.photo = it.photo
+                    SessionManager.experience = it.experience
+                    SessionManager.address = it.address
+                    SessionManager.phone = it.phone
+                    SessionManager.degree = it.degree
+                    SessionManager.doctor_email = it.email
+                    mView?.navigateToHomeScreen(it)
                     mView?.hideLoading()
                 }, onError = {
                     mView?.showErrorMessage(it)
                     mView?.hideLoading()
                 })
-                mDoctorModel.getDoctorFromDbByEmail(email).observe(lifecycleOwner, Observer {
-                    it?.let {
-                        it.deviceId = SessionManager.device_id
-                        mDoctorModel.addDoctor(it,onSuccess = {},onFailure = {})
-                        SessionManager.user_id = it.id
-                        SessionManager.doctor_name = it.name
-                        SessionManager.device_id = it.deviceId
-                        SessionManager.speciality = it.speciality
-                        SessionManager.biography = it.biography
-                        SessionManager.photo = it.photo
-                        SessionManager.experience = it.experience
-                        SessionManager.address = it.address
-                        SessionManager.phone = it.phone
-                        SessionManager.degree = it.degree
-                        SessionManager.doctor_email = it.email
-                        mView?.navigateToHomeScreen(it)
-                    }
-                })
-
             }, onFailure = {
                 mView?.showErrorMessage(it)
                 mView?.hideLoading()

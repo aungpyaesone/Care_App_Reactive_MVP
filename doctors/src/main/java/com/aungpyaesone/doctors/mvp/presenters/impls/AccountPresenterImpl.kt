@@ -25,7 +25,10 @@ class AccountPresenterImpl : AccountPresenter, AbstractBasePresenter<AccountView
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-       mDoctorModel.getDoctorByEmailFromApi(email = SessionManager.doctor_email.toString(),onSuccess = {},onError = {})
+       mDoctorModel.getDoctorByEmailFromApi(
+           email = SessionManager.doctor_email.toString(),
+           onSuccess = {},
+           onError = {})
        mDoctorModel.getDoctorFromDbByEmail(SessionManager.doctor_email.toString()).observe(lifecycleOwner,
            Observer {
                it?.let {

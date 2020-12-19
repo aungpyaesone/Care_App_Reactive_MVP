@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.SpecialitiesQuestionFragment">
 
 
-   <com.aungpyaesone.patient.views.components.SmartRecyclerView
+
+   <androidx.core.widget.NestedScrollView
+       android:id="@+id/scrollView"
+       android:layout_width="match_parent"
+       android:fillViewport="true"
+       app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+       android:layout_height="match_parent">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+
+           >
+   <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rvSpecialQuestion"
        android:layout_width="match_parent"
-       android:layout_height="0dp"
+       android:layout_height="match_parent"
        android:layout_marginBottom="@dimen/margin_medium_2"
        tools:listitem="@layout/special_question_item_view"
-       app:layout_constraintBottom_toTopOf="@+id/btnStartConsultation"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+       />
 
-   <com.google.android.material.button.MaterialButton
-       android:id="@+id/btnStartConsultation"
-       android:layout_width="224dp"
-       android:layout_height="@dimen/button_height"
-       android:layout_below="@id/rvSpecialQuestion"
-       android:layout_alignParentBottom="true"
-       android:layout_centerHorizontal="true"
-       android:layout_gravity="bottom|center"
-       android:backgroundTint="@color/blue"
-       app:cornerRadius="9dp"
-       android:fontFamily="@font/poppins_bold"
-       android:paddingStart="@dimen/margin_medium_2"
-       android:paddingEnd="@dimen/margin_medium_2"
-       android:text="@string/consultation_request_button_label"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent" />
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/btnStartConsultation"
+           android:layout_width="224dp"
+           android:layout_height="64dp"
+           android:layout_gravity="bottom|center"
+           android:backgroundTint="@color/blue"
+           app:cornerRadius="9dp"
+           android:layout_centerHorizontal="true"
+           android:layout_below="@id/rvSpecialQuestion"
+           android:layout_marginBottom="@dimen/margin_medium_2"
+           android:fontFamily="@font/poppins_bold"
+           android:paddingStart="@dimen/margin_medium_2"
+           android:paddingEnd="@dimen/margin_medium_2"
+           android:text="@string/consultation_request_button_label"
+           />
+       </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

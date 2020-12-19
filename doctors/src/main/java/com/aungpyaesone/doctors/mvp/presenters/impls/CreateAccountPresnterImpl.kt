@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import androidx.lifecycle.LifecycleOwner
 import com.aungpyaesone.doctors.mvp.presenters.CreateAccountPresenter
 import com.aungpyaesone.doctors.mvp.views.CreateAccountView
+import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.models.impls.CoreModelImpls
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.DoctorVO
@@ -20,6 +21,7 @@ class CreateAccountPresnterImpl : CreateAccountPresenter,
         mView?.showLoading()
         mDoctorModel.uploadPhotoUrl(bitmap,onSuccess = {
             doctorVO.photo = it
+            SessionManager.photo = it
             mView?.hideLoading()
             mCoreModel.addDoctor(doctorVO, onSuccess = {
                 mView?.hideLoading()

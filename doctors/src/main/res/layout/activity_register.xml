@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginActivity">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
+        >
         <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
@@ -204,4 +210,5 @@
             android:textColor="@color/color_primary" />
 
     </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -74,6 +74,26 @@ class HomePresenterImpl : HomePresenter, AbstractBasePresenter<HomeView>() {
             }
         })
 
+        mDoctorModel.getDoctorByEmailFromApi(SessionManager.doctor_email.toString(), onSuccess = {
+            mView?.hideLoading()
+            it.deviceId = SessionManager.device_id
+            mDoctorModel.addDoctor(it,onSuccess = {},onFailure = {})
+            SessionManager.user_id = it.id
+            SessionManager.doctor_name = it.name
+            SessionManager.device_id = it.deviceId
+            SessionManager.speciality = it.speciality
+            SessionManager.biography = it.biography
+            SessionManager.photo = it.photo
+            SessionManager.experience = it.experience
+            SessionManager.address = it.address
+            SessionManager.phone = it.phone
+            SessionManager.degree = it.degree
+            SessionManager.doctor_email = it.email
+        }, onError = {
+            mView?.showErrorMessage(it)
+            mView?.hideLoading()
+        })
+
     }
 
     override fun onTapAcceptButton(

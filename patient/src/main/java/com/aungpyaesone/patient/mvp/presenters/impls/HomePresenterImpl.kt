@@ -30,9 +30,9 @@ class HomePresenterImpl  : HomePresenter, AbstractBasePresenter<HomeView>(){
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-      mView?.showLoading()
+     // mView?.showLoading()
       mCoreModel.getSpecialityFromDb().observe(lifecycleOwner, Observer {
-          mView?.hideLoading()
+        //  mView?.hideLoading()
           mView?.showSpecialitiesList(it)
       })
 
@@ -47,6 +47,36 @@ class HomePresenterImpl  : HomePresenter, AbstractBasePresenter<HomeView>(){
         mCoreModel.getRecentlyConsultedDoctorFromDb().observe(lifecycleOwner, Observer {
             mView?.showRecentlyConsultedDoctor(it)
         })
+
+
+        mPatientModel.getPatientByEmail(SessionManager.patient_email.toString(), onSuccess = {
+            it.deviceId = SessionManager.patient_device_id
+            mPatientModel.addPatient(it,onSuccess = {},onFailure = {})
+            SessionManager.patient_name = it.name
+            SessionManager.patient_id = it.id
+            SessionManager.patient_dateOfBirth = it.dob
+            SessionManager.comment= it.allergic_medicine
+            SessionManager.patient_email = it.email
+            SessionManager.patient_height = it.height
+            SessionManager.patient_blood_type = it.blood_type
+            SessionManager.weight = it.weight
+            SessionManager.patient_device_id = it.deviceId
+            SessionManager.bloodPressure = it.blood_pressure
+            SessionManager.photo = it.photo
+            SessionManager.created_date = it.created_date
+            SessionManager.address = it.address
+            SessionManager.phone = it.phone
+        }, onError = {
+            mView?.showErrorMessage(it)
+           // mView?.hideLoading()
+        })
+
+        mPatientModel.getPatientFromDbByEmail(SessionManager.patient_email.toString()).observe(lifecycleOwner,
+            Observer {
+
+             //   mView?.hideLoading()
+            })
+
     }
 
     override fun onTapSpecialitiesItem(specialitiesVO: SpecialitiesVO) {
