@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.LoginPresenter
 import com.aungpyaesone.doctors.mvp.presenters.impls.LoginPresenterImpl
@@ -12,6 +13,7 @@ import com.aungpyaesone.doctors.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.DoctorVO
 import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import com.aungpyaesone.shared.activites.BaseActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.btnRegister
 import kotlinx.android.synthetic.main.activity_login.etEmail
@@ -43,6 +45,10 @@ class LoginActivity : BaseActivity(),LoginView{
         btnRegister.setOnClickListener{
             mPresenter.onTapRegister()
         }
+
+        btnLoginWithFacebook.setOnClickListener {
+           showAlertDialog()
+        }
     }
 
     override fun navigateToRegisterScreen() {
@@ -68,5 +74,6 @@ class LoginActivity : BaseActivity(),LoginView{
     override fun hideLoading() {
         progressView.visibility = View.GONE
     }
+
 
 }

@@ -2,8 +2,10 @@ package com.aungpyaesone.doctors.activities
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +35,7 @@ class ChatActivity : BaseActivity(),ChatView {
     private var mPatientVO: PatientVO? = null
     private var mDoctorVO: DoctorVO? = null
     private var mChatId : String? = null
+    private var finishStatus :Boolean = false
     private var mConsultationChatVO : ConsultationChatVO? = null
 
     companion object{
@@ -65,23 +68,25 @@ class ChatActivity : BaseActivity(),ChatView {
         val messageVO = ChatMessageVO()
         val senderVO = SenderVO()
         ivSend.setOnClickListener {
-            if(etMessage.text.toString().isNotEmpty())
-            {
-                mDoctorVO?.let {
-                    senderVO.id = it.id
-                    senderVO.photo = it.photo
-                    senderVO.name = it.name
-                    messageVO.messageText = etMessage.text.toString()
-                    messageVO.sendAt = DateUtils.getDate(System.currentTimeMillis())
-                    messageVO.sentBy = senderVO
-                    SessionManager.put(it,sharePreferenceDoctor)
-                    mChatId?.let{
-                        mPresenter.onTapSendMessage(it,messageVO)
-                        etMessage.text.clear()
-                    }
 
+                if(etMessage.text.toString().isNotEmpty())
+                {
+                    mDoctorVO?.let {
+                        senderVO.id = it.id
+                        senderVO.photo = it.photo
+                        senderVO.name = it.name
+                        messageVO.messageText = etMessage.text.toString()
+                        messageVO.sendAt = DateUtils.getDate(System.currentTimeMillis())
+                        messageVO.sentBy = senderVO
+                        SessionManager.put(it,sharePreferenceDoctor)
+                        mChatId?.let{
+                            mPresenter.onTapSendMessage(it,messageVO)
+                            etMessage.text.clear()
+                        }
+
+                    }
                 }
-            }
+
         }
 
         btnPrescribe.setOnClickListener {
@@ -99,7 +104,7 @@ class ChatActivity : BaseActivity(),ChatView {
             }
         }
         ivAttachment.setOnClickListener{
-            showErrorMessage("function is not available in this version")
+            showAlertDialog()
         }
     }
 
@@ -126,7 +131,7 @@ class ChatActivity : BaseActivity(),ChatView {
                 sendTextLayout.visibility = View.GONE
             }
             else ->{
-                sendTextLayout.visibility = View.VISIBLE
+                 sendTextLayout.visibility = View.VISIBLE
             }
         }
     }

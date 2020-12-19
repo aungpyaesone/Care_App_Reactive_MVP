@@ -64,6 +64,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
                 android:id="@+id/ivDoctorProfile"
@@ -79,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/subTitleStyle"
+                android:textColor="@color/title_text_color"
                 android:fontFamily="@font/poppins_regular"
                 tools:text="@string/name_of_patient_label"
                 android:layout_toEndOf="@id/ivDoctorProfile"
@@ -91,6 +95,7 @@
                 style="@style/subTitleStyle"
                 android:fontFamily="@font/poppins_regular"
                 tools:text="098756566"
+                android:textColor="@color/title_text_color"
                 android:layout_marginBottom="@dimen/margin_medium"
                 android:layout_toEndOf="@id/ivDoctorProfile"
                 android:layout_above="@id/tvSpeciality"/>
@@ -112,6 +117,7 @@
                 android:id="@+id/tvDob_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
                 android:text="@string/dob_label"
                 android:layout_below="@id/ivDoctorProfile"
                 style="@style/profileTextStyle"/>
@@ -238,7 +244,7 @@
                 android:layout_below="@id/tvDegreeLabel"
                 android:fontFamily="@font/poppins_regular"
                 android:layout_marginStart="@dimen/margin_medium_2"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_large"
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:text="blah blah blah blah blah blahblah"
                 android:textSize="@dimen/text_regular_2" />
@@ -251,7 +257,7 @@
                 android:layout_alignStart="@+id/tvDegree"
                 android:layout_marginStart="0dp"
                 android:fontFamily="@font/poppins_bold"
-                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_large"
                 android:background="@drawable/blue_background"
                 android:paddingStart="@dimen/margin_medium_2"
                 android:paddingTop="@dimen/margin_medium"
@@ -267,19 +273,21 @@
                 android:layout_height ="wrap_content"
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:textSize="@dimen/text_regular"
-                android:layout_marginBottom="@dimen/margin_large_xxx"
+                android:layout_marginBottom="@dimen/margin_large_xxxx"
                 android:fontFamily="@font/poppins_regular"
                 android:text="blah blah blah blah blah blahblah"
                 android:layout_below="@id/tvBiographyLabel"
                 android:layout_marginStart="@dimen/margin_medium_2"
-                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_large"
                 />
-
+        </RelativeLayout>
             <org.mmtextview.components.MMTextView
                 android:id="@+id/tvLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/logout"
+                android:paddingBottom="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_large"
                 android:layout_alignParentBottom="true"
                 android:textSize="@dimen/text_regular"
                 android:fontFamily="@font/poppins_bold"
@@ -294,6 +302,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/change_password"
                 android:layout_alignParentBottom="true"
+                android:paddingBottom="@dimen/margin_medium_2"
                 android:layout_alignParentEnd="true"
                 android:textSize="@dimen/text_regular"
                 android:fontFamily="@font/poppins_bold"
@@ -301,8 +310,6 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 />
-
-
 
         </RelativeLayout>
 

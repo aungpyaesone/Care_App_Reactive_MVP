@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -20,7 +21,9 @@ import com.aungpyaesone.patient.views.view_pods.EmptyViewPod
 import com.aungpyaesone.shared.data.models.PatientModel
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.models.impls.PatientModelImpls
+import com.aungpyaesone.shared.data.vos.ConsultationChatVO
 import com.aungpyaesone.shared.data.vos.PrescriptionVO
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_prescription_info_dialog.*
 import kotlinx.android.synthetic.main.fragment_prescription_info_dialog.view.*
 import java.text.DateFormat
@@ -30,23 +33,13 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
     private val mPatientModel = PatientModelImpls
 
     private lateinit var mAdapter: PrescriptionInfoAdapter
-    private var chat_id: String? = null
-  //  private lateinit var mViewPod: EmptyViewPod
+    private var chatVO: ConsultationChatVO? = null
 
     companion object {
-        private const val KEY_Chat_id = "KEY_Chat_id"
-        private const val KEY_Patient_name = "Key_patient_name"
-        private const val KEY_START_DATE = "KEY_START_DATE"
-
-        fun newInstance(
-            consultation_chat_id: String?,
-            patient_name: String?,
-            startDate: String?
-        ): PrescriptionInfoDialogFragment {
+        private const val CHAT_VO = "chat_vo"
+        fun newInstance(chat: String): PrescriptionInfoDialogFragment {
             val args = Bundle()
-            args.putString(KEY_Chat_id, consultation_chat_id)
-            args.putString(KEY_Patient_name, patient_name)
-            args.putString(KEY_START_DATE, startDate)
+            args.putString(CHAT_VO, chat)
             val fragment = PrescriptionInfoDialogFragment()
             fragment.arguments = args
             return fragment
@@ -69,9 +62,9 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
         setupView(view)
         setupClickListeners(view)
         mPresenter.onUiReady(this)
-      //  mPresenter.onUiReadyForPrescription(chat_id.toString(),this)
+        //  mPresenter.onUiReadyForPrescription(chat_id.toString(),this)
 
-        chat_id?.let { mPatientModel.getPrescriptionFromApi(it,onSuccess = {},onFailure = {}) }
+        chatVO?.id?.let { mPatientModel.getPrescriptionFromApi(it, onSuccess = {}, onFailure = {}) }
         mPatientModel.getPrescriptionFromDb().observe(this, Observer {
             it?.let {
                 mAdapter.setData(it)
@@ -80,7 +73,7 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
     }
 
     private fun setupViePod() {
-       // mViewPod = emptyView as EmptyViewPod
+        // mViewPod = emptyView as EmptyViewPod
     }
 
     private fun setupPresenter() {
@@ -104,13 +97,10 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
     }
 
     private fun setupView(view: View) {
-        chat_id = arguments?.getString(KEY_Chat_id)
-        val name = arguments?.getString(KEY_Patient_name)
-        val sdate = arguments?.getString(KEY_START_DATE)
-
-        view.pname.text = name
-        view.pstartdate.text = DateFormat.getDateInstance().format(sdate?.toLong()).toString()
-        view.rc_medicinelist.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val data = arguments?.getString(CHAT_VO)
+        chatVO = Gson().fromJson(data,ConsultationChatVO::class.java)
+        view.rc_medicinelist.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         view.rc_medicinelist.adapter = mAdapter
         view.rc_medicinelist.setHasFixedSize(false)
     }
@@ -122,9 +112,6 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
     }
 
     override fun displayPrescriptionList(prescription_list: List<PrescriptionVO>) {
-        context?.let {
-            Toast.makeText(context,prescription_list.size,Toast.LENGTH_SHORT).show()
-        }
         mAdapter.setData(prescription_list)
     }
 
@@ -138,5 +125,9 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): AlertDialog? {
+        return null
     }
 }

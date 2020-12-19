@@ -17,8 +17,8 @@
         android:orientation="horizontal">
 
         <com.aungpyaesone.patient.views.components.RoundedCornerImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:padding="2dp"
             app:cornerRadius="@dimen/margin_large_xxxx"
             android:layout_marginStart="@dimen/margin_small"

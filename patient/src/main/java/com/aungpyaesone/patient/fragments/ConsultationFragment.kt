@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.patient.R
@@ -52,7 +53,6 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
         setUpPresenter()
         setupViewPod()
         setupRecycler()
-
         mPresenter.onUiReady(this)
     }
 
@@ -85,11 +85,16 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
     override fun showPrescriptionDialog(consultationChatVO: ConsultationChatVO) {
         val data=  Gson().toJson(consultationChatVO)
         consultationChatVO?.let {
-            val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(consultationChatVO.id,consultationChatVO.patient?.name,
-                consultationChatVO.dateTime
-            )
-            activity?.supportFragmentManager?.let { it1 -> dialog.show(it1, "") }
+            if(it.status == false){
+            context?.getString(R.string.no_medicine)?.let { showErrorMessage(it) }
+        }else{
+                val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(
+                    data
+                )
+                activity?.supportFragmentManager?.let { it1 -> dialog.show(it1, "") }
+            }
         }
+
     }
 
 
@@ -99,6 +104,10 @@ class ConsultationFragment : BaseFragment(),ConsultationView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): AlertDialog? {
+        return null
     }
 
     companion object {

@@ -177,7 +177,7 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="-100dp"
+            android:layout_marginStart="-130dp"
             android:layout_marginBottom="-180dp"
             android:src="@drawable/group_909" />
 
@@ -185,7 +185,6 @@
             style="@style/subTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_alignTop="@id/tvLogin"
             android:layout_toStartOf="@id/tvLogin"
             android:text="@string/already_have_an_account" />

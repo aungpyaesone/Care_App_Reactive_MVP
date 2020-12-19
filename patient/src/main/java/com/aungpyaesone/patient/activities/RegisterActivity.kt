@@ -39,16 +39,21 @@ class RegisterActivity : BaseActivity(),RegisterView {
 
     private fun setUpActionListeners() {
         btnRegister.setOnClickListener {
-            val patientVO = PatientVO()
-            patientVO.email = etEmail.text.toString()
-            patientVO.name = etUserName.text.toString()
-            mToken?.let { it1 ->
-                mPresenter.onTapRegister(
-                    it1,
-                    patientVO,
-                    etPassword.text.toString()
-                )
+            if(etEmail.text.isEmpty() || etPassword.text.isEmpty() || etUserName.text.isEmpty()) {
+                showErrorMessage("Please enter all the fields")
+            }else{
+                val patientVO = PatientVO()
+                patientVO.email = etEmail.text.toString()
+                patientVO.name = etUserName.text.toString()
+                mToken?.let { it1 ->
+                    mPresenter.onTapRegister(
+                        it1,
+                        patientVO,
+                        etPassword.text.toString()
+                    )
+                }
             }
+
         }
 
         tvLogin.setOnClickListener {
@@ -62,7 +67,7 @@ class RegisterActivity : BaseActivity(),RegisterView {
 
     override fun navigateToHomeScreen() {
         startActivity(LoginActivity.newInstance(this))
-        this.finish()
+        finish()
     }
 
     override fun navigateToLoginScreen(userId: String) {

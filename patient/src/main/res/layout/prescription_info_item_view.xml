@@ -9,9 +9,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/black"
+        android:textColor="@color/title_text_color"
         android:padding="8dp"
         android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
         android:id="@+id/medicine_name"
         android:text="Medicine Name"/>
     <LinearLayout
@@ -24,18 +25,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
             android:text="@string/amount"
-            android:textStyle="bold"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_regular"
             android:padding="5dp"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.4"
-            android:text=""
+            android:text="700 mg"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:id="@+id/amount"
-            android:textSize="12sp"
             android:textColor="@color/black"
             android:padding="5dp"/>
     </LinearLayout>
@@ -49,9 +51,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/title_text_color"
             android:text="@string/quantity_label"
             android:padding="5dp"/>
         <TextView
@@ -59,8 +60,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.4"
             android:text=""
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:id="@+id/txt_quality"
             android:padding="5dp"/>
     </LinearLayout>
@@ -75,17 +77,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/delay_time"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:padding="5dp"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.4"
             android:text=""
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:id="@+id/txt_time"
             android:padding="5dp"/>
     </LinearLayout>
@@ -99,17 +102,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:text="@string/count"
             android:padding="5dp"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.4"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:text=""
             android:id="@+id/txt_count"
             android:padding="5dp"/>
@@ -125,18 +129,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Repeat"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:padding="5dp"/>
         <TextView
+            android:id="@+id/txt_repeat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.4"
             android:text=""
-            android:id="@+id/txt_repeat"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:padding="5dp"/>
     </LinearLayout>
     <LinearLayout
@@ -149,19 +154,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:text="@string/note"
             android:padding="5dp"/>
         <TextView
+            android:id="@+id/txt_comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.4"
             android:text=""
-            android:textSize="12sp"
-            android:id="@+id/txt_comment"
-            android:textColor="@color/black"
+            android:textColor="@color/title_text_color"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_regular"
             android:padding="5dp"/>
     </LinearLayout>
     <View

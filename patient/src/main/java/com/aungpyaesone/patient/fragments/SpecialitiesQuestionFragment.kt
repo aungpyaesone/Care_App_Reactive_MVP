@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.patient.R
@@ -19,6 +20,7 @@ import com.aungpyaesone.shared.data.vos.QuestionAnswerVO
 import com.aungpyaesone.shared.data.vos.SpecialQuestionVO
 import com.aungpyaesone.shared.fragments.BaseFragment
 import com.aungpyaesone.shared.util.sharePreferencePatient
+import com.aungpyaesone.shared.util.sharePreferencePatientEmail
 import kotlinx.android.synthetic.main.fragment_specialities_question.*
 
 private const val ARG_PARAM1 = "param1"
@@ -109,6 +111,8 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
     }
 
     override fun showPatientVO(patientVO: PatientVO) {
+        patientVO.weight = SessionManager.weight
+        patientVO.blood_pressure = SessionManager.bloodPressure
         SessionManager.put(patientVO, sharePreferencePatient)
         mPatientVO = patientVO
     }
@@ -119,6 +123,10 @@ class SpecialitiesQuestionFragment : BaseFragment(),SummaryView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): AlertDialog? {
+        return null
     }
 
     companion object {

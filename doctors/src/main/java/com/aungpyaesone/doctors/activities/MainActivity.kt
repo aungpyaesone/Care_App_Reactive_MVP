@@ -102,7 +102,6 @@ class MainActivity : BaseActivity(),HomeView {
            // emptyView.visibility = View.GONE
         }
         mAcceptAdapter.setData(consultationChat)
-
     }
 
     private fun subscribeNoti() {
@@ -112,7 +111,7 @@ class MainActivity : BaseActivity(),HomeView {
                 if (!task.isSuccessful) {
                     msg = "failed"
                 }
-                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                 Log.d("success",msg)
             }
     }
@@ -180,20 +179,26 @@ class MainActivity : BaseActivity(),HomeView {
     }
 
     override fun showPatientInfoDialog(consultationChatVO: ConsultationChatVO) {
+
         val data=  Gson().toJson(consultationChatVO)
-        consultationChatVO?.let {
-            val dialog: PatientInfoDialogFragment = PatientInfoDialogFragment.newInstance(data)
-            dialog.show(supportFragmentManager, "")
+        val dialog: PatientInfoDialogFragment = PatientInfoDialogFragment.newInstance(data)
+        dialog.show(supportFragmentManager, "")
         }
-    }
+
 
     override fun showPrescriptionInfoDialog(consultationChatVO: ConsultationChatVO) {
         val data=  Gson().toJson(consultationChatVO)
-        consultationChatVO?.let {
-            val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(consultationChatVO.id,consultationChatVO.patient?.name,
-            consultationChatVO.dateTime
-            )
-            dialog.show(supportFragmentManager, "")
+        consultationChatVO?.let{
+            if(it.status == false)
+            {
+                showErrorMessage(getString(R.string.no_medicine))
+            }
+            else{
+                val dialog: PrescriptionInfoDialogFragment = PrescriptionInfoDialogFragment.newInstance(consultationChatVO.id,consultationChatVO.patient?.name,
+                    consultationChatVO.dateTime
+                )
+                dialog.show(supportFragmentManager, "")
+            }
         }
     }
 

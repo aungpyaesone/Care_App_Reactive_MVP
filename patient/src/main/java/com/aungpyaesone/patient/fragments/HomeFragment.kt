@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -178,6 +179,10 @@ class HomeFragment : BaseFragment(),HomeView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): AlertDialog? {
+        return null
     }
 
     companion object {

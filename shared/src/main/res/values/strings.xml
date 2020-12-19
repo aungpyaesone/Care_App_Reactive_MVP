@@ -34,6 +34,7 @@
     <string name="medicine_note">ဆေးကုသမှုမှတ်တမ်း</string>
     <string name="medicine_writ_note">ဆေးကုသမှုမှတ်တမ်း ရေးသားရန်</string>
     <string name="notes">ဆေးမှတ်တမ်း</string>
+    <string name="no_medicine">ဆေးညွန်းမရှိသေးပါ</string>
 
     <string name="consultation_request_button_label">ချိန်းဆိုမှုပြုလုပ်မည်</string>
     <string name="confirm_patient_data_label">လူနာအချက်အလက်များအတည်ပြုပေးပါ</string>
@@ -103,9 +104,14 @@
     
     <string name="add_btn_label">ထည့်မည်</string>
     <string name="finish_consultation">ဆေးညွှန်းပြီး ဆွေးနွေးမှုကို ပြီးဆုံးမည်</string>
+    <string name="finish_consult">ဆွေးနွေးမှုပီးဆုံးပါပီ</string>
     <string name="save_btn_label">သိမ်းမည်</string>
     <string name="no_prescription">ဆေးညွှန်းမရှိသေးပါ</string>
-    
+
+    <string name="unavailable">This function is not available in this version</string>
+    <string name="positive">Ok</string>
+    <string name="negative"></string>
+
     <string name="biography_label">ကိုယ်ရေးအကျဉ်း</string>
     <string name="degree_label">ရရှိထားသောဘွဲ့များ</string>
 

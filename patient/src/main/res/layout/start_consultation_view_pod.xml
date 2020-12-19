@@ -38,7 +38,7 @@
             android:layout_below="@id/tvAcceptTitle"
             android:layout_alignStart="@id/tvAcceptTitle"
             android:src="@mipmap/ic_launcher"
-            app:cornerRadius="@dimen/margin_large" />
+            app:cornerRadius="@dimen/margin_large_xxxx" />
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvDoctorName"
@@ -58,7 +58,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvDoctorName"
-            android:layout_marginTop="@dimen/margin_medium"
             android:layout_alignStart="@id/tvDoctorName"
             android:textColor="#00122d"
             android:layout_toEndOf="@id/ivProfile"

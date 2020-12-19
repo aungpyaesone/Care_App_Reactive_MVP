@@ -35,13 +35,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AccountFragment : BaseFragment(),AccountView {
+class AccountFragment : BaseFragment(), AccountView {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var mPresenter : AccountPresenter
-    private var mPatientVO : PatientVO? = null
+    private lateinit var mPresenter: AccountPresenter
+    private var mPatientVO: PatientVO? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +67,7 @@ class AccountFragment : BaseFragment(),AccountView {
     }
 
     private fun setupPresenter() {
-        mPresenter = getPresenter<AccountPresenterImpl,AccountView>()
+        mPresenter = getPresenter<AccountPresenterImpl, AccountView>()
     }
 
     private fun setupListener() {
@@ -94,26 +94,30 @@ class AccountFragment : BaseFragment(),AccountView {
             tvHeight.text = patientVO.height ?: ""
             tvAllergic.text = patientVO.allergic_medicine ?: ""
             tvAddress.text = patientVO.address ?: ""
-
-            if(patientVO.dob.isNullOrBlank() && patientVO.blood_type.isNullOrBlank()
+            if (patientVO.dob.isNullOrBlank() && patientVO.blood_type.isNullOrBlank()
                 && patientVO.height.isNullOrBlank() && patientVO.allergic_medicine.isNullOrBlank()
-                && patientVO.address.isNullOrBlank())
-            {
+                && patientVO.address.isNullOrBlank()
+            ) {
                 val data = Gson().toJson(mPatientVO)
                 val emptyDialogFragment = ProfileEmptyDialog.newInstance(data)
                 activity?.supportFragmentManager?.let {
                     emptyDialogFragment.show(
-                        it, ""
-                    )
+                        it, "")
                 }
             }
         }
+
     }
 
 
 
+
     override fun showStatusDialog() {
-        Toast.makeText(context,"this function is not available in this version",Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            "this function is not available in this version",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onResume() {
@@ -125,7 +129,7 @@ class AccountFragment : BaseFragment(),AccountView {
     override fun logoutView() {
         AlertDialog.Builder(context)
             .setTitle("Logout")
-            .setMessage("Are you sure you want to delete this entry?") // Specifying a listener allows you to take an action before dismissing the dialog.
+            .setMessage("Are you sure you want to logout?") // Specifying a listener allows you to take an action before dismissing the dialog.
             // The dialog is automatically dismissed when a dialog button is clicked.
             .setPositiveButton(android.R.string.yes,
                 DialogInterface.OnClickListener { dialog, which ->
@@ -137,11 +141,12 @@ class AccountFragment : BaseFragment(),AccountView {
             .setNegativeButton(android.R.string.no, null)
             .setIcon(android.R.drawable.ic_dialog_alert)
             .show()
+
     }
 
     override fun navigateToEditProfileScreen() {
         val data = Gson().toJson(mPatientVO)
-        startActivity(activity?.let { EditProfileActivity.newInstance(it,data) })
+        startActivity(activity?.let { EditProfileActivity.newInstance(it, data) })
     }
 
 
@@ -151,6 +156,10 @@ class AccountFragment : BaseFragment(),AccountView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): androidx.appcompat.app.AlertDialog? {
+        return null
     }
 
     companion object {

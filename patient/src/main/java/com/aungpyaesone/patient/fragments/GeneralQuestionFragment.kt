@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.delegate.CaseSummaryDelegate
 import com.aungpyaesone.patient.mvp.presenters.SummaryPresenter
@@ -173,8 +174,8 @@ class GeneralQuestionFragment : BaseFragment(),SummaryView {
                         SessionManager.patient_height = "$height"
                         SessionManager.patient_blood_type = "$bloodType"
                         SessionManager.comment = comment
-                        SessionManager.bloodPressure = "$bloodPressure"
-                        SessionManager.weight = "$weight"
+                        SessionManager.bloodPressure = bloodPressure
+                        SessionManager.weight = weight
                         mListener.onTapContinueCallback()
                     } else {
                         val snackBar = Snackbar.make(
@@ -251,6 +252,10 @@ class GeneralQuestionFragment : BaseFragment(),SummaryView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): AlertDialog? {
+        return null
     }
 
     companion object {

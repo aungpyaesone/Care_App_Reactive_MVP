@@ -1,5 +1,6 @@
 package com.aungpyaesone.patient.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -53,6 +54,7 @@ class ConfirmationActivity : BaseActivity(), ConfirmView {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun loadData() {
         val patientData = SessionManager.get<PatientVO>(sharePreferencePatient) ?: PatientVO()
         val questionAnswerList = SessionManager.getList(sharePreferenceQandA)
@@ -61,7 +63,7 @@ class ConfirmationActivity : BaseActivity(), ConfirmView {
         tvPHeight.text = patientData.height
         tvPbloodType.text = patientData.blood_type
         tvPAllergic.text = patientData.allergic_medicine
-        tvWeight.text = patientData.weight
+        tvWeight.text = patientData.weight + " lb"
         tvBloodPressure.text = patientData.blood_pressure
         mAdapter.setData(questionAnswerList ?: arrayListOf())
     }

@@ -32,17 +32,23 @@ class RegisterActivity : BaseActivity() , RegisterView {
 
     private fun setUpActionListeners() {
         btnRegister.setOnClickListener {
-            val doctorVO = DoctorVO()
-            doctorVO.email = etEmail.text.toString()
-            doctorVO.name = "User"
-            doctorVO.speciality = ""
-            mToken?.let { token ->
-                mPresenter.onTapRegister(
+            if(etEmail.text.isEmpty() || etPassword.text.isEmpty()) {
+                    showErrorMessage("Please enter all the fields")
+                }
+            else{
+                val doctorVO = DoctorVO()
+                doctorVO.email = etEmail.text.toString()
+                doctorVO.name = "User"
+                doctorVO.speciality = ""
+                mToken?.let { token ->
+                    mPresenter.onTapRegister(
                         token,
                         doctorVO,
                         etPassword.text.toString()
-                )
+                    )
+                }
             }
+
         }
         tvLogin.setOnClickListener {
             startActivity(LoginActivity.newInstance(this))

@@ -28,7 +28,7 @@ class ChatPresenterImpl :  ChatPresenter, AbstractBasePresenter<ChatView>(){
     }
 
     override fun onTapPrescribeMedicine() {
-        mView?.showErrorMessage("checkout is not available in this version")
+
        // mView?.navigateToPrescribeMedicineScreen()
     }
 
@@ -63,7 +63,7 @@ class ChatPresenterImpl :  ChatPresenter, AbstractBasePresenter<ChatView>(){
     }
 
     override fun onTapPrescription() {
-
+        mView?.showAlertDialog()
     }
 
     override fun onTapSeenPatientInfo(consultationChatVO: ConsultationChatVO?) {

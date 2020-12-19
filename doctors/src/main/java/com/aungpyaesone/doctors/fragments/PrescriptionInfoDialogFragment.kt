@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -18,6 +19,7 @@ import com.aungpyaesone.doctors.mvp.presenters.impls.PrescriptonInfoPresenterImp
 import com.aungpyaesone.doctors.mvp.views.PrescriptionInfoView
 import com.aungpyaesone.shared.data.models.impls.DoctorModelImpls
 import com.aungpyaesone.shared.data.vos.PrescriptionVO
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_prescription_info_dialog.view.*
 import java.text.DateFormat
 
@@ -135,5 +137,9 @@ class PrescriptionInfoDialogFragment : DialogFragment(), PrescriptionInfoView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showAlertDialog(): AlertDialog? {
+        return null
     }
 }

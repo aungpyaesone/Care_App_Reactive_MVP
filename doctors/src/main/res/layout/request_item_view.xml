@@ -79,7 +79,6 @@
             android:id="@+id/tvPatientDob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:textColor="#004247"
             android:textSize="@dimen/text_regular_2"
             android:fontFamily="@font/poppins_medium"

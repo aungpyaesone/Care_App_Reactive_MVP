@@ -44,6 +44,9 @@ class LoginActivity : BaseActivity(), LoginView {
         btnRegister.setOnClickListener{
             mPresenter.onTapRegister()
         }
+        btnLoginWithFacebook.setOnClickListener {
+            showAlertDialog()
+        }
     }
 
     private fun setUpPresenter() {

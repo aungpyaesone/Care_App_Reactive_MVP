@@ -51,7 +51,6 @@
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="5dp"
                     android:padding="2dp"
-                    android:layout_marginBottom="@dimen/margin_small"
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/title_text_color"
                     android:textSize="@dimen/text_regular_2"
@@ -63,9 +62,10 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
         <com.aungpyaesone.doctors.views.component.RoundedCornerImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:padding="2dp"
             android:layout_marginBottom="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_small"

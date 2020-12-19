@@ -32,7 +32,7 @@ class PrescriptionViewPod @JvmOverloads constructor(
     }
 
     fun setDelegate(delegate: Delegate) {
-        mDelegate = delegate
+        this.mDelegate = delegate
     }
 
     private fun setUpListener() {

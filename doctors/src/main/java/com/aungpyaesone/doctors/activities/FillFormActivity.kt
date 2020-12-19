@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.aungpyaesone.doctors.R
 import com.aungpyaesone.doctors.mvp.presenters.CreateAccountPresenter
 import com.aungpyaesone.doctors.mvp.presenters.impls.CreateAccountPresnterImpl
@@ -120,15 +121,15 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId){
                 R.id.male ->{
-                    gender = male.text.toString()
+                    gender = getString(R.string.male)
                     return@setOnCheckedChangeListener
                 }
                 R.id.female ->{
-                    gender = female.text.toString()
+                    gender = getString(R.string.female)
                     return@setOnCheckedChangeListener
                 }
                 else ->{
-                    gender = male.text.toString()
+                    gender = getString(R.string.male)
                     return@setOnCheckedChangeListener
                 }
             }
@@ -152,17 +153,20 @@ class FillFormActivity : BaseActivity(),CreateAccountView {
                 doctorVO.speciality_myanmar = specialityMyanmar
                 doctorVO.speciality = specialityEng
                 doctorVO.address = etAddress.text.toString()
-                doctorVO.gender = gender
+                doctorVO.gender = gender ?: getString(R.string.male)
                 doctorVO.experience = et_experience.text.toString() + "yrs"
                 doctorVO.biography = etBiography.text.toString()
                 doctorVO.degree = etDegree.text.toString()
                 doctorVO.email = SessionManager.doctor_email
                 doctorVO.deviceId = SessionManager.device_id
                 bitmap?.let { bitmap ->
+                        SessionManager.doctor_name = doctorVO.name
                         mPresenter.createAccount(
                             bitmap = bitmap,
                             doctorVO = doctorVO
                         )
+                } ?: kotlin.run {
+                    showErrorMessage("please choose profile photo")
                 }
             }
         }

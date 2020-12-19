@@ -54,7 +54,6 @@ class ChatActivity : BaseActivity(),ChatView {
         rvChatView.apply {
             layoutManager = LinearLayoutManager(this@ChatActivity, RecyclerView.VERTICAL,false)
             adapter = mChatAdapter
-            scrollToPosition(0)
         }
     }
 
@@ -82,7 +81,7 @@ class ChatActivity : BaseActivity(),ChatView {
         }
 
         ivAttachment.setOnClickListener{
-            showErrorMessage("function is not available in this version")
+            showAlertDialog()
         }
     }
     private fun setupViewPod() {
@@ -103,7 +102,6 @@ class ChatActivity : BaseActivity(),ChatView {
         mDoctorVO = consultationChatList.doctor
 
         mPatientInfoViewPod.setData(consultationChatList)
-
         finishStatus = consultationChatList.status
 
         when(consultationChatList.status){
@@ -132,8 +130,8 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showAllChatMessage(chatMessageList: List<ChatMessageVO>) {
-        scrollView.scrollTo(0,scrollView.bottom)
         mChatAdapter.setData(chatMessageList)
+        scrollView.scrollTo(0,scrollView.bottom)
     }
 
     override fun navigateToPrescribeMedicineScreen() {

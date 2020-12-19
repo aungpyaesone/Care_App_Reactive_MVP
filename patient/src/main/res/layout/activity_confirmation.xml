@@ -236,7 +236,6 @@
                         android:id="@+id/MMTextView16"
                         style="@style/RegularStyle"
                         android:layout_width="0dp"
-                        android:textSize="@dimen/text_regular"
                         android:layout_height="wrap_content"
                         android:text="@string/blood_type_label"
                         android:textColor="@color/common_text_color"
