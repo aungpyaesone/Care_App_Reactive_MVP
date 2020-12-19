@@ -33,21 +33,21 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class RoutineDialogFragment : DialogFragment() {
-    private lateinit var mPresenter : RoutinePresenter
+    private lateinit var mPresenter: RoutinePresenter
 
     var morningstatus = false
     var afternoonstatus = false
     var nightstatus = false
 
     var number = 1
-    var daycount : Int = 0
-    var tabcount : String = "1"
-    var eatingtime : String =""
-    var daystemp : String =""
+    var daycount: Int = 0
+    var tabcount: String = "1"
+    var eatingtime: String = ""
+    var daystemp: String = ""
 
-    var medicinePrice: String? =""
-    var medicineName: String? =""
-    var count =0
+    var medicinePrice: String? = ""
+    var medicineName: String? = ""
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,14 +76,14 @@ class RoutineDialogFragment : DialogFragment() {
         medicineName = arguments?.getString(BUNDLE_NAME)
         medicinePrice = arguments?.getString(BUNDLE_PRICE)
         view.tvMorning.setOnClickListener {
-            morningstatus = when(morningstatus){
-                false ->{
+            morningstatus = when (morningstatus) {
+                false -> {
                     view.tvMorning.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
                     view.tvMorning.setTextColor(Color.WHITE)
                     count++
                     true
                 }
-                else ->{
+                else -> {
                     view.tvMorning.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
                     view.tvMorning.setTextColor(Color.BLACK)
                     count--
@@ -91,8 +91,7 @@ class RoutineDialogFragment : DialogFragment() {
                 }
 
             }
-            if(count > -1)
-            {
+            if (count > -1) {
                 var result = number * daycount * count
                 etTab?.text = result.toString()
                 tabcount = result.toString()
@@ -100,22 +99,21 @@ class RoutineDialogFragment : DialogFragment() {
         }
 
         view.tvAfternoon.setOnClickListener {
-            afternoonstatus = when(afternoonstatus){
-                false ->{
+            afternoonstatus = when (afternoonstatus) {
+                false -> {
                     view.tvAfternoon.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
                     view.tvAfternoon.setTextColor(Color.WHITE)
                     count++
                     true
                 }
-                else ->{
+                else -> {
                     view.tvAfternoon.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
                     view.tvAfternoon.setTextColor(Color.BLACK)
                     count--
                     false
                 }
             }
-            if(count > -1)
-            {
+            if (count > -1) {
                 var result = number * daycount * count
                 etTab?.text = result.toString()
                 tabcount = result.toString()
@@ -123,22 +121,21 @@ class RoutineDialogFragment : DialogFragment() {
         }
 
         view.tvNight.setOnClickListener {
-            nightstatus = when(nightstatus){
-                false ->{
+            nightstatus = when (nightstatus) {
+                false -> {
                     view.tvNight.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
                     view.tvNight.setTextColor(Color.WHITE)
                     count++
                     true
                 }
-                else ->{
+                else -> {
                     view.tvNight.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
                     view.tvNight.setTextColor(Color.BLACK)
                     count--
                     false
                 }
             }
-            if(count > -1)
-            {
+            if (count > -1) {
                 var result = number * daycount * count
                 etTab?.text = result.toString()
                 tabcount = result.toString()
@@ -146,135 +143,122 @@ class RoutineDialogFragment : DialogFragment() {
         }
 
         view.tvFirstNote.setOnClickListener {
-            nightstatus = when(nightstatus){
-                false ->{
-                    view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
-                    view.tvFirstNote.setTextColor(Color.WHITE)
-                    view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
-                    view.tvFirstNote.setTextColor(Color.BLACK)
-                    eatingtime = tvFirstNote.text.toString()
-                    true
-                }
-                else ->{
-                    view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
-                    view.tvFirstNote.setTextColor(Color.WHITE)
-                    view.tvFirstNote.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
-                    view.tvFirstNote.setTextColor(Color.BLACK)
-                    false
-                }
-            }
+            view.tvFirstNote.setBackgroundResource(R.drawable.selector_background)
+            view.tvFirstNote.setTextColor(Color.WHITE)
+            view.tvSecondNode.setBackgroundResource(R.drawable.border_background)
+            view.tvSecondNode.setTextColor(Color.BLACK)
+            eatingtime = tvFirstNote.text.toString()
         }
 
         view.tvSecondNode.setOnClickListener {
-            nightstatus = when(nightstatus){
-                false ->{
-                    view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
-                    view.tvSecondNode.setTextColor(Color.WHITE)
-                    view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
-                    view.tvSecondNode.setTextColor(Color.BLACK)
-                    eatingtime = tvSecondNode.text.toString()
-                    true
+            view.tvFirstNote.setBackgroundResource(R.drawable.border_background)
+            view.tvFirstNote.setTextColor(Color.BLACK)
+            view.tvSecondNode.setBackgroundResource(R.drawable.selector_background)
+            view.tvSecondNode.setTextColor(Color.WHITE)
+            eatingtime = tvSecondNode.text.toString()
+        }
+
+
+        view.spWeek.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                var day = parent.getItemAtPosition(position).toString()
+                if (day == "Days") {
+                    daycount = 1
+                    daystemp = " Days"
+                } else {
+                    daycount = 7
+                    daystemp = " Week"
+
                 }
-                else ->{
-                    view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.selector_background))
-                    view.tvSecondNode.setTextColor(Color.WHITE)
-                    view.tvSecondNode.setBackgroundDrawable(context?.getDrawable(R.drawable.border_background))
-                    view.tvSecondNode.setTextColor(Color.BLACK)
-                    false
+                val result = number * daycount * count
+                etTab?.text = result.toString()
+                tabcount = result.toString()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
+        view.btnAddRoutine.setOnClickListener {
+            // prescription list add
+            var days: String = ""
+            if (morningstatus) {
+                days += " မနက် ၊ "
+            }
+            if (afternoonstatus) {
+                days += "နေ့  ၊  "
+            }
+            if (nightstatus) {
+                days += "ည"
+            }
+
+            var medicaltime: String = ""
+
+            var routineVO = RoutineVO(
+                id = "0",
+                amount = medicinePrice.toString(),
+                day = view.et_day.text.toString() + daystemp,
+                note = etNotes?.text.toString(),
+                tab = tabcount,
+                times = days,
+                repeat = eatingtime
+
+            )
+
+            var prescriptionVO = PrescriptionVO(
+                id = UUID.randomUUID().toString(),
+                count = tabcount,
+                medicine_name = medicineName,
+                price = medicinePrice.toString(),
+                routineVO = routineVO
+            )
+            if (etNotes?.text.toString().isNotEmpty()) {
+                prescriptionList.add(prescriptionVO)
+                dismiss()
+            } else {
+                activity?.let {
+                    Toast.makeText(
+                        it.applicationContext,
+                        "အချက်အလက် အားလုံး ပြည့်စုံအောင် ဖြည့်စွက်ပေးရန် လိုနေပါသေး သည်",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
-
-            view.spWeek.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View,
-                    position: Int,
-                    id: Long
-                ) {
-                    var day = parent.getItemAtPosition(position).toString()
-                    if(day == "Days") {
-                            daycount = 1
-                            daystemp = " Days"
-                        }
-                        else {
-                            daycount = 7
-                            daystemp = " Week"
-
-                        }
-                    val result = number * daycount * count
-                    etTab?.text = result.toString()
-                    tabcount = result.toString()
-                }
-                override fun onNothingSelected(parent: AdapterView<*>) {}
-            }
-
-            view.btnAddRoutine.setOnClickListener {
-                // prescription list add
-                var days : String =""
-                if(morningstatus)
-                {
-                    days += " မနက် ၊ "
-                }
-                if(afternoonstatus)
-                {
-                    days += "နေ့  ၊  "
-                }
-                if(nightstatus)
-                {
-                    days += "ည"
-                }
-
-                var medicaltime : String =""
-
-                var routineVO = RoutineVO(
-                    id= "0",
-                    amount = medicinePrice.toString(),
-                    day = view.et_day.text.toString() + daystemp,
-                    note = etNotes?.text.toString(),
-                    tab = tabcount,
-                    times = days,
-                    repeat = eatingtime
-
-                )
-
-                var prescriptionVO = PrescriptionVO(
-                    id = UUID.randomUUID().toString(),
-                    count = tabcount,
-                    medicine_name = medicineName,
-                    price =  medicinePrice.toString(),
-                    routineVO= routineVO
-                )
-                if(etNotes?.text.toString().isNotEmpty()) {
-                    prescriptionList.add(prescriptionVO)
-                    dismiss()
-                }else{
-                    activity?.let {
-                        Toast.makeText(it.applicationContext,"အချက်အလက် အားလုံး ပြည့်စုံအောင် ဖြည့်စွက်ပေးရန် လိုနေပါသေး သည်",Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
 
         view.et_day.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {}
-                override fun onTextChanged(charSequence: CharSequence, start: Int, before: Int, count: Int) {
+            override fun beforeTextChanged(
+                charSequence: CharSequence,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
 
+            override fun onTextChanged(
+                charSequence: CharSequence,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                var data = s.toString()
+                if (data.isNotEmpty()) {
+                    number = data.toInt()
+                    var result = number * daycount * count
+                    view.etTab.text = result.toString()
+                    tabcount = result.toString()
                 }
-
-                override fun afterTextChanged(s: Editable?) {
-                    var data= s.toString()
-                    if(data.isNotEmpty())
-                    {
-                        number = data.toInt()
-                        var result = number * daycount * count
-                        view.etTab.text = result.toString()
-                        tabcount = result.toString()
-                    }
-                }
-            })
-        }
-
-
+            }
+        })
+    }
 
 
     private fun setupListener() {
@@ -308,7 +292,7 @@ class RoutineDialogFragment : DialogFragment() {
     }
 
 
-   /* private fun calculateResult(count:Int,number:Int){
+    /* private fun calculateResult(count:Int,number:Int){
 
-        }*/
+         }*/
 }
