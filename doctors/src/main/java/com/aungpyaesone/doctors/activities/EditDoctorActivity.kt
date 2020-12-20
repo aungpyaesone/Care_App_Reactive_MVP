@@ -224,20 +224,17 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
         )
     }
 
-    override fun hideProgressDialog() {
-    }
-
     override fun navigateToProfileScreen() {
       //  startActivity(DoctorProfileActivity.newInstance(this))
         finish()
     }
 
     override fun showLoading() {
-        showLoadingProgress(this).show()
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-        showLoadingProgress(this).dismiss()
+        hideProgressDialog()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

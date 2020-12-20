@@ -72,11 +72,11 @@ class ConfirmActivity : BaseActivity(),ConfirmView {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        hideProgressDialog()
     }
 
     @SuppressLint("SetTextI18n")

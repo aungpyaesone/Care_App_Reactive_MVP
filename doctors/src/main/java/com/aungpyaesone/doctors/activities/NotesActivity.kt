@@ -67,9 +67,10 @@ class NotesActivity : BaseActivity(),NoteView {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
+        hideProgressDialog()
     }
 }

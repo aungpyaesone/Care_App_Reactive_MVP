@@ -81,10 +81,10 @@ class RegisterActivity : BaseActivity() , RegisterView {
 
     override fun showLoading() {
        // progressView.visibility = View.VISIBLE
-        showLoadingProgress(this).show()
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-        showLoadingProgress(this@RegisterActivity).dismiss()
+        hideProgressDialog()
     }
 }

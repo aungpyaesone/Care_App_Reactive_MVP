@@ -146,10 +146,12 @@ class PrescriptionMedicineActivity : BaseActivity(),PrescriptionView {
     }
 
     override fun showLoading() {
+        showProgressDialog()
 
     }
 
     override fun hideLoading() {
+        hideProgressDialog()
 
     }
 

@@ -49,11 +49,11 @@ class GeneralQuestionTemplate : BaseActivity(),QuestionTemplateView {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        hideProgressDialog()
     }
 
     private fun setupListener() {

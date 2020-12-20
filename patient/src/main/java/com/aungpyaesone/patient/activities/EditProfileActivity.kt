@@ -227,10 +227,10 @@ class EditProfileActivity : BaseActivity(),ProfileView {
     }
 
     override fun showLoading() {
-       showLoadingProgress(this).show()
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-       showLoadingProgress(this).dismiss()
+        hideProgressDialog()
     }
 }

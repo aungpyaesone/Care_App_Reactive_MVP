@@ -48,11 +48,11 @@ class CaseSummaryActivity : BaseActivity(),CaseSummaryDelegate {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        hideProgressDialog()
     }
 
     override fun onTapContinueCallback() {

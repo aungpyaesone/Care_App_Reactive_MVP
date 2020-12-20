@@ -148,7 +148,6 @@ class AccountFragment : BaseFragment(), AccountView {
 
 
     override fun showLoading() {
-
     }
 
     override fun hideLoading() {

@@ -18,12 +18,14 @@ import com.kaopiz.kprogresshud.KProgressHUD
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
+    lateinit var mKProgressHUD: KProgressHUD
     companion object {
 
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mKProgressHUD = KProgressHUD.create(this)
     }
 
     inline fun <reified T : AbstractBasePresenter<W>, reified W : BaseView> getPresenter(): T {
@@ -60,6 +62,16 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             .setCancellable(true)
             .setAnimationSpeed(2)
             .setDimAmount(0.5f)
+    }
+
+    fun showProgressDialog() {
+        mKProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+            .setLabel("Please wait")
+            .show()
+    }
+
+    fun hideProgressDialog(){
+        mKProgressHUD.dismiss()
     }
 
     /*fun showDialog(): Dialog{

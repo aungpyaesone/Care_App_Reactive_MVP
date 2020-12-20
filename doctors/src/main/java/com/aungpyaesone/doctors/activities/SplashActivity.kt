@@ -26,10 +26,10 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        hideProgressDialog()
     }
 }

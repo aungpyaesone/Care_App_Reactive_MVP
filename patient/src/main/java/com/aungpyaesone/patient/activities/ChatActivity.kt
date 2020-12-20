@@ -180,11 +180,11 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        showProgressDialog()
     }
 
 }

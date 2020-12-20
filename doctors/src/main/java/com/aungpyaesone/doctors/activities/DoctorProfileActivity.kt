@@ -92,8 +92,10 @@ class DoctorProfileActivity : BaseActivity(),AccountView {
     }
 
     override fun showLoading() {
+        showProgressDialog()
     }
 
     override fun hideLoading() {
+        hideProgressDialog()
     }
 }

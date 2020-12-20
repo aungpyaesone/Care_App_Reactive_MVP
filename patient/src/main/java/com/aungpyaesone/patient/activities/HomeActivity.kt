@@ -82,10 +82,11 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
+        showProgressDialog()
     }
 
     fun callFragment(fragment: Fragment) {

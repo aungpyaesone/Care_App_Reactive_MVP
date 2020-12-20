@@ -65,11 +65,11 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
     override fun showLoading() {
-        showLoadingProgress(this).show()
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-        showLoadingProgress(this).dismiss()
+        hideProgressDialog()
     }
 
 }

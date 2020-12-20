@@ -185,11 +185,11 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        hideProgressDialog()
     }
 
     private fun bindToolbar(patientVO: PatientVO?) {

@@ -198,11 +198,11 @@ class CheckOutActivity : BaseActivity(), CheckoutView {
     }
 
     override fun showLoading() {
-
+        showProgressDialog()
     }
 
     override fun hideLoading() {
-
+        hideProgressDialog()
     }
 
     private fun setUpRecyclerView() {
