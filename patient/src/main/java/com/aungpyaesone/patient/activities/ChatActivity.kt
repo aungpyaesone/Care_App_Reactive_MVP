@@ -29,8 +29,9 @@ class ChatActivity : BaseActivity(),ChatView {
     private lateinit var mChatAdapter : ChatAdapter
     private var mPatientVO: PatientVO? = null
     private var mDoctorVO : DoctorVO? = null
-    private var mChatId : String? = null
     private var finishStatus: Boolean? = false
+    private var chatId: String? = null
+    private var mConsultationChatVO : ConsultationChatVO? = null
 
     companion object{
         const val CHAT_ID = "chat_id"
@@ -45,8 +46,9 @@ class ChatActivity : BaseActivity(),ChatView {
         setupListener()
         setupViewPod()
         setupRecycler()
-        mChatId = intent.getStringExtra(CHAT_ID)
-        mChatId?.let { mPresenter.onReady(it,this) }
+        chatId = intent.getStringExtra(CHAT_ID)
+    //    mConsultationChatVO = Gson().fromJson(data,ConsultationChatVO::class.java)
+        chatId?.let { mPresenter.onReady(it,this) }
     }
 
     private fun setupRecycler() {
@@ -70,7 +72,7 @@ class ChatActivity : BaseActivity(),ChatView {
                     messageVO.messageText = etMessage.text.toString()
                     messageVO.sendAt = DateUtils.getDate(System.currentTimeMillis())
                     messageVO.sentBy = senderVO
-                    mChatId?.let{
+                    mConsultationChatVO?.id?.let{
                     mPresenter.onTapSendMessage(it,messageVO)
                     etMessage.text.clear()
                     }
@@ -96,11 +98,11 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showConsultationChat(consultationChatList: ConsultationChatVO) {
-        scrollView.scrollTo(0,scrollView.bottom)
+        scrollView.scrollTo(0,scrollView.getChildAt(0).height)
+        mConsultationChatVO = consultationChatList
         bindToolbar(consultationChatList.doctor)
         mPatientVO = consultationChatList.patient
         mDoctorVO = consultationChatList.doctor
-
         mPatientInfoViewPod.setData(consultationChatList)
         finishStatus = consultationChatList.status
 
@@ -114,6 +116,7 @@ class ChatActivity : BaseActivity(),ChatView {
                 mPrescriptionViewPod.visibility = View.GONE
             }
         }
+        scrollView.parent.requestChildFocus(scrollView,scrollView)
 
     }
 
@@ -130,8 +133,9 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showAllChatMessage(chatMessageList: List<ChatMessageVO>) {
+        scrollView.scrollTo(0,scrollView.getChildAt(0).height)
         mChatAdapter.setData(chatMessageList)
-        scrollView.scrollTo(0,scrollView.bottom)
+        scrollView.parent.requestChildFocus(scrollView,scrollView)
     }
 
     override fun navigateToPrescribeMedicineScreen() {
@@ -139,13 +143,22 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showPrescriptionList(prescriptionList: List<PrescriptionVO>) {
-        scrollView.scrollTo(0,scrollView.bottom)
         if(prescriptionList.isNotEmpty()){
             mPrescriptionViewPod.visibility = View.VISIBLE
             mDoctorVO?.photo?.let {
-                mPrescriptionViewPod.setPrescriptionData(prescriptionList,it)
+                mConsultationChatVO?.id?.let { it1 ->
+                    mPrescriptionViewPod.setPrescriptionData(prescriptionList, it,
+                        it1
+                    )
+                }
             } ?: kotlin.run {
-                mPrescriptionViewPod.setPrescriptionData(prescriptionList,getDrawable(R.drawable.image_placeholder).toString())
+                mConsultationChatVO?.id?.let {
+                    mPrescriptionViewPod.setPrescriptionData(
+                        prescriptionList,
+                        getDrawable(R.drawable.image_placeholder).toString(),
+                        it
+                    )
+                }
             }
         }else
         {
@@ -157,7 +170,13 @@ class ChatActivity : BaseActivity(),ChatView {
 
     override fun navigateToSeePatientInfoScreen(consultationChatVO: ConsultationChatVO?) {
         val data = Gson().toJson(consultationChatVO)
+        mConsultationChatVO = consultationChatVO
         startActivity(SeePatientInfoActivity.newInstance(this,data))
+    }
+
+    override fun navigateToCheckOutScreen(chatId: String) {
+        val data = Gson().toJson(mConsultationChatVO)
+        startActivity(CheckOutActivity.newIntent(this,chatId,data))
     }
 
     override fun showLoading() {

@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.core.net.toUri
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aungpyaesone.doctors.R
@@ -52,10 +54,7 @@ class ChatActivity : BaseActivity(),ChatView {
         setupRecycler()
         mChatId = intent.getStringExtra(DOCUMENT_ID)
         mChatId?.let { mPresenter.onReady(it,this) }
-       /* scrollView.postDelayed(Runnable {
-            appbar.setExpanded(false, true) //appbar.setExpanded(expanded, animated);
-            scrollView.fullScroll(View.FOCUS_DOWN)
-        }, 400)*/
+
     }
 
     private fun setupRecycler() {
@@ -84,8 +83,8 @@ class ChatActivity : BaseActivity(),ChatView {
                         mChatId?.let{
                             mPresenter.onTapSendMessage(it,messageVO)
                             etMessage.text.clear()
+                           // setKeyboardVisibility(false)
                         }
-
                     }
                 }
 
@@ -123,6 +122,7 @@ class ChatActivity : BaseActivity(),ChatView {
     }
     override fun showConsultationChat(consultationChatList: ConsultationChatVO) {
         scrollView.scrollTo(0,scrollView.bottom)
+     //   scrollView.scrollTo(0,scrollView.getChildAt(0).height)
         mConsultationChatVO = consultationChatList
         bindToolbar(consultationChatList.patient)
         mDoctorVO = consultationChatList.doctor
@@ -136,11 +136,15 @@ class ChatActivity : BaseActivity(),ChatView {
                  sendTextLayout.visibility = View.VISIBLE
             }
         }
+      //  scrollView.parent.requestChildFocus(scrollView,scrollView)
     }
 
     override fun showAllChatMessage(chatMessageList: List<ChatMessageVO>) {
+        scrollView.scrollTo(0,scrollView.getChildAt(0).height)
+       // scrollView.post( Runnable() {  run() { scrollView.fullScroll(View.FOCUS_DOWN); } })
         mChatAdapter.setData(chatMessageList)
-        scrollView.scrollTo(0,scrollView.bottom)
+       scrollView.parent.requestChildFocus(scrollView,rvChatView)
+
     }
 
     override fun navigateToPrescribeMedicineScreen(speciality: String) {
@@ -159,7 +163,6 @@ class ChatActivity : BaseActivity(),ChatView {
     }
 
     override fun showPrescriptionList(prescriptionList: List<PrescriptionVO>) {
-        scrollView.scrollTo(0,scrollView.bottom)
         if(prescriptionList.isNotEmpty()){
             mPrescriptionViewPod.visibility = View.VISIBLE
             mDoctorVO?.photo?.let {
@@ -201,4 +204,6 @@ class ChatActivity : BaseActivity(),ChatView {
         }
 
     }
+
+
 }

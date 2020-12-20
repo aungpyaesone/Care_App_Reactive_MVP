@@ -9,6 +9,7 @@ import com.aungpyaesone.patient.R
 import com.aungpyaesone.patient.mvp.presenters.RegisterPresenter
 import com.aungpyaesone.patient.mvp.presenters.impls.RegisterPresenterImpls
 import com.aungpyaesone.patient.mvp.view.RegisterView
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.vos.PatientVO
 import com.google.firebase.messaging.FirebaseMessaging
 import com.aungpyaesone.shared.activites.BaseActivity
@@ -71,7 +72,8 @@ class RegisterActivity : BaseActivity(),RegisterView {
     }
 
     override fun navigateToLoginScreen(userId: String) {
-        startActivity(LoginActivity.newInstance(this))
+        SessionManager.login_status = true
+        startActivity(HomeActivity.newInstance(this))
         this.finishAffinity()
     }
 

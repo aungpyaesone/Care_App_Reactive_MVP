@@ -109,9 +109,6 @@ class AccountFragment : BaseFragment(), AccountView {
 
     }
 
-
-
-
     override fun showStatusDialog() {
         Toast.makeText(
             context,

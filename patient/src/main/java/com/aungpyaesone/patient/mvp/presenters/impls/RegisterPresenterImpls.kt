@@ -3,6 +3,7 @@ package com.aungpyaesone.patient.mvp.presenters.impls
 import androidx.lifecycle.LifecycleOwner
 import com.aungpyaesone.patient.mvp.presenters.RegisterPresenter
 import com.aungpyaesone.patient.mvp.view.RegisterView
+import com.aungpyaesone.patient.utils.SessionManager
 import com.aungpyaesone.shared.data.models.AuthenticationModel
 import com.aungpyaesone.shared.data.models.CoreModel
 import com.aungpyaesone.shared.data.models.impls.AuthenticationModelImpls
@@ -25,14 +26,20 @@ class RegisterPresenterImpls : RegisterPresenter, AbstractBasePresenter<Register
                     mView?.hideLoading()
                     registerVO.id = userId
                     registerVO.deviceId = token
+                    SessionManager.patient_id = userId
+                    SessionManager.patient_email = email
+                    SessionManager.patient_device_id = token
                     mCoreModel.addPatient(registerVO,onSuccess = {
-                     mView?.navigateToLoginScreen(userId)
+                        mView?.hideLoading()
+                        mView?.navigateToLoginScreen(userId)
                     },onFailure = {
                         mView?.hideLoading()
                         mView?.showErrorMessage(it)
-                    }) }, onFailure = {
-                    mView?.showErrorMessage(it)
+                    }) },
+                    onFailure =
+                    {
                     mView?.hideLoading()
+                    mView?.showErrorMessage(it)
                 })
             }
         }

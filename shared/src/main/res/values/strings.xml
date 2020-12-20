@@ -54,8 +54,9 @@
     <string name="close_btn_label">ပိတ်မည်</string>
     <string name="send_message_label">စာပို့မည်</string>
     <string name="fullcolon">:</string>
-    
-    
+    <string name="order">မှာယူမည်</string>
+
+
     <!-- navigation -->
     <string name="type">အမျိုးအစား</string>
     <string name="consultations_label">ချိန်းဆိုမှုများ</string>
@@ -76,6 +77,7 @@
     <string name="old_patient_label">ဆွေးနွေးခဲ့ဖူးသောလူနာ</string>
     <string name="later_label">နောက်မှ</string>
     <string name="choose_time_label">အချိန်ရွေးမည်</string>
+    <string name="checkout">ငွေပေးချေမှုအတည်ပြုပြီးနောက်နေ့တစ်ရက်မှစပြီး ဆေးများကိုလိုက်လန်ပို့ဆောင်ပေးမည်</string>
     <string name="count">အကြိမ်ရေအတွက်</string>
     <string name="delay_time">ကြာချိန်</string>
     <string name="note">မှတ်ချက်</string>
@@ -88,6 +90,7 @@
     <string name="label_two">ဆေးညွန်း</string>
     <string name="label_three">မှတ်ချက်</string>
     <string name="prescribe_medicine">ဆေးညွန်းမည်</string>
+    <string name="prescribe">ဆေးညွန်းမှာယူမည်</string>
 
     <string name="search_hint_label">ရှာမည်</string>
     <string name="quantity_label">အရေအတွက်</string>
@@ -101,7 +104,7 @@
     <string name="notes_label_two">အစာစားပြီးမှသောက်ရန်</string>
     <string name="notes_text">မှတ်ချက်</string>
     <string name="week">Week</string>
-    
+
     <string name="add_btn_label">ထည့်မည်</string>
     <string name="finish_consultation">ဆေးညွှန်းပြီး ဆွေးနွေးမှုကို ပြီးဆုံးမည်</string>
     <string name="finish_consult">ဆွေးနွေးမှုပီးဆုံးပါပီ</string>
@@ -130,9 +133,11 @@
     <string name="noti_body_for_patient">မှသင့်ကို လက်ခံလိုက်ပါပီ</string>
     <string name="noti_body_for_doctor">မှ ဆွေး‌နွေးပေးရန် request လုပ်ပါသည်</string>
 
+    <string name="address">လိပ်စာ</string>
+    <string name="state">တိုင်း/ ပြည်နယ်</string>
+    <string name="township">မြို့နယ်</string>
 
 
-    
     <!-- login -->
     <string name="enter_phone">ဖုန်းနံပါတ်</string>
     <string name="password">လျှို့ဝှက်နံပါတ်</string>
@@ -148,5 +153,125 @@
 
     <string name="app_title">The CareMM</string>
     <string name="disscut_time">ဆွေးနွေးမည့်အချိန်‌ရွေးမည်</string>
+
+    <string-array name="state">
+        <item>ရန်ကုန်</item>
+        <item>နေပြည်တော်</item>
+        <item>ပဲခူး</item>
+        <item>ရှမ်း</item>
+        <item>ကချင်</item>
+        <item>ကယား</item>
+        <item>ကရင်</item>
+        <item>ချင်း</item>
+        <item>ရခိုင်</item>
+        <item>မွန်</item>
+        <item>စစ်ကိုင်</item>
+        <item>တနင်္သာရီ</item>
+        <item>မကွေး</item>
+        <item>မန္တလေး</item>
+        <item>ဧရာဝတီ</item>
+    </string-array>
+
+    <string-array name="yangon">
+        <item> ကမာရွတ်မြို့ </item>
+        <item> ကျောက်တံတားမြို့ </item>
+        <item>   ကျောက်တန်းမြို့ </item>
+        <item>   ကြည့်မြင်တိုင်မြို့ </item>
+        <item>    ကွမ်းခြံကုန်းမြို့ </item>
+        <item>    ကိုကိုးကျွန်းမြို့ </item>
+        <item>    ကော့မှူးမြို့ </item>
+        <item>  ခရမ်းမြို့ </item>
+        <item>  စမ်းချောင်းမြို့ </item>
+        <item>  ဆိပ်ကမ်းမြို့ </item>
+        <item>   ဆိပ်ကြီးခနောင်တိုမြို့ </item>
+        <item>   တံတားမြို့ </item>
+        <item>    တွံတေးမြို့</item>
+        <item>  တာမွေမြို့</item>
+        <item>    တိုက်ကြီးမြို့</item>
+        <item>    တောင်ဥက္ကလာပမြို့</item>
+        <item>    ထန်းတပင်မြို့</item>
+        <item>     ထောက်ကြံ့မြို့</item>
+        <item>    ဒဂုံမြို့</item>
+        <item>    ဒဂုံမြို့သစ်တောင်ပိုင်း</item>
+        <item>    ဒဂုံမြို့သစ်မြောက်ပိုင်း</item>
+        <item>    ဒဂုံမြို့သစ်ဆိပ်ကမ်း</item>
+        <item>     ဒဂုံမြို့သစ်အရှေ့ပိုင်း</item>
+        <item>     ဒလမြို့</item>
+        <item>     ဒေါပုံမြို့</item>
+        <item>     ပန်းဘဲတန်းမြို့</item>
+        <item>      ပုဇွန်တောင်မြို့</item>
+        <item>     ဗဟန်းမြို့</item>
+        <item>      ဗိုလ်တထောင်မြို့</item>
+        <item>     မင်္ဂလာတောင်ညွန့်မြို့</item>
+        <item>     မရမ်းကုန်းမြို့</item>
+        <item>      မြောက်ဥက္ကလာပမြို့</item>
+        <item>     မှော်ဘီမြို့</item>
+        <item>     ရန်ကင်းမြို့</item>
+        <item>     ရန်ကုန်မြို့</item>
+        <item>      ရွှေပြည်သာမြို့</item>
+        <item>    လမ်းမတော်မြို့</item>
+        <item>     လသာမြို့</item>
+        <item>     လှည်းကူးမြို့</item>
+        <item>     လှိုင်မြို့</item>
+        <item>     လှိုင်သာယာမြို့</item>
+        <item>     သင်္ဃန်းကျွန်းမြို့</item>
+        <item>      သန်လျင်မြို့</item>
+        <item>      သာကေတမြို့</item>
+        <item>       သုံးခွမြို့</item>
+        <item>       အင်းစိန်မြို့</item>
+        <item>      အဖျောက်မြို့</item>
+        <item>       အလုံမြို့</item>
+        <item>      ဥက္ကံမြို့</item>
+    </string-array>
+
+    <string-array name="bago">
+        <item> ကညွှတ်ကွင်းမြို့ </item>
+        <item> ကဝမြို့ </item>
+        <item>  ကေတုမတီမြို့ </item>
+        <item>  ကျောက်ကြီးမြို့</item>
+        <item>   ကျောက်တံခါးမြို့</item>
+        <item>   ကြို့ပင်ကောက်မြို့</item>
+        <item>   ဆွာမြို့</item>
+        <item>   ဇီးကုန်းမြို့</item>
+        <item>   ဇေယျဝတီမြို့</item>
+        <item>   ညောင်လေးပင်မြို့</item>
+        <item>  တောင်ငူမြို့</item>
+        <item>  ထန်းတပင်မြို့</item>
+        <item>  ဒိုက်ဦးမြို့</item>
+        <item>   နတ်တလင်းမြို့</item>
+        <item>   ပန်းတောင်းမြို့</item>
+        <item>   ပိန်းဇလုပ်မြို့</item>
+        <item>   ပုတီးကုန်းမြို့</item>
+        <item>   ပေါက်ခေါင်းမြို့</item>
+        <item>   ပေါင်းတည်မြို့</item>
+        <item>  ပေါင်းတလည်မြို့</item>
+        <item>  ပဲခူးမြို့</item>
+        <item>  ပဲနွယ်ကုန်းမြို့</item>
+        <item>   ပြည်မြို့</item>
+        <item>  ပြွန်တန်ဆာမြို့</item>
+        <item>  ဖဒိုမြို့</item>
+        <item>   ဖြူးမြို့</item>
+        <item>  ဘုရားကြီးမြို့</item>
+        <item>   မင်းလှမြို့</item>
+        <item>   မဒေါက်မြို့</item>
+        <item>   မိုးညိုမြို့</item>
+        <item>   မြို့လှ</item>
+        <item>   ရေတာရှည်မြို့</item>
+        <item>    ရေနီမြို့</item>
+        <item>    ရွှေကျင်မြို့</item>
+        <item>    ရွှေတောင်မြို့</item>
+        <item>   လက်ပံတန်းမြို့</item>
+        <item>    ဝေါမြို့</item>
+        <item>   သက္ကလမြို့</item>
+        <item>  သနပ္ပင်မြို့</item>
+        <item>    သာယာဝတီမြို့</item>
+        <item> သုံးဆယ်မြို့</item>
+        <item>  သဲကုန်းမြို့</item>
+        <item>   အင်းတကော်မြို့</item>
+        <item>   အင်းမမြို့</item>
+        <item>   အုတ်တွင်းမြို့</item>
+        <item>  အုတ်ဖိုမြို့</item>
+        <item>    ဥသျှစ်ပင်မြို့</item>
+    </string-array>
 
 </resources>

@@ -89,6 +89,7 @@ class HomePresenterImpl : HomePresenter, AbstractBasePresenter<HomeView>() {
             SessionManager.phone = it.phone
             SessionManager.degree = it.degree
             SessionManager.doctor_email = it.email
+            SessionManager.put(it, sharePreferenceDoctor)
         }, onError = {
             mView?.showErrorMessage(it)
             mView?.hideLoading()

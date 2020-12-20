@@ -58,13 +58,16 @@ class ConfirmationActivity : BaseActivity(), ConfirmView {
     private fun loadData() {
         val patientData = SessionManager.get<PatientVO>(sharePreferencePatient) ?: PatientVO()
         val questionAnswerList = SessionManager.getList(sharePreferenceQandA)
+        patientData.blood_pressure = SessionManager.bloodPressure
+        patientData.weight = SessionManager.weight
         tvPName.text = patientData.name
         tvPDob.text = patientData.dob
-        tvPHeight.text = patientData.height
+        tvPHeight.text = patientData.height + " ft"
         tvPbloodType.text = patientData.blood_type
         tvPAllergic.text = patientData.allergic_medicine
-        tvWeight.text = patientData.weight + " lb"
-        tvBloodPressure.text = patientData.blood_pressure
+        tvWeight.text = SessionManager.weight + " lb"
+        tvBloodPressure.text = SessionManager.bloodPressure
+        SessionManager.put(patientData, sharePreferencePatient)
         mAdapter.setData(questionAnswerList ?: arrayListOf())
     }
 

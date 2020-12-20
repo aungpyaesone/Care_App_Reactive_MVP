@@ -8,6 +8,7 @@ import android.graphics.ImageDecoder
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.se.omapi.Session
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -22,6 +23,9 @@ import com.aungpyaesone.shared.extensions.load
 import com.aungpyaesone.shared.util.DateUtils
 import com.google.gson.Gson
 import com.aungpyaesone.shared.activites.BaseActivity
+import com.aungpyaesone.shared.util.checkMyanToEng
+import com.aungpyaesone.shared.util.checkSpeciality
+import com.aungpyaesone.shared.util.sharePreferenceDoctor
 import kotlinx.android.synthetic.main.activity_edit_doctor.*
 import java.io.IOException
 
@@ -35,6 +39,7 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
     private var bloodType: String? = null
     private var bitmap: Bitmap? = null
     private var specialityMyanmar: String? = null
+    private var speciality : String? = SessionManager.speciality
     private var gender:String? = ""
     private var mDoctorVO: DoctorVO? = null
 
@@ -99,15 +104,20 @@ class EditDoctorActivity : BaseActivity(), EditProfileView {
             mDoctorVO?.speciality_myanmar = specialityMyanmar
             mDoctorVO?.address = etAddress.text.toString()
             mDoctorVO?.gender = gender
+            mDoctorVO?.speciality = checkMyanToEng(specialityMyanmar)
             mDoctorVO?.experience = et_experience.text.toString()
             mDoctorVO?.biography = etBiography.text.toString()
             bitmap?.let { it1 ->
                 mDoctorVO?.let { dVO ->
                 SessionManager.doctor_name = dVO.name
+                    SessionManager.speciality = dVO.speciality
+                    SessionManager.put(it,sharePreferenceDoctor)
                 mPresenter.onTapSave(it1,dVO) }
             } ?: kotlin.run {
                     mDoctorVO?.let {
+                        SessionManager.speciality = it.speciality
                         SessionManager.doctor_name = it.name
+                        SessionManager.put(it,sharePreferenceDoctor)
                         mPresenter.onTapSave(it)
                     }
                 }

@@ -1,5 +1,6 @@
 package com.aungpyaesone.doctors.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -78,15 +79,16 @@ class ConfirmActivity : BaseActivity(),ConfirmView {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun bindData(patientVO: PatientVO?){
 
         patientVO?.photo?.toUri()?.let { ivPatientProfile.load(it,R.drawable.image_placeholder) }
         tvPName.text = patientVO?.name
         tvPDob.text = patientVO?.dob
-        tvPHeight.text = patientVO?.height
+        tvPHeight.text = patientVO?.height + " ft"
         tvPbloodType.text = patientVO?.blood_type
         tvPAllergic.text = patientVO?.allergic_medicine
-        tvWeight.text = patientVO?.weight
+        tvWeight.text = patientVO?.weight + " lb"
         tvBloodPressure.text = patientVO?.blood_pressure
     }
 }

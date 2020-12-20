@@ -87,7 +87,6 @@
                         android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/notes_color"
                         android:text="@string/dob_label"
-                        android:padding="5dp"
                         android:textSize="@dimen/text_regular_2"
                         />
                     <TextView

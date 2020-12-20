@@ -163,6 +163,7 @@ class FillFormActivity : BaseActivity(), CreateAccountView {
                 doctorVO.deviceId = SessionManager.device_id
                 bitmap?.let { bitmap ->
                     SessionManager.doctor_name = doctorVO.name
+                    SessionManager.speciality = doctorVO.speciality
                     mPresenter.createAccount(
                         bitmap = bitmap,
                         doctorVO = doctorVO

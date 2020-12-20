@@ -1,5 +1,6 @@
 package com.aungpyaesone.shared.activites
 
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
@@ -59,9 +60,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             .setCancellable(true)
             .setAnimationSpeed(2)
             .setDimAmount(0.5f)
-
     }
-
 
     /*fun showDialog(): Dialog{
 

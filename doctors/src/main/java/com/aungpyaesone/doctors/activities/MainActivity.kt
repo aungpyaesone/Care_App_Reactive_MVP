@@ -117,7 +117,7 @@ class MainActivity : BaseActivity(),HomeView {
     }
 
     override fun payConsultedPatientList(consultationList: List<ConsultedPatientVO>) {
-        mAdapter.setConsultedList(consultationList)
+        mAdapter.setConsultedList(consultationList.toMutableList())
     }
 
     override fun navigateToConfirmScreen(id: String) {

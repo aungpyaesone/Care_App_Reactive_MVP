@@ -37,7 +37,9 @@ class RequestAdapter(private val mDelegate: RequestItemDelegate) : BaseAdapter<B
         super.getItemViewType(position)
         if(mConsultedList.isNotEmpty()){
             return when(mDataList[position].patient_id){
-                    mConsultedList[position].id -> {2}
+                    mConsultedList[position].id -> {
+                        2
+                    }
                 else -> {1}
             }
         }

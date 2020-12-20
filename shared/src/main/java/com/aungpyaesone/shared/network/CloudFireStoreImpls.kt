@@ -401,20 +401,22 @@ object CloudFireStoreImpls : FirebaseApi {
         onFailure: (String) -> Unit
     ) {
         db.collection("$PATIENT/${documentId}/$RECENTLY_DOCTOR")
-            .get()
-            .addOnSuccessListener { result ->
-                val recentlyDoctorList: MutableList<RecentDoctorVO> = arrayListOf()
-                for (document in result) {
-                    val hashmap = document.data
-                    hashmap?.put("id", document.id)
-                    val Data = Gson().toJson(hashmap)
-                    val docData = Gson().fromJson<RecentDoctorVO>(Data, RecentDoctorVO::class.java)
-                    recentlyDoctorList.add(docData)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val chatMessageList: MutableList<RecentDoctorVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<RecentDoctorVO>(Data, RecentDoctorVO::class.java)
+                        chatMessageList.add(docData)
+                    }
+                    onSuccess(chatMessageList)
                 }
-                onSuccess(recentlyDoctorList)
-
-            }.addOnFailureListener {
-                onFailure(it.message ?: EN_ERROR_MESSAGE)
             }
     }
 
@@ -582,20 +584,22 @@ object CloudFireStoreImpls : FirebaseApi {
         onFailure: (String) -> Unit
     ) {
         db.collection("$CONSULTATION_CHAT/${documentId}/$PRESCRIPTION")
-            .get()
-            .addOnSuccessListener { result ->
-                val prescriptionList: MutableList<PrescriptionVO> = arrayListOf()
-                for (document in result) {
-                    val hashmap = document.data
-                    hashmap?.put("id", document.id)
-                    val Data = Gson().toJson(hashmap)
-                    val docData = Gson().fromJson<PrescriptionVO>(Data, PrescriptionVO::class.java)
-                    prescriptionList.add(docData)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: EN_ERROR_MESSAGE)
+                } ?: run {
+                    val generalQuestionList: MutableList<PrescriptionVO> = arrayListOf()
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id)
+                        val Data = Gson().toJson(hashmap)
+                        val docData =
+                            Gson().fromJson<PrescriptionVO>(Data, PrescriptionVO::class.java)
+                        generalQuestionList.add(docData)
+                    }
+                    onSuccess(generalQuestionList)
                 }
-                onSuccess(prescriptionList)
-
-            }.addOnFailureListener {
-                onFailure(it.message ?: EN_ERROR_MESSAGE)
             }
 
     }

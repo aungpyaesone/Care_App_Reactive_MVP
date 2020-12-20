@@ -1,5 +1,6 @@
 package com.aungpyaesone.patient.views.view_pods
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import androidx.cardview.widget.CardView
@@ -42,17 +43,18 @@ class PatientItemViewPod @JvmOverloads constructor(
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun setData(consultationChatVO: ConsultationChatVO?){
         mChatVO = consultationChatVO
         var summaryList : MutableList<QuestionAnswerVO> = arrayListOf()
         consultationChatVO?.patient?.let {
             tvPName.text = it.name
-            tvPHeight.text = it.height
+            tvPHeight.text = it.height + " ft"
             tvPDob.text = it.dob
             tvPbloodType.text = it.blood_type
-            tvBloodPressure.text = it.blood_pressure
+            tvBloodPressure.text = it.blood_pressure + " mmHg"
             tvPAllergic.text = it.allergic_medicine
-            tvWeight.text = it.weight
+            tvWeight.text = it.weight + " lb"
         }
         summaryList.clear()
         for(item in 0..1){

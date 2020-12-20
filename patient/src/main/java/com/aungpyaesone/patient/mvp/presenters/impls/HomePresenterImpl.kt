@@ -33,7 +33,10 @@ class HomePresenterImpl  : HomePresenter, AbstractBasePresenter<HomeView>(){
      // mView?.showLoading()
       mCoreModel.getSpecialityFromDb().observe(lifecycleOwner, Observer {
         //  mView?.hideLoading()
-          mView?.showSpecialitiesList(it)
+          it?.let{
+              mView?.showSpecialitiesList(it)
+          }
+
       })
 
       mPatientModel.getAllConsultationRequestFromApi(SessionManager.patient_id.toString(),onSuccess = {},onFailure = {mView?.showErrorMessage(it)})
@@ -45,7 +48,10 @@ class HomePresenterImpl  : HomePresenter, AbstractBasePresenter<HomeView>(){
 
         mCoreModel.getRecentlyConsultedDoctorFromApi(SessionManager.patient_id.toString(),onSuccess = {},onFailure = {})
         mCoreModel.getRecentlyConsultedDoctorFromDb().observe(lifecycleOwner, Observer {
-            mView?.showRecentlyConsultedDoctor(it)
+            it?.let{
+                mView?.showRecentlyConsultedDoctor(it)
+            }
+
         })
 
 

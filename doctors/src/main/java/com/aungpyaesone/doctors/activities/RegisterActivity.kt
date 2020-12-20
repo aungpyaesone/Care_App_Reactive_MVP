@@ -85,6 +85,6 @@ class RegisterActivity : BaseActivity() , RegisterView {
     }
 
     override fun hideLoading() {
-        showLoadingProgress(this).dismiss()
+        showLoadingProgress(this@RegisterActivity).dismiss()
     }
 }

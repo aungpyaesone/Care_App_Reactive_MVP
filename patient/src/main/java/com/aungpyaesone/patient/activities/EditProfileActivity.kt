@@ -90,11 +90,13 @@ class EditProfileActivity : BaseActivity(),ProfileView {
             mPatientVO?.name = etUserName.text.toString()
             mPatientVO?.phone = etPhoneNumber.text.toString()
             mPatientVO?.dob = dateofbirth
-            mPatientVO?.height = etHeight.text.toString() + "ft"
+            mPatientVO?.height = etHeight.text.toString()
             mPatientVO?.blood_type = bloodType
             mPatientVO?.address = etAddress.text.toString()
             mPatientVO?.allergic_medicine = etComment.text.toString()
-            bitmap?.let { it1 -> mPatientVO?.let { pVO -> mPresenter.onTapSave(it1 , pVO) } }
+            bitmap?.let { it1 -> mPatientVO?.let { pVO ->
+                SessionManager.patient_name = pVO.name
+                mPresenter.onTapSave(it1 , pVO) } }
                 ?: kotlin.run {
                     mPatientVO?.let {
                         SessionManager.patient_name = it.name
@@ -187,6 +189,7 @@ class EditProfileActivity : BaseActivity(),ProfileView {
     }
 
     override fun navigateToProfileScreen() {
+       // startActivity(HomeActivity.newInstance(this))
         finish()
     }
 
@@ -224,11 +227,10 @@ class EditProfileActivity : BaseActivity(),ProfileView {
     }
 
     override fun showLoading() {
-        progress_bar.visibility = View.VISIBLE
+       showLoadingProgress(this).show()
     }
 
     override fun hideLoading() {
-        progress_bar.visibility = View.GONE
-
+       showLoadingProgress(this).dismiss()
     }
 }

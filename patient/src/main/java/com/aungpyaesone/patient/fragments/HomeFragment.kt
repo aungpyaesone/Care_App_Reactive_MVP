@@ -161,11 +161,11 @@ class HomeFragment : BaseFragment(),HomeView {
 
     override fun navigateToChatActivity(consultationRequestVO: ConsultationRequestVO) {
         val data = Gson().toJson(consultationRequestVO)
-        startActivity(activity?.let { consultationRequestVO.consultationchat_id?.let { it1 ->
-            ChatActivity.newInstance(it,
-                it1
-            )
-        } })
+        startActivity(activity?.let {
+            consultationRequestVO.consultationchat_id?.let { it1 ->
+            ChatActivity.newInstance(it,it1)
+        }
+        })
     }
 
     override fun onStart() {

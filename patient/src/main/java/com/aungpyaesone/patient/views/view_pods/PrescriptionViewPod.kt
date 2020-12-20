@@ -14,14 +14,16 @@ class PrescriptionViewPod @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private var mDelegate: Delegate? = null
+    private var chatId : String? = ""
 
     override fun onFinishInflate() {
         super.onFinishInflate()
         setUpListener()
     }
 
-    fun setPrescriptionData(prescription: List<PrescriptionVO>, doctorPhoto: String) {
+    fun setPrescriptionData(prescription: List<PrescriptionVO>, doctorPhoto: String,consuChatId:String) {
         pdoctor_photo.load(doctorPhoto.toUri(), R.drawable.image_placeholder)
+        chatId = consuChatId
         var str: String = ""
         if (prescription.isNotEmpty()) {
             for (item in prescription) {
@@ -37,12 +39,12 @@ class PrescriptionViewPod @JvmOverloads constructor(
 
     private fun setUpListener() {
         btn_prescription.setOnClickListener {
-            mDelegate?.onTapPrescription()
+            chatId?.let { it1 -> mDelegate?.onTapPrescription(it1) }
         }
 
     }
 
     interface Delegate {
-        fun onTapPrescription()
+        fun onTapPrescription(chatId:String)
     }
 }

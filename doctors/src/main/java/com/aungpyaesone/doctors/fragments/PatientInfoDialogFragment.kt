@@ -79,10 +79,10 @@ class PatientInfoDialogFragment : DialogFragment() {
 
         view.pname.text = " :  " + consultationChatVO.patient?.name
         view.pdateofBirth.text =  " :  " +consultationChatVO.patient?.dob
-        view.pheight.text =  " :  " + consultationChatVO.patient?.height
+        view.pheight.text =  " :  " + consultationChatVO.patient?.height   + " ft"
         view.pbloodtype.text = " :  " + DateFormat.getDateInstance().format(consultationChatVO.dateTime?.toLong()).toString()
         view.pweight.text =  " :  " +consultationChatVO.patient?.blood_type
-        view.pbloodpressure.text =  " :  " +consultationChatVO.patient?.blood_pressure
+        view.pbloodpressure.text =  " :  " +consultationChatVO.patient?.blood_pressure + " mmHg"
         view.weight.text =  " :  " +consultationChatVO.patient?.weight
         view.pcomment.text =  " :  " + consultationChatVO.patient?.allergic_medicine
 

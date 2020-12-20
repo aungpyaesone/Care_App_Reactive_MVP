@@ -45,9 +45,9 @@ class ProfileEmptyDialog : DialogFragment() {
         val patient = Gson().toJson(mPatientVO)*/
         view.btnAddInfo.setOnClickListener {
             activity?.let {
-                dialog?.dismiss()
-                startActivity(data?.let { patient -> EditProfileActivity.newInstance(it, patient) })
 
+                startActivity(data?.let { patient -> EditProfileActivity.newInstance(it, patient) })
+                this.dismiss()
             }
 
         }

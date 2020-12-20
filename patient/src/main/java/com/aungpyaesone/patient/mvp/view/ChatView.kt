@@ -11,4 +11,6 @@ interface ChatView : BaseView {
     fun navigateToPrescribeMedicineScreen()
     fun showPrescriptionList(prescriptionList : List<PrescriptionVO>)
     fun navigateToSeePatientInfoScreen(consultationChatVO: ConsultationChatVO?)
+
+    fun navigateToCheckOutScreen(chatId: String)
 }

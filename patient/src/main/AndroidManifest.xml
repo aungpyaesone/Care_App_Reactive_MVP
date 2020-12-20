@@ -14,14 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Firebase_monthly_tuto">
-        <activity android:name=".activities.CheckOutActivity"/>
-        <activity android:name=".activities.EditProfileActivity" />
-        <activity android:name=".activities.SeePatientInfoActivity" />
-        <activity android:name=".activities.ChatActivity" />
-        <activity android:name=".activities.ConfirmationActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.CaseSummaryActivity" />
-        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.CheckOutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.EditProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SeePatientInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ChatActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".activities.ConfirmationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.CaseSummaryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait">

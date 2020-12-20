@@ -23,14 +23,16 @@ class RegisterPresenterImpls: RegisterPresenter, AbstractBasePresenter<RegisterV
         registerVO.email?.let {email->
             registerVO.name?.let { name ->
                 mView?.showLoading()
-                mAuthenticationModel.register(email, password, name, onSuccess = {userId ->
+                mAuthenticationModel.register(email, password, name,
+                    onSuccess = {userId ->
                     mView?.hideLoading()
                     registerVO.id = userId
                     SessionManager.user_id = userId
                     SessionManager.doctor_email = email
                     SessionManager.device_id = token
                     mView?.navigateToCreateAccountScreen()
-                    }, onFailure = {
+                    },
+                    onFailure = {
                     mView?.showErrorMessage(it)
                     mView?.hideLoading()
                 })

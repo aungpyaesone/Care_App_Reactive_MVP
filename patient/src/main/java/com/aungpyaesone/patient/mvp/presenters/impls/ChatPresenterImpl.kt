@@ -62,8 +62,9 @@ class ChatPresenterImpl :  ChatPresenter, AbstractBasePresenter<ChatView>(){
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
     }
 
-    override fun onTapPrescription() {
-        mView?.showAlertDialog()
+    override fun onTapPrescription(chatId: String) {
+      //  mView?.showAlertDialog()
+        mView?.navigateToCheckOutScreen(chatId)
     }
 
     override fun onTapSeenPatientInfo(consultationChatVO: ConsultationChatVO?) {

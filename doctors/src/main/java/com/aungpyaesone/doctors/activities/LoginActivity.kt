@@ -53,6 +53,7 @@ class LoginActivity : BaseActivity(),LoginView{
 
     override fun navigateToRegisterScreen() {
         startActivity(RegisterActivity.newInstance(this))
+        finish()
     }
 
     override fun navigateToHomeScreen(doctorVO: DoctorVO) {

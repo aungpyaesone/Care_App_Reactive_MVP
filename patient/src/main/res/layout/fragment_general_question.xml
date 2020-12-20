@@ -214,6 +214,7 @@
                 <EditText
                     android:id="@+id/etHeight"
                     style="@style/editTextStyle"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/MMTextView2" />
@@ -289,6 +290,7 @@
                 <EditText
                     android:id="@+id/etWeight"
                     style="@style/editTextStyle"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:fontFamily="@font/poppins_regular"
                     android:layout_height="wrap_content"
@@ -321,6 +323,7 @@
                 <EditText
                     android:id="@+id/etBloodPressure"
                     style="@style/editTextStyle"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/MMTextView5"
